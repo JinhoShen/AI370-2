@@ -1,0 +1,93 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libdrm-amdgpu1 libdrm-common libdrm-dev libdrm-intel1 libdrm-nouveau2
+  libdrm-radeon1 libdrm2 libncurses-dev libncurses6 libncursesw6
+  libpciaccess-dev libpciaccess0 libtinfo6 ncurses-base ncurses-bin
+Suggested packages:
+  ncurses-doc
+Recommended packages:
+  libfile-copy-recursive-perl libfile-which-perl hipblaslt-dev
+  libdrm-amdgpu-amdgpu1 libdrm-amdgpu-dev gcc-multilib g++-multilib
+  rocm-device-libs rocsparse rocsolver-dev
+The following NEW packages will be installed:
+  comgr hip-dev hip-runtime-amd hipblas hipblas-common-dev hipblas-dev
+  hipblaslt hipcc hsa-rocr hsa-rocr-dev libdrm-dev libncurses-dev
+  libpciaccess-dev rocblas rocblas-dev rocm-core rocm-llvm rocminfo
+  rocprofiler-register rocsolver roctracer
+The following packages will be upgraded:
+  libdrm-amdgpu1 libdrm-common libdrm-intel1 libdrm-nouveau2 libdrm-radeon1
+  libdrm2 libncurses6 libncursesw6 libpciaccess0 libtinfo6 ncurses-base
+  ncurses-bin
+12 upgraded, 21 newly installed, 0 to remove and 412 not upgraded.
+Inst ncurses-bin [6.4+20240113-1ubuntu2] (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf ncurses-bin (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst ncurses-base [6.4+20240113-1ubuntu2] (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf ncurses-base (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst libncursesw6 [6.4+20240113-1ubuntu2] (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64]) []
+Inst libncurses6 [6.4+20240113-1ubuntu2] (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64]) []
+Inst libtinfo6 [6.4+20240113-1ubuntu2] (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libtinfo6 (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libdrm-common [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Inst libdrm2 [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libncurses-dev (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst rocm-core (7.2.1.70201-81~24.04 local-deb [amd64])
+Inst comgr (3.0.0.70201-81~24.04 local-deb [amd64])
+Inst libdrm-amdgpu1 [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst rocprofiler-register (0.6.0.70201-81~24.04 local-deb [amd64])
+Inst hsa-rocr (1.18.0.70201-81~24.04 local-deb [amd64])
+Inst rocminfo (1.0.0.70201-81~24.04 local-deb [amd64])
+Inst hip-runtime-amd (7.2.53211.70201-81~24.04 local-deb [amd64])
+Inst rocm-llvm (22.0.0.26084.70201-81~24.04 local-deb [amd64])
+Inst libpciaccess0 [0.17-3ubuntu0.24.04.2] (0.17-3ubuntu0.24.04.3 Ubuntu:24.04/noble-updates [amd64])
+Inst libdrm-intel1 [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libdrm-radeon1 [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libdrm-nouveau2 [2.4.125-1ubuntu0.1~24.04.1] (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst libpciaccess-dev (0.17-3ubuntu0.24.04.3 Ubuntu:24.04/noble-updates [amd64])
+Inst libdrm-dev (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Inst hsa-rocr-dev (1.18.0.70201-81~24.04 local-deb [amd64])
+Inst hipcc (1.1.1.70201-81~24.04 local-deb [amd64])
+Inst hip-dev (7.2.53211.70201-81~24.04 local-deb [amd64])
+Inst roctracer (4.1.70201.70201-81~24.04 local-deb [amd64])
+Inst hipblaslt (1.2.2.70201-81~24.04 local-deb [amd64])
+Inst rocblas (5.2.0.70201-81~24.04 local-deb [amd64])
+Inst rocsolver (3.32.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas (3.2.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas-common-dev (1.4.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas-dev (3.2.0.70201-81~24.04 local-deb [amd64])
+Inst rocblas-dev (5.2.0.70201-81~24.04 local-deb [amd64])
+Conf libncursesw6 (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libncurses6 (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libdrm-common (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [all])
+Conf libdrm2 (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libncurses-dev (6.4+20240113-1ubuntu2.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf rocm-core (7.2.1.70201-81~24.04 local-deb [amd64])
+Conf comgr (3.0.0.70201-81~24.04 local-deb [amd64])
+Conf libdrm-amdgpu1 (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf rocprofiler-register (0.6.0.70201-81~24.04 local-deb [amd64])
+Conf hsa-rocr (1.18.0.70201-81~24.04 local-deb [amd64])
+Conf rocminfo (1.0.0.70201-81~24.04 local-deb [amd64])
+Conf hip-runtime-amd (7.2.53211.70201-81~24.04 local-deb [amd64])
+Conf rocm-llvm (22.0.0.26084.70201-81~24.04 local-deb [amd64])
+Conf libpciaccess0 (0.17-3ubuntu0.24.04.3 Ubuntu:24.04/noble-updates [amd64])
+Conf libdrm-intel1 (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libdrm-radeon1 (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libdrm-nouveau2 (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf libpciaccess-dev (0.17-3ubuntu0.24.04.3 Ubuntu:24.04/noble-updates [amd64])
+Conf libdrm-dev (2.4.125-1ubuntu0.1~24.04.2 Ubuntu:24.04/noble-updates, Ubuntu:24.04/noble-security [amd64])
+Conf hsa-rocr-dev (1.18.0.70201-81~24.04 local-deb [amd64])
+Conf hipcc (1.1.1.70201-81~24.04 local-deb [amd64])
+Conf hip-dev (7.2.53211.70201-81~24.04 local-deb [amd64])
+Conf roctracer (4.1.70201.70201-81~24.04 local-deb [amd64])
+Conf hipblaslt (1.2.2.70201-81~24.04 local-deb [amd64])
+Conf rocblas (5.2.0.70201-81~24.04 local-deb [amd64])
+Conf rocsolver (3.32.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas (3.2.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas-common-dev (1.4.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas-dev (3.2.0.70201-81~24.04 local-deb [amd64])
+Conf rocblas-dev (5.2.0.70201-81~24.04 local-deb [amd64])

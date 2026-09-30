@@ -1,0 +1,7 @@
+ms-python.debugpy@2026.6.0
+ms-python.python@2026.6.0
+ms-python.vscode-pylance@2026.4.1
+ms-python.vscode-python-envs@1.38.0
+ms-vscode.cmake-tools@1.24.42
+ms-vscode.cpp-devtools@0.6.18
+ms-vscode.cpptools@1.34.4

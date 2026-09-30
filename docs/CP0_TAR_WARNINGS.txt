@@ -1,0 +1,17 @@
+tar: 210: Warning: Cannot flistxattr: Operation not supported
+tar: 8969: Warning: Cannot flistxattr: Operation not supported
+tar: 7766: Warning: Cannot flistxattr: Operation not supported
+tar: 247: Warning: Cannot flistxattr: Operation not supported
+tar: 1535: Warning: Cannot flistxattr: Operation not supported
+tar: 1839: Warning: Cannot flistxattr: Operation not supported
+tar: 168: Warning: Cannot flistxattr: Operation not supported
+tar: 343: Warning: Cannot flistxattr: Operation not supported
+tar: 1270: Warning: Cannot flistxattr: Operation not supported
+tar: 5: Warning: Cannot flistxattr: Operation not supported
+tar: ./home/shen/.cache/ibus/dbus-MHSwI3bu: socket ignored
+tar: ./home/shen/.cache/ibus/dbus-UDLgSK5c: socket ignored
+tar: ./home/shen/.cache/ibus/dbus-VBmEtveU: socket ignored
+tar: ./home/shen/.cache/ibus/dbus-bmGdO42e: socket ignored
+tar: ./home/shen/.cache/ibus/dbus-tsFiKtN5: socket ignored
+tar: ./home/shen/.cache/ibus/dbus-6wbFx1lc: socket ignored
+tar: ./home/shen/.codex/app-server-daemon/daemon-updater.sock: socket ignored

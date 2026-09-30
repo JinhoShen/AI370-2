@@ -8,7 +8,9 @@
 | Git / Golden M0 | PASS | main；ai370-2-m0-golden；M0全部SHA重新比對成功；resources未tracked |
 | M0.1 recovery foundation | PASS (file-level scope) | CP0_RESULT.md；本機live archive與selected-file restore通過，full boot/disk recovery未測 |
 | Mesa/Vulkan baseline | PASS | M2_CORE_M4_RESULT.md；1024 GPU shader數值正確；Mesa/driver未替換 |
-| ROCm/NPU/FPGA | NOT RUN | 未安裝、更新、修改kernel/driver/permissions |
+| M2 developer foundation | PASS (CLI/venv/IDE CLI) | M2_PYTHON_IDE_RESULT.md；GUIdebug未測 |
+| M3 ROCm | STOP / GRAPHICS GATE | docs/M3/GRAPHICS_APPROVAL_GATE.md；libdrm依賴升級未執行 |
+| NPU/FPGA | NOT RUN | Kernel/driver未替換；XRT/OS gate仍保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
 Golden tag只代表M0證據，不代表recovery或完整workstation完成。
