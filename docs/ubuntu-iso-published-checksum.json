@@ -1,0 +1,8 @@
+{
+  "expected_sha256": "c2e6f4dc37ac944e2ed507f87c6188dd4d3179bf4a3f9e110d3c88d1f3294bdc",
+  "previously_verified_local_sha256": "c2e6f4dc37ac944e2ed507f87c6188dd4d3179bf4a3f9e110d3c88d1f3294bdc",
+  "matches": true,
+  "source": "https://old-releases.ubuntu.com/releases/24.04.1/SHA256SUMS",
+  "signature_saved": true,
+  "signature_verified": false
+}

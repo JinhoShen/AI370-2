@@ -1,0 +1,79 @@
+$ bash -c free -h; cat /proc/meminfo; lsmem; lshw -class memory -short
+               total        used        free      shared  buff/cache   available
+Mem:            46Gi       3.2Gi       3.1Gi        50Mi        40Gi        43Gi
+Swap:          8.0Gi       344Ki       8.0Gi
+MemTotal:       48928816 kB
+MemFree:         3302360 kB
+MemAvailable:   45542536 kB
+Buffers:           76752 kB
+Cached:         41593704 kB
+SwapCached:          344 kB
+Active:          1862164 kB
+Inactive:       41840112 kB
+Active(anon):    1126676 kB
+Inactive(anon):   811828 kB
+Active(file):     735488 kB
+Inactive(file): 41028284 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+SwapTotal:       8388604 kB
+SwapFree:        8388260 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              1456 kB
+Writeback:             0 kB
+AnonPages:       2032068 kB
+Mapped:           966508 kB
+Shmem:             51856 kB
+KReclaimable:    1074712 kB
+Slab:            1413084 kB
+SReclaimable:    1074712 kB
+SUnreclaim:       338372 kB
+KernelStack:       22240 kB
+PageTables:        41920 kB
+SecPageTables:      4764 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    32853012 kB
+Committed_AS:    9588724 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       83848 kB
+VmallocChunk:          0 kB
+Percpu:            29856 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+Unaccepted:            0 kB
+Balloon:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      361712 kB
+DirectMap2M:    13918208 kB
+DirectMap1G:    35651584 kB
+RANGE                                  SIZE  STATE REMOVABLE  BLOCK
+0x0000000000000000-0x0000000067ffffff  1.6G online       yes   0-12
+0x0000000078000000-0x000000007fffffff  128M online       yes     15
+0x0000000100000000-0x0000000c7fffffff   46G online       yes 32-399
+
+Memory block size:       128M
+Total online memory:    47.8G
+Total offline memory:      0B
+H/W path          Device        Class       Description
+=======================================================
+/0/0                            memory      47GiB System memory
+
+[stderr]
+WARNING: you should run this program as super-user.
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user.
+
+[returncode] 0

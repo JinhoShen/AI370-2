@@ -1,0 +1,9 @@
+$ bash -c git rev-parse --show-toplevel; git status --short --branch; git log -1 --format="%H %s"; git remote -v
+
+[stderr]
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+
+[returncode] 128

@@ -1,0 +1,23 @@
+OK Ubuntu24.04/debs/ncurses-bin_6.4+20240113-1ubuntu2.2_amd64.deb 188372
+OK Ubuntu24.04/debs/ncurses-base_6.4+20240113-1ubuntu2.2_all.deb 25810
+OK Ubuntu24.04/debs/libncursesw6_6.4+20240113-1ubuntu2.2_amd64.deb 147816
+OK Ubuntu24.04/debs/libncurses6_6.4+20240113-1ubuntu2.2_amd64.deb 111902
+OK Ubuntu24.04/debs/libtinfo6_6.4+20240113-1ubuntu2.2_amd64.deb 108086
+OK Ubuntu24.04/debs/libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb 9250
+OK Ubuntu24.04/debs/libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 41388
+OK Ubuntu24.04/debs/libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 21374
+OK Ubuntu24.04/debs/libpciaccess0_0.17-3ubuntu0.24.04.3_amd64.deb 19220
+OK Ubuntu24.04/debs/libdrm-intel1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 63868
+OK Ubuntu24.04/debs/libdrm-radeon1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 20776
+OK Ubuntu24.04/debs/libdrm-nouveau2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 17620
+OK Ubuntu24.04/debs/libpciaccess-dev_0.17-3ubuntu0.24.04.3_amd64.deb 22026
+OK Ubuntu24.04/debs/libdrm-dev_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 314338
+OK Ubuntu24.04/debs/libncurses-dev_6.4+20240113-1ubuntu2.2_amd64.deb 384098
+OK Documentation/rocm-7.2.1-ryzen-install.html 57274
+OK Documentation/rocm-7.2.1-pytorch.html 52893
+OK Documentation/ryzenai-1.7.1-linux.html 35994
+OK Documentation/ryzenai-1.7.1-npu-llm.html 32716
+OK Documentation/lemonade-ubuntu.html 46831
+OK Documentation/vscode-linux.html 142839
+OK Documentation/llama-build.md 42196
+SUPPLEMENT COMPLETE 22 / 22

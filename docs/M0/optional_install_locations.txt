@@ -1,0 +1,24 @@
+$ bash -c ls -la /opt /usr/local/bin; printf "
+Virtual environment indicators
+"; printenv | rg "^(VIRTUAL_ENV|CONDA_PREFIX|ROCM_PATH|HIP_PATH|XILINX_XRT|XDG_SESSION_TYPE|DISPLAY|WAYLAND_DISPLAY)="; printf "
+User tool locations
+"; for p in /home/shen/.cargo /home/shen/.rustup /home/shen/.nvm /home/shen/.local/bin; do test ! -e "$p" || ls -ld "$p"; done
+/opt:
+total 8
+drwxr-xr-x  2 root root 4096 Feb 10  2026 .
+drwxr-xr-x 23 root root 4096 Sep 23 08:46 ..
+
+/usr/local/bin:
+total 8
+drwxr-xr-x  2 root root 4096 Sep 30 12:32 .
+drwxr-xr-x 10 root root 4096 Feb 10  2026 ..
+lrwxrwxrwx  1 root root   46 Sep 30 12:32 codex -> ../lib/node_modules/@openai/codex/bin/codex.js
+
+Virtual environment indicators
+XDG_SESSION_TYPE=wayland
+WAYLAND_DISPLAY=wayland-0
+DISPLAY=:0
+
+User tool locations
+
+[returncode] 0

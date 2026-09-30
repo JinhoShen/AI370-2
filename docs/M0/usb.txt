@@ -1,0 +1,16 @@
+$ lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 2541:fa03 Generic Realtek USB2.0 Finger Print Bridge
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 258a:002a SINO WEALTH Gaming KB 
+Bus 003 Device 003: ID 046d:c534 Logitech, Inc. Unifying Receiver
+Bus 003 Device 004: ID 0e8d:7925 MediaTek Inc. Wireless_Device
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 006 Device 002: ID 04e8:4001 Samsung Electronics Co., Ltd PSSD T7
+Bus 007 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+[returncode] 0

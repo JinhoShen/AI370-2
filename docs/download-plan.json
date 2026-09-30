@@ -1,0 +1,3809 @@
+{
+  "jobs": [
+    {
+      "url": "https://vscode.download.prss.microsoft.com/dbazure/download/stable/04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1/code_1.139.1-1790309529_amd64.deb",
+      "path": "DevTools/VSCode/code_1.139.1-1790309529_amd64.deb",
+      "expected_sha256": "cc8e35cf69ff4c7e515e19fa981bf6aba41f61ddb61c79370e9fe460c5dbaf8b",
+      "expected_bytes": null,
+      "version": "1.139.1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/7fe450e19305b828c199d602c23a8337aaa1f03b",
+      "path": "LocalAI/llama.cpp/llama.cpp-v0.5.0-7fe450e19305.tar.gz",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "v0.5.0 7fe450e19305b828c199d602c23a8337aaa1f03b",
+      "expected_md5": null
+    },
+    {
+      "url": "https://github.com/astral-sh/uv/releases/download/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "DevTools/uv/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz",
+      "expected_sha256": "23f02075b652bb1df64178cfae41b5caf160822e720e2663568f3f5d63bc52c0",
+      "expected_bytes": 19782662,
+      "version": "0.12.21",
+      "expected_md5": null
+    },
+    {
+      "url": "https://github.com/astral-sh/uv/releases/download/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz.sha256",
+      "path": "DevTools/uv/0.12.21/uv-x86_64-unknown-linux-gnu.tar.gz.sha256",
+      "expected_sha256": "e09beb94c393d3aa108f3b779871b79c198c0e058c9ed1ee81aa555d90ca4093",
+      "expected_bytes": 101,
+      "version": "0.12.21",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm/rocm_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b941734e29110ede5b8afdff40498d905074a2482d8ee5c445324839a0a8e287",
+      "expected_bytes": 2264,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/miopen-hip-dev/miopen-hip-dev_3.5.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/miopen-hip-dev_3.5.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "6f242a444d41a27029645dd42d83bb5e47597901663ef65807e33ee2ab4cbdb3",
+      "expected_bytes": 49360,
+      "version": "3.5.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/miopen-hip/miopen-hip_3.5.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/miopen-hip_3.5.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b0b23199dc24f3a51fa09b1ccf647609ce636bace89afa206f6143bd4b69baa5",
+      "expected_bytes": 307915194,
+      "version": "3.5.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-core/rocm-core_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-core_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "a298fc25c8256d7efe0f6ed91e3eb31898c19562304b129ed80f4dac3b1844f6",
+      "expected_bytes": 32688,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocrand/rocrand_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocrand_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "e818b30ca3e6b6518810b904910fa7fbb8d15d55bd2d88a2d597287d9f554f39",
+      "expected_bytes": 39489526,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipblaslt/hipblaslt_1.2.2.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipblaslt_1.2.2.70201-81~24.04_amd64.deb",
+      "expected_sha256": "0d3d18b0e520e1021c8bb303ee4447608f49ab291d327872bef242ab87279b6b",
+      "expected_bytes": 1613763368,
+      "version": "1.2.2.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/roctracer/roctracer_4.1.70201.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/roctracer_4.1.70201.70201-81~24.04_amd64.deb",
+      "expected_sha256": "6f56da97a3b09abbe2677eeb6a9b9fbadbe480c9cc9a285445125e2372ab5c36",
+      "expected_bytes": 531454,
+      "version": "4.1.70201.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocblas/rocblas_5.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocblas_5.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "ddbbe57ea95101038bede7de0eb9bdb57012bcea105bf5353217d7e01145573c",
+      "expected_bytes": 164793332,
+      "version": "5.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hip-runtime-amd/hip-runtime-amd_7.2.53211.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hip-runtime-amd_7.2.53211.70201-81~24.04_amd64.deb",
+      "expected_sha256": "1a1be2e7d8e5658922084533216c6a079138f5ca5af3247181db617bff2a5e0d",
+      "expected_bytes": 13373716,
+      "version": "7.2.53211.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-register/rocprofiler-register_0.6.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-register_0.6.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "027f3ba3fff5f226cb9e4ec8b9fe4d5c2bc5b55db6ad292efc2d77cbcaad8d81",
+      "expected_bytes": 242888,
+      "version": "0.6.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/c/comgr/comgr_3.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/comgr_3.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "7aec222a4cfdaeafd8689ad9739688f74d1d7a1227d7f6db3237736f3fa2fec2",
+      "expected_bytes": 58023518,
+      "version": "3.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocminfo/rocminfo_1.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocminfo_1.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "416c4cd6e96c7b99007c9f0f5dd20a2c6ab4afe2ee1a7266c09d958b90266418",
+      "expected_bytes": 28538,
+      "version": "1.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hsa-rocr/hsa-rocr_1.18.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hsa-rocr_1.18.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "680cf1dec896732a7a3324eb5650ec9ffdca95f152bbb891dea7799206a9adc5",
+      "expected_bytes": 1661244,
+      "version": "1.18.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rpp-dev/rpp-dev_2.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rpp-dev_2.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "13c3a375eb15b30bac1956d7441c959bb48e93d35e68aba1cb866a486b1feb50",
+      "expected_bytes": 53018,
+      "version": "2.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/half/half_1.12.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/half_1.12.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "8eb062d56965a537d4c1e12ab20dcc9a5bdea9b5f3b15e4cfbabc2bf83cb5938",
+      "expected_bytes": 19506,
+      "version": "1.12.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/o/openmp-extras-dev/openmp-extras-dev_20.70.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/openmp-extras-dev_20.70.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "51476ce452ccc607466c75205c1cefe5e34c499eec4b44b27e6816b0f889ff22",
+      "expected_bytes": 2329944,
+      "version": "20.70.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hsa-rocr-dev/hsa-rocr-dev_1.18.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hsa-rocr-dev_1.18.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "03a9277d715bd0c97a73d2dc7455ab2edfe1bf5b9ee63a6a0356c2fa14d9d395",
+      "expected_bytes": 139490,
+      "version": "1.18.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/o/openmp-extras-runtime/openmp-extras-runtime_20.70.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/openmp-extras-runtime_20.70.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "bbc9ed1bf0f652f576d324abcc179ba8490260abfa1ef7bb279798bc9572529f",
+      "expected_bytes": 60018464,
+      "version": "20.70.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-device-libs/rocm-device-libs_1.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-device-libs_1.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "5cdbb764a564c9749c026314aa376ead100bec3419c96bc676577896bbf52827",
+      "expected_bytes": 728304,
+      "version": "1.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-llvm/rocm-llvm_22.0.0.26084.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-llvm_22.0.0.26084.70201-81~24.04_amd64.deb",
+      "expected_sha256": "1cbad039d161a03f9c4df81193fdb81d55d9a79e400ce8ce26ee55488512e0bd",
+      "expected_bytes": 544593292,
+      "version": "22.0.0.26084.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hip-dev/hip-dev_7.2.53211.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hip-dev_7.2.53211.70201-81~24.04_amd64.deb",
+      "expected_sha256": "5fb031d567f08f11a489a9c7dfbad401928d71828f41e2768fa24d3afe41892d",
+      "expected_bytes": 372798,
+      "version": "7.2.53211.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipcc/hipcc_1.1.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipcc_1.1.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "2ec5ab1dcefa6b9a441015634e1272e05897b30b8ca489f0aaab16138cc1538a",
+      "expected_bytes": 212662,
+      "version": "1.1.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rpp/rpp_2.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rpp_2.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "83fabca4858890be88287db32ffb713466f5539331b480658fabdfd15059f60a",
+      "expected_bytes": 179231884,
+      "version": "2.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/mivisionx-dev/mivisionx-dev_3.5.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/mivisionx-dev_3.5.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "f2b8f26c19ae454b65510dd45139ed621e242d2f3629988c42903cd3b91e71b2",
+      "expected_bytes": 23592342,
+      "version": "3.5.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/migraphx-dev/migraphx-dev_2.15.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/migraphx-dev_2.15.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "ba930c986539015f4a7a651e1c89ade6c7e2d1cf695c3e1ff89903c0601d9019",
+      "expected_bytes": 186274,
+      "version": "2.15.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/migraphx/migraphx_2.15.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/migraphx_2.15.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "cf0381824856c7181cfc45db415c1d25a98625090cf06de98de564693c02a01e",
+      "expected_bytes": 68723232,
+      "version": "2.15.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocblas-dev/rocblas-dev_5.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocblas-dev_5.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "753132779b2498e23aac40befe7ba867ef6568faae444da378c1153657ca3cd4",
+      "expected_bytes": 92282,
+      "version": "5.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/m/mivisionx/mivisionx_3.5.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/mivisionx_3.5.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "7adba588e2927f98be3eed9f192577ba8aba019d886c828a8ed2343a323b25b7",
+      "expected_bytes": 48004108,
+      "version": "3.5.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-hip/rocm-hip_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-hip_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "71710a771c319405e9aefb3aa2dbe8c0feba6328a37122db9c09f3a309d41863",
+      "expected_bytes": 2622,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsparselt-dev/hipsparselt-dev_0.2.6.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsparselt-dev_0.2.6.70201-81~24.04_amd64.deb",
+      "expected_sha256": "0b1d57bc4daa0c631b0f017c0bca840d61a54e86e3f9b6681c499d0ee9c9123b",
+      "expected_bytes": 11402,
+      "version": "0.2.6.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsparselt/hipsparselt_0.2.6.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsparselt_0.2.6.70201-81~24.04_amd64.deb",
+      "expected_sha256": "119b2ae008d50ae8c18be9c6d709385d95b496c82a8242e6fef391e363fa9175",
+      "expected_bytes": 44833218,
+      "version": "0.2.6.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocwmma-dev/rocwmma-dev_2.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocwmma-dev_2.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "22781d1841368f5c99fd13ef0c344ec3e7a68dedf1247916f11e9b3e210c39a6",
+      "expected_bytes": 103818,
+      "version": "2.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocthrust-dev/rocthrust-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocthrust-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "e0c1e9fd34dd05845b625854b441a43d604566d67dc30be073048f5cc57f54fc",
+      "expected_bytes": 411430,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprim-dev/rocprim-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprim-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "364df46102b4fd6ce5a25f977c1b83d4d8d0ce5ed8f6e079d652f2bd2fef09d5",
+      "expected_bytes": 310108,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocsparse-dev/rocsparse-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocsparse-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "8d241e8da0e51144228509a40faee2d97f888869ba3a6669390af4b7fed48890",
+      "expected_bytes": 101520,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocsparse/rocsparse_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocsparse_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "fecb1a57e08e79bc988dbfc02199b40d6eb57eedafea52844d7389c6f8aedb7a",
+      "expected_bytes": 420954198,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocsolver-dev/rocsolver-dev_3.32.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocsolver-dev_3.32.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "01832923e68f1bbd24ad27c6f1c9d478dfcbac7b755dfa0ce09bba6fac65fb95",
+      "expected_bytes": 53440,
+      "version": "3.32.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocsolver/rocsolver_3.32.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocsolver_3.32.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "d6b7769517d56cb17c90708356eece02d1e2b6aacb3dd1954561aed681993940",
+      "expected_bytes": 767998230,
+      "version": "3.32.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hiprand-dev/hiprand-dev_3.1.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hiprand-dev_3.1.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "d973776b2fb3b747a2d640be2da8a1f52c1eb81d8b118073d48be7cd787b0af7",
+      "expected_bytes": 21504,
+      "version": "3.1.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hiprand/hiprand_3.1.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hiprand_3.1.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "97166585bb13859cbf24ddc484a7808a923c52a45839213f8d0faa79a9b10f7a",
+      "expected_bytes": 5010,
+      "version": "3.1.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocrand-dev/rocrand-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocrand-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b3f97ecc2b7642fe5ae75956adbc4268bb1bbe0c4e16f4d0c270e9ac3212786d",
+      "expected_bytes": 542832,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocfft-dev/rocfft-dev_1.0.36.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocfft-dev_1.0.36.70201-81~24.04_amd64.deb",
+      "expected_sha256": "c2972dcc9d581cad7511c6271a7b1f69ae751c5d375f0d8739f9158e6f2bd7e4",
+      "expected_bytes": 10786,
+      "version": "1.0.36.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocfft/rocfft_1.0.36.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocfft_1.0.36.70201-81~24.04_amd64.deb",
+      "expected_sha256": "04a122d1b89ff36e1ca3714c7668cfd5c9e96e29371434d9c55e6717b5c3ae32",
+      "expected_bytes": 100356928,
+      "version": "1.0.36.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocalution-dev/rocalution-dev_4.1.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocalution-dev_4.1.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "e25a7f7ab5e34558c3a81a7d767ec6f37fa1df6f793ff8ca5f17a9444ff7239a",
+      "expected_bytes": 42900,
+      "version": "4.1.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocalution/rocalution_4.1.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocalution_4.1.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "03577fe2d186edd574a7a4d4ed0b9d1c04e79bdf522b3b62b3a8d9f99ce0b9ab",
+      "expected_bytes": 11908934,
+      "version": "4.1.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rccl-dev/rccl-dev_2.27.7.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rccl-dev_2.27.7.70201-81~24.04_amd64.deb",
+      "expected_sha256": "a7eca326346dd323aa92f8229a9c462c3b985347f278fe964d8cda31e686e080",
+      "expected_bytes": 116734,
+      "version": "2.27.7.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rccl/rccl_2.27.7.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rccl_2.27.7.70201-81~24.04_amd64.deb",
+      "expected_sha256": "c4ce15f5a0e1871ef3c859aa79e6762301f4689e2818ecdbd258074ce9c775cb",
+      "expected_bytes": 555963938,
+      "version": "2.27.7.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-smi-lib/rocm-smi-lib_7.8.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-smi-lib_7.8.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "9aaef95bd85dbc8131fbc019c9c57246cc39d8a617b5832a212a277f19bfd87a",
+      "expected_bytes": 1150970,
+      "version": "7.8.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hiptensor-dev/hiptensor-dev_2.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hiptensor-dev_2.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "da312ace4bfb7a1d844a37ace5fb096bcef07569203c93f8652d3cf58eee616d",
+      "expected_bytes": 13480,
+      "version": "2.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hiptensor/hiptensor_2.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hiptensor_2.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "eefa7f8fae9b826735850a3786064cab1a7f1fca08d793018a7e8ccf4377d9dc",
+      "expected_bytes": 108825492,
+      "version": "2.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipfort-dev/hipfort-dev_0.7.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipfort-dev_0.7.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "c5aa9d5ed1713ba28c8489d7e7565c757b514cd2c76447357b65bb1d3f133d2a",
+      "expected_bytes": 949810,
+      "version": "0.7.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsolver-dev/hipsolver-dev_3.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsolver-dev_3.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "cb9eb61ef691b5fef354089ebd1815f9be6f62d03ddffac33c1a300bdeeffa28",
+      "expected_bytes": 18996,
+      "version": "3.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsolver/hipsolver_3.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsolver_3.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "d3830c08b4329ea5f699bc0d76c6e6d7119b49e826de1da92e3b8960cc051887",
+      "expected_bytes": 59324,
+      "version": "3.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsparse-dev/hipsparse-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsparse-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "487b653bd7cfdee68d302fedb5b37124610072d34d84850bbba0fe40b204d4fe",
+      "expected_bytes": 64892,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipsparse/hipsparse_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipsparse_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "937a90935e3ec58d22f65ea6b64df190d51f46cca7a0042e0a74b3419a440658",
+      "expected_bytes": 52250,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipfft-dev/hipfft-dev_1.0.22.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipfft-dev_1.0.22.70201-81~24.04_amd64.deb",
+      "expected_sha256": "7ade2126bdd04807ab411225753a8435c66e375852ccf622e40bfb7f4929102d",
+      "expected_bytes": 14564,
+      "version": "1.0.22.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipfft/hipfft_1.0.22.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipfft_1.0.22.70201-81~24.04_amd64.deb",
+      "expected_sha256": "6db6e59316bfcf2489a739e34ac35739fdcb2c6588bf3c16debcdaae0ebdfe60",
+      "expected_bytes": 49202,
+      "version": "1.0.22.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipcub-dev/hipcub-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipcub-dev_4.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "1f57356accb1aeb97e61295f22d66d76ca1d98d20b49d7ab4446f80c83f6a0e2",
+      "expected_bytes": 90518,
+      "version": "4.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipblaslt-dev/hipblaslt-dev_1.2.2.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipblaslt-dev_1.2.2.70201-81~24.04_amd64.deb",
+      "expected_sha256": "7a5c829a8971633ffa7f92f37734b95d9e69095be04e8f21c85bdb026c6c6d45",
+      "expected_bytes": 234324,
+      "version": "1.2.2.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipblas-common-dev/hipblas-common-dev_1.4.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipblas-common-dev_1.4.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "280919d3df391d941994ab4eac2bca7a3ba7058523546a9a2fef5fd0da0b8fa4",
+      "expected_bytes": 5768,
+      "version": "1.4.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipblas-dev/hipblas-dev_3.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipblas-dev_3.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "2c0bf5c4adbf601f4e1bef21b0e54dbc4cb14d163d8cf83d05e283ec88a580aa",
+      "expected_bytes": 75318,
+      "version": "3.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipblas/hipblas_3.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipblas_3.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "1622454208de4ab44dead5dcc976dbdf2e22d30c2660d9db77542e1284b7afbf",
+      "expected_bytes": 117122,
+      "version": "3.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/c/composablekernel-dev/composablekernel-dev_1.2.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/composablekernel-dev_1.2.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "79d2ad269fec0aead4fcf2a6589b5f43d2cad4b38f27922a746555c18ed08926",
+      "expected_bytes": 1076919022,
+      "version": "1.2.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hip-samples/hip-samples_7.2.53211.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hip-samples_7.2.53211.70201-81~24.04_amd64.deb",
+      "expected_sha256": "4c3a5aeef072554f90fed39488c1f6168c64095b8580b5e103d138015b1f571c",
+      "expected_bytes": 54932,
+      "version": "7.2.53211.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hip-doc/hip-doc_7.2.53211.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hip-doc_7.2.53211.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b2b2bb7c999cc425fad7bde0e88931ad60f92b7426706d7b1a79775e0c1da8b5",
+      "expected_bytes": 95998,
+      "version": "7.2.53211.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hipify-clang/hipify-clang_22.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hipify-clang_22.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "2f8c1b0d49f4d60b2f25a6d4b54adcaa86ffba98ab6bf553b8f616bace923c87",
+      "expected_bytes": 23726396,
+      "version": "22.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-cmake/rocm-cmake_0.14.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-cmake_0.14.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "fad4504cbb5e06c8b694a05defb0c7980546da0fc8538af37f9d5f16d58c11a1",
+      "expected_bytes": 25410,
+      "version": "0.14.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-opencl-sdk/rocm-opencl-sdk_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-opencl-sdk_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "bc3f3909abf9b61375f3771bacccc8e6e41f2469377d652f7d13fcdd3f5f3495",
+      "expected_bytes": 2186,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-opencl-dev/rocm-opencl-dev_2.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-opencl-dev_2.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b6eeccb8b18c0cc141f872815ef8a8ff31c66875ee8e1799f5d7ca7a72589172",
+      "expected_bytes": 115920,
+      "version": "2.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-opencl/rocm-opencl_2.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-opencl_2.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "4b778d1db13846078cd165bbbab5e5faf0e4c7f5639beebeb5891c76976d46ce",
+      "expected_bytes": 562250,
+      "version": "2.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-openmp/rocm-openmp_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-openmp_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "8aef6fc2eacf8d3dac9fc317adf943e9353f098acc658dbfff55ec616319a942",
+      "expected_bytes": 882,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-developer-tools/rocm-developer-tools_7.2.1.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-developer-tools_7.2.1.70201-81~24.04_amd64.deb",
+      "expected_sha256": "21f580c975c22a045d88fca2a7eab74e24d88ebe8d490d1fbab59b47cabcc415",
+      "expected_bytes": 2418,
+      "version": "7.2.1.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/roctracer-dev/roctracer-dev_4.1.70201.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/roctracer-dev_4.1.70201.70201-81~24.04_amd64.deb",
+      "expected_sha256": "a8c2acbc51f9300070019b93c61ea240be9934ebb094760c4587bded7cbe74ce",
+      "expected_bytes": 535500,
+      "version": "4.1.70201.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-dev/rocprofiler-dev_2.0.70201.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-dev_2.0.70201.70201-81~24.04_amd64.deb",
+      "expected_sha256": "61db67e7a5934144418f0a931a1d5c332f678cd305c79b19f328f8b607a02f25",
+      "expected_bytes": 22700,
+      "version": "2.0.70201.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler/rocprofiler_2.0.70201.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler_2.0.70201.70201-81~24.04_amd64.deb",
+      "expected_sha256": "c50417ac51f54340a4ed3cace06a98dd0a423089aaa833f8f1693e71c369af69",
+      "expected_bytes": 1017702,
+      "version": "2.0.70201.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-systems/rocprofiler-systems_1.3.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-systems_1.3.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "b901498af94f708b0eb84f94992fec9d85b16ee63f97bc8b8602a699e6ccab20",
+      "expected_bytes": 34006246,
+      "version": "1.3.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-sdk/rocprofiler-sdk_1.1.0-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-sdk_1.1.0-81~24.04_amd64.deb",
+      "expected_sha256": "cc849247d30f67ce34a439e10aaaa08002e8b83c9507de63dc1fcd8b710013cf",
+      "expected_bytes": 5685946,
+      "version": "1.1.0-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-sdk-rocpd/rocprofiler-sdk-rocpd_1.1.0-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-sdk-rocpd_1.1.0-81~24.04_amd64.deb",
+      "expected_sha256": "e5c8e3258c89053d6776bae8f774f82597d78629d4594f950a2507595ff1ed64",
+      "expected_bytes": 4234088,
+      "version": "1.1.0-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-sdk-roctx/rocprofiler-sdk-roctx_1.1.0-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-sdk-roctx_1.1.0-81~24.04_amd64.deb",
+      "expected_sha256": "f7b497eb262f947edb1714970542de288f4a8abd1d11b5702c98d8670d9ccdcd",
+      "expected_bytes": 258622,
+      "version": "1.1.0-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/a/amd-smi-lib/amd-smi-lib_26.2.2.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/amd-smi-lib_26.2.2.70201-81~24.04_amd64.deb",
+      "expected_sha256": "56c4199720b8fa5efbf1aa0a927d4eda5b485852a964b5a51ebea43997200771",
+      "expected_bytes": 2478212,
+      "version": "26.2.2.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-compute/rocprofiler-compute_3.4.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-compute_3.4.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "20840b78f0dd856f2294a10301fc8153d5680371f8b7d4deb14e115c92fbc259",
+      "expected_bytes": 2745124,
+      "version": "3.4.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocprofiler-plugins/rocprofiler-plugins_2.0.70201.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocprofiler-plugins_2.0.70201.70201-81~24.04_amd64.deb",
+      "expected_sha256": "5b3b9a8e20773186031a3b2feb8db54c4eb94c0ebbc6a81c909d8f8c9fc53d72",
+      "expected_bytes": 1094990,
+      "version": "2.0.70201.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/h/hsa-amd-aqlprofile/hsa-amd-aqlprofile_1.0.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/hsa-amd-aqlprofile_1.0.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "c93b312c5f4fb94176881670005ec11ece2276ab96e2d72511b6e19d18303000",
+      "expected_bytes": 215550,
+      "version": "1.0.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-gdb/rocm-gdb_16.3.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-gdb_16.3.70201-81~24.04_amd64.deb",
+      "expected_sha256": "992684f92b13a8f835eaa8463c52514cb9ccf32ccd07eb2a4d858e044592b959",
+      "expected_bytes": 176748228,
+      "version": "16.3.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-dbgapi/rocm-dbgapi_0.77.4.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-dbgapi_0.77.4.70201-81~24.04_amd64.deb",
+      "expected_sha256": "fe73180d2d8b7b1c62aba9fa192e2b47fd469b0bf03da2e344aba0859b500a5d",
+      "expected_bytes": 1813318,
+      "version": "0.77.4.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/apt/7.2.1/pool/main/r/rocm-debug-agent/rocm-debug-agent_2.1.0.70201-81~24.04_amd64.deb",
+      "path": "AMD/ROCm-7.2.1/debs/rocm-debug-agent_2.1.0.70201-81~24.04_amd64.deb",
+      "expected_sha256": "5b6970e4fe77313d40bb0a193631efd44073627a53f379958615284802c4547c",
+      "expected_bytes": 64584,
+      "version": "2.1.0.70201-81~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/amdgpu-install/7.2.1/ubuntu/noble/amdgpu-install_7.2.1.70201-1_all.deb",
+      "path": "AMD/ROCm-7.2.1/amdgpu-install_7.2.1.70201-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "7.2.1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.1/torch-2.9.1%2Brocm7.2.1.lw.gitff65f5bc-cp312-cp312-linux_x86_64.whl",
+      "path": "AMD/PyTorch-ROCm-7.2.1/torch-2.9.1+rocm7.2.1.lw.gitff65f5bc-cp312-cp312-linux_x86_64.whl",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "ROCm 7.2.1 Python 3.12",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.1/torchvision-0.24.0%2Brocm7.2.1.gitb919bd0c-cp312-cp312-linux_x86_64.whl",
+      "path": "AMD/PyTorch-ROCm-7.2.1/torchvision-0.24.0+rocm7.2.1.gitb919bd0c-cp312-cp312-linux_x86_64.whl",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "ROCm 7.2.1 Python 3.12",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.1/triton-3.5.1%2Brocm7.2.1.gita272dfa8-cp312-cp312-linux_x86_64.whl",
+      "path": "AMD/PyTorch-ROCm-7.2.1/triton-3.5.1+rocm7.2.1.gita272dfa8-cp312-cp312-linux_x86_64.whl",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "ROCm 7.2.1 Python 3.12",
+      "expected_md5": null
+    },
+    {
+      "url": "https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.1/torchaudio-2.9.0%2Brocm7.2.1.gite3c6ee2b-cp312-cp312-linux_x86_64.whl",
+      "path": "AMD/PyTorch-ROCm-7.2.1/torchaudio-2.9.0+rocm7.2.1.gite3c6ee2b-cp312-cp312-linux_x86_64.whl",
+      "expected_sha256": null,
+      "expected_bytes": null,
+      "version": "ROCm 7.2.1 Python 3.12",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/a/amdxdna-dkms/amdxdna-dkms_7.0.0-rc1+git20260310.6b13cb8f4-noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/amdxdna-dkms_7.0.0-rc1+git20260310.6b13cb8f4-noble1_amd64.deb",
+      "expected_sha256": "ea9f07d227d91878f3c660dc82b6abe4e4454b0c25d4ffd383920e6bed083893",
+      "expected_bytes": 315696,
+      "version": "7.0.0-rc1+git20260310.6b13cb8f4-noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/l/lemonade/lemonade-desktop_2026.39.1~24.04_all.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/lemonade-desktop_2026.39.1~24.04_all.deb",
+      "expected_sha256": "136bc515540db2767f869ce5fe1b6b6a6ce9f3543660a896af9be4f6aff6f2c4",
+      "expected_bytes": 7104,
+      "version": "2026.39.1~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/l/lemonade/lemonade-server_2026.39.1~24.04_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/lemonade-server_2026.39.1~24.04_amd64.deb",
+      "expected_sha256": "ef8d0cd163fce268be33695e19192613974bde9fcc70c92718ea8ad56fd4ea93",
+      "expected_bytes": 3515710,
+      "version": "2026.39.1~24.04",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/c/cpp-httplib/libcpp-httplib-dev_0.26.0+ds-2ubuntu3~noble2_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libcpp-httplib-dev_0.26.0+ds-2ubuntu3~noble2_amd64.deb",
+      "expected_sha256": "c5e0943d78a7d5de5e7967ec47291d33e0b6c8724d1a0a4347ddfc9aec38fa69",
+      "expected_bytes": 22146,
+      "version": "0.26.0+ds-2ubuntu3~noble2",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/c/cpp-httplib/libcpp-httplib0.26_0.26.0+ds-2ubuntu3~noble2_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libcpp-httplib0.26_0.26.0+ds-2ubuntu3~noble2_amd64.deb",
+      "expected_sha256": "ae2b2c94e2a96cf8ed847f1f3c6c663444cd2cdb28de0f497e080170118797b1",
+      "expected_bytes": 230304,
+      "version": "0.26.0+ds-2ubuntu3~noble2",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-alveo2_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-alveo2_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "a9907044ff67a5d2f6852c03c13f35dc1f92c01e6def4a48e0f40cd59dfcc774",
+      "expected_bytes": 593832,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-dev_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-dev_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "d1d247e31f8d1fac2ff0bd18c193fad1bd1842a691d4401a33f9da15158da8d7",
+      "expected_bytes": 4660654,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-npu2_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-npu2_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "dfe9fa9eb41800164392ea3c8dcdba8feca91e0d2264a8f1ad83a7087e03d8cb",
+      "expected_bytes": 1313674,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-utils_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-utils_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "4685bc31fa450e71cdf693afd6ffd3fef68a9891f06cf8afdb7695124a4fd846",
+      "expected_bytes": 1296970,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-utils-alveo_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-utils-alveo_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "02521210c698363791c58e3890d1417d2bd2fb959780ef593deb47530ea7c506",
+      "expected_bytes": 529398,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt-utils-npu_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt-utils-npu_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "b1d1f3261bcd0091961836c0b55bbf2c09f0b6f2270afecaf5d28f26b4ba7a3c",
+      "expected_bytes": 898488,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/libxrt2_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/libxrt2_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "62e568509034c9bf89b4fbff7bea71ab555e6b5b4e87f25cf8aec93066218e8a",
+      "expected_bytes": 1803370,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/n/node-markdown-it-texmath/node-markdown-it-texmath_1.0-0ubuntu1noble1_all.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/node-markdown-it-texmath_1.0-0ubuntu1noble1_all.deb",
+      "expected_sha256": "d682c4e8f94cb125151f2be0eaa7e814f00c7cb7f97d0fa935fdc1044ecf1c68",
+      "expected_bytes": 10500,
+      "version": "1.0-0ubuntu1noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/python3-xrt_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/python3-xrt_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "072a56c9890f98d49cdb7c9b01af8cf880f922f0f6840e139923e18f16ce5d63",
+      "expected_bytes": 205358,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://ppa.launchpadcontent.net/lemonade-team/stable/ubuntu/pool/main/x/xrt/xrt-xocl-dkms_2.25.0-4~noble1_amd64.deb",
+      "path": "LocalAI/Lemonade-Ubuntu24.04/debs/xrt-xocl-dkms_2.25.0-4~noble1_amd64.deb",
+      "expected_sha256": "a875e69136d0f33a63a63dbf0f9b6943a9d32b0a07bb0a750f42001f1f23ed5e",
+      "expected_bytes": 631852,
+      "version": "1:2.25.0-4~noble1",
+      "expected_md5": null
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/bsdutils_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/bsdutils_1%3a2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 96370,
+      "version": null,
+      "expected_md5": "1bbc95f6b09cd010efef23b6e24a2493"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses-bin_6.4%2b20240113-1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/ncurses-bin_6.4+20240113-1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 188372,
+      "version": null,
+      "expected_md5": "815348f156c23e83fbe9e59db8c76938"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/util-linux_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/util-linux_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1128326,
+      "version": null,
+      "expected_md5": "072ff51d1fd91163dbea92ad9b9a9715"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6-dbg_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc6-dbg_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 7474170,
+      "version": null,
+      "expected_md5": "e7930699cc1d04573ce20215bc340b33"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc-devtools_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc-devtools_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 29334,
+      "version": null,
+      "expected_md5": "13f639a552a49763f1d841828bd7f502"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6-dev_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc6-dev_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2125612,
+      "version": null,
+      "expected_md5": "21f53edf9364d12854a9862e8f298b70"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc-dev-bin_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc-dev-bin_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 20402,
+      "version": null,
+      "expected_md5": "38451df6fb1127ecbf2b6c8ac9a259df"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc6_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3264314,
+      "version": null,
+      "expected_md5": "fd972176e462d8c0f224bf4c9ad9465b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc-bin_2.39-0ubuntu8.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libc-bin_2.39-0ubuntu8.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 682164,
+      "version": null,
+      "expected_md5": "91034ea9df1e73ebd7fa2855f261cb96"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses-base_6.4%2b20240113-1ubuntu2.2_all.deb",
+      "path": "Ubuntu24.04/debs/ncurses-base_6.4+20240113-1ubuntu2.2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 25810,
+      "version": null,
+      "expected_md5": "a169cefb82e1e918ca095d6e91e6f6e4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/mount_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/mount_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 118192,
+      "version": null,
+      "expected_md5": "3248f2814a2d6f13b443bfdaafced5a2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1_2.6.1-2ubuntu0.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libexpat1_2.6.1-2ubuntu0.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 98940,
+      "version": null,
+      "expected_md5": "c1f55f353e53a75e56029c8abe1c0268"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g_1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/zlib1g_1%3a1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 62988,
+      "version": null,
+      "expected_md5": "ac8249c8981641ce42a7bbe9b6950253"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/libpython3.12t64_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpython3.12t64_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2348034,
+      "version": null,
+      "expected_md5": "9357784ac2246e1925a8994ed60cc603"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/python3.12_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 650732,
+      "version": null,
+      "expected_md5": "3f381bf436bdf7bb2cb9e75273ab3371"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/libpython3.12-stdlib_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpython3.12-stdlib_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2070530,
+      "version": null,
+      "expected_md5": "ade20e0372324a602862f36c9f4a4218"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2334634,
+      "version": null,
+      "expected_md5": "2ac3784fb339d0b374952f17a4b5000f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/libpython3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpython3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 838536,
+      "version": null,
+      "expected_md5": "3c10fde9438466b6aa7d660e6a179cc7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xz-utils/liblzma5_5.6.1%2breally5.4.5-1ubuntu0.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/liblzma5_5.6.1+really5.4.5-1ubuntu0.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 127352,
+      "version": null,
+      "expected_md5": "e3bd77ec446fa48dad44cf2b5ce55424"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libncurses6_6.4%2b20240113-1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libncurses6_6.4+20240113-1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 111902,
+      "version": null,
+      "expected_md5": "dd45835a12153ab38346bbfaa534bff9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libncursesw6_6.4%2b20240113-1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libncursesw6_6.4+20240113-1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 147816,
+      "version": null,
+      "expected_md5": "0ca50b64a7b92b43edc03d6638c57a42"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libtinfo6_6.4%2b20240113-1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtinfo6_6.4+20240113-1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 108086,
+      "version": null,
+      "expected_md5": "1bb945fc177aa4cb893f542e338e977d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/sqlite3/libsqlite3-0_3.45.1-1ubuntu2.8_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsqlite3-0_3.45.1-1ubuntu2.8_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 701602,
+      "version": null,
+      "expected_md5": "c080c1205fe9dd770fea7ef810e6eb67"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libc/libcap2/libcap2_2.66-5ubuntu2.4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcap2_1%3a2.66-5ubuntu2.4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 30500,
+      "version": null,
+      "expected_md5": "1df64377d21b7fe8e557d62f1e4aeae3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libnss-systemd_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libnss-systemd_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 159400,
+      "version": null,
+      "expected_md5": "74b8cefbdbcb9fd16abcfe248ba49a66"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd-dev_255.4-1ubuntu8.17_all.deb",
+      "path": "Ubuntu24.04/debs/systemd-dev_255.4-1ubuntu8.17_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 106892,
+      "version": null,
+      "expected_md5": "abfb32970378e573702a872d41fe28f4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/libblkid1_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libblkid1_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 124124,
+      "version": null,
+      "expected_md5": "04857b2835a543ab73b5ca3027ebd3ce"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd-timesyncd_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/systemd-timesyncd_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 35290,
+      "version": null,
+      "expected_md5": "b3b16a9743bb5107dc68dda2edd88c2a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd-resolved_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/systemd-resolved_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 296502,
+      "version": null,
+      "expected_md5": "8606b1ca8bf9003502f4d1637a3da69a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd-oomd_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/systemd-oomd_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 39414,
+      "version": null,
+      "expected_md5": "30b51479ccea46bc00b7d15ebcd30769"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libsystemd-shared_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsystemd-shared_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2077458,
+      "version": null,
+      "expected_md5": "fb508c2a65d7497edc3ee2fc14750dc3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libsystemd0_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsystemd0_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 431784,
+      "version": null,
+      "expected_md5": "6328ce38098062475fbf0b3aff215992"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd-sysv_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/systemd-sysv_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 11890,
+      "version": null,
+      "expected_md5": "c72049d64e5ad94cfe37578c521c89f5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libpam-systemd_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpam-systemd_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 235340,
+      "version": null,
+      "expected_md5": "c5c9b2a27bb5e3ad2fb547a9b4fcff7e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/systemd_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/systemd_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3475000,
+      "version": null,
+      "expected_md5": "7f6bddea6590d17a0b7e9c6949864b2e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/udev_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/udev_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1875042,
+      "version": null,
+      "expected_md5": "8f93753aba0d4e2ca8875c71f3b81e71"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libudev1_255.4-1ubuntu8.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libudev1_255.4-1ubuntu8.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 177608,
+      "version": null,
+      "expected_md5": "11f2b8b3e0e6ace5d39fc0ed318d4e41"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/libmount1_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libmount1_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 134082,
+      "version": null,
+      "expected_md5": "5e845d6a0f3412323efff681ab6a0652"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/libuuid1_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libuuid1_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 36596,
+      "version": null,
+      "expected_md5": "29a557432c40d38ccbf4f7a22fa5624b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/libfdisk1_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libfdisk1_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 146344,
+      "version": null,
+      "expected_md5": "1a199118f3df9fa9f3ad0e25758a5672"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/libsmartcols1_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsmartcols1_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 66282,
+      "version": null,
+      "expected_md5": "c0cab7650c47a9cde528e1ddc44ca0eb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/uuid-runtime_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/uuid-runtime_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 33066,
+      "version": null,
+      "expected_md5": "b4a87272b9bbab5004c2e8116949a75c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/d/dkms/dkms_3.0.11-1ubuntu13_all.deb",
+      "path": "Ubuntu24.04/debs/dkms_3.0.11-1ubuntu13_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 51542,
+      "version": null,
+      "expected_md5": "d9ac852e1e99926d577e508dfa1409ea"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/eject_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/eject_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 26278,
+      "version": null,
+      "expected_md5": "8395443f741bac5f33ace4c8dd59a62f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libc/libcap2/libpam-cap_2.66-5ubuntu2.4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpam-cap_1%3a2.66-5ubuntu2.4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 12458,
+      "version": null,
+      "expected_md5": "7fd0443bc280e73e9f118e14381c19b2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libc/libcap2/libcap2-bin_2.66-5ubuntu2.4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcap2-bin_1%3a2.66-5ubuntu2.4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 34134,
+      "version": null,
+      "expected_md5": "bf267a637caa07de54b162c2ebb6ecb9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14%2bdfsg-1.3ubuntu3.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxml2_2.9.14+dfsg-1.3ubuntu3.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 764598,
+      "version": null,
+      "expected_md5": "f11b867b81fc4555a4e8a42ea0d30b82"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/locales_2.39-0ubuntu8.9_all.deb",
+      "path": "Ubuntu24.04/debs/locales_2.39-0ubuntu8.9_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 4231704,
+      "version": null,
+      "expected_md5": "147d3c4b4bd244f11287fce48e714c32"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/sudo/sudo_1.9.15p5-3ubuntu5.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/sudo_1.9.15p5-3ubuntu5.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 948870,
+      "version": null,
+      "expected_md5": "6d096f30d62c5e2b593d2897cdab05b2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/bsdextrautils_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/bsdextrautils_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 73682,
+      "version": null,
+      "expected_md5": "e470c40de243902ca018bed335c1cab7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-common_2.4.125-1ubuntu0.1%7e24.04.2_all.deb",
+      "path": "Ubuntu24.04/debs/libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 9250,
+      "version": null,
+      "expected_md5": "33c2856a3a10be2e5042e6dde19b41be"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm2_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 41388,
+      "version": null,
+      "expected_md5": "92b7541f4bc96b48e9968f686592c591"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng16-16t64_1.6.43-5ubuntu0.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpng16-16t64_1.6.43-5ubuntu0.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 188776,
+      "version": null,
+      "expected_md5": "80edabe50d47a85a4102f57aaa411d66"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xz-utils/xz-utils_5.6.1%2breally5.4.5-1ubuntu0.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/xz-utils_5.6.1+really5.4.5-1ubuntu0.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 267424,
+      "version": null,
+      "expected_md5": "60318766c2a5d646298ec681408c19de"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/ocl-icd/ocl-icd-libopencl1_2.3.2-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/ocl-icd-libopencl1_2.3.2-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 38530,
+      "version": null,
+      "expected_md5": "f77cac02a9cce384e1929e1fc52feebe"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/clinfo/clinfo_3.0.23.01.25-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/clinfo_3.0.23.01.25-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 56966,
+      "version": null,
+      "expected_md5": "f77fd77f0bac08c02f362959d4c2357e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libssh/libssh-4_0.10.6-2ubuntu0.5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libssh-4_0.10.6-2ubuntu0.5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 191284,
+      "version": null,
+      "expected_md5": "39c98d9d62353cea7e7af8659e9c5aef"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/c/curl/libcurl4t64_8.5.0-2ubuntu10.15_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcurl4t64_8.5.0-2ubuntu10.15_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 343472,
+      "version": null,
+      "expected_md5": "ad3bb6850e7b2c6a3971df89ad90083e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libj/libjsoncpp/libjsoncpp25_1.9.5-6build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjsoncpp25_1.9.5-6build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 82754,
+      "version": null,
+      "expected_md5": "33704387481a5debaf6efb22a45b4a6c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/r/rhash/librhash0_1.4.3-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/librhash0_1.4.3-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 128748,
+      "version": null,
+      "expected_md5": "5d952e5e028103797f3bc745e32fd1e3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/c/cmake/cmake-data_3.28.3-1build7_all.deb",
+      "path": "Ubuntu24.04/debs/cmake-data_3.28.3-1build7_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2154936,
+      "version": null,
+      "expected_md5": "82125d8d38ef02f611e7a2c493101854"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/c/cmake/cmake_3.28.3-1build7_amd64.deb",
+      "path": "Ubuntu24.04/debs/cmake_3.28.3-1build7_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 11190006,
+      "version": null,
+      "expected_md5": "adf6332b9137fbddcaa7bcd12ff8fc44"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/fdisk_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/fdisk_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 121538,
+      "version": null,
+      "expected_md5": "38434188e2396bf4f56a7a051b934078"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/n/node-katex/fonts-katex_0.16.10%2b%7ecs6.1.0-2_all.deb",
+      "path": "Ubuntu24.04/debs/fonts-katex_0.16.10+~cs6.1.0-2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 775246,
+      "version": null,
+      "expected_md5": "5777b1c9bdf883f3f4d818178278a510"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gdal/gdal-data_3.8.4%2bdfsg-3ubuntu3_all.deb",
+      "path": "Ubuntu24.04/debs/gdal-data_3.8.4+dfsg-3ubuntu3_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 261442,
+      "version": null,
+      "expected_md5": "239d105eb5af2808f6de58b40da27ee7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gdal/gdal-plugins_3.8.4%2bdfsg-3ubuntu3_amd64.deb",
+      "path": "Ubuntu24.04/debs/gdal-plugins_3.8.4+dfsg-3ubuntu3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 24804,
+      "version": null,
+      "expected_md5": "2e12359c765c9dfe57e363f814cef248"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/git-lfs/git-lfs_3.4.1-1ubuntu0.4_amd64.deb",
+      "path": "Ubuntu24.04/debs/git-lfs_3.4.1-1ubuntu0.4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3908174,
+      "version": null,
+      "expected_md5": "f2c9fc1f7bdd51c203d5dc02941079dd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/shaderc/libshaderc1_2023.8-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libshaderc1_2023.8-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2423388,
+      "version": null,
+      "expected_md5": "d1904272a4520d32d1143d8b169d15cb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/shaderc/glslc_2023.8-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/glslc_2023.8-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 76032,
+      "version": null,
+      "expected_md5": "2083a8cef645e21c17008f6b7dad6cb7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/i/icu/icu-devtools_74.2-1ubuntu3.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/icu-devtools_74.2-1ubuntu3.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 211852,
+      "version": null,
+      "expected_md5": "8890780a20989f000a7ad00c4d488426"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libv/libva/libva2_2.20.0-2ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libva2_2.20.0-2ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 66362,
+      "version": null,
+      "expected_md5": "1284b7fdaaad55d3feea0abd8e9cc570"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/intel-gmmlib/libigdgmm12_22.3.17%2bds1-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libigdgmm12_22.3.17+ds1-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 145046,
+      "version": null,
+      "expected_md5": "3b74c45e6de12abc13a171dc8351e50e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/intel-media-driver/intel-media-va-driver_24.1.0%2bdfsg1-1ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/intel-media-va-driver_24.1.0+dfsg1-1ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3162838,
+      "version": null,
+      "expected_md5": "a6101e4566027344997766f09dc55031"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/j/jq/jq_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/jq_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 65694,
+      "version": null,
+      "expected_md5": "539c01dc3f449c96beec2bffb62d729b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/j/jq/libjq1_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjq1_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 141902,
+      "version": null,
+      "expected_md5": "7b5d4a7c34f0652b5a37e54bd683e03f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/liba/libaacs/libaacs0_0.11.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libaacs0_0.11.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 62906,
+      "version": null,
+      "expected_md5": "f38763ef5c68de1991a711bd877819db"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/liba/libaec/libaec0_1.1.2-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libaec0_1.1.2-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 22918,
+      "version": null,
+      "expected_md5": "b6012c328ac179c0c869497ab402edfb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-17/libllvm17t64_17.0.6-9ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libllvm17t64_1%3a17.0.6-9ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 26162724,
+      "version": null,
+      "expected_md5": "474c7c3ed7cd0f5cf8071cdda3739678"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/r/rocm-compilersupport/libamd-comgr2_6.0%2bgit20231212.4510c28%2bdfsg-3build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libamd-comgr2_6.0+git20231212.4510c28+dfsg-3build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 14405016,
+      "version": null,
+      "expected_md5": "522bc793a113bb3320a674a8e627b679"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 21374,
+      "version": null,
+      "expected_md5": "9c2333b976956d665e67febb9cdcf5eb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/r/roct-thunk-interface/libhsakmt1_5.7.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhsakmt1_5.7.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 62912,
+      "version": null,
+      "expected_md5": "c7ef1a1325c03823bd2ad50135449304"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/r/rocr-runtime/libhsa-runtime64-1_5.7.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhsa-runtime64-1_5.7.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 490966,
+      "version": null,
+      "expected_md5": "4fb10b08b6630dc55f08a2a9a3ce3eb5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/r/rocm-hipamd/libamdhip64-5_5.7.1-3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libamdhip64-5_5.7.1-3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 9621212,
+      "version": null,
+      "expected_md5": "d1b6acd3005678511a3ddfd54a43fe85"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/lapack/libblas3_3.12.0-3build1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libblas3_3.12.0-3build1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 237978,
+      "version": null,
+      "expected_md5": "dfb3d8597d7c1a56ae310bc5e732861f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14/libgfortran5_14.2.0-4ubuntu2%7e24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgfortran5_14.2.0-4ubuntu2~24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 916316,
+      "version": null,
+      "expected_md5": "6c07c383b45732063a46227cbbc0a5fd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/lapack/liblapack3_3.12.0-3build1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/liblapack3_3.12.0-3build1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2646422,
+      "version": null,
+      "expected_md5": "a795d3ca6f154077a08282b66907ad0f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/a/arpack/libarpack2t64_3.9.1-1.1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libarpack2t64_3.9.1-1.1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 105512,
+      "version": null,
+      "expected_md5": "b1ce97982dcbfcfed7988b70c4a18161"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/superlu/libsuperlu6_6.0.1%2bdfsg1-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsuperlu6_6.0.1+dfsg1-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 179964,
+      "version": null,
+      "expected_md5": "db4711bbc6cc040093152c24012624a9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/a/armadillo/libarmadillo12_12.6.7%2bdfsg-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libarmadillo12_1%3a12.6.7+dfsg-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 105918,
+      "version": null,
+      "expected_md5": "8d8024193e8519ad84dc936b85d8f510"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libv/libva/libva-drm2_2.20.0-2ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libva-drm2_2.20.0-2ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 7124,
+      "version": null,
+      "expected_md5": "1dad0d6c6009c328a1544e513a0e28a4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libv/libva/libva-x11-2_2.20.0-2ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libva-x11-2_2.20.0-2ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 12028,
+      "version": null,
+      "expected_md5": "42df1dcf4fa7b4d9be7e7d0c033c7090"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libv/libvdpau/libvdpau1_1.5-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libvdpau1_1.5-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 27836,
+      "version": null,
+      "expected_md5": "6f357aa63d943368045ad301b5e3cc51"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess0_0.17-3ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpciaccess0_0.17-3ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 19220,
+      "version": null,
+      "expected_md5": "aedf7168d2f68bae12d5678bbfdf1b07"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-intel1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm-intel1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 63868,
+      "version": null,
+      "expected_md5": "487d9e0495e931db05abb3fb4c82587f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/onevpl/libvpl2_2023.3.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libvpl2_2023.3.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 99802,
+      "version": null,
+      "expected_md5": "caac60652199d3bc638b8d3a406b3e2c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavutil58_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavutil58_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 401184,
+      "version": null,
+      "expected_md5": "79687d08c5f9b813dd559debd17b724d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/codec2/libcodec2-1.2_1.2.0-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcodec2-1.2_1.2.0-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 8998330,
+      "version": null,
+      "expected_md5": "c4a712285999add4790b7cd7788c4fcf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/d/dav1d/libdav1d7_1.4.1-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdav1d7_1.4.1-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 604018,
+      "version": null,
+      "expected_md5": "eae121d7ace00e9db8d484c33ebee766"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libg/libgsm/libgsm1_1.0.22-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgsm1_1.0.22-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 27810,
+      "version": null,
+      "expected_md5": "1752c5c6de32db06d00fb79191a3a85c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/h/highway/libhwy1t64_1.0.7-8.1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhwy1t64_1.0.7-8.1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 584050,
+      "version": null,
+      "expected_md5": "96f46ff55f48790604d8bddefbe3d3e7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/j/jpeg-xl/libjxl0.7_0.7.0-10.2ubuntu6.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjxl0.7_0.7.0-10.2ubuntu6.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1001370,
+      "version": null,
+      "expected_md5": "fc7f390b8fd86a738789851017e84c6d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/r/rust-rav1e/librav1e0_0.7.1-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/librav1e0_0.7.1-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1021698,
+      "version": null,
+      "expected_md5": "4157d68ca8bd2e3a0b4644f527200461"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/shine/libshine3_3.1.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libshine3_3.1.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 23170,
+      "version": null,
+      "expected_md5": "c599d90e7465fd65be98607ade62722f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/snappy/libsnappy1v5_1.1.10-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsnappy1v5_1.1.10-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 28634,
+      "version": null,
+      "expected_md5": "f6322d3b44590574acd4cf41e23cb047"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/svt-av1/libsvtav1enc1d1_1.7.0%2bdfsg-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsvtav1enc1d1_1.7.0+dfsg-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2424900,
+      "version": null,
+      "expected_md5": "0e8e8abb5acd76aa56e4606718057fce"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libs/libsoxr/libsoxr0_0.1.3-4build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsoxr0_0.1.3-4build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 80038,
+      "version": null,
+      "expected_md5": "3f6efc8ebef17838121d48da69369b55"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libswresample4_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libswresample4_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 63782,
+      "version": null,
+      "expected_md5": "8867d9b0b1b4487d9bdc3b2e4e3720d6"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/x/x264/libx264-164_0.164.3108%2bgit31e19f9-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libx264-164_2%3a0.164.3108+git31e19f9-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 603814,
+      "version": null,
+      "expected_md5": "7fa57c1ce064ef2ab2559ee502da3b77"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/x/x265/libx265-199_3.5-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libx265-199_3.5-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1226422,
+      "version": null,
+      "expected_md5": "41a0db28c7ab0f8bfdb99a5cd7a2c875"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/x/xvidcore/libxvidcore4_1.3.7-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxvidcore4_2%3a1.3.7-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 219400,
+      "version": null,
+      "expected_md5": "67ecb693f4eabe53f61cb0db4a4006cb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/z/zvbi/libzvbi-common_0.2.42-2_all.deb",
+      "path": "Ubuntu24.04/debs/libzvbi-common_0.2.42-2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 42360,
+      "version": null,
+      "expected_md5": "c8e38702dcf2ad32f6333308e3ffda2a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/z/zvbi/libzvbi0t64_0.2.42-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libzvbi0t64_0.2.42-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 260558,
+      "version": null,
+      "expected_md5": "93e7d7c522cc10d4bbbb7ff837f8344a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavcodec60_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavcodec60_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5851220,
+      "version": null,
+      "expected_md5": "80ce898ffe13ad4d1e581db9a5ca96b2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavutil-dev_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavutil-dev_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 547468,
+      "version": null,
+      "expected_md5": "ec6baba3cacc35cce8c846a4b0b788be"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libswresample-dev_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libswresample-dev_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 79726,
+      "version": null,
+      "expected_md5": "59a9257d3eec7260403a1e1e756a4105"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavcodec-dev_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavcodec-dev_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 6504074,
+      "version": null,
+      "expected_md5": "07b790c70538caea9be9d10aba3dc411"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libu/libudfread/libudfread0_1.1.2-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libudfread0_1.1.2-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 18980,
+      "version": null,
+      "expected_md5": "4499a6df3bdf1984bd675c47d3a1d542"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libb/libbluray/libbluray2_1.3.4-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libbluray2_1%3a1.3.4-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 159390,
+      "version": null,
+      "expected_md5": "bff228510db49bc79fb0cdb6329ce613"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/chromaprint/libchromaprint1_1.5.1-5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libchromaprint1_1.5.1-5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 30524,
+      "version": null,
+      "expected_md5": "9e7115456044f1a4a81038784c0c70e3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/game-music-emu/libgme0_0.6.3-7build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgme0_0.6.3-7build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 134050,
+      "version": null,
+      "expected_md5": "e6d55b4719da65e5078be295faab5ae6"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libo/libopenmpt/libopenmpt0t64_0.7.3-1.1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopenmpt0t64_0.7.3-1.1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 647356,
+      "version": null,
+      "expected_md5": "29da71def04cacaa609c3b65a3b7d496"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libr/librabbitmq/librabbitmq4_0.11.0-1ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/librabbitmq4_0.11.0-1ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 38306,
+      "version": null,
+      "expected_md5": "410a51321c1ad564ee706a906c4e079a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/cjson/libcjson1_1.7.17-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcjson1_1.7.17-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 24762,
+      "version": null,
+      "expected_md5": "95c1abee1d0114b1272c66588583c5d5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mbedtls/libmbedcrypto7t64_2.28.8-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libmbedcrypto7t64_2.28.8-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 209262,
+      "version": null,
+      "expected_md5": "b985a40e3a2393ee68b536e8c01054be"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libr/librist/librist4_0.2.10%2bdfsg-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/librist4_0.2.10+dfsg-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 74894,
+      "version": null,
+      "expected_md5": "25deb4dc46e18bab0a7804e00163ae14"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/srt/libsrt1.5-gnutls_1.5.3-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsrt1.5-gnutls_1.5.3-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 316428,
+      "version": null,
+      "expected_md5": "f47b7c400c725c7d9714d40d25447fe4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libssh/libssh-gcrypt-4_0.10.6-2ubuntu0.5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libssh-gcrypt-4_0.10.6-2ubuntu0.5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 225808,
+      "version": null,
+      "expected_md5": "c1404a0ac2fc1fa8d31127fb003b126c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/n/norm/libnorm1t64_1.5.9%2bdfsg-3.1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libnorm1t64_1.5.9+dfsg-3.1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 153694,
+      "version": null,
+      "expected_md5": "9f72472282e92441fbd7656f81dee3c4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libp/libpgm/libpgm-5.3-0t64_5.3.128%7edfsg-2.1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpgm-5.3-0t64_5.3.128~dfsg-2.1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 166620,
+      "version": null,
+      "expected_md5": "2dd9ebce77f9d97720376294a6c627c5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libs/libsodium/libsodium23_1.0.18-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsodium23_1.0.18-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 161290,
+      "version": null,
+      "expected_md5": "630c21cc1dceb17c12a00f2ad7ab4d80"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/z/zeromq3/libzmq5_4.3.5-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libzmq5_4.3.5-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 260300,
+      "version": null,
+      "expected_md5": "1909921bc815ad8a45306c2095cfe7a2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavformat60_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavformat60_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1153444,
+      "version": null,
+      "expected_md5": "fd85d5dccdc3554fe995ea42b3b7e902"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavformat-dev_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libavformat-dev_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1397670,
+      "version": null,
+      "expected_md5": "99e2d2c8159a6e61df76ff85295ea084"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libb/libbdplus/libbdplus0_0.2.0-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libbdplus0_0.2.0-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 52234,
+      "version": null,
+      "expected_md5": "b5f2105d96483c49c65623f3e629b899"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/c-blosc/libblosc1_1.21.5%2bds-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libblosc1_1.21.5+ds-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 36248,
+      "version": null,
+      "expected_md5": "468f92c0c3e94685725aae850b093ee1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/boost1.83/libboost-filesystem1.83.0_1.83.0-2.1ubuntu3.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libboost-filesystem1.83.0_1.83.0-2.1ubuntu3.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 283562,
+      "version": null,
+      "expected_md5": "11a118fc20b54f59a873b563e0f3c3ee"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/boost1.83/libboost-program-options1.83.0_1.83.0-2.1ubuntu3.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libboost-program-options1.83.0_1.83.0-2.1ubuntu3.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 320510,
+      "version": null,
+      "expected_md5": "e594242aecec4e1024882a2ee7b6c655"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/brotli/libbrotli-dev_1.1.0-2build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libbrotli-dev_1.1.0-2build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 353230,
+      "version": null,
+      "expected_md5": "0a5990bf61787063e2bfd9ba7cf15d0b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/c/curl/libcurl3t64-gnutls_8.5.0-2ubuntu10.15_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcurl3t64-gnutls_8.5.0-2ubuntu10.15_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 335564,
+      "version": null,
+      "expected_md5": "910bf0722731d1c8cbd15a7dcda7fe24"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/cfitsio/libcfitsio10t64_4.3.1-1.1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcfitsio10t64_4.3.1-1.1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 527630,
+      "version": null,
+      "expected_md5": "3a68441ad42e218f2dcc30ca37a23b04"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/c/charls/libcharls2_2.4.2-2build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcharls2_2.4.2-2build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 90442,
+      "version": null,
+      "expected_md5": "3b3d9baa5149baaa560ed1449a3d512a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/c/curl/libcurl4-openssl-dev_8.5.0-2ubuntu10.15_amd64.deb",
+      "path": "Ubuntu24.04/debs/libcurl4-openssl-dev_8.5.0-2ubuntu10.15_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 446114,
+      "version": null,
+      "expected_md5": "9ba363be4998943fb5a286169e2e6bd3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libd/libdc1394/libdc1394-25_2.2.6-4build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdc1394-25_2.2.6-4build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 90084,
+      "version": null,
+      "expected_md5": "3bc54d774f771c4af9b56f3233b0e905"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libr/libraw1394/libraw1394-dev_2.1.2-2build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libraw1394-dev_2.1.2-2build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 38312,
+      "version": null,
+      "expected_md5": "90c0cd443acd3de8713f27fe94087acd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libd/libdc1394/libdc1394-dev_2.2.6-4build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdc1394-dev_2.2.6-4build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 118666,
+      "version": null,
+      "expected_md5": "dfa7581ace29500e3d77ea7699938e3b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdeflate/libdeflate-dev_1.19-1build1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdeflate-dev_1.19-1build1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 50936,
+      "version": null,
+      "expected_md5": "d955a0d828bae086548f47b92b157543"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/d/double-conversion/libdouble-conversion3_3.3.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdouble-conversion3_3.3.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 40294,
+      "version": null,
+      "expected_md5": "eb416967197665d8701d0b387eee69b7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-radeon1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm-radeon1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 20776,
+      "version": null,
+      "expected_md5": "f5dfb191caa565e0af668a10efee2e87"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-nouveau2_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm-nouveau2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 17620,
+      "version": null,
+      "expected_md5": "fece68c37bdaeaf3c31a97ee4fc02f24"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess-dev_0.17-3ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpciaccess-dev_0.17-3ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 22026,
+      "version": null,
+      "expected_md5": "83b7419c935c641c07aec81799fd7b4e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-dev_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libdrm-dev_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 314338,
+      "version": null,
+      "expected_md5": "36b26478352866508fedeb7cef4edbbf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 37948,
+      "version": null,
+      "expected_md5": "2f45d87e7cdb7233d64bcacde5275173"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libglx-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libglx-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 110154,
+      "version": null,
+      "expected_md5": "5c1867b6f6f242b82e7b489b9f0f1a4c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libegl-mesa0_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 121412,
+      "version": null,
+      "expected_md5": "cddd6d9c1605cb5f7b7e36b5e1043a57"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgbm1_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgbm1_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 34274,
+      "version": null,
+      "expected_md5": "7e31fbd3ddc2dfffd8918c8efc551634"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-libgallium_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-libgallium_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 10783430,
+      "version": null,
+      "expected_md5": "6d841a42c6cd067f17c438891f6053a9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g-dev_1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/zlib1g-dev_1%3a1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 894116,
+      "version": null,
+      "expected_md5": "2caa5b908f6fc50c2d8b081a1190f4a1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libz/libzstd/libzstd-dev_1.5.5%2bdfsg2-2build1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libzstd-dev_1.5.5+dfsg2-2build1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 363956,
+      "version": null,
+      "expected_md5": "0e86b489c84680d6b4ead9bcf441b6a2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/elfutils/libelf-dev_0.190-1.1ubuntu0.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libelf-dev_0.190-1.1ubuntu0.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 68530,
+      "version": null,
+      "expected_md5": "229ea6164160f98b8a2584c8f8e95833"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libevent/libevent-core-2.1-7t64_2.1.12-stable-9ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libevent-core-2.1-7t64_2.1.12-stable-9ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 91942,
+      "version": null,
+      "expected_md5": "8ce7ab8f13a4e34ba2a9d28cce5dbd96"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libevent/libevent-pthreads-2.1-7t64_2.1.12-stable-9ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libevent-pthreads-2.1-7t64_2.1.12-stable-9ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 7988,
+      "version": null,
+      "expected_md5": "e40d7d81edee509041705681ea7e2255"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libexif/libexif12_0.6.24-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libexif12_0.6.24-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 88336,
+      "version": null,
+      "expected_md5": "c85f829989df5829eec14ac1422d585c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libexif/libexif-dev_0.6.24-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libexif-dev_0.6.24-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 109926,
+      "version": null,
+      "expected_md5": "b71d9fe605e8b1a4eef225d49612a0af"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libexif/libexif-doc_0.6.24-1ubuntu0.24.04.1_all.deb",
+      "path": "Ubuntu24.04/debs/libexif-doc_0.6.24-1ubuntu0.24.04.1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 365876,
+      "version": null,
+      "expected_md5": "eaa42f202a2694f8a80a3619a65a278b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1-dev_2.6.1-2ubuntu0.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libexpat1-dev_2.6.1-2ubuntu0.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 146542,
+      "version": null,
+      "expected_md5": "0fca29604d25433d18567ebb9172c2b6"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/infinipath-psm/libpsm-infinipath1_3.3%2b20.604758e7-6.3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpsm-infinipath1_3.3+20.604758e7-6.3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 178148,
+      "version": null,
+      "expected_md5": "ea7e0255ca074a0497f9b1e0a5309771"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libp/libpsm2/libpsm2-2_11.2.185-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpsm2-2_11.2.185-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 193594,
+      "version": null,
+      "expected_md5": "7aad4bf6db3884feddda3fe82c3a2cd8"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/r/rdma-core/librdmacm1t64_50.0-2ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/librdmacm1t64_50.0-2ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 70698,
+      "version": null,
+      "expected_md5": "ee8a7afc1614421014545d902ffa265e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libf/libfabric/libfabric1_1.17.0-3build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libfabric1_1.17.0-3build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 656666,
+      "version": null,
+      "expected_md5": "dd5346f39c9352fc229f706015702a81"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/fyba/libfyba0t64_4.1.1-11build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libfyba0t64_4.1.1-11build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 119016,
+      "version": null,
+      "expected_md5": "004b9ff884648f0fbb92fd88ccc0145d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/z/zlib/libminizip1t64_1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libminizip1t64_1%3a1.3.dfsg-3.1ubuntu2.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 22194,
+      "version": null,
+      "expected_md5": "11fd332b4ec00c6dd5df8f7be3605113"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/freexl/libfreexl1_2.0.0-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libfreexl1_2.0.0-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 41708,
+      "version": null,
+      "expected_md5": "a3213bd7d41d64430664c96fa3f0fb84"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/geos/libgeos3.12.1t64_3.12.1-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgeos3.12.1t64_3.12.1-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 849210,
+      "version": null,
+      "expected_md5": "c9f8b73d91b4525cf8674f50448bc082"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/geos/libgeos-c1t64_3.12.1-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgeos-c1t64_3.12.1-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 94532,
+      "version": null,
+      "expected_md5": "849c8aa59233765e73f75f87ee82eaf1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/proj/proj-data_9.4.0-1build2_all.deb",
+      "path": "Ubuntu24.04/debs/proj-data_9.4.0-1build2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 7885446,
+      "version": null,
+      "expected_md5": "1bf09e269b63ce4dcacdf9e45a130997"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff6_4.5.1%2bgit230720-4ubuntu2.5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtiff6_4.5.1+git230720-4ubuntu2.5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 199612,
+      "version": null,
+      "expected_md5": "de634aac7b8138c2da25bc1d9850680f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj25_9.4.0-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libproj25_9.4.0-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1395736,
+      "version": null,
+      "expected_md5": "a4514dd7d5638035594f940d9c934e3e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libg/libgeotiff/libgeotiff5_1.7.1-5build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgeotiff5_1.7.1-5build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 62882,
+      "version": null,
+      "expected_md5": "3be4cd75e42953905e4a1b8f972ea986"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libh/libhdf4/libhdf4-0-alt_4.2.16-4build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhdf4-0-alt_4.2.16-4build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 281792,
+      "version": null,
+      "expected_md5": "69fc6e10689e29f5d98ced68492b5ef9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/liba/libaec/libsz2_1.1.2-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsz2_1.1.2-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5476,
+      "version": null,
+      "expected_md5": "ea04864dbcbd8ec714896855627dfe5b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/h/hdf5/libhdf5-103-1t64_1.10.10%2brepack-3.1ubuntu4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhdf5-103-1t64_1.10.10+repack-3.1ubuntu4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1269972,
+      "version": null,
+      "expected_md5": "fd07954e2e99aaeedda09ff442346446"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/u/uriparser/liburiparser1_0.9.7%2bdfsg-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/liburiparser1_0.9.7+dfsg-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 35816,
+      "version": null,
+      "expected_md5": "00c54f0357941e38bb9d0d2938370602"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libk/libkml/libkmlbase1t64_1.3.0-12build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libkmlbase1t64_1.3.0-12build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 49916,
+      "version": null,
+      "expected_md5": "4af89df01e6ac01a7b1387463f8d0957"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libk/libkml/libkmldom1t64_1.3.0-12build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libkmldom1t64_1.3.0-12build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 156424,
+      "version": null,
+      "expected_md5": "555a651bd059079aea7802b07776a44e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libk/libkml/libkmlengine1t64_1.3.0-12build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libkmlengine1t64_1.3.0-12build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 71372,
+      "version": null,
+      "expected_md5": "8f3f7ac134a5c195f1efa707a80c3421"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mysql-defaults/mysql-common_5.8%2b1.1.0build1_all.deb",
+      "path": "Ubuntu24.04/debs/mysql-common_5.8+1.1.0build1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 6746,
+      "version": null,
+      "expected_md5": "db6354d29ea0f957735936e1a39a6377"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mysql-8.0/libmysqlclient21_8.0.46-0ubuntu0.24.04.4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libmysqlclient21_8.0.46-0ubuntu0.24.04.4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1254894,
+      "version": null,
+      "expected_md5": "6bcaaf9fad29e0a0445975601175c0c2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/h/hdf5/libhdf5-hl-100t64_1.10.10%2brepack-3.1ubuntu4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhdf5-hl-100t64_1.10.10+repack-3.1ubuntu4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 56016,
+      "version": null,
+      "expected_md5": "f728cfba8c5d090bd8022939c1df18c3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/n/netcdf/libnetcdf19t64_4.9.2-5ubuntu4_amd64.deb",
+      "path": "Ubuntu24.04/debs/libnetcdf19t64_1%3a4.9.2-5ubuntu4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 472848,
+      "version": null,
+      "expected_md5": "bb0fa259fca4680bd30b0311c1fff41a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/unixodbc/libodbc2_2.3.12-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libodbc2_2.3.12-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 158090,
+      "version": null,
+      "expected_md5": "9f311d57924456436775630a98bc663e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/unixodbc/unixodbc-common_2.3.12-1ubuntu0.24.04.1_all.deb",
+      "path": "Ubuntu24.04/debs/unixodbc-common_2.3.12-1ubuntu0.24.04.1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 8806,
+      "version": null,
+      "expected_md5": "ccffd03a6f6f4e0777798807044282d7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/unixodbc/libodbcinst2_2.3.12-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libodbcinst2_2.3.12-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 30720,
+      "version": null,
+      "expected_md5": "00cf393ed5380f7e283063df1997df70"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/ogdi-dfsg/libogdi4.1_4.1.1%2bds-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libogdi4.1_4.1.1+ds-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 225898,
+      "version": null,
+      "expected_md5": "0e8180092633c2cf5c12d70f8ca42704"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/postgresql-16/libpq5_16.15-0ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpq5_16.15-0ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 151262,
+      "version": null,
+      "expected_md5": "1677f01e217d5cccb7f5a20aaa493975"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qhull/libqhull-r8.0_2020.2-6build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqhull-r8.0_2020.2-6build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 192772,
+      "version": null,
+      "expected_md5": "bc63aed978da46c9ae7b0dcc5e85783f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libr/librttopo/librttopo1_1.1.0-3build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/librttopo1_1.1.0-3build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 190582,
+      "version": null,
+      "expected_md5": "f8ba709afed8b761a035243de4dc0697"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/spatialite/libspatialite8t64_5.1.0-3build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libspatialite8t64_5.1.0-3build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1918564,
+      "version": null,
+      "expected_md5": "693fd3c126cccecca1ce43f09ed3f488"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/x/xerces-c/libxerces-c3.2t64_3.2.4%2bdebian-1.2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxerces-c3.2t64_3.2.4+debian-1.2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 919492,
+      "version": null,
+      "expected_md5": "b2a5939a01696e03e18bb48abf63b501"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gdal/libgdal34t64_3.8.4%2bdfsg-3ubuntu3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgdal34t64_3.8.4+dfsg-3ubuntu3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 8346038,
+      "version": null,
+      "expected_md5": "97d8a77fb29831d28565196e58d59061"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/socket%2b%2b/libsocket%2b%2b1_1.12.13%2bgit20131030.5d039ba-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsocket++1_1.12.13+git20131030.5d039ba-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 83124,
+      "version": null,
+      "expected_md5": "a21e40552d016a55de216eb23c6eda3a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gdcm/libgdcm3.0t64_3.0.22-2.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgdcm3.0t64_3.0.22-2.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2159552,
+      "version": null,
+      "expected_md5": "43ad15511edf508474cd41aaf38c419e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gdcm/libgdcm-dev_3.0.22-2.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgdcm-dev_3.0.22-2.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 268342,
+      "version": null,
+      "expected_md5": "e41575e06ef11236305ad8bbd4cc129f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xorg-sgml-doctools/xorg-sgml-doctools_1.11-1.1_all.deb",
+      "path": "Ubuntu24.04/debs/xorg-sgml-doctools_1%3a1.11-1.1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 10936,
+      "version": null,
+      "expected_md5": "cd9ce4694a205d3d61711d88a256e3aa"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xorgproto/x11proto-dev_2023.2-1_all.deb",
+      "path": "Ubuntu24.04/debs/x11proto-dev_2023.2-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 602398,
+      "version": null,
+      "expected_md5": "2110948885ae787ca787f2cb0886b1ca"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxau/libxau-dev_1.0.9-1build6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxau-dev_1%3a1.0.9-1build6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 9570,
+      "version": null,
+      "expected_md5": "56019f76dde0281a3299089216f5365c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxdmcp/libxdmcp-dev_1.1.3-0ubuntu6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxdmcp-dev_1%3a1.1.3-0ubuntu6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 26546,
+      "version": null,
+      "expected_md5": "6ba509d3ae63287d24e91c3f992202f0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xtrans/xtrans-dev_1.4.0-1_all.deb",
+      "path": "Ubuntu24.04/debs/xtrans-dev_1.4.0-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 68900,
+      "version": null,
+      "expected_md5": "5411362f7caeccc1185750f3a1a508ee"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpthread-stubs/libpthread-stubs0-dev_0.4-1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpthread-stubs0-dev_0.4-1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 4746,
+      "version": null,
+      "expected_md5": "8e587f51b32cf51ed54c0734840432d9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb1-dev_1.15-1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxcb1-dev_1.15-1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 85790,
+      "version": null,
+      "expected_md5": "1e4450158a96673730029fda74fdfac6"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-dev_1.8.7-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libx11-dev_2%3a1.8.7-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 732214,
+      "version": null,
+      "expected_md5": "2a03588b44bef136220307722f125d25"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglx-dev_1.7.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libglx-dev_1.7.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 14176,
+      "version": null,
+      "expected_md5": "0b7f10cac89597d51141b90b5957a6eb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgl-dev_1.7.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgl-dev_1.7.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 102444,
+      "version": null,
+      "expected_md5": "a4661a89456c0a50a3d9b28b4cda7727"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gl2ps/libgl2ps1.4_1.4.2%2bdfsg1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgl2ps1.4_1.4.2+dfsg1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 41878,
+      "version": null,
+      "expected_md5": "4d55e2006bb2bc38404d57373b254389"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/glew/libglew2.2_2.2.0-4build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libglew2.2_2.2.0-4build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 187350,
+      "version": null,
+      "expected_md5": "b96660811d18c1bc0df3428452d6254d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libgphoto2/libgphoto2-port12t64_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgphoto2-port12t64_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 59212,
+      "version": null,
+      "expected_md5": "a89a6604f1d0faa71d68ed8b47f76cf4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libgphoto2/libgphoto2-6t64_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgphoto2-6t64_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 734596,
+      "version": null,
+      "expected_md5": "e967fa72d167bec4fe08e04322911694"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pkgconf/libpkgconf3_1.8.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpkgconf3_1.8.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 30652,
+      "version": null,
+      "expected_md5": "40969863ecb34e9446e8ed662ed6f9cd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pkgconf/pkgconf-bin_1.8.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/pkgconf-bin_1.8.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 20730,
+      "version": null,
+      "expected_md5": "84aa73f080be531f0759615085121e1b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pkgconf/pkgconf_1.8.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/pkgconf_1.8.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 16790,
+      "version": null,
+      "expected_md5": "1fdee02605eadac55057164180d2ec0e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pkgconf/pkg-config_1.8.1-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/pkg-config_1.8.1-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 7264,
+      "version": null,
+      "expected_md5": "051c0709cd8776eef3b127e11185e426"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libgphoto2/libgphoto2-dev_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libgphoto2-dev_2.5.31-2.1ubuntu1.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 33184,
+      "version": null,
+      "expected_md5": "d56ac38321162946bbe9118c16fd4547"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libgphoto2/libgphoto2-l10n_2.5.31-2.1ubuntu1.1_all.deb",
+      "path": "Ubuntu24.04/debs/libgphoto2-l10n_2.5.31-2.1ubuntu1.1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 15602,
+      "version": null,
+      "expected_md5": "cf3c2e6240ef3ec14260f832e62962cd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/h/hwloc/libhwloc15_2.10.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhwloc15_2.10.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 172340,
+      "version": null,
+      "expected_md5": "4d19fedf98522278127cf486636ea541"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu-dev_74.2-1ubuntu3.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libicu-dev_74.2-1ubuntu3.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 11892666,
+      "version": null,
+      "expected_md5": "7f73398bf0378f2c47c158210d6275ea"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/imath/libimath-3-1-29t64_3.1.9-3.1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libimath-3-1-29t64_3.1.9-3.1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 72248,
+      "version": null,
+      "expected_md5": "d9fdbd2e90168fcc4d5f8ce7d98bcf27"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/imath/libimath-dev_3.1.9-3.1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libimath-dev_3.1.9-3.1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 115276,
+      "version": null,
+      "expected_md5": "a5b61c75afcf863f3b7428f96a82e697"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8-dev_2.1.5-2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjpeg-turbo8-dev_2.1.5-2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 294776,
+      "version": null,
+      "expected_md5": "c4fc40cfe77f60afe10e647c05482ea5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg8-dev_8c-2ubuntu11_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjpeg8-dev_8c-2ubuntu11_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1484,
+      "version": null,
+      "expected_md5": "713833d2d17eb42b1b5b1546f757d44e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg-dev_8c-2ubuntu11_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjpeg-dev_8c-2ubuntu11_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1482,
+      "version": null,
+      "expected_md5": "743deecf33daebc7b37993b49db94cf5"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/node-jquery/libjs-jquery_3.6.1%2bdfsg%2b%7e3.5.14-1_all.deb",
+      "path": "Ubuntu24.04/debs/libjs-jquery_3.6.1+dfsg+~3.5.14-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 327720,
+      "version": null,
+      "expected_md5": "8a0fa1eaa400b699f1ab3b01aa4ffd5b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/underscore/libjs-underscore_1.13.4%7edfsg%2b%7e1.11.4-3_all.deb",
+      "path": "Ubuntu24.04/debs/libjs-underscore_1.13.4~dfsg+~1.11.4-3_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 117876,
+      "version": null,
+      "expected_md5": "fef398fcc563c32ee9cc981fae2e87ca"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/sphinx/libjs-sphinxdoc_7.2.6-6_all.deb",
+      "path": "Ubuntu24.04/debs/libjs-sphinxdoc_7.2.6-6_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 149488,
+      "version": null,
+      "expected_md5": "d7127d4eeb43edad3ba60d3468a821e0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/l/leptonlib/liblept5_1.82.0-3build4_amd64.deb",
+      "path": "Ubuntu24.04/debs/liblept5_1.82.0-3build4_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1099276,
+      "version": null,
+      "expected_md5": "f9f9574508f1a035e4116cb7ad58d964"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/lerc/liblerc-dev_4.0.0%2bds-4ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/liblerc-dev_4.0.0+ds-4ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 182412,
+      "version": null,
+      "expected_md5": "670f9ae70449a6edf651ac18a5878eaf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/md4c/libmd4c0_0.4.8-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libmd4c0_0.4.8-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 42274,
+      "version": null,
+      "expected_md5": "99dd883f90ea85bc7f7e252752d0ec09"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/onetbb/libtbbmalloc2_2021.11.0-2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtbbmalloc2_2021.11.0-2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 60542,
+      "version": null,
+      "expected_md5": "05b2ad7402e0991bf97e39dc48af32e4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/onetbb/libtbbbind-2-5_2021.11.0-2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtbbbind-2-5_2021.11.0-2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 16442,
+      "version": null,
+      "expected_md5": "fdab61772dccaec8ceb7a106c021069c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/onetbb/libtbb12_2021.11.0-2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtbb12_2021.11.0-2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 106374,
+      "version": null,
+      "expected_md5": "00f5f90c34a9acc7fa3f39f415d0f849"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-core406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-core406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1201528,
+      "version": null,
+      "expected_md5": "cbf7c27e698b3c3c5c4ae2299af4eaf4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-flann406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-flann406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 134074,
+      "version": null,
+      "expected_md5": "fcf0689cad8705223e035a24cd741c59"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-imgproc406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-imgproc406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1459894,
+      "version": null,
+      "expected_md5": "79fbc0d7ab7255b92070e176ef5ef957"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-features2d406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-features2d406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 272690,
+      "version": null,
+      "expected_md5": "c765833570595ee5e887f28f9fc41717"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-calib3d406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-calib3d406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 697514,
+      "version": null,
+      "expected_md5": "80e0961382b84d4f296d85f7b19129c6"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/onetbb/libtbb-dev_2021.11.0-2ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtbb-dev_2021.11.0-2ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 253278,
+      "version": null,
+      "expected_md5": "53ef0ea4c11a9a8bfc996b1affbe957a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-core-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-core-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2017320,
+      "version": null,
+      "expected_md5": "710f017b9f7b95f74bcaf8fa2569ab25"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-flann-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-flann-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 207076,
+      "version": null,
+      "expected_md5": "7a3e1ed67189dce4911c5703e8415573"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/openexr/libopenexr-3-1-30_3.1.5-5.1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopenexr-3-1-30_3.1.5-5.1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1004380,
+      "version": null,
+      "expected_md5": "75081d7e26961cb5136fda49fae04de1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-imgcodecs406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-imgcodecs406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 127684,
+      "version": null,
+      "expected_md5": "ad5d6041bae0cbd94cfb08336a1e4f56"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/pcre2/libpcre2-16-0_10.42-4ubuntu2.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpcre2-16-0_10.42-4ubuntu2.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 210092,
+      "version": null,
+      "expected_md5": "2dbd595174fa85b0dd097a5e52e74c97"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5core5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5core5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2010540,
+      "version": null,
+      "expected_md5": "1c90c8f8799a7e6afd385751cc3ffa9b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5dbus5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5dbus5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 219892,
+      "version": null,
+      "expected_md5": "3617853076553409b3675485edefa680"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5network5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5network5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 722778,
+      "version": null,
+      "expected_md5": "35d87ea263ed95963ac76fa4f7ac0c40"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xinerama0_1.15-1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxcb-xinerama0_1.15-1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5410,
+      "version": null,
+      "expected_md5": "ca58c6e8a698bf70b04771a0b2d9b829"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xinput0_1.15-1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxcb-xinput0_1.15-1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 33240,
+      "version": null,
+      "expected_md5": "690d90c36005a7857fe323359388cb97"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5gui5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5gui5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3747576,
+      "version": null,
+      "expected_md5": "235e52d8e43268bacad7ba6d048bdc25"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5widgets5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5widgets5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2560968,
+      "version": null,
+      "expected_md5": "682c19274cb294e5309c0fe01fcb6874"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5opengl5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5opengl5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 149804,
+      "version": null,
+      "expected_md5": "ef8e0ce9070d5a80f552b00c57a30823"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/libqt5test5t64_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5test5t64_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 147612,
+      "version": null,
+      "expected_md5": "3991bd128cf6b782d5464ecd0b13edd8"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-highgui406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-highgui406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 117700,
+      "version": null,
+      "expected_md5": "6a7d5721a62b4608a29336e8be508ed2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-imgproc-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-imgproc-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1905172,
+      "version": null,
+      "expected_md5": "2c65cd84441f0d10ee88d079f9fa9ccc"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-imgcodecs-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-imgcodecs-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 203426,
+      "version": null,
+      "expected_md5": "4d7ccdb92f96266b8f6a7ee004bbfebd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libswscale7_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libswscale7_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 192938,
+      "version": null,
+      "expected_md5": "242ae768ff5787926427efb9bd88ef26"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-videoio406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-videoio406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 198558,
+      "version": null,
+      "expected_md5": "6ef9be731cf39cdcb8f72836b389c253"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-videoio-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-videoio-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 320816,
+      "version": null,
+      "expected_md5": "87618e946ca1e8b5a8e8398fec7b7de4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/openexr/libopenexr-dev_3.1.5-5.1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopenexr-dev_3.1.5-5.1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 106118,
+      "version": null,
+      "expected_md5": "3ad69df05d54d5082ba90f7e680c6e92"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng-dev_1.6.43-5ubuntu0.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpng-dev_1.6.43-5ubuntu0.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 264814,
+      "version": null,
+      "expected_md5": "83710806211c931afb8d28a45d7cee7f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libswscale-dev_6.1.1-3ubuntu5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libswscale-dev_7%3a6.1.1-3ubuntu5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 224022,
+      "version": null,
+      "expected_md5": "6109008ef38a11b2806100e4f862856d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/j/jbigkit/libjbig-dev_2.1-6.1ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libjbig-dev_2.1-6.1ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 27886,
+      "version": null,
+      "expected_md5": "a07271babc9c637491c64d051dd985e8"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xz-utils/liblzma-dev_5.6.1%2breally5.4.5-1ubuntu0.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/liblzma-dev_5.6.1+really5.4.5-1ubuntu0.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 176166,
+      "version": null,
+      "expected_md5": "b90a1f9573e19d4f2b26326cd975380e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libw/libwebp/libwebpdecoder3_1.3.2-0.4build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libwebpdecoder3_1.3.2-0.4build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 114352,
+      "version": null,
+      "expected_md5": "41934691f2bce0d42e067811996771f2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libsharpyuv-dev_1.3.2-0.4build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 16018,
+      "version": null,
+      "expected_md5": "422af6648552307752ae4c6b5554e103"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libw/libwebp/libwebp-dev_1.3.2-0.4build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libwebp-dev_1.3.2-0.4build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 366856,
+      "version": null,
+      "expected_md5": "48a96271584881e10136aba3f1fcb19a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiffxx6_4.5.1%2bgit230720-4ubuntu2.5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtiffxx6_4.5.1+git230720-4ubuntu2.5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5642,
+      "version": null,
+      "expected_md5": "ca4f88322e135b7cdc0b1295cfdc83eb"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff-dev_4.5.1%2bgit230720-4ubuntu2.5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtiff-dev_4.5.1+git230720-4ubuntu2.5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 338168,
+      "version": null,
+      "expected_md5": "bb533e4351830ec174add04db1c4d944"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-highgui-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-highgui-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 176184,
+      "version": null,
+      "expected_md5": "bc23879eeef1fb611382bdb2d239b843"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-ml406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-ml406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 207556,
+      "version": null,
+      "expected_md5": "9124324245da66355ffb513f1f19740d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-ml-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-ml-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 296520,
+      "version": null,
+      "expected_md5": "86818fc457f44c7ea7c7f27377abc4be"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-features2d-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-features2d-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 371968,
+      "version": null,
+      "expected_md5": "4390976ee7e77abce347f02d4406efc2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-calib3d-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-calib3d-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1046282,
+      "version": null,
+      "expected_md5": "0640c9aedddfc9b42b0351a663e250dc"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/libprotobuf32t64_3.21.12-8.2ubuntu0.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libprotobuf32t64_3.21.12-8.2ubuntu0.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 922638,
+      "version": null,
+      "expected_md5": "8a16ad057a06f14a104311e6f8ebf8a0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-dnn406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-dnn406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1142214,
+      "version": null,
+      "expected_md5": "69df1a3c51ac20a8b995b75a37428a73"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-objdetect406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-objdetect406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 219892,
+      "version": null,
+      "expected_md5": "f8e837cac236ae9ad939efc94946fdbc"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-video406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-video406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 178620,
+      "version": null,
+      "expected_md5": "c82c003492a87b9748765ffea3508db0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/t/tesseract/libtesseract5_5.3.4-1build5_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtesseract5_5.3.4-1build5_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1291308,
+      "version": null,
+      "expected_md5": "531a444ab26ebe7dcf8f8c244c98eca9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-contrib406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-contrib406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3967896,
+      "version": null,
+      "expected_md5": "123832c46137525b7dd1e698924acce9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-dnn-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-dnn-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1824606,
+      "version": null,
+      "expected_md5": "34597fbf717cf4386a93d67ebd13b9cd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-objdetect-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-objdetect-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 275012,
+      "version": null,
+      "expected_md5": "970fb073b7a83f172db04722c249875a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-photo406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-photo406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 200382,
+      "version": null,
+      "expected_md5": "4db43ded31dea995780a28f2bb0cb268"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-photo-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-photo-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 229702,
+      "version": null,
+      "expected_md5": "56a6214933d601006412777893eb33ec"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-shape406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-shape406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 51568,
+      "version": null,
+      "expected_md5": "42495b756d0a6a4133870e7ae62a1e11"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-video-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-video-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 253306,
+      "version": null,
+      "expected_md5": "4a9ee4f414eb01fc0dfb11aa9ae2d8bd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-shape-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-shape-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 72148,
+      "version": null,
+      "expected_md5": "fac5f491300101e30d282d255f17fe25"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-stitching406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-stitching406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 195286,
+      "version": null,
+      "expected_md5": "3f39b9d96995fc0db6446f76ef157cdd"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-stitching-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-stitching-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 263936,
+      "version": null,
+      "expected_md5": "e23a8bd3b7996997c5ce286ea0c4f05d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-superres406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-superres406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 46088,
+      "version": null,
+      "expected_md5": "7d25a2cc3e3535a637ea87656044a3e0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-superres-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-superres-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 61234,
+      "version": null,
+      "expected_md5": "81ea5569e4004041003ec4307376d440"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-videostab406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-videostab406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 76766,
+      "version": null,
+      "expected_md5": "784d18355b5fdf7dde0d4b5e06afc164"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-videostab-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-videostab-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 108796,
+      "version": null,
+      "expected_md5": "a337e01f516761451fd157095f268c05"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/munge/libmunge2_0.5.15-4ubuntu0.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libmunge2_0.5.15-4ubuntu0.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 14846,
+      "version": null,
+      "expected_md5": "040b87d11201896946d798c92806b260"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/nvidia-settings/libxnvctrl0_510.47.03-0ubuntu4.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxnvctrl0_510.47.03-0ubuntu4.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 12696,
+      "version": null,
+      "expected_md5": "08c5a1d9b9d5fd18a33f0920bf933e36"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/h/hwloc/libhwloc-plugins_2.10.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libhwloc-plugins_2.10.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 15664,
+      "version": null,
+      "expected_md5": "b79d8d241a389f36743c00a36f227a25"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/pmix/libpmix2t64_5.0.1-4.1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpmix2t64_5.0.1-4.1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 697360,
+      "version": null,
+      "expected_md5": "498550533163feaaa5a27a071555e690"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/u/ucx/libucx0_1.16.0%2bds-5ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libucx0_1.16.0+ds-5ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1139558,
+      "version": null,
+      "expected_md5": "ca83331fd1ef724652361c7bf7532e5a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/openmpi/libopenmpi3t64_4.1.6-7ubuntu2_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopenmpi3t64_4.1.6-7ubuntu2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2563070,
+      "version": null,
+      "expected_md5": "86f58e998752e21042253c2d7fc77311"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/t/tk8.6/libtk8.6_8.6.14-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libtk8.6_8.6.14-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 778878,
+      "version": null,
+      "expected_md5": "c6db418aafa404865747971b89fe5434"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/v/vtk9/libvtk9.1t64_9.1.0%2breally9.1.0%2bdfsg2-7.1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libvtk9.1t64_9.1.0+really9.1.0+dfsg2-7.1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 20252016,
+      "version": null,
+      "expected_md5": "d95697658b09fb0874762394d5303259"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-viz406t64_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-viz406t64_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 108258,
+      "version": null,
+      "expected_md5": "35e27a6219ff92d97da1f2494ee77354"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-viz-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-viz-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 185782,
+      "version": null,
+      "expected_md5": "3768842f04ad031110e69ff3af548ce1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-contrib-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-contrib-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5551966,
+      "version": null,
+      "expected_md5": "21f275dfe6a3ddc36d546bac5220c288"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-dev_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-dev_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 84240,
+      "version": null,
+      "expected_md5": "c94c36e6aa5cfd1306e7a49695ab0060"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv406-jni_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv406-jni_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 486250,
+      "version": null,
+      "expected_md5": "874b94cab40b1c3c65cb913eb5c55ed2"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/libopencv-java_4.6.0%2bdfsg-13.1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libopencv-java_4.6.0+dfsg-13.1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1002684,
+      "version": null,
+      "expected_md5": "c5853cff9cb20b203799d1580d88f3b3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpng1.6/libpng-tools_1.6.43-5ubuntu0.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpng-tools_1.6.43-5ubuntu0.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 28532,
+      "version": null,
+      "expected_md5": "0c6fc4f9cd2836dcb9cc14fa5c1d3d10"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/libpython3.12-dev_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpython3.12-dev_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5683746,
+      "version": null,
+      "expected_md5": "9b5bdb03c8c9807c43497acef01d1e49"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3-defaults/libpython3-dev_3.12.3-0ubuntu2.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libpython3-dev_3.12.3-0ubuntu2.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 10350,
+      "version": null,
+      "expected_md5": "15ce3326ab1cfede873c1b9d329e993e"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtdeclarative-opensource-src/libqt5qml5_5.15.13%2bdfsg-1ubuntu0.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5qml5_5.15.13+dfsg-1ubuntu0.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1482036,
+      "version": null,
+      "expected_md5": "d203bcd2f28a0a4177f66289a7175c4d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtdeclarative-opensource-src/libqt5qmlmodels5_5.15.13%2bdfsg-1ubuntu0.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5qmlmodels5_5.15.13+dfsg-1ubuntu0.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 202694,
+      "version": null,
+      "expected_md5": "6833db17164900568e882b8b22177a44"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtdeclarative-opensource-src/libqt5quick5_5.15.13%2bdfsg-1ubuntu0.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5quick5_5.15.13+dfsg-1ubuntu0.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1732980,
+      "version": null,
+      "expected_md5": "ad972e9a226d1e5df725903be1ae275b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtsvg-opensource-src/libqt5svg5_5.15.13-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5svg5_5.15.13-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 146010,
+      "version": null,
+      "expected_md5": "884fcf3c75620a4e326f3bc00cfb122a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtwayland-opensource-src/libqt5waylandclient5_5.15.13-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5waylandclient5_5.15.13-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 405284,
+      "version": null,
+      "expected_md5": "9dfece3dae1db58785b44e1e7c9e9d08"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtwayland-opensource-src/libqt5waylandcompositor5_5.15.13-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libqt5waylandcompositor5_5.15.13-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 396034,
+      "version": null,
+      "expected_md5": "02423706aa359a09bd61afd3513d57da"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libr/libraw1394/libraw1394-tools_2.1.2-2build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libraw1394-tools_2.1.2-2build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 16838,
+      "version": null,
+      "expected_md5": "c1e7b2989624a3a83b9e7af9413d2d0b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/v/vulkan-loader/libvulkan-dev_1.3.275.0-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libvulkan-dev_1.3.275.0-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1238904,
+      "version": null,
+      "expected_md5": "d97a8e45b69dbe3319f5ede03850bec4"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libw/libwebsockets/libwebsockets19t64_4.3.3-1.1build3_amd64.deb",
+      "path": "Ubuntu24.04/debs/libwebsockets19t64_4.3.3-1.1build3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 229104,
+      "version": null,
+      "expected_md5": "28d6da76b34ba3a93eff0a88272783ce"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2-dev_2.9.14%2bdfsg-1.3ubuntu3.9_amd64.deb",
+      "path": "Ubuntu24.04/debs/libxml2-dev_2.9.14+dfsg-1.3ubuntu3.9_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 781202,
+      "version": null,
+      "expected_md5": "b84f0eb494bb675762c116819a943ea3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-common-dev_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-common-dev_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 3133534,
+      "version": null,
+      "expected_md5": "13257978f0491fdc3b08c5a027cb7259"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 164440,
+      "version": null,
+      "expected_md5": "454d7a15522d12af80c10e18508c0dbf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mesa/mesa-va-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-va-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 6778,
+      "version": null,
+      "expected_md5": "3a86bb7fd55ca1820719fa32b032809c"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-vdpau-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-vdpau-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 23336,
+      "version": null,
+      "expected_md5": "c9c6f45c7adcc348d10cd4a8dbf29357"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-vulkan-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-vulkan-drivers_25.2.8-0ubuntu0.24.04.3_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 17492698,
+      "version": null,
+      "expected_md5": "316d5b44c68fbb70b4d1467a7bbf6ab1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/n/ninja-build/ninja-build_1.11.1-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/ninja-build_1.11.1-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 128926,
+      "version": null,
+      "expected_md5": "8ba5c12c2f44b58855a6bd0558ae3fda"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/n/node-markdown-it/node-markdown-it_22.2.3%2bdfsg%2b%7e12.2.3-2_all.deb",
+      "path": "Ubuntu24.04/debs/node-markdown-it_22.2.3+dfsg+~12.2.3-2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 81354,
+      "version": null,
+      "expected_md5": "4a33554d10b51b37702c5ee814b35be7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/opencv/opencv-data_4.6.0%2bdfsg-13.1ubuntu1_all.deb",
+      "path": "Ubuntu24.04/debs/opencv-data_4.6.0+dfsg-13.1ubuntu1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1355454,
+      "version": null,
+      "expected_md5": "1c73c5d255da6c4bcbe943164b1400ac"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3.12/python3.12-dev_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/python3.12-dev_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 497932,
+      "version": null,
+      "expected_md5": "867be8dcf1c9d5b9ae86417110b0db8b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/p/python3-defaults/python3-dev_3.12.3-0ubuntu2.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/python3-dev_3.12.3-0ubuntu2.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 26698,
+      "version": null,
+      "expected_md5": "98443af082654c7e13d241efa1db43e0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/setuptools/python3-setuptools_68.1.2-2ubuntu1.2_all.deb",
+      "path": "Ubuntu24.04/debs/python3-setuptools_68.1.2-2ubuntu1.2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 396614,
+      "version": null,
+      "expected_md5": "7db4baefd33b5a5cde33f66da6304bb1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/w/wheel/python3-wheel_0.42.0-2_all.deb",
+      "path": "Ubuntu24.04/debs/python3-wheel_0.42.0-2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 53052,
+      "version": null,
+      "expected_md5": "e26307ee1d62ce9bdcbbe0d6f1876c00"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/python-pip/python3-pip_24.0%2bdfsg-1ubuntu1.3_all.deb",
+      "path": "Ubuntu24.04/debs/python3-pip_24.0+dfsg-1ubuntu1.3_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1319940,
+      "version": null,
+      "expected_md5": "72e987a5a67264594f3b0ef417287203"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/python-pip/python3-pip-whl_24.0%2bdfsg-1ubuntu1.3_all.deb",
+      "path": "Ubuntu24.04/debs/python3-pip-whl_24.0+dfsg-1ubuntu1.3_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1706638,
+      "version": null,
+      "expected_md5": "b64dbf00316e9681ae7f634e440227a9"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/s/setuptools/python3-setuptools-whl_68.1.2-2ubuntu1.2_all.deb",
+      "path": "Ubuntu24.04/debs/python3-setuptools-whl_68.1.2-2ubuntu1.2_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 716284,
+      "version": null,
+      "expected_md5": "646c089a4d4a8da594059af850716589"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/python3.12/python3.12-venv_3.12.3-1ubuntu0.17_amd64.deb",
+      "path": "Ubuntu24.04/debs/python3.12-venv_3.12.3-1ubuntu0.17_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5684,
+      "version": null,
+      "expected_md5": "e791b7c98b475c05ddc89322182095e8"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtbase-opensource-src/qt5-gtk-platformtheme_5.15.13%2bdfsg-1ubuntu1_amd64.deb",
+      "path": "Ubuntu24.04/debs/qt5-gtk-platformtheme_5.15.13+dfsg-1ubuntu1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 124894,
+      "version": null,
+      "expected_md5": "806844b5ecf94db94f577fe0fc54bb41"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qttranslations-opensource-src/qttranslations5-l10n_5.15.13-1_all.deb",
+      "path": "Ubuntu24.04/debs/qttranslations5-l10n_5.15.13-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1964478,
+      "version": null,
+      "expected_md5": "6034e7cf81f1c59390f379fa6265a988"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/q/qtwayland-opensource-src/qtwayland5_5.15.13-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/qtwayland5_5.15.13-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 222744,
+      "version": null,
+      "expected_md5": "53d6e3f67d5f916b0191625c67179aaf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/rfkill_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/rfkill_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 20196,
+      "version": null,
+      "expected_md5": "7a1e979920c25dadbc27c34f52391a95"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/intel-vaapi-driver/i965-va-driver_2.4.1%2bdfsg1-1ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/i965-va-driver_2.4.1+dfsg1-1ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 332252,
+      "version": null,
+      "expected_md5": "0be313e00ef203c8572d07c2b2a749d7"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/libv/libva/va-driver-all_2.20.0-2ubuntu0.2_amd64.deb",
+      "path": "Ubuntu24.04/debs/va-driver-all_2.20.0-2ubuntu0.2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 5014,
+      "version": null,
+      "expected_md5": "deffa7ece6e6989957fce9c5bb97614b"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libv/libvdpau/vdpau-driver-all_1.5-2build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/vdpau-driver-all_1.5-2build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 4414,
+      "version": null,
+      "expected_md5": "c8198017ad753d87c1e5a8420a846e4f"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/v/vulkan-tools/vulkan-tools_1.3.275.0%2bdfsg1-1_amd64.deb",
+      "path": "Ubuntu24.04/debs/vulkan-tools_1.3.275.0+dfsg1-1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 298102,
+      "version": null,
+      "expected_md5": "dfdfc39cf29c1e6b26b86af40602daba"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/numactl/libnuma-dev_2.0.18-1ubuntu0.24.04.1_amd64.deb",
+      "path": "Ubuntu24.04/debs/libnuma-dev_2.0.18-1ubuntu0.24.04.1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 36996,
+      "version": null,
+      "expected_md5": "6de26d274e00e2015b6c906c68ed57d3"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mesa-demos/mesa-utils_9.0.0-2_amd64.deb",
+      "path": "Ubuntu24.04/debs/mesa-utils_9.0.0-2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 1051400,
+      "version": null,
+      "expected_md5": "7bc2ccaed604bc14a4b82ddf3373bf20"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/k/khronos-opencl-headers/opencl-c-headers_3.0%7e2023.12.14-1_all.deb",
+      "path": "Ubuntu24.04/debs/opencl-c-headers_3.0~2023.12.14-1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 58666,
+      "version": null,
+      "expected_md5": "bbd99b38457729ff37365605076874b8"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/k/khronos-opencl-clhpp/opencl-clhpp-headers_3.0%7e2023.12.14-1ubuntu1_all.deb",
+      "path": "Ubuntu24.04/debs/opencl-clhpp-headers_3.0~2023.12.14-1ubuntu1_all.deb",
+      "expected_sha256": null,
+      "expected_bytes": 50546,
+      "version": null,
+      "expected_md5": "f857611804123d508bbb32076bb0804d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/o/ocl-icd/ocl-icd-opencl-dev_2.3.2-1build1_amd64.deb",
+      "path": "Ubuntu24.04/debs/ocl-icd-opencl-dev_2.3.2-1build1_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 2448,
+      "version": null,
+      "expected_md5": "039837033886a59d70d8780cb120bb44"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/proj/proj-bin_9.4.0-1build2_amd64.deb",
+      "path": "Ubuntu24.04/debs/proj-bin_9.4.0-1build2_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 163914,
+      "version": null,
+      "expected_md5": "0a13c36c35722edaf53799689ef53c5d"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/util-linux/uuid-dev_2.39.3-9ubuntu6.6_amd64.deb",
+      "path": "Ubuntu24.04/debs/uuid-dev_2.39.3-9ubuntu6.6_amd64.deb",
+      "expected_sha256": null,
+      "expected_bytes": 33546,
+      "version": null,
+      "expected_md5": "dd2aaa66893bdb873867a5b6d6b8845c"
+    }
+  ],
+  "notes": [
+    "Ubuntu dependency requires later review: libdrm-amdgpu-amdgpu1",
+    "Ubuntu dependency requires later review: libdrm-amdgpu-dev",
+    "Ubuntu dependency requires later review: libelf1",
+    "Ubuntu dependency requires later review: libgcc-5-dev",
+    "Ubuntu dependency requires later review: libstdc++-5-dev",
+    "Ubuntu dependency requires later review: libtinfo-dev",
+    "NPU model metadata unavailable: <urlopen error [Errno 104] Connection reset by peer>"
+  ],
+  "ubuntu_dependencies": [
+    "dkms",
+    "file",
+    "fonts-katex",
+    "init-system-helpers",
+    "jq",
+    "libatomic1",
+    "libavcodec-dev",
+    "libavformat-dev",
+    "libavutil-dev",
+    "libboost-filesystem1.83.0",
+    "libboost-program-options1.83.0",
+    "libbrotli-dev",
+    "libbrotli1",
+    "libbz2-1.0",
+    "libc6",
+    "libcap2",
+    "libcurl4t64",
+    "libdrm-amdgpu-amdgpu1",
+    "libdrm-amdgpu-dev",
+    "libdrm-amdgpu1",
+    "libelf-dev",
+    "libelf1",
+    "libexpat1",
+    "libgcc-5-dev",
+    "libgcc-s1",
+    "libgmp10",
+    "libgomp1",
+    "liblzma5",
+    "libmbedcrypto7t64",
+    "libmpfr6",
+    "libncursesw6",
+    "libnuma-dev",
+    "libnuma1",
+    "libopencv-dev",
+    "libprotobuf32t64",
+    "libsqlite3-0",
+    "libssl-dev",
+    "libssl3t64",
+    "libstdc++-5-dev",
+    "libstdc++6",
+    "libswscale-dev",
+    "libsystemd0",
+    "libtinfo-dev",
+    "libtinfo6",
+    "libuuid1",
+    "libwebsockets19t64",
+    "libxml2-dev",
+    "libzstd1",
+    "mesa-common-dev",
+    "node-markdown-it",
+    "ocl-icd-libopencl1",
+    "ocl-icd-opencl-dev",
+    "pciutils",
+    "pkg-config",
+    "python3",
+    "python3-dev",
+    "python3-pip",
+    "python3-setuptools",
+    "python3-wheel",
+    "sudo",
+    "unzip",
+    "xdg-utils",
+    "zlib1g",
+    "zlib1g-dev"
+  ],
+  "rocm_packages": 86,
+  "known_bytes": 6845319575
+}

@@ -1,0 +1,118 @@
+$ lsmod
+Module                  Size  Used by
+exfat                 110592  1
+uas                    32768  1
+usb_storage            86016  1 uas
+rfcomm                 98304  4
+snd_seq_dummy          12288  0
+snd_hrtimer            12288  1
+ccm                    20480  0
+qrtr                   53248  2
+cmac                   12288  3
+algif_hash             16384  1
+algif_skcipher         12288  1
+af_alg                 32768  6 algif_hash,algif_skcipher
+bnep                   32768  2
+binfmt_misc            24576  1
+amd_atl                69632  1
+intel_rapl_msr         20480  0
+nls_iso8859_1          12288  1
+intel_rapl_common      53248  1 intel_rapl_msr
+snd_hda_codec_alc269   139264  1
+snd_hda_scodec_component    20480  1 snd_hda_codec_alc269
+snd_hda_codec_realtek_lib    65536  1 snd_hda_codec_alc269
+snd_hda_codec_generic   122880  2 snd_hda_codec_realtek_lib,snd_hda_codec_alc269
+amdgpu              20094976  17
+edac_mce_amd           28672  0
+snd_hda_codec_atihdmi    24576  1
+snd_hda_codec_hdmi     65536  1 snd_hda_codec_atihdmi
+snd_hda_intel          61440  2
+snd_hda_codec         204800  6 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec_realtek_lib,snd_hda_codec_alc269,snd_hda_codec_atihdmi
+snd_hda_core          143360  7 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_codec_realtek_lib,snd_hda_codec_alc269,snd_hda_codec_atihdmi
+snd_intel_dspcfg       45056  1 snd_hda_intel
+snd_intel_sdw_acpi     16384  1 snd_intel_dspcfg
+snd_hwdep              24576  1 snd_hda_codec
+mt7925e                24576  0
+mt7925_common         159744  1 mt7925e
+snd_pcm               200704  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+mt792x_lib             73728  2 mt7925e,mt7925_common
+kvm_amd               241664  0
+mt76_connac_lib       110592  3 mt792x_lib,mt7925e,mt7925_common
+snd_seq_midi           24576  0
+mt76                  155648  4 mt792x_lib,mt7925e,mt76_connac_lib,mt7925_common
+kvm                  1445888  1 kvm_amd
+snd_seq_midi_event     16384  1 snd_seq_midi
+btusb                  77824  0
+amdxcp                 12288  1 amdgpu
+btrtl                  32768  1 btusb
+snd_rawmidi            57344  1 snd_seq_midi
+drm_panel_backlight_quirks    12288  1 amdgpu
+mac80211             1851392  4 mt792x_lib,mt76,mt76_connac_lib,mt7925_common
+drm_buddy              28672  1 amdgpu
+btintel                69632  1 btusb
+drm_ttm_helper         16384  2 amdgpu
+btbcm                  24576  1 btusb
+ttm                   126976  2 amdgpu,drm_ttm_helper
+btmtk                  36864  1 btusb
+drm_exec               12288  1 amdgpu
+snd_seq               122880  9 snd_seq_midi,snd_seq_midi_event,snd_seq_dummy
+drm_suballoc_helper    24576  1 amdgpu
+irqbypass              16384  1 kvm
+drm_display_helper    290816  1 amdgpu
+polyval_clmulni        12288  0
+snd_seq_device         16384  3 snd_seq,snd_seq_midi,snd_rawmidi
+ghash_clmulni_intel    12288  0
+spd5118                12288  0
+snd_timer              53248  3 snd_seq,snd_hrtimer,snd_pcm
+aesni_intel            98304  3
+cec                    98304  2 drm_display_helper,amdgpu
+bluetooth            1024000  34 btrtl,btmtk,btintel,btbcm,bnep,btusb,rfcomm
+wmi_bmof               12288  0
+rapl                   20480  0
+rc_core                73728  1 cec
+cfg80211             1462272  4 mt76,mac80211,mt76_connac_lib,mt7925_common
+amdxdna               147456  0
+snd                   143360  18 snd_hda_codec_generic,snd_seq,snd_seq_device,snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_timer,snd_hda_codec_realtek_lib,snd_hda_codec_alc269,snd_pcm,snd_rawmidi
+k10temp                16384  0
+i2c_piix4              32768  0
+i2c_smbus              20480  1 i2c_piix4
+i2c_algo_bit           16384  1 amdgpu
+gpu_sched              65536  2 amdxdna,amdgpu
+ccp                   159744  1 kvm_amd
+soundcore              16384  1 snd
+libarc4                12288  1 mac80211
+joydev                 32768  0
+amd_pmc                49152  0
+input_leds             12288  0
+serio_raw              20480  0
+mac_hid                12288  0
+sch_fq_codel           24576  3
+msr                    12288  0
+parport_pc             53248  0
+ppdev                  24576  0
+lp                     32768  0
+parport                73728  3 parport_pc,lp,ppdev
+efi_pstore             12288  0
+nfnetlink              20480  1
+dmi_sysfs              20480  0
+ip_tables              32768  0
+x_tables               65536  1 ip_tables
+autofs4                57344  2
+hid_logitech_hidpp     65536  0
+hid_logitech_dj        36864  0
+hid_generic            12288  0
+usbhid                 77824  2 hid_logitech_dj,hid_logitech_hidpp
+nvme                   61440  2
+amd_sfh                65536  0
+nvme_core             233472  3 nvme
+psmouse               217088  0
+thunderbolt           540672  0
+hid                   262144  5 usbhid,hid_generic,amd_sfh,hid_logitech_dj,hid_logitech_hidpp
+r8169                 139264  0
+nvme_keyring           20480  1 nvme_core
+video                  77824  1 amdgpu
+realtek                49152  2
+nvme_auth              28672  1 nvme_core
+wmi                    28672  2 video,wmi_bmof
+
+[returncode] 0

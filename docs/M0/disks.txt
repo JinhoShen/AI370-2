@@ -1,0 +1,35 @@
+$ bash -c lsblk -b -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS,MODEL,TRAN; df -B1 -T; findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS /; swapon --show --bytes
+NAME                 SIZE TYPE FSTYPE   MOUNTPOINTS                         MODEL          TRAN
+loop0                4096 loop squashfs /snap/bare/5                                       
+loop1            77549568 loop squashfs /snap/core22/2292                                  
+loop2            77574144 loop squashfs /snap/core22/2955                                  
+loop3            70033408 loop squashfs /snap/core24/2124                                  
+loop4           263892992 loop squashfs /snap/firefox/7766                                 
+loop5           274079744 loop squashfs /snap/firefox/8969                                 
+loop6            19386368 loop squashfs /snap/firmware-updater/210                         
+loop7           557187072 loop squashfs /snap/gnome-42-2204/247                            
+loop8            96141312 loop squashfs /snap/gtk-common-themes/1535                       
+loop9           645148672 loop squashfs /snap/gnome-46-2404/168                            
+loop10          421507072 loop squashfs /snap/mesa-2404/1839                               
+loop11           11354112 loop squashfs /snap/snap-store/1270                              
+loop12           50421760 loop squashfs /snap/snapd/25935                                  
+loop13             589824 loop squashfs /snap/snapd-desktop-integration/343                
+sda         1000204886016 disk                                              PSSD T7        usb
+`-sda1      1000202273280 part exfat    /media/shen/T7                                     
+nvme0n1     1000204886016 disk                                              CT1000P310SSD8 nvme
+|-nvme0n1p1    1127219200 part vfat     /boot/efi                                          nvme
+`-nvme0n1p2  999074824192 part ext4     /                                                  nvme
+Filesystem     Type         1B-blocks         Used    Available Use% Mounted on
+tmpfs          tmpfs       5010313216      2744320   5007568896   1% /run
+/dev/nvme0n1p2 ext4      982240026624 200285499392 731984011264  22% /
+tmpfs          tmpfs      25051553792            0  25051553792   0% /dev/shm
+tmpfs          tmpfs          5242880        12288      5230592   1% /run/lock
+efivarfs       efivarfs        131072        50197        75755  40% /sys/firmware/efi/efivars
+/dev/nvme0n1p1 vfat        1124999168      6438912   1118560256   1% /boot/efi
+tmpfs          tmpfs       5010309120       147456   5010161664   1% /run/user/1000
+/dev/sda1      exfat    1000169668608 790158245888 210011422720  80% /media/shen/T7
+/dev/nvme0n1p2 /      ext4   rw,relatime
+NAME      TYPE       SIZE   USED PRIO
+/swap.img file 8589930496 352256   -2
+
+[returncode] 0

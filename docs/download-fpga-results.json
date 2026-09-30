@@ -1,0 +1,41 @@
+[
+  {
+    "url": "https://codeload.github.com/Xilinx/XilinxBoardStore/tar.gz/40fad97cf36f3d856c6759d83c2390de1566ffa7",
+    "path": "FPGA/Board-and-Platform-Sources/Xilinx-XilinxBoardStore-40fad97cf36f.tar.gz",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "40fad97cf36f3d856c6759d83c2390de1566ffa7",
+    "sha256": "0fde023aba20b693394c40e611b1702b61a7b07741435527476e9ceac99ee61b",
+    "bytes": 302986952,
+    "final_url": "https://codeload.github.com/Xilinx/XilinxBoardStore/tar.gz/40fad97cf36f3d856c6759d83c2390de1566ffa7",
+    "ok": true,
+    "verification": "HTTP length + local SHA256"
+  },
+  {
+    "url": "https://codeload.github.com/Digilent/vivado-boards/tar.gz/36f34ab687b7fa9c778b779d027f3bce63b3ace9",
+    "path": "FPGA/Board-and-Platform-Sources/Digilent-vivado-boards-36f34ab687b7.tar.gz",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "36f34ab687b7fa9c778b779d027f3bce63b3ace9",
+    "sha256": "f87ead045f21873e99234d8f4c4d6e3b8bb35da8dbffac64167f06d94a3532d6",
+    "bytes": 416339,
+    "final_url": "https://codeload.github.com/Digilent/vivado-boards/tar.gz/36f34ab687b7fa9c778b779d027f3bce63b3ace9",
+    "ok": true,
+    "verification": "HTTP length + local SHA256"
+  },
+  {
+    "url": "https://codeload.github.com/Xilinx/Vitis_Embedded_Platform_Source/tar.gz/f7bdd9f5c8ef52636b138f3bbe751148d9690de1",
+    "path": "FPGA/Board-and-Platform-Sources/Xilinx-Vitis_Embedded_Platform_Source-f7bdd9f5c8ef.tar.gz",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "f7bdd9f5c8ef52636b138f3bbe751148d9690de1",
+    "sha256": "8f6d5035fdb6cf342ee6141fe02f2d7512db1e934bbf383a10feaf04d47fb267",
+    "bytes": 1499505,
+    "final_url": "https://codeload.github.com/Xilinx/Vitis_Embedded_Platform_Source/tar.gz/f7bdd9f5c8ef52636b138f3bbe751148d9690de1",
+    "ok": true,
+    "verification": "HTTP length + local SHA256"
+  }
+]

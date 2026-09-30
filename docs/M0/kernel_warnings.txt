@@ -1,0 +1,14 @@
+$ journalctl -b -k -p warning --no-pager
+Sep 30 14:09:58 shen-AI-Series kernel: RDSEED32 is broken. Disabling the corresponding CPUID bit.
+Sep 30 14:09:58 shen-AI-Series kernel: ACPI: IRQ 1 override to edge, low(!)
+Sep 30 14:09:58 shen-AI-Series kernel: i8042: PNP: PS/2 appears to have AUX port disabled, if this is incorrect please boot with i8042.nopnp
+Sep 30 14:09:58 shen-AI-Series kernel: device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+Sep 30 14:09:58 shen-AI-Series kernel: Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
+Sep 30 14:10:00 shen-AI-Series kernel: nvme nvme0: using unchecked data buffer
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] Failed to setup vendor infoframe on connector HDMI-A-1: -22 
+Sep 30 14:11:21 shen-AI-Series kernel: kauditd_printk_skb: 152 callbacks suppressed
+Sep 30 14:11:34 shen-AI-Series kernel: warning: `Socket Thread' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+Sep 30 14:41:49 shen-AI-Series kernel: exFAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+Sep 30 15:00:14 shen-AI-Series kernel: kauditd_printk_skb: 1 callbacks suppressed
+
+[returncode] 0

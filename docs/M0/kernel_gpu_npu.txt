@@ -1,0 +1,82 @@
+$ bash -c journalctl -b -k --no-pager | rg -i 'amdgpu|amdxdna|kfd|firmware.*(error|fail)'
+Sep 30 14:09:58 shen-AI-Series kernel: amdxdna 0000:c6:00.1: enabling device (0000 -> 0002)
+Sep 30 14:09:58 shen-AI-Series kernel: [drm] Initialized amdxdna_accel_driver 0.0.0 for 0000:c6:00.1 on minor 0
+Sep 30 14:09:59 shen-AI-Series kernel: [drm] amdgpu kernel modesetting enabled.
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu: Virtual CRAT table created for CPU
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu: Topology: Add CPU node
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: enabling device (0006 -> 0007)
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: initializing kernel modesetting (IP DISCOVERY 0x1002:0x150E 0x1F4C:0xB020 0xC1).
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: register mmio base: 0xDC500000
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: register mmio size: 524288
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 0 <soc21_common>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 1 <gmc_v11_0>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 2 <ih_v6_1>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 3 <psp>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 4 <smu>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 5 <dm>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 6 <gfx_v11_0>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 7 <sdma_v6_0>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 8 <vcn_v4_0_5>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 9 <jpeg_v4_0_5>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 10 <mes_v11_0>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 11 <vpe_v6_1>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: detected ip block number 12 <isp_ip>
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: Fetched VBIOS from VFCT
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu: ATOM BIOS: 113-STRIXEMU-001
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: VPE: collaborate mode false
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] Optional firmware "amdgpu/isp_4_1_0.bin" was not found
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: Trusted Memory Zone (TMZ) feature disabled as experimental (default)
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: vm size is 262144 GB, 4 levels, block size is 9-bit, fragment size is 9-bit
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: VRAM: 16384M 0x0000008000000000 - 0x00000083FFFFFFFF (16384M used)
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: GART: 512M 0x00007FFF00000000 - 0x00007FFF1FFFFFFF
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: amdgpu: 16384M of VRAM memory ready
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: amdgpu: 23891M of GTT memory ready.
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] Loading DMUB firmware via PSP: version=0x09002C01
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: Found VCN firmware Version ENC: 1.24 DEC: 9 VEP: 0 Revision: 13
+Sep 30 14:09:59 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: reserve 0x8900000 from 0x83e0000000 for PSP TMR
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: RAS: optional ras ta ucode is not available
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: RAP: optional rap ta ucode is not available
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: SECUREDISPLAY: optional securedisplay ta ucode is not available
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: SMU is initialized successfully!
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] Display Core v3.2.340 initialized on DCN 3.5
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] DP-HDMI FRL PCON supported
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] DMUB hardware initialized: version=0x09002C01
+Sep 30 14:10:00 shen-AI-Series kernel: snd_hda_intel 0000:c5:00.1: bound 0000:c5:00.0 (ops amdgpu_dm_audio_component_bind_ops [amdgpu])
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] PSR support 0, DC PSR ver -1, sink PSR ver 0 DPCD caps 0x0 su_y_granularity 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: MES FW version must be >= 0x7f to enable LR compute workaround.
+Sep 30 14:10:00 shen-AI-Series kernel: kfd kfd: amdgpu: Allocated 3969056 bytes on gart
+Sep 30 14:10:00 shen-AI-Series kernel: kfd kfd: amdgpu: Total number of KFD nodes to be created: 1
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu: Virtual CRAT table created for GPU
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu: Topology: Add dGPU node [0x150e:0x1002]
+Sep 30 14:10:00 shen-AI-Series kernel: kfd kfd: amdgpu: added device 1002:150e
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: SE 1, SH per SE 2, CU per SH 8, active_cu_number 16
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring gfx_0.0.0 uses VM inv eng 0 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.0.0 uses VM inv eng 1 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.1.0 uses VM inv eng 4 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.2.0 uses VM inv eng 6 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.3.0 uses VM inv eng 7 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.0.1 uses VM inv eng 8 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.1.1 uses VM inv eng 9 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.2.1 uses VM inv eng 10 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring comp_1.3.1 uses VM inv eng 11 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring sdma0 uses VM inv eng 12 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring vcn_unified_0 uses VM inv eng 0 on hub 8
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring jpeg_dec_0 uses VM inv eng 1 on hub 8
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring mes_kiq_3.1.0 uses VM inv eng 13 on hub 0
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: ring vpe uses VM inv eng 4 on hub 8
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: Runtime PM not available
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: [drm] Registered 4 planes with drm panic
+Sep 30 14:10:00 shen-AI-Series kernel: [drm] Initialized amdgpu 3.64.0 for 0000:c5:00.0 on minor 1
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: amdgpu: [drm] Failed to setup vendor infoframe on connector HDMI-A-1: -22 
+Sep 30 14:10:00 shen-AI-Series kernel: fbcon: amdgpudrmfb (fb0) is primary device
+Sep 30 14:10:00 shen-AI-Series kernel: amdgpu 0000:c5:00.0: [drm] fb0: amdgpudrmfb frame buffer device
+
+[returncode] 0

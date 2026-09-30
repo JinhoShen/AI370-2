@@ -1,0 +1,36 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libelf1t64 is already the newest version (0.190-1.1ubuntu0.1).
+libgcc-13-dev is already the newest version (13.3.0-6ubuntu2~24.04.1).
+libstdc++-13-dev is already the newest version (13.3.0-6ubuntu2~24.04.1).
+The following additional packages will be installed:
+  libdrm-amdgpu1 libdrm-common libdrm-intel1 libdrm-nouveau2 libdrm-radeon1
+  libdrm2 libncurses6 libncursesw6 libpciaccess-dev libpciaccess0 libtinfo6
+  ncurses-base ncurses-bin
+Suggested packages:
+  ncurses-doc
+The following NEW packages will be installed:
+  libdrm-dev libncurses-dev libpciaccess-dev
+The following packages will be upgraded:
+  libdrm-amdgpu1 libdrm-common libdrm-intel1 libdrm-nouveau2 libdrm-radeon1
+  libdrm2 libncurses6 libncursesw6 libpciaccess0 libtinfo6 ncurses-base
+  ncurses-bin
+12 upgraded, 3 newly installed, 0 to remove and 412 not upgraded.
+Need to get 1496 kB of archives.
+After this operation, 3938 kB of additional disk space will be used.
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses-bin_6.4%2b20240113-1ubuntu2.2_amd64.deb' ncurses-bin_6.4+20240113-1ubuntu2.2_amd64.deb 188372 MD5Sum:815348f156c23e83fbe9e59db8c76938
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses-base_6.4%2b20240113-1ubuntu2.2_all.deb' ncurses-base_6.4+20240113-1ubuntu2.2_all.deb 25810 MD5Sum:a169cefb82e1e918ca095d6e91e6f6e4
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libncursesw6_6.4%2b20240113-1ubuntu2.2_amd64.deb' libncursesw6_6.4+20240113-1ubuntu2.2_amd64.deb 147816 MD5Sum:0ca50b64a7b92b43edc03d6638c57a42
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libncurses6_6.4%2b20240113-1ubuntu2.2_amd64.deb' libncurses6_6.4+20240113-1ubuntu2.2_amd64.deb 111902 MD5Sum:dd45835a12153ab38346bbfaa534bff9
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libtinfo6_6.4%2b20240113-1ubuntu2.2_amd64.deb' libtinfo6_6.4+20240113-1ubuntu2.2_amd64.deb 108086 MD5Sum:1bb945fc177aa4cb893f542e338e977d
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-common_2.4.125-1ubuntu0.1%7e24.04.2_all.deb' libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb 9250 MD5Sum:33c2856a3a10be2e5042e6dde19b41be
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm2_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 41388 MD5Sum:92b7541f4bc96b48e9968f686592c591
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 21374 MD5Sum:9c2333b976956d665e67febb9cdcf5eb
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess0_0.17-3ubuntu0.24.04.3_amd64.deb' libpciaccess0_0.17-3ubuntu0.24.04.3_amd64.deb 19220 MD5Sum:aedf7168d2f68bae12d5678bbfdf1b07
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-intel1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm-intel1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 63868 MD5Sum:487d9e0495e931db05abb3fb4c82587f
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-radeon1_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm-radeon1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 20776 MD5Sum:f5dfb191caa565e0af668a10efee2e87
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-nouveau2_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm-nouveau2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 17620 MD5Sum:fece68c37bdaeaf3c31a97ee4fc02f24
+'http://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess-dev_0.17-3ubuntu0.24.04.3_amd64.deb' libpciaccess-dev_0.17-3ubuntu0.24.04.3_amd64.deb 22026 MD5Sum:83b7419c935c641c07aec81799fd7b4e
+'http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-dev_2.4.125-1ubuntu0.1%7e24.04.2_amd64.deb' libdrm-dev_2.4.125-1ubuntu0.1~24.04.2_amd64.deb 314338 MD5Sum:36b26478352866508fedeb7cef4edbbf
+'http://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libncurses-dev_6.4%2b20240113-1ubuntu2.2_amd64.deb' libncurses-dev_6.4+20240113-1ubuntu2.2_amd64.deb 384098 MD5Sum:f753c80770a2a69a66a88e03585380ba

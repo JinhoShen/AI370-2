@@ -1,0 +1,34 @@
+$ bash -c id; ls -l /dev/kfd /dev/dri /dev/accel; getfacl -cp /dev/kfd /dev/dri/renderD128 /dev/accel/accel0; for p in /dev/kfd /dev/dri/renderD128 /dev/accel/accel0; do if test -r "$p" && test -w "$p"; then printf "%s: readable+writable
+" "$p"; else printf "%s: access restricted
+" "$p"; fi; done
+uid=1000(shen) gid=1000(shen) groups=1000(shen),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin)
+crw-rw---- 1 root render 234, 0 Sep 30 14:09 /dev/kfd
+
+/dev/accel:
+total 0
+crw-rw---- 1 root render 261, 0 Sep 30 14:09 accel0
+
+/dev/dri:
+total 0
+drwxr-xr-x  2 root root         80 Sep 30 14:10 by-path
+crw-rw----+ 1 root video  226,   1 Sep 30 15:43 card1
+crw-rw----+ 1 root render 226, 128 Sep 30 14:10 renderD128
+user::rw-
+group::rw-
+other::---
+
+user::rw-
+user:shen:rw-
+group::rw-
+mask::rw-
+other::---
+
+user::rw-
+group::rw-
+other::---
+
+/dev/kfd: access restricted
+/dev/dri/renderD128: readable+writable
+/dev/accel/accel0: access restricted
+
+[returncode] 0

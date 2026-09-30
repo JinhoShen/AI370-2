@@ -1,0 +1,12 @@
+{
+  "scope": "planned download versions plus installed system; static review only",
+  "unresolved": [],
+  "resolved_aliases": {
+    "libdrm-amdgpu-amdgpu1": "libdrm-amdgpu1",
+    "libdrm-amdgpu-dev": "libdrm-dev",
+    "libelf1": "libelf1t64 provides libelf1",
+    "libtinfo-dev": "libncurses-dev provides libtinfo-dev",
+    "libgcc-5-dev": "libgcc-13-dev alternative",
+    "libstdc++-5-dev": "libstdc++-13-dev alternative"
+  }
+}

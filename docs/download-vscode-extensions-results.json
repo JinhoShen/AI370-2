@@ -1,0 +1,79 @@
+[
+  {
+    "url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/python/2026.6.0/1790710517818/Microsoft.VisualStudio.Services.VSIXPackage",
+    "path": "DevTools/VSCode/Extensions/ms-python.python-2026.6.0.vsix",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "2026.6.0",
+    "sha256": "768e62d94ffb4d5b629dfb000f41bada4144557d736a5ea5255bd013d8ae5fae",
+    "bytes": 17566857,
+    "final_url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/python/2026.6.0/1790710517818/Microsoft.VisualStudio.Services.VSIXPackage",
+    "ok": true,
+    "verification": "HTTP length + local SHA256",
+    "extension_id": "ms-python.python",
+    "extension_dependencies": []
+  },
+  {
+    "url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.4.1/1790193667864/Microsoft.VisualStudio.Services.VSIXPackage",
+    "path": "DevTools/VSCode/Extensions/ms-python.vscode-pylance-2026.4.1.vsix",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "2026.4.1",
+    "sha256": "3e6c9d0ba0c6680e6ef28d1af5c6e13844e39a871e5404cbfaaaedb5cd0d8cfb",
+    "bytes": 29351447,
+    "final_url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/vscode-pylance/2026.4.1/1790193667864/Microsoft.VisualStudio.Services.VSIXPackage",
+    "ok": true,
+    "verification": "HTTP length + local SHA256",
+    "extension_id": "ms-python.vscode-pylance",
+    "extension_dependencies": []
+  },
+  {
+    "url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.6.0/1777574573357/Microsoft.VisualStudio.Services.VSIXPackage",
+    "path": "DevTools/VSCode/Extensions/ms-python.debugpy-2026.6.0.vsix",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "2026.6.0",
+    "sha256": "3ae417f78bce17992b9e0efba160a43a85a8b695bd387e150d4df24e366c7b01",
+    "bytes": 13888374,
+    "final_url": "https://ms-python.gallerycdn.vsassets.io/extensions/ms-python/debugpy/2026.6.0/1777574573357/Microsoft.VisualStudio.Services.VSIXPackage",
+    "ok": true,
+    "verification": "HTTP length + local SHA256",
+    "extension_id": "ms-python.debugpy",
+    "extension_dependencies": [
+      "ms-python.python"
+    ]
+  },
+  {
+    "url": "https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/1.34.4/1788980901658/Microsoft.VisualStudio.Services.VSIXPackage",
+    "path": "DevTools/VSCode/Extensions/ms-vscode.cpptools-1.34.4.vsix",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "1.34.4",
+    "sha256": "a20e25a83228d7854a5623c49f00c33737782bfdde874feff417fe2d9b52c002",
+    "bytes": 140980689,
+    "final_url": "https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cpptools/1.34.4/1788980901658/Microsoft.VisualStudio.Services.VSIXPackage",
+    "ok": true,
+    "verification": "HTTP length + local SHA256",
+    "extension_id": "ms-vscode.cpptools",
+    "extension_dependencies": []
+  },
+  {
+    "url": "https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.42/1789147287752/Microsoft.VisualStudio.Services.VSIXPackage",
+    "path": "DevTools/VSCode/Extensions/ms-vscode.cmake-tools-1.24.42.vsix",
+    "expected_sha256": null,
+    "expected_bytes": null,
+    "expected_md5": null,
+    "version": "1.24.42",
+    "sha256": "14d6df3a11619915d5a1fa2a46cf254dff634ee34e06f6a464668aafa7d55ebb",
+    "bytes": 6878189,
+    "final_url": "https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.24.42/1789147287752/Microsoft.VisualStudio.Services.VSIXPackage",
+    "ok": true,
+    "verification": "HTTP length + local SHA256",
+    "extension_id": "ms-vscode.cmake-tools",
+    "extension_dependencies": []
+  }
+]

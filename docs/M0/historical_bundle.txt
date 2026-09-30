@@ -1,0 +1,14 @@
+$ git bundle list-heads /home/shen/AI370-2/resources/Agent_Tools_Docs/05_SER9_Project/Git/SER9-AI-FPGA-Workstation.bundle
+de3bb05e6735c8919ff6b4ecf9ee5bda1fbaacba refs/cline/checkpoints/1790066270081_j06ev/5
+5f511763b92d5b6adbcadf5f33a48e290d2fcf11 refs/heads/m3/ryzen-ai-installation
+dc94da9322b7ba7d9601767f0b46ff6f449d9b4c refs/heads/main
+5f511763b92d5b6adbcadf5f33a48e290d2fcf11 refs/remotes/origin/m3/ryzen-ai-installation
+dc94da9322b7ba7d9601767f0b46ff6f449d9b4c refs/remotes/origin/main
+f61730cf7ae23af7c282638f78b085c8a96877b0 refs/tags/M0.0
+0c055805b6ed83487f5dc0243d5b2f7003964813 refs/tags/M0.1
+568e6e1e77abaf2a80a7686d8b4401750763e64e refs/tags/M1.0
+f1daf3168a526a0d5a905cca56b2dabef89a90b5 refs/tags/M2.0
+dcc68834f6e1fb2935a72b88e972171dc9341be8 refs/tags/M3.0
+dc94da9322b7ba7d9601767f0b46ff6f449d9b4c HEAD
+
+[returncode] 0

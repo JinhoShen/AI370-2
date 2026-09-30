@@ -1,0 +1,243 @@
+{
+  "source": "/media/shen/T7/Agent_Tools_Docs",
+  "destination": "/home/shen/AI370-2/resources/Agent_Tools_Docs",
+  "bytes": 172167391685,
+  "files": [
+    {
+      "path": "00_Docs/Images/ChatGPT Image 2026年6月22日 上午08_08_52.png",
+      "bytes": 1724224,
+      "sha256": "a1271da0267807792561ac38f57b120766e0b0dcfd180c397a8b7018204fdc9f"
+    },
+    {
+      "path": "00_Docs/Images/ChatGPT Image 2026年6月22日 下午10_17_09.png",
+      "bytes": 1686210,
+      "sha256": "00f11ab4d5361ab12c7ac3be83fc53f15e14b748d91d50858cfb06abb47c3d5c"
+    },
+    {
+      "path": "00_Docs/PROJECT md.md",
+      "bytes": 2535,
+      "sha256": "59c0857f78b0e71b3598b732506005b4a8cc5446d38997c1babbdecbb5775543"
+    },
+    {
+      "path": "00_Docs/開新對話專用 Prompt.txt",
+      "bytes": 721,
+      "sha256": "cdb5ccabbe6b695af264f0d8314a36a33943f7aeb034748d1b089f832066ba42"
+    },
+    {
+      "path": "01_OS/Ubuntu/ubuntu-24.04.1-desktop-amd64.iso",
+      "bytes": 6203355136,
+      "sha256": "c2e6f4dc37ac944e2ed507f87c6188dd4d3179bf4a3f9e110d3c88d1f3294bdc"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/CRASH_2026-09-29.md",
+      "bytes": 6902,
+      "sha256": "9b8d41d5203cb850faa9f62d7d50df8a540e92ec1f411bac944d50ed03ac2d17"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/codex-cloud.json",
+      "bytes": 1714,
+      "sha256": "dbf2fb83c851e46e2081c7b2c8b265c2aa915d508b1ad4a63e6b0630daba70fa"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/codex-local.json",
+      "bytes": 1545,
+      "sha256": "403b69ba848363403a70aecdc577e24e69fffbfe1c9db6eb61e677d7085f5e28"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/codex-state-verification.json",
+      "bytes": 177,
+      "sha256": "41076207559dfaa1961c010a5bd970c0d1dc78599f2998d85331c5a04f5539f6"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/kernel-error-onset.log",
+      "bytes": 9780,
+      "sha256": "7eb6241e3997fdfda2efda772fe14e9369996b958075cfa108051e4ab29d3fd5"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/kernel-gpu-errors.log",
+      "bytes": 47698,
+      "sha256": "08de909fca00e68dec932894a6ea90e00a92255a75ad7f914a7a6f54adae6a9c"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/local-responses-probe.json",
+      "bytes": 3655,
+      "sha256": "1ad01029e0cc4490a77b4732db14f02d851ae057cf7e004ce7b391eb8fd0a03c"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/local-tool-call.json",
+      "bytes": 3584,
+      "sha256": "892dcaa15409abab759e58c8e69c45257b61841172d241f6883ff21a31b74281"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/meminfo-after-blocker.txt",
+      "bytes": 1615,
+      "sha256": "19723c852712c16d084f8fe30370399b002ef18c6315c8b83bab478b172ff78f"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/phase2-blocker.json",
+      "bytes": 826,
+      "sha256": "df740e8493f8a209c7910cb809c472f66604a82abc209bbfd72177f630272553"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/current-errors.log",
+      "bytes": 1934,
+      "sha256": "4054456243d69a47525191189e8c2b52e7eddd1ed62e394c07eaf8c150115c45"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/environment.json",
+      "bytes": 3755,
+      "sha256": "24290e128171a13f9b9221d7798a4d9766763661b918398e1560605a909f5188"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/journal-summary.json",
+      "bytes": 4282,
+      "sha256": "1f7f1a2e3482174f5c1025877d2072e4fa44a6d24a956b56a931b0550916e5dc"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/kernel-excerpts.log",
+      "bytes": 19336,
+      "sha256": "b45214479a9be0aed0723b4d8ddbda2a0f47603dc9b3590c1ff6ed2ea943090b"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/preserved-manifest.json",
+      "bytes": 2657,
+      "sha256": "5efb18253f49da665db87ee6c98f4afa061caeb3694f6d7453dabce81edb112e"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/previous-tail.log",
+      "bytes": 5363,
+      "sha256": "b57d3c88a09a239462620b9a4efdb078701b7683af701931ea2abe0f65e8fc10"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/previous-version.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "05_SER9_Project/Crash_Evidence/recovery/window-kernel.log",
+      "bytes": 13860864,
+      "sha256": "0c8b3bea34ee3933e00214d40ffd41bef1099ceb23b8c3437f3652352acd50ca"
+    },
+    {
+      "path": "05_SER9_Project/Git/SER9-AI-FPGA-Workstation.bundle",
+      "bytes": 294018,
+      "sha256": "ab19889a00d124cc76ec0be454722222863e0bfccc3612781a63ca7c80a752a3"
+    },
+    {
+      "path": "05_SER9_Project/Git/SER9-AI-FPGA-Workstation.bundle.sha256",
+      "bytes": 150,
+      "sha256": "4a1ec9c70f855341ef791445436bc0a20008a0e0dcd6cdec8262f33781d4edf4"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/git-state.txt",
+      "bytes": 803,
+      "sha256": "d73e979b04daf3642af64dcde28c6294c33d3c64c87e50f79c82471c4d065746"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/lemonade.txt",
+      "bytes": 3853,
+      "sha256": "c2ebdff0ca097ac478eeb97a2d9c4326ca83581f476c36fab09cfbc111b249ff"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/packages.txt",
+      "bytes": 78257,
+      "sha256": "4348948c80740df1558a20f813fdb6d60e62fa83379fb1fc1adf8e5b849fd437"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/pci.txt",
+      "bytes": 9836,
+      "sha256": "16235b51c817582db3bc215937c0d7da916728e62992aed21d01f2ce3a824538"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/python.txt",
+      "bytes": 2421,
+      "sha256": "7fd2cc822f7fd3ef0d8db32a373908e59eb0d19b7bd693588bba3148c8393700"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/rocm-hip.txt",
+      "bytes": 14916,
+      "sha256": "eb2766ae6a6aa4bd7fd0d0f417151890b416fed4803bbfe7f1f252206051fcd5"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/system.txt",
+      "bytes": 6454,
+      "sha256": "6f4a724a76a2ae8e85c2bdf5c258f4d94d1e9de6b643c33a2c7925fa513c2c0b"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/vscode.txt",
+      "bytes": 262,
+      "sha256": "73cb28e060bac04716ff37aa8b08e97bdf9cb3dfb0918a83e769996120f2e841"
+    },
+    {
+      "path": "05_SER9_Project/System_Inventory/xdna.txt",
+      "bytes": 687,
+      "sha256": "5617c83e15649a8135767341203c783f6781e61027553e9f3c3a22f5e985ccc1"
+    },
+    {
+      "path": "99_Checksums/SHA256SUMS",
+      "bytes": 1010,
+      "sha256": "4e967c85efabeb62d61bc739600ac83741662bb27d9fcce7de760602b8b74802"
+    },
+    {
+      "path": "03_RyzenAI/XRT_NPU/RAI_1.7.1_Linux_NPU_XRT.zip",
+      "bytes": 18797282,
+      "sha256": "a59d5a28b8d4bdd469a56937ead840a587f7d121edd2d5d0c61bc90c8c51b988"
+    },
+    {
+      "path": "03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base-dev.deb",
+      "bytes": 4234376,
+      "sha256": "f11f570f9fac26fb10d3f7a24798e933f1414be5563bf537ea9b918478d19ed9"
+    },
+    {
+      "path": "03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base.deb",
+      "bytes": 7288220,
+      "sha256": "bd0e1b216cab193d572a5c006bf5a98df47c6b3a6c14fe392f2395e2b97023fa"
+    },
+    {
+      "path": "03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-npu.deb",
+      "bytes": 1453830,
+      "sha256": "2c35e090958619317e6756888119dfa719ca69b2dc077ab7d9ae62939e7e326b"
+    },
+    {
+      "path": "03_RyzenAI/XRT_NPU/xrt_plugin.2.21.260102.53.release_24.04-amd64-amdxdna.deb",
+      "bytes": 6799692,
+      "sha256": "802696333ef159bc0cbf9ba65f89acc5e3fb3023d461c3ad1307fe7a05436ccb"
+    },
+    {
+      "path": "04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models.tar",
+      "bytes": 18185226240,
+      "sha256": "512bc60d9b8c753494c19a62105c03c4a6dc7d7c5318e358f4302cb8811f58e1"
+    },
+    {
+      "path": "04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models.tar.sha256",
+      "bytes": 87,
+      "sha256": "ca3b8f684f1661adf6b166a6083bd94b963158e17f038db697d3636e976ccbfa"
+    },
+    {
+      "path": "03_RyzenAI/RyzenAI_1.7.1/ryzen_ai-1.7.1.tgz",
+      "bytes": 10954641946,
+      "sha256": "d9dff0e95a09f06921fc7633e8dd8ec13949953c407f04340c07ad60eb362dc3"
+    },
+    {
+      "path": "02_FPGA/Vivado_Vitis_2026.1/FPGAs_AdaptiveSoCs_Unified_SDI_2026.1_0616_1700.tar",
+      "bytes": 105522216960,
+      "sha256": "8180734068136de4520d57cc894e34be5bb26ca311ca9e10b6534cffbc08f059"
+    },
+    {
+      "path": "04_Local_AI/GGUF/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf",
+      "bytes": 11659235456,
+      "sha256": "ba3a1d47a604f17ef74d913f9a9d9a2b456acc6925e7b168bfa2e6527246011c"
+    },
+    {
+      "path": "04_Local_AI/GGUF/gemma-4-31b-jang-crack-Q4_K_M.gguf",
+      "bytes": 18687057344,
+      "sha256": "b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7"
+    },
+    {
+      "path": "04_Local_AI/GGUF/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf",
+      "bytes": 899283072,
+      "sha256": "c8e702344a81f8c226a914aa980ed6e1f604bce9374f1fed8e65c896908af414"
+    }
+  ],
+  "checksum_note": "Bundle uses matching standalone checksum; original aggregate checksum is inconsistent."
+}

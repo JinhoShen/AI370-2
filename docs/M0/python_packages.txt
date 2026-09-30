@@ -1,0 +1,10 @@
+$ python3 -B -c import importlib.metadata as m, json, importlib.util as u; names={"numpy","torch","torchvision","torchaudio","tensorflow","onnx","onnxruntime","onnxruntime-gpu","transformers","openvino","pip","uv"}; print(json.dumps({"packages":{d.metadata.get("Name", ""):d.version for d in m.distributions() if d.metadata.get("Name", "").lower() in names}, "modules":{n:u.find_spec(n) is not None for n in ("pip","venv")}},indent=2))
+{
+  "packages": {},
+  "modules": {
+    "pip": false,
+    "venv": true
+  }
+}
+
+[returncode] 0

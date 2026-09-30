@@ -1,0 +1,12 @@
+/resources/
+/output/
+/.venv*/
+/build*/
+__pycache__/
+*.pyc
+*.part
+*.license
+*.lic
+.env
+credentials*
+*.key

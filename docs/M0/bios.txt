@@ -1,0 +1,13 @@
+$ bash -c for n in sys_vendor product_name product_version board_vendor board_name board_version bios_vendor bios_version bios_date; do printf "%s: " "$n"; cat "/sys/class/dmi/id/$n"; done; mokutil --sb-state
+sys_vendor: Micro Computer (HK) Tech Limited
+product_name: AI Series
+product_version: 1.0
+board_vendor: Meigao Innovation Technology (Shen Zhen) Co., Ltd
+board_name: F8BAC
+board_version: 1.0
+bios_vendor: American Megatrends International, LLC.
+bios_version: 1.06
+bios_date: 01/05/2026
+SecureBoot disabled
+
+[returncode] 0
