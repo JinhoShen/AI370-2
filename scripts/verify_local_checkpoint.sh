@@ -4,7 +4,7 @@ set -euo pipefail
 checkpoint=/home/shen/AI370-2/output/recovery/CP0-20260930T084329Z
 report=/home/shen/AI370-2/docs/CP0_VERIFICATION.txt
 scratch=$(mktemp -d "$checkpoint/restore-check.XXXXXX")
-trap 'rm -rf -- "$scratch"' EXIT
+trap 'result=$?; rm -rf -- "$scratch"; if [[ -f $report ]]; then chmod 644 "$report"; fi; if [[ $result -ne 0 ]]; then echo "Verification failed. See $report" >&2; fi' EXIT
 {
   echo 'CP0 local archive verification'
   date -u --iso-8601=seconds
@@ -37,10 +37,6 @@ trap 'rm -rf -- "$scratch"' EXIT
   echo 'EFI archive: RESTORED'
   echo 'RESULT: SELECTED_FILE_RESTORE_PASS'
   echo 'LIMITS: live filesystem backup, same NVMe, full system boot restore NOT TESTED'
-} > "$report" 2>&1 || {
-  chmod 644 "$report"
-  echo "Verification failed. See $report" >&2
-  exit 1
-}
+} > "$report" 2>&1
 chmod 644 "$report"
 cat "$report"
