@@ -1,4 +1,4 @@
-# M5 post-reboot result — FAIL / CP5 RECOVERED
+# M5 post-reboot result — VERIFICATION-POLICY FALSE NEGATIVE / CP5 RECOVERED
 
 2026-09-30。開機服務已執行既定驗證並自動回復；沒有在本次人工核對重新安裝或變更版本。
 
@@ -10,3 +10,5 @@ HIP 與 Vulkan 在回復前、回復後，以及本次重新執行皆 PASS，各
 
 CP5 腳本已移除指定 plugin/DKMS，恢復 inbox module、原 firmware、SHIM 與 initramfs；archive、module、firmware SHA 核對成功。現況 modinfo 來源為 kernel/drivers/accel/amdxdna，XRT firmware 1.0.0.63，無 pending reboot verification。詳細見 rollback.txt 與 recovery-current-*。
 本次回復後尚未再次 reboot，因此回復 initramfs 的下一次開機驗證仍未完成；不宣稱完整 boot recovery 已驗證。M5 保持 FAIL / CP5 recovered，未進 M6。
+
+使用者確認此次為 verification-policy false negative，非 M5 workload failure。修正 verifier：Secure Boot disabled 且指定 DKMS 已正確載入時，signature warning 不單獨觸發 rollback；功能性 kernel faults 仍觸發 rollback。重新切換與完整開機驗證已授權。

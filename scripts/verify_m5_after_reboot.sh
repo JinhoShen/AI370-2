@@ -37,12 +37,14 @@ trap rollback_on_error EXIT
 date -u --iso-8601=seconds
 printf 'Boot before: %s\nBoot now: %s\n' "$before" "$now"
 [[ $(uname -r) == 6.17.0-14-generic ]]
+mokutil --sb-state > "$report/secure-boot.txt"
 modinfo amdxdna > "$report/module.txt"
 [[ $(modinfo -n amdxdna) == */updates/dkms/amdxdna.ko.zst ]]
 grep -q '2.21.260102.53.release' /sys/module/amdxdna/version
 dkms status > "$report/dkms.txt"
 grep -q '2.21.260102.53.release.*6.17.0-14-generic.*installed' "$report/dkms.txt"
 runuser -u shen -- bash scripts/npu21.sh /opt/xilinx/xrt/bin/unwrapped/xrt-smi examine -r all > "$report/xrt-examine.txt" 2>&1
+grep -q 'RyzenAI-npu4' "$report/xrt-examine.txt"
 grep -q 'NPU Firmware Version.*1.1.2.64' "$report/xrt-examine.txt"
 runuser -u shen -- env NPU_OUTPUT_DIR=output/M5/reboot-cnn NPU_RESULT_FILE=docs/M5/reboot/cnn-result.json \
   bash scripts/ryzenai21.sh timeout 180 .venvs/npu21/bin/python verify/npu_cnn.py > "$report/cnn.txt" 2>&1
@@ -51,10 +53,10 @@ runuser -u shen -- timeout 20 output/M4/build/vulkan-compute output/M4/build/ver
 grep -q 'PASS: 1024' "$report/hip.txt"
 grep -q 'PASS: 1024' "$report/vulkan.txt"
 journalctl -k -b --no-pager > "$report/kernel.txt"
-if grep -Ei 'amdxdna.*(ERROR|timeout|fault|failed)|amdgpu.*(GPU reset|VM.*fault|ring.*timeout)' "$report/kernel.txt"; then
-  echo 'Kernel accelerator error detected' >&2
-  exit 1
-fi
+# Signature warning is a policy warning when Secure Boot is disabled and
+# the exact requested module has already passed the path/version checks.
+python3 verify/m5_kernel_policy.py "$report/kernel.txt" "$report/secure-boot.txt" /sys/module/amdxdna/version > "$report/kernel-policy.txt"
+
 python3 - <<'PY'
 from pathlib import Path
 import json, shutil
@@ -74,4 +76,6 @@ chown -R shen:shen "$report"
 chown shen:shen docs/M5/RESULT.md
 chown shen:shen docs/BUILD_PROGRESS.md
 runuser -u shen -- git add docs/M5/reboot docs/M5/RESULT.md docs/BUILD_PROGRESS.md
-runuser -u shen -- git commit -m 'M5: verify XDNA2 model correctness and no CPU fallback after reboot'
+runuser -u shen -- git commit -m 'M5 PASS: establish NPU Golden State after full post-reboot verification'
+
+runuser -u shen -- git tag -a ai370-2-npu-golden -m "M5 verified NPU Golden State: XRT 2.21, DKMS 2.21.260102.53.release, firmware 1.1.2.64"

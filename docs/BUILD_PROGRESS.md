@@ -10,7 +10,7 @@
 | Mesa/Vulkan baseline | PASS | M2_CORE_M4_RESULT.md；1024 GPU shader數值正確；Mesa/driver未替換 |
 | M2 developer foundation | PASS (CLI/venv/IDE CLI) | M2_PYTHON_IDE_RESULT.md；GUIdebug未測 |
 | M3 ROCm | PASS | docs/M3/RESULT.md；HIP數值與Vulkan回歸PASS；既有package未升級 |
-| M5 NPU | FAIL / CP5 RECOVERED | docs/M5/reboot/RESULT.md；CNN/no-fallback與GPU通過，kernel簽章gate觸發回復；現況inbox/firmware1.0.0.63，回復後再次開機未驗證 |
+| M5 NPU | POLICY FALSE NEGATIVE / RETRY PENDING | docs/M5/reboot/RESULT.md；CNN/no-fallback與GPU通過，kernel簽章gate觸發回復；現況inbox/firmware1.0.0.63，回復後再次開機未驗證 |
 | FPGA | NOT RUN | 2026.1 OS compatibility gate保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
