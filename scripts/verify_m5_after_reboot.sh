@@ -44,7 +44,8 @@ grep -q '2.21.260102.53.release' /sys/module/amdxdna/version
 dkms status > "$report/dkms.txt"
 grep -q '2.21.260102.53.release.*6.17.0-14-generic.*installed' "$report/dkms.txt"
 runuser -u shen -- bash scripts/npu21.sh /opt/xilinx/xrt/bin/unwrapped/xrt-smi examine -r all > "$report/xrt-examine.txt" 2>&1
-grep -q 'RyzenAI-npu4' "$report/xrt-examine.txt"
+grep -Eq 'RyzenAI-npu4|NPU Strix' "$report/xrt-examine.txt"
+grep -q '0000:c6:00.1' "$report/xrt-examine.txt"
 grep -q 'NPU Firmware Version.*1.1.2.64' "$report/xrt-examine.txt"
 runuser -u shen -- env NPU_OUTPUT_DIR=output/M5/reboot-cnn NPU_RESULT_FILE=docs/M5/reboot/cnn-result.json \
   bash scripts/ryzenai21.sh timeout 180 .venvs/npu21/bin/python verify/npu_cnn.py > "$report/cnn.txt" 2>&1
@@ -63,6 +64,7 @@ import json, shutil
 project=Path('/home/shen/AI370-2')
 result=json.loads((project/'docs/M5/reboot/cnn-result.json').read_text())
 shutil.copyfile(project/result['profile_path'],project/'docs/M5/reboot/ort-profile.json')
+(project/'docs/M5/reboot/RESULT.md').write_text('# M5 PASS — NPU Golden State\n\nFull post-reboot verification passed: exact DKMS 2.21.260102.53.release, firmware 1.1.2.64, XRT XDNA2 detection, CNN VitisAI-only execution with CPU fallback disabled, positive NPU hardware time, CPU reference correctness and HIP/Vulkan regression. See cnn-result.json, ort-profile.json, module.txt, xrt-examine.txt and kernel-policy.txt. Expected signature warning under disabled Secure Boot is recorded as WARNING. Previous policy false negative and CP5 recovery are preserved in ../retry/previous-policy-false-negative/.\n')
 p=project/'docs/BUILD_PROGRESS.md'
 s=p.read_text()
 lines=s.splitlines()

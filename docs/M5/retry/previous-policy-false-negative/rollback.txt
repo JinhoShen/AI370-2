@@ -1,0 +1,29 @@
+platform.tar: OK
+efi.tar: OK
+(Reading database ... 199348 files and directories currently installed.)
+Removing xrt_plugin-amdxdna (2.21) ...
+Removing driver source: xrt-amdxdna/2.21.260102.53.release...
+xrt-amdxdna/2.21.260102.53.release, 6.17.0-14-generic, x86_64: installed
+Module xrt-amdxdna-2.21.260102.53.release for kernel 6.17.0-14-generic (x86_64).
+Before uninstall, this module version was ACTIVE on this kernel.
+
+amdxdna.ko.zst:
+ - Uninstallation
+   - Deleting from: /lib/modules/6.17.0-14-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+depmod...
+Deleting module xrt-amdxdna-2.21.260102.53.release completely from the DKMS tree.
+Successfully removed driver source for xrt-amdxdna/2.21.260102.53.release
+dpkg: warning: while removing xrt_plugin-amdxdna, directory '/usr/lib/firmware/amdnpu/17f0_11' not empty so not removed
+dpkg: warning: while removing xrt_plugin-amdxdna, directory '/usr/lib/firmware/amdnpu/17f0_10' not empty so not removed
+dpkg: warning: while removing xrt_plugin-amdxdna, directory '/usr/lib/firmware/amdnpu/1502_00' not empty so not removed
+(Reading database ... 199321 files and directories currently installed.)
+Removing dkms (3.0.11-1ubuntu13) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+/lib/modules/6.17.0-14-generic/kernel/drivers/accel/amdxdna/amdxdna.ko.zst: OK
+/usr/lib/firmware/amdnpu/17f0_11/npu.sbin.1.0.0.166.zst: OK
+/usr/lib/firmware/amdnpu/1502_00/npu.sbin.1.5.2.380.zst: OK
+/usr/lib/firmware/amdnpu/17f0_10/npu.sbin.1.0.0.63.zst: OK
+CP5 targeted NPU recovery complete; no package-registry overwrite
