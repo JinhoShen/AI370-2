@@ -1,0 +1,52 @@
+filename:       /lib/modules/6.17.0-14-generic/updates/dkms/amdxdna.ko.zst
+import_ns:      DMA_BUF
+description:    amdxdna driver
+version:        2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551
+author:         XRT Team <runtimeca39d@amd.com>
+license:        GPL
+srcversion:     EAB56FFA7E4CD2B160F873B
+alias:          pci:v00001022d*sv*sd*bc11sc80i*
+depends:        gpu-sched
+name:           amdxdna
+retpoline:      Y
+vermagic:       6.17.0-14-generic SMP preempt mod_unload modversions 
+sig_id:         PKCS#7
+signer:         shen-AI-Series Secure Boot Module Signature key
+sig_key:        32:32:DF:7A:9E:79:E2:A7:8B:3D:85:8A:2F:3A:F3:F0:A8:81:70:58
+sig_hashalgo:   sha512
+signature:      87:9A:78:49:1D:CB:E6:34:38:89:71:58:E4:01:AB:96:E6:4D:59:F6:
+		85:32:35:1B:B5:95:BD:33:73:5B:F9:E1:25:B3:D9:B0:D8:9C:D5:9C:
+		74:6A:5B:0E:63:8F:2A:89:62:5C:6A:46:D9:FA:2C:23:70:44:E4:61:
+		49:5F:76:E5:73:84:FD:CB:30:6D:7F:37:9A:D1:61:19:B4:EE:51:85:
+		68:45:33:E1:1E:45:D2:11:08:E0:99:6C:0F:BC:7A:B4:6F:3F:03:89:
+		77:82:DB:5F:90:BE:C6:E6:A3:7C:FF:B5:CE:21:07:88:B3:9D:34:52:
+		7E:66:35:B6:8D:97:2E:75:CE:94:12:B0:DC:6D:53:73:0C:BE:2F:07:
+		4E:2B:4B:DD:EA:8F:C7:80:2E:45:B2:9D:D8:4B:8B:BD:E9:85:06:5E:
+		C7:2F:A6:16:06:CB:AA:97:9F:A1:12:D6:51:16:4A:DA:44:61:1F:76:
+		13:A7:06:78:08:A4:B2:AE:04:29:BA:80:76:A9:0E:95:98:F2:C5:19:
+		99:79:99:B4:96:4D:AA:2E:9E:BD:76:B1:33:35:BE:01:47:62:C0:B9:
+		1F:10:24:D4:32:72:22:D1:A3:E8:07:3C:45:AA:26:37:16:5A:07:F6:
+		12:C0:C2:73:9B:A6:D3:B1:12:16:C6:01:F2:C6:F1:B9
+parm:           priv_load:Privileged loading runtime configure (Default false) (bool)
+parm:           start_col_index:Force start column, default -1 (auto select) (int)
+parm:           aie2_max_col:Maximum column could be used (uint)
+parm:           aie2_control_flags: Bit 0: Bypass power on/off, Bit 1: Bypass set freq, Bit 2: Bypass FW loading (uint)
+parm:           disable_fine_preemption:Disable fine grain preemption (bool)
+parm:           time_quantum_ms:Execution time quantum. Default 30 ms, MAX 2000 ms (uint)
+parm:           sys_eff_factor:System efficiency factor, default 2 (int)
+parm:           context_limit:Maximum number of context, 0 = Use default (uint)
+parm:           hwctx_limit:[Debug] Maximum number of hwctx. 0 = Use default (uint)
+parm:           wait_update_parts:[Debug] Add/Del context wait for update partition (bool)
+parm:           timeout_in_sec:Seconds to timeout and recovery, default 2; 0 - No TDR (uint)
+parm:           tdr_dump_ctx:Instead of resetting, just dump the ctx info for debugging (bool)
+parm:           force_cmdlist:Force use command list (Default true) (bool)
+parm:           carvedout_addr:Physical memory address for reserved memory chunk (ullong)
+parm:           carvedout_size:Physical memory size for reserved memory chunk (ullong)
+parm:           mailbox_polling:<=0:interrupt(default); >0:poll interval in ms; <0: busy poll (int)
+parm:           autosuspend_ms:runtime suspend delay in milliseconds. < 0: prevent it (int)
+parm:           fw_log_level: Firmware log verbosity: 0: DISABLE 1: ERROR (Default) 2: WARN 3: INFO 4: DEBUG (byte)
+parm:           fw_log_size: Size of firmware log (Default 4MB). Min 8KB, Max 4MB (ullong)
+parm:           fw_trace_categories:uint
+parm:           fw_trace_uint: Bitmask to enable firmware trace event categories (Default 0)
+parm:           fw_trace_size: Size of firmware trace (Default 4MB). Min 8KB, Max 4MB (ullong)
+2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551

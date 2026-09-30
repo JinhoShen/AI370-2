@@ -1,0 +1,12 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  menu
+The following NEW packages will be installed:
+  dkms xrt_plugin-amdxdna
+0 upgraded, 2 newly installed, 0 to remove and 429 not upgraded.
+Inst dkms (3.0.11-1ubuntu13 Ubuntu:24.04/noble, local-deb [all])
+Inst xrt_plugin-amdxdna (2.21 local-deb [amd64])
+Conf dkms (3.0.11-1ubuntu13 Ubuntu:24.04/noble, local-deb [all])
+Conf xrt_plugin-amdxdna (2.21 local-deb [amd64])

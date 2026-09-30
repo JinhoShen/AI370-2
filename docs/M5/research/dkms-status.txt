@@ -1,0 +1,1 @@
+xrt-amdxdna/2.21.260102.53.release, 6.17.0-14-generic, x86_64: installed

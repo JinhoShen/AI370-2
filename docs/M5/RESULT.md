@@ -56,3 +56,7 @@ M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且re
 ## 2026-09-30 autonomous follow-up / SER9 reference
 
 已完成安全替代路線、精確套件/firmware比對、隔離 driver build與新CP5；見 [REBUILD_GATE.md](REBUILD_GATE.md)。官方 latency/NOP部分執行PASS，但CNN/GEMM驗證仍失敗、無correctness/no-fallback compute PASS。首選改為RyzenAI1.7.1官方完整2.21配套，停在DKMS/driver/firmware approval gate；M5狀態仍未PASS。
+
+## Approved switch executed
+
+見 [PRE_REBOOT_RESULT.md](PRE_REBOOT_RESULT.md)。Live CNN嚴格compute驗證已PASS；M5整階段狀態為PENDING REBOOT，尚未進M6。

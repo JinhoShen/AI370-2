@@ -1,6 +1,6 @@
 """Verify the supplied CNN on XDNA2, disallowing ORT CPU fallback."""
 from pathlib import Path
-import hashlib, json, os, time, sys
+import hashlib, json, os, re, time, sys
 import numpy as np
 import onnxruntime as ort
 
@@ -47,6 +47,11 @@ for _ in range(10):
     actual=session.run(None,{'input':data})
 elapsed=time.monotonic()-started
 after=accel_fds('after')
+def npu_time(entries):
+    return sum(int(m.group(1)) for entry in entries.values()
+               for m in re.finditer(r'^drm-engine-npu-amdxdna:\s*(\d+) ns$',entry['fdinfo'],re.M))
+usage_delta=npu_time(after)-npu_time(before)
+assert usage_delta>0, 'NPU hardware execution time did not increase'
 profile=Path(session.end_profiling())
 events=json.loads(profile.read_text())
 executed=[e for e in events if e.get('cat')=='Node' and e.get('args',{}).get('provider')]
@@ -55,12 +60,13 @@ assert {e['args']['provider'] for e in executed}=={'VitisAIExecutionProvider'},e
 errors=[]
 for golden,candidate in zip(expected,actual,strict=True):
     assert np.isfinite(candidate).all()
-    np.testing.assert_allclose(candidate,golden,rtol=0.10,atol=0.05)
+    np.testing.assert_allclose(candidate,golden,rtol=0.001,atol=0.0001)
     errors.append(float(np.max(np.abs(candidate-golden))))
 result={'status':'PASS','model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),
         'onnxruntime':ort.__version__,'providers':providers,'cpu_fallback_disabled':True,
         'profile_path':str(profile.relative_to(project)),'profile_node_providers':sorted({e['args']['provider'] for e in executed}),
         'npu_device_fds':before,'after_npu_device_fds':after,'iterations':10,'elapsed_seconds':elapsed,
-        'max_abs_errors':errors,'rtol':0.10,'atol':0.05}
-(project/'docs/M5/cnn-result.json').write_text(json.dumps(result,indent=2)+'\n')
+        'npu_hardware_time_delta_ns':usage_delta,
+        'max_abs_errors':errors,'rtol':0.001,'atol':0.0001}
+(project/os.environ.get('NPU_RESULT_FILE','docs/M5/cnn-result.json')).write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2),flush=True)

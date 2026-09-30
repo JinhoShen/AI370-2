@@ -1,0 +1,50 @@
+Selecting previously unselected package dkms.
+(Reading database ... 199297 files and directories currently installed.)
+Preparing to unpack .../dkms_3.0.11-1ubuntu13_all.deb ...
+Unpacking dkms (3.0.11-1ubuntu13) ...
+Selecting previously unselected package xrt_plugin-amdxdna.
+Preparing to unpack .../xrt_plugin.2.21.260102.53.release_24.04-amd64-amdxdna.deb ...
+Unpacking xrt_plugin-amdxdna (2.21) ...
+Setting up dkms (3.0.11-1ubuntu13) ...
+Setting up xrt_plugin-amdxdna (2.21) ...
+Installing new amdxdna Linux kernel module in dkms
+Installing xrt-amdxdna-2.21.260102.53.release from /opt/xilinx/xrt/share/amdxdna...
+Sign command: /usr/bin/kmodsign
+Certificate or key are missing, generating them using update-secureboot-policy...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Secure Boot not enabled on this system.
+Signing key: /var/lib/shim-signed/mok/MOK.priv
+Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
+Creating symlink /var/lib/dkms/xrt-amdxdna/2.21.260102.53.release/source -> /usr/src/xrt-amdxdna-2.21.260102.53.release
+
+Running the pre_build script:
+>>> Probing kernel features in /lib/modules/6.17.0-14-generic/build...
+>>>  + HAVE_6_17_drm_sched_job_init: yes
+>>>  + HAVE_6_15_drm_sched_init: yes
+>>>  - HAVE_iommu_dev_enable_disable_feature: no
+>>>  + HAVE_device_iommu_mapped: yes
+>>>  + HAVE_system_percpu_wq: yes
+>>>  + HAVE_6_13_MODULE_IMPORT_NS: yes
+>>>  + HAVE_drm_gem_vmap_vunmap: yes
+>>>  - HAVE_cache_sgt_mapping: no
+
+Building module:
+Cleaning build area...
+cd driver/amdxdna; make AMDXDNA_DRM_USAGE=1 KERNEL_SRC=/lib/modules/6.17.0-14-generic/build; cd ../........
+Signing module /var/lib/dkms/xrt-amdxdna/2.21.260102.53.release/build/driver/amdxdna/build/driver/amdxdna/amdxdna.ko
+Cleaning build area...
+
+amdxdna.ko.zst:
+Running module version sanity check.
+ - Original module
+ - Installation
+   - Installing to /lib/modules/6.17.0-14-generic/updates/dkms/
+depmod...
+Successfully intalled and enabled DKMS for xrt-amdxdna/2.21.260102.53.release
+Loading new amdxdna Linux kernel module
+Processing triggers for man-db (2.12.0-4build2) ...

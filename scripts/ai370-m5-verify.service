@@ -1,0 +1,13 @@
+[Unit]
+Description=AI370 2 M5 post-reboot model validation and automatic CP5 recovery
+After=local-fs.target systemd-udevd.service
+ConditionPathExists=/home/shen/AI370-2/output/M5/reboot.pending
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/shen/AI370-2
+ExecStart=/bin/bash /home/shen/AI370-2/scripts/verify_m5_after_reboot.sh
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target

@@ -10,7 +10,7 @@
 | Mesa/Vulkan baseline | PASS | M2_CORE_M4_RESULT.md；1024 GPU shader數值正確；Mesa/driver未替換 |
 | M2 developer foundation | PASS (CLI/venv/IDE CLI) | M2_PYTHON_IDE_RESULT.md；GUIdebug未測 |
 | M3 ROCm | PASS | docs/M3/RESULT.md；HIP數值與Vulkan回歸PASS；既有package未升級 |
-| M5 NPU | AWAITING DRIVER/FIRMWARE GATE | docs/M5/REBUILD_GATE.md；官方2.21配套及1.1.2.64資源確認；隔離build與NOP latency PASS；CNN/GEMM未PASS；CP5已驗證 |
+| M5 NPU | PENDING REBOOT | docs/M5/PRE_REBOOT_RESULT.md；DKMS/firmware及真實CNN/no-fallback與GPU回歸PASS，尚待下次開機驗證 |
 | FPGA | NOT RUN | 2026.1 OS compatibility gate保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
