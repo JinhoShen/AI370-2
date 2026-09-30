@@ -6,7 +6,7 @@
 |---|---|---|
 | M0歷史盤點 | COMPLETE | M0_BASELINE.md；未重跑audit |
 | Git / Golden M0 | PASS | main；ai370-2-m0-golden；M0全部SHA重新比對成功；resources未tracked |
-| M0.1 recovery foundation | PENDING REVIEW | 本機CP0已建立；SHA與selected-file restore通過；tar stderr待檢查，full boot restore未測 |
+| M0.1 recovery foundation | PASS (file-level scope) | CP0_RESULT.md；本機live archive與selected-file restore通過，full boot/disk recovery未測 |
 | Mesa/Vulkan baseline | PRECHECK ONLY | Radeon890M/RADV GFX1150枚舉成功；compute未測，見M4_VULKAN_PRECHECK.md |
 | ROCm/NPU/FPGA | NOT RUN | 未安裝、更新、修改kernel/driver/permissions |
 
