@@ -60,3 +60,7 @@ M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且re
 ## Approved switch executed
 
 見 [PRE_REBOOT_RESULT.md](PRE_REBOOT_RESULT.md)。Live CNN嚴格compute驗證已PASS；M5整階段狀態為PENDING REBOOT，尚未進M6。
+
+## Post-reboot outcome
+
+M5 FAIL / CP5 RECOVERED。開機驗證 CNN 與 GPU regression 通過，最終 kernel signature gate 觸發回復。現況與驗證界線見 [reboot/RESULT.md](reboot/RESULT.md)。未進 M6。

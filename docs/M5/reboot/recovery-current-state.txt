@@ -1,0 +1,7 @@
+2026-09-30T10:21:42+00:00
+6.17.0-14-generic
+a1a3b25a-fb97-47d8-8571-ac5268d8e0b6
+/lib/modules/6.17.0-14-generic/kernel/drivers/accel/amdxdna/amdxdna.ko.zst
+amdxdna               147456  0
+dpkg-query: no packages found matching xrt_plugin-amdxdna
+dkms rc  3.0.11-1ubuntu13

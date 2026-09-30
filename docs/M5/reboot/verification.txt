@@ -4,3 +4,19 @@ Boot now: a1a3b25a-fb97-47d8-8571-ac5268d8e0b6
  9月 30 18:13:09 shen-AI-Series kernel: amdxdna: module verification failed: signature and/or required key missing - tainting kernel
 Kernel accelerator error detected
 VERIFICATION FAILED (1); collecting evidence and recovering CP5
+[main cade348] M5: record reboot verification failure and CP5 recovery
+ 14 files changed, 3244 insertions(+)
+ create mode 100644 docs/M5/reboot/STATUS
+ create mode 100644 docs/M5/reboot/cnn-result.json
+ create mode 100644 docs/M5/reboot/cnn.txt
+ create mode 100644 docs/M5/reboot/dkms.txt
+ create mode 100644 docs/M5/reboot/hip.txt
+ create mode 100644 docs/M5/reboot/kernel-failure.txt
+ create mode 100644 docs/M5/reboot/kernel.txt
+ create mode 100644 docs/M5/reboot/module.txt
+ create mode 100644 docs/M5/reboot/rollback-hip.txt
+ create mode 100644 docs/M5/reboot/rollback-vulkan.txt
+ create mode 100644 docs/M5/reboot/rollback.txt
+ create mode 100644 docs/M5/reboot/verification.txt
+ create mode 100644 docs/M5/reboot/vulkan.txt
+ create mode 100644 docs/M5/reboot/xrt-examine.txt
