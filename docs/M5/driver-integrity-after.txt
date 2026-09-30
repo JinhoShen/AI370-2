@@ -1,0 +1,1 @@
+/lib/modules/6.17.0-14-generic/kernel/drivers/accel/amdxdna/amdxdna.ko.zst: OK

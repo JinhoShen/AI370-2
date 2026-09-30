@@ -1,0 +1,7 @@
+{
+  "source_deb": "resources/Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_plugin.2.21.260102.53.release_24.04-amd64-amdxdna.deb",
+  "member": "./opt/xilinx/xrt/lib/libxrt_driver_xdna.so.2.21.260102.53.release",
+  "sha256": "438ccdb5877ffad6978fc7ed7f76e7382e37b9270ca1163db9bc41ecfd8d27d6",
+  "destination": "/opt/ai370/npu/xrt21-shim/lib/libxrt_driver_xdna.so.2.21.260102.53.release",
+  "method": "userspace-only payload copy; plugin DEB NOT installed; official whole-package procedure NOT used"
+}

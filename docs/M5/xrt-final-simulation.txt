@@ -1,0 +1,23 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  opencl-icd
+The following NEW packages will be installed:
+  libboost-filesystem1.83.0 libboost-program-options1.83.0 ocl-icd-libopencl1
+  xrt-base xrt-npu
+0 upgraded, 5 newly installed, 0 to remove and 429 not upgraded.
+Inst libboost-filesystem1.83.0 (1.83.0-2.1ubuntu3.2 Ubuntu:24.04/noble-updates, local-deb [amd64])
+Inst libboost-program-options1.83.0 (1.83.0-2.1ubuntu3.2 Ubuntu:24.04/noble-updates, local-deb [amd64])
+Inst ocl-icd-libopencl1 (2.3.2-1build1 Ubuntu:24.04/noble, Ubuntu:24.04/noble-updates, local-deb [amd64])
+Inst xrt-base (2.21.75 local-deb [amd64])
+Inst xrt-npu (2.21.75 local-deb [amd64])
+Conf libboost-filesystem1.83.0 (1.83.0-2.1ubuntu3.2 Ubuntu:24.04/noble-updates, local-deb [amd64])
+Conf libboost-program-options1.83.0 (1.83.0-2.1ubuntu3.2 Ubuntu:24.04/noble-updates, local-deb [amd64])
+Conf ocl-icd-libopencl1 (2.3.2-1build1 Ubuntu:24.04/noble, Ubuntu:24.04/noble-updates, local-deb [amd64])
+Conf xrt-base (2.21.75 local-deb [amd64])
+Conf xrt-npu (2.21.75 local-deb [amd64])

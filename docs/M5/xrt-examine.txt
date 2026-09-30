@@ -1,0 +1,28 @@
+System Configuration
+  OS Name              : Linux
+  Release              : 6.17.0-14-generic
+  Machine              : x86_64
+  CPU Cores            : 24
+  Memory               : 47782 MB
+  Distribution         : Ubuntu 24.04.4 LTS
+  GLIBC                : 2.39
+  Model                : AI Series
+  BIOS Vendor          : American Megatrends International, LLC.
+  BIOS Version         : 1.06
+  Processor            : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+
+XRT
+  Version              : 2.21.75
+  Branch               : HEAD
+  Hash                 : 4eb1f4392a012b4e6eca759762389c612537f7c7
+  Hash Date            : 2026-03-09 20:30:37
+  amdxdna Version      : 6.17.0-14-generic
+  virtio-pci Version   : 6.17.0-14-generic
+  NPU Firmware Version : 1.0.0.63
+
+Device(s) Present
+|BDF             |Name          |
+|----------------|--------------|
+|[0000:c6:00.1]  |RyzenAI-npu4  |
+
+

@@ -1,0 +1,17 @@
+[
+  {
+    "path": "output/M5/quicktest/quicktest/test_model.onnx",
+    "sha256": "7a78c7e85bac3a0681e3d2f77e69093a761e1c8f62f7fc65ff5ce3e1b82c5ba3",
+    "size": 23728543
+  },
+  {
+    "path": "docs/M5/models/small-qdq-conv.onnx",
+    "sha256": "d2a5fff37f671d6a8413d28d054d9c597c348d157505f47d1dd2ce4e4bc6ccd8",
+    "size": 2754
+  },
+  {
+    "path": "docs/M5/models/small-matmul.onnx",
+    "sha256": "ffad7a1dd6af248910aa7e7c48cba62486f5732905f8d601ade8feaf18a0a322",
+    "size": 16526
+  }
+]

@@ -10,3 +10,5 @@ shen render群組的新session可讀寫/dev/accel/accel0（sg render驗證），
 若選2.25，需要另審RyzenAI1.7.1 ABI配套及Lemonade NPU backend；現階段沒有足夠本機workload證據支持直接取代2.21。
 
 STOP：M3已PASS/commit後停在此版本決策，未執行M5 runtime安裝或後續phase。
+
+決策更新：使用者核准2.21 userspace、不DKMS、不替換driver、不混2.25；施工結果FAIL/compatibility blocked，見M5/RESULT.md。

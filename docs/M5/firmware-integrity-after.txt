@@ -1,0 +1,3 @@
+/usr/lib/firmware/amdnpu/17f0_11/npu.sbin.1.0.0.166.zst: OK
+/usr/lib/firmware/amdnpu/1502_00/npu.sbin.1.5.2.380.zst: OK
+/usr/lib/firmware/amdnpu/17f0_10/npu.sbin.1.0.0.63.zst: OK

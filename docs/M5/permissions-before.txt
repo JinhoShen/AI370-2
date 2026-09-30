@@ -1,0 +1,1 @@
+crw-rw---- 1 root render 261, 0 Sep 30 14:09 /dev/accel/accel0

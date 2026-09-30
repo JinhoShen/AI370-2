@@ -1,0 +1,41 @@
+#! /bin/bash
+
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2023-2025 AMD, Inc. All rights reserved.
+
+RED="\e[31m"
+ENDCOLOR="\e[0m"
+
+build_type=Release
+if [ "$build_type" = "Debug" ]; then
+	echo "========= Pretrm Debug ========="
+	set -x
+fi
+
+install_datadir=/opt/xilinx/xrt/./share/amdxdna
+udev_rules_d=/etc/udev/rules.d
+amdxdna_rules_file=99-amdxdna.rules
+dracut_conf_d=/etc/dracut.conf.d
+dracut_conf_file=amdxdna.dracut.conf
+
+if lsmod | grep -q "amdxdna "; then
+	rmmod amdxdna
+fi
+
+if [ -f ${dracut_conf_d}/${dracut_conf_file} ]; then
+	rm -rf ${dracut_conf_d}/${dracut_conf_file}
+fi
+if [ -f ${udev_rules_d}/${amdxdna_rules_file} ]; then
+	rm -rf ${udev_rules_d}/${amdxdna_rules_file}
+fi
+
+if [ "$build_type" = "Debug" ]; then
+	DKMS_DRIVER_VERBOSE=true $install_datadir/dkms_driver.sh --remove
+else
+	$install_datadir/dkms_driver.sh --remove
+fi
+
+if [ "$build_type" = "Debug" ]; then
+	echo "========= Prerm Debug end ========="
+	set +x
+fi

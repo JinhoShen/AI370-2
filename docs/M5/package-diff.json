@@ -1,0 +1,10 @@
+{
+  "changed_existing": {},
+  "added": {
+    "libboost-filesystem1.83.0:amd64": "1.83.0-2.1ubuntu3.2",
+    "libboost-program-options1.83.0:amd64": "1.83.0-2.1ubuntu3.2",
+    "ocl-icd-libopencl1:amd64": "2.3.2-1build1",
+    "xrt-base": "2.21.75",
+    "xrt-npu": "2.21.75"
+  }
+}
