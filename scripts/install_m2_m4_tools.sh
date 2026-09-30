@@ -25,6 +25,8 @@ for name in "${names[@]}"; do
   packages+=("./$relative")
 done
 sha256sum -c "$checks"
+# APT --no-download requires these verified local archives in its cache.
+install -m 0644 "${packages[@]}" /var/cache/apt/archives/
 apt-get -s --no-download --no-install-recommends --no-upgrade --no-remove install "${packages[@]}"
 echo 'Installing only listed local development/diagnostic packages; no upgrade/download/removal.'
 apt-get --no-download --no-install-recommends --no-upgrade --no-remove install "${packages[@]}" \
