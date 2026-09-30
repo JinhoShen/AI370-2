@@ -1,0 +1,62 @@
+>>> Probing kernel features in /lib/modules/6.17.0-14-generic/build...
+>>>  + HAVE_6_17_drm_sched_job_init: yes
+>>>  + HAVE_6_15_drm_sched_init: yes
+>>>  - HAVE_iommu_dev_enable_disable_feature: no
+>>>  + HAVE_device_iommu_mapped: yes
+>>>  + HAVE_system_percpu_wq: yes
+>>>  + HAVE_6_13_MODULE_IMPORT_NS: yes
+>>>  + HAVE_drm_gem_vmap_vunmap: yes
+>>>  - HAVE_cache_sgt_mapping: no
+make: Entering directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna'
+[INFO] BUILD Directory not exist or SRC Directory is newer
+[INFO] Re-Generate BUILD_ROOT_DIR: /home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build
+make -C /home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna modules
+make[1]: Entering directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna'
+make -C /lib/modules/6.17.0-14-generic/build M=/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna CFLAGS_MODULE="-DAMDXDNA_DEVEL -DMODULE_VER_STR='\"2.21.0_20260930,bc770e67965271bdf3e4fdf098118ccba49167b8\"'" OFT_CONFIG_AMDXDNA_PCI=y OFT_CONFIG_AMDXDNA_OF=n modules
+make[2]: Entering directory '/usr/src/linux-headers-6.17.0-14-generic'
+make[3]: Entering directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  CC [M]  amdxdna_ctx.o
+  CC [M]  amdxdna_dpt.o
+  CC [M]  amdxdna_drm.o
+  CC [M]  amdxdna_pm.o
+  CC [M]  amdxdna_sysfs.o
+  CC [M]  amdxdna_mailbox.o
+  CC [M]  amdxdna_mailbox_helper.o
+  CC [M]  amdxdna_mgmt.o
+  CC [M]  amdxdna_ubuf.o
+  CC [M]  amdxdna_carvedout_buf.o
+  CC [M]  amdxdna_gem.o
+  CC [M]  amdxdna_cma_buf.o
+  CC [M]  aie2_smu.o
+  CC [M]  aie2_psp.o
+  CC [M]  aie2_ctx.o
+  CC [M]  aie2_hwctx.o
+  CC [M]  aie2_error.o
+  CC [M]  aie2_debugfs.o
+  CC [M]  aie2_tdr.o
+  CC [M]  aie2_dpt.o
+  CC [M]  aie2_message.o
+  CC [M]  aie2_ctx_runqueue.o
+  CC [M]  aie2_pm.o
+  CC [M]  aie2_pci.o
+  CC [M]  npu1_regs.o
+  CC [M]  npu2_regs.o
+  CC [M]  npu4_regs.o
+  CC [M]  npu5_regs.o
+  CC [M]  npu6_regs.o
+  CC [M]  amdxdna_pci_drv.o
+  CC [M]  amdxdna_devel.o
+  LD [M]  amdxdna.o
+  MODPOST Module.symvers
+  CC [M]  amdxdna.mod.o
+  CC [M]  .module-common.o
+  LD [M]  amdxdna.ko
+  BTF [M] amdxdna.ko
+Skipping BTF generation for amdxdna.ko due to unavailability of vmlinux
+make[3]: Leaving directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna'
+make[2]: Leaving directory '/usr/src/linux-headers-6.17.0-14-generic'
+make[1]: Leaving directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna/build/driver/amdxdna'
+make: Leaving directory '/home/shen/AI370-2/output/M5/plugin-inspect/driver/amdxdna'

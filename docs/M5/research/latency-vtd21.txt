@@ -1,0 +1,11 @@
+WARNING: User doesn't have admin permissions to set performance mode. Running validate in Default mode
+Validate Device           : [0000:c6:00.1]
+    Platform              : RyzenAI-npu4
+    Power Mode            : Default
+-------------------------------------------------------------------------------
+Test 1 [0000:c6:00.1]     : latency 
+Running Test: .
+    Details               : Average latency: 49.0 us
+    Test Status           : [PASSED]
+-------------------------------------------------------------------------------
+Validation completed. Please run the command '--verbose' option for more details

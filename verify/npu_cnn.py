@@ -5,7 +5,7 @@ import numpy as np
 import onnxruntime as ort
 
 project=Path(__file__).resolve().parents[1]
-out=project/'output/M5/cnn'
+out=project/os.environ.get('NPU_OUTPUT_DIR','output/M5/cnn')
 out.mkdir(parents=True,exist_ok=True)
 model=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else project/'output/M5/quicktest/quicktest/test_model.onnx'
 assert 'XCL_EMULATION_MODE' not in os.environ, 'Emulation forbidden'
@@ -34,7 +34,7 @@ options.log_severity_level=0
 options.enable_profiling=True
 options.profile_file_prefix=str(out/'ort-profile')
 options.add_session_config_entry('session.disable_cpu_ep_fallback','1')
-session=ort.InferenceSession(str(model),sess_options=options,providers=['VitisAIExecutionProvider'],provider_options=[{}])
+session=ort.InferenceSession(str(model),sess_options=options,providers=['VitisAIExecutionProvider'],provider_options=[{'config_file':os.environ['NPU_CONFIG_FILE']} if 'NPU_CONFIG_FILE' in os.environ else {}])
 session.disable_fallback()
 providers=session.get_providers()
 # ORT may register CPU EP even when fallback is disabled; placement/profile

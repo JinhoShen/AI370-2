@@ -1,0 +1,14 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  menu
+The following NEW packages will be installed:
+  dkms
+0 upgraded, 1 newly installed, 0 to remove and 429 not upgraded.
+Inst dkms (3.0.11-1ubuntu13 Ubuntu:24.04/noble [all])
+Conf dkms (3.0.11-1ubuntu13 Ubuntu:24.04/noble [all])

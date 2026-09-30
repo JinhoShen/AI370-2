@@ -52,3 +52,7 @@ M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且re
 ## DOCUMENT / COMMIT
 
 保存實際來源SHA、package diff、maintainer scripts、Python freeze、模型SHA/小型測試模型、workload完整log、Kernel錯誤、driver/firmware integrity與GPUregression結果。此commit是失敗診斷紀錄，不是PASS milestone。
+
+## 2026-09-30 autonomous follow-up / SER9 reference
+
+已完成安全替代路線、精確套件/firmware比對、隔離 driver build與新CP5；見 [REBUILD_GATE.md](REBUILD_GATE.md)。官方 latency/NOP部分執行PASS，但CNN/GEMM驗證仍失敗、無correctness/no-fallback compute PASS。首選改為RyzenAI1.7.1官方完整2.21配套，停在DKMS/driver/firmware approval gate；M5狀態仍未PASS。

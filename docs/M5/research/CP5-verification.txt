@@ -1,0 +1,3 @@
+platform.tar: OK
+efi.tar: OK
+/home/shen/AI370-2/output/recovery/CP5-NPU-GATE-20260930T095450Z

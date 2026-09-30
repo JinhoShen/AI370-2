@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "path": "resources/Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base-dev.deb",
+      "sha256": "f11f570f9fac26fb10d3f7a24798e933f1414be5563bf537ea9b918478d19ed9",
+      "matches_existing_manifest": true
+    },
+    {
+      "path": "resources/Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base.deb",
+      "sha256": "bd0e1b216cab193d572a5c006bf5a98df47c6b3a6c14fe392f2395e2b97023fa",
+      "matches_existing_manifest": true
+    },
+    {
+      "path": "resources/Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-npu.deb",
+      "sha256": "2c35e090958619317e6756888119dfa719ca69b2dc077ab7d9ae62939e7e326b",
+      "matches_existing_manifest": true
+    },
+    {
+      "path": "resources/Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_plugin.2.21.260102.53.release_24.04-amd64-amdxdna.deb",
+      "sha256": "802696333ef159bc0cbf9ba65f89acc5e3fb3023d461c3ad1307fe7a05436ccb",
+      "matches_existing_manifest": true
+    },
+    {
+      "payload": "usr/lib/firmware/amdnpu/17f0_10/npu.dev.sbin",
+      "sha256": "7ed0f242f253b581eb75c8c8b34638d92fba598063b635a541beb94869245469"
+    },
+    {
+      "payload": "opt/xilinx/xrt/share/amdxdna/amdxdna.tar.gz",
+      "sha256": "460757abc70d3f56f78a24368ea697ecdce3d4aa5e1112b68e1038f82b13d02b"
+    },
+    {
+      "payload": "opt/xilinx/xrt/share/amdxdna/bins/xrt_smi_strx.a",
+      "sha256": "57384f0d5cf3fc604b00540ed9b7542826cd961c30a2f3207357c972cc3ef32c"
+    },
+    {
+      "payload": "driver/amdxdna/amdxdna_gem.c",
+      "sha256": "9231a3d806f0577a5701aa537911efa559fd8a385eddde0f4f961585c88fdee2"
+    },
+    {
+      "payload": "driver/amdxdna/amdxdna_ctx.h",
+      "sha256": "c8fd18274cd1b3afa1bd71c3e75ea17d95b7d53b4c4a680777c8bac2380a217f"
+    },
+    {
+      "payload": "driver/amdxdna/aie2_message.c",
+      "sha256": "a3f4a9ad2609375634cc7114febbaf9a1677c88d09621e33942fda5ecc6df293"
+    },
+    {
+      "payload": "driver/amdxdna/build/driver/amdxdna/amdxdna.ko",
+      "sha256": "26b26685a2fb9db20bda4c213ee981c1e36da08aba533e0386a59324aec8d592"
+    }
+  ],
+  "firmware_release_string": "Release 1.1.2.64",
+  "archive_matches_existing_plugin": true
+}
