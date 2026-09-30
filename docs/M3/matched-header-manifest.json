@@ -1,0 +1,29 @@
+[
+  {
+    "package": "libdrm-dev",
+    "version": "2.4.125-1ubuntu0.1~24.04.1",
+    "path": "resources/Downloads/Ubuntu24.04/Baseline-Matched/libdrm-dev_2.4.125-1ubuntu0.1~24.04.1_amd64.deb",
+    "sha256": "22fb8f40909e4ce1b34f92f8b0fafce0753020729139e8f07bb60e74155a446f",
+    "source": "https://snapshot.ubuntu.com/ubuntu/20260215T000000Z/pool/main/libd/libdrm/libdrm-dev_2.4.125-1ubuntu0.1~24.04.1_amd64.deb",
+    "suite": "noble-updates",
+    "verification": "Ubuntu signed InRelease -> Packages.xz SHA256 -> DEB SHA256"
+  },
+  {
+    "package": "libncurses-dev",
+    "version": "6.4+20240113-1ubuntu2",
+    "path": "resources/Downloads/Ubuntu24.04/Baseline-Matched/libncurses-dev_6.4+20240113-1ubuntu2_amd64.deb",
+    "sha256": "2d9e9b309efab2babea314184949703f20e05f479bd2d10267b2b7e856495cc6",
+    "source": "https://snapshot.ubuntu.com/ubuntu/20260215T000000Z/pool/main/n/ncurses/libncurses-dev_6.4+20240113-1ubuntu2_amd64.deb",
+    "suite": "noble",
+    "verification": "Ubuntu signed InRelease -> Packages.xz SHA256 -> DEB SHA256"
+  },
+  {
+    "package": "libpciaccess-dev",
+    "version": "0.17-3ubuntu0.24.04.2",
+    "path": "resources/Downloads/Ubuntu24.04/Baseline-Matched/libpciaccess-dev_0.17-3ubuntu0.24.04.2_amd64.deb",
+    "sha256": "104e4121fb978d2e05e506e309d891062f9afbf1433fba89c8eedf4d27fc5919",
+    "source": "https://snapshot.ubuntu.com/ubuntu/20260215T000000Z/pool/main/libp/libpciaccess/libpciaccess-dev_0.17-3ubuntu0.24.04.2_amd64.deb",
+    "suite": "noble-updates",
+    "verification": "Ubuntu signed InRelease -> Packages.xz SHA256 -> DEB SHA256"
+  }
+]

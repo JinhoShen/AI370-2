@@ -1,0 +1,12 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  rocm-device-libs
+0 upgraded, 1 newly installed, 0 to remove and 429 not upgraded.
+Inst rocm-device-libs (1.0.0.70201-81~24.04 local-deb [amd64])
+Conf rocm-device-libs (1.0.0.70201-81~24.04 local-deb [amd64])

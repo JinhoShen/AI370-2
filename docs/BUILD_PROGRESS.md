@@ -9,8 +9,9 @@
 | M0.1 recovery foundation | PASS (file-level scope) | CP0_RESULT.md；本機live archive與selected-file restore通過，full boot/disk recovery未測 |
 | Mesa/Vulkan baseline | PASS | M2_CORE_M4_RESULT.md；1024 GPU shader數值正確；Mesa/driver未替換 |
 | M2 developer foundation | PASS (CLI/venv/IDE CLI) | M2_PYTHON_IDE_RESULT.md；GUIdebug未測 |
-| M3 ROCm | STOP / GRAPHICS GATE | docs/M3/GRAPHICS_APPROVAL_GATE.md；libdrm依賴升級未執行 |
-| NPU/FPGA | NOT RUN | Kernel/driver未替換；XRT/OS gate仍保留 |
+| M3 ROCm | PASS | docs/M3/RESULT.md；HIP數值與Vulkan回歸PASS；既有package未升級 |
+| M5 NPU | STOP / XRT DECISION | M5_NPU_GATE.md；inbox driver及access確認，runtime未裝 |
+| FPGA | NOT RUN | 2026.1 OS compatibility gate保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
 Golden tag只代表M0證據，不代表recovery或完整workstation完成。

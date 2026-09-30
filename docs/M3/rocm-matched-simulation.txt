@@ -1,0 +1,61 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  ncurses-doc
+Recommended packages:
+  libfile-copy-recursive-perl libfile-which-perl hipblaslt-dev
+  libdrm-amdgpu-amdgpu1 libdrm-amdgpu-dev gcc-multilib g++-multilib
+  rocm-device-libs rocsparse rocsolver-dev
+The following NEW packages will be installed:
+  comgr hip-dev hip-runtime-amd hipblas hipblas-common-dev hipblas-dev
+  hipblaslt hipcc hsa-rocr hsa-rocr-dev libdrm-dev libncurses-dev
+  libpciaccess-dev rocblas rocblas-dev rocm-core rocm-llvm rocminfo
+  rocprofiler-register rocsolver roctracer
+0 upgraded, 21 newly installed, 0 to remove and 424 not upgraded.
+Inst libncurses-dev (6.4+20240113-1ubuntu2 Ubuntu:24.04/noble, local-deb [amd64])
+Inst rocm-core (7.2.1.70201-81~24.04 local-deb [amd64])
+Inst comgr (3.0.0.70201-81~24.04 local-deb [amd64])
+Inst rocprofiler-register (0.6.0.70201-81~24.04 local-deb [amd64])
+Inst hsa-rocr (1.18.0.70201-81~24.04 local-deb [amd64])
+Inst rocminfo (1.0.0.70201-81~24.04 local-deb [amd64])
+Inst hip-runtime-amd (7.2.53211.70201-81~24.04 local-deb [amd64])
+Inst rocm-llvm (22.0.0.26084.70201-81~24.04 local-deb [amd64])
+Inst libpciaccess-dev (0.17-3ubuntu0.24.04.2 local-deb [amd64])
+Inst libdrm-dev (2.4.125-1ubuntu0.1~24.04.1 local-deb [amd64])
+Inst hsa-rocr-dev (1.18.0.70201-81~24.04 local-deb [amd64])
+Inst hipcc (1.1.1.70201-81~24.04 local-deb [amd64])
+Inst hip-dev (7.2.53211.70201-81~24.04 local-deb [amd64])
+Inst roctracer (4.1.70201.70201-81~24.04 local-deb [amd64])
+Inst hipblaslt (1.2.2.70201-81~24.04 local-deb [amd64])
+Inst rocblas (5.2.0.70201-81~24.04 local-deb [amd64])
+Inst rocsolver (3.32.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas (3.2.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas-common-dev (1.4.0.70201-81~24.04 local-deb [amd64])
+Inst hipblas-dev (3.2.0.70201-81~24.04 local-deb [amd64])
+Inst rocblas-dev (5.2.0.70201-81~24.04 local-deb [amd64])
+Conf libncurses-dev (6.4+20240113-1ubuntu2 Ubuntu:24.04/noble, local-deb [amd64])
+Conf rocm-core (7.2.1.70201-81~24.04 local-deb [amd64])
+Conf comgr (3.0.0.70201-81~24.04 local-deb [amd64])
+Conf rocprofiler-register (0.6.0.70201-81~24.04 local-deb [amd64])
+Conf hsa-rocr (1.18.0.70201-81~24.04 local-deb [amd64])
+Conf rocminfo (1.0.0.70201-81~24.04 local-deb [amd64])
+Conf hip-runtime-amd (7.2.53211.70201-81~24.04 local-deb [amd64])
+Conf rocm-llvm (22.0.0.26084.70201-81~24.04 local-deb [amd64])
+Conf libpciaccess-dev (0.17-3ubuntu0.24.04.2 local-deb [amd64])
+Conf libdrm-dev (2.4.125-1ubuntu0.1~24.04.1 local-deb [amd64])
+Conf hsa-rocr-dev (1.18.0.70201-81~24.04 local-deb [amd64])
+Conf hipcc (1.1.1.70201-81~24.04 local-deb [amd64])
+Conf hip-dev (7.2.53211.70201-81~24.04 local-deb [amd64])
+Conf roctracer (4.1.70201.70201-81~24.04 local-deb [amd64])
+Conf hipblaslt (1.2.2.70201-81~24.04 local-deb [amd64])
+Conf rocblas (5.2.0.70201-81~24.04 local-deb [amd64])
+Conf rocsolver (3.32.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas (3.2.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas-common-dev (1.4.0.70201-81~24.04 local-deb [amd64])
+Conf hipblas-dev (3.2.0.70201-81~24.04 local-deb [amd64])
+Conf rocblas-dev (5.2.0.70201-81~24.04 local-deb [amd64])

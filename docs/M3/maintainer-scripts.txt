@@ -1,0 +1,361 @@
+resources/Downloads/AMD/ROCm-7.2.1/debs/hip-dev_7.2.53211.70201-81~24.04_amd64.deb ./postinst
+#!/bin/bash
+# Copyright (c) 2016 - 2021 Advanced Micro Devices, Inc. All Rights Reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+ROCMDIR=/opt/rocm-7.2.1
+HIPINCDIR=$ROCMDIR/include/hip
+CURRENTDIR=`pwd`
+
+#FILE_REORG_BACKWARD_COMPATIBILITY
+HIPINCDIR=$ROCMDIR/hip/include/hip
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/hip-dev_7.2.53211.70201-81~24.04_amd64.deb ./prerm
+#!/bin/bash
+# Copyright (c) 2016 - 2021 Advanced Micro Devices, Inc. All rights reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+ROCMDIR=/opt/rocm-7.2.1
+CURRENTDIR=`pwd`
+
+HIPINCDIR=$ROCMDIR/include/hip
+([ ! -d $HIPINCDIR ]) && exit 0
+
+#FILE_REORG_BACKWARD_COMPATIBILITY
+  #backward copatibility code , to be removed later
+HIPDIR=$ROCMDIR/hip
+HIPINCDIR=$ROCMDIR/hip/include/hip
+([ ! -d $HIPINCDIR ]) && exit 0
+([ ! -d $HIPDIR ]) && exit 0
+rmdir --ignore-fail-on-non-empty $HIPDIR
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/hsa-rocr_1.18.0.70201-81~24.04_amd64.deb ./preinst
+#!/bin/bash
+
+echo "Pre-install check for ROCr."
+
+# Check for old installations...
+if ls /usr/lib/libhsa-runtime* 1> /dev/null 2>&1; then
+  echo "An old version of libhsa-runtime was found in /usr/lib."
+  echo "This must be uninstalled before proceeding with the installation"
+  echo "to avoid potential incompatibilities."
+
+  read -r -p "Do you want to uninstall the old version? [y/N] " response
+  if [ "$response" = "y" ]; then
+    if ! rm -rf /usr/lib/libhsa-runtime*; then
+      echo "Failed to remove /usr/lib/libhsa-runtime* files."
+      echo "Try to uninstall these files manually."
+      exit 1
+    fi
+    echo "Old version uninstalled."
+  else
+    echo "The old and new versions of ROCm are incompatible. Installation aborted."
+    exit 1
+  fi
+fi
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/hsa-rocr_1.18.0.70201-81~24.04_amd64.deb ./postinst
+#!/bin/bash
+
+################################################################################
+##
+## The University of Illinois/NCSA
+## Open Source License (NCSA)
+##
+## Copyright (c) 2020-2021, Advanced Micro Devices, Inc. All rights reserved.
+##
+## Developed by:
+##
+##                 AMD Research and AMD HSA Software Development
+##
+##                 Advanced Micro Devices, Inc.
+##
+##                 www.amd.com
+##
+## Permission is hereby granted, free of charge, to any person obtaining a copy
+## of this software and associated documentation files (the "Software"), to
+## deal with the Software without restriction, including without limitation
+## the rights to use, copy, modify, merge, publish, distribute, sublicense,
+## and/or sell copies of the Software, and to permit persons to whom the
+## Software is furnished to do so, subject to the following conditions:
+##
+##  - Redistributions of source code must retain the above copyright notice,
+##    this list of conditions and the following disclaimers.
+##  - Redistributions in binary form must reproduce the above copyright
+##    notice, this list of conditions and the following disclaimers in
+##    the documentation and/or other materials provided with the distribution.
+##  - Neither the names of Advanced Micro Devices, Inc,
+##    nor the names of its contributors may be used to endorse or promote
+##    products derived from this Software without specific prior written
+##    permission.
+##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+## IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+## FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+## THE CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+## OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+## ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+## DEALINGS WITH THE SOFTWARE.
+##
+################################################################################
+
+set -e
+
+# left-hand term originates from OFF = ON/OFF at package build
+do_ldconfig() {
+  if [ "OFF" == "ON" ]; then
+    echo /opt/rocm-7.2.1/lib > /etc/ld.so.conf.d/rocr-runtime.conf
+    ldconfig
+  fi
+}
+
+case "$1" in
+   ( configure )
+       do_ldconfig
+   ;;
+  ( abort-upgrade | abort-remove | abort-deconfigure )
+    echo "$1"
+  ;;
+   ( * )
+       exit 0
+   ;;
+esac
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/hsa-rocr_1.18.0.70201-81~24.04_amd64.deb ./prerm
+#!/bin/bash
+
+################################################################################
+##
+## The University of Illinois/NCSA
+## Open Source License (NCSA)
+##
+## Copyright (c) 2020-2021, Advanced Micro Devices, Inc. All rights reserved.
+##
+## Developed by:
+##
+##                 AMD Research and AMD HSA Software Development
+##
+##                 Advanced Micro Devices, Inc.
+##
+##                 www.amd.com
+##
+## Permission is hereby granted, free of charge, to any person obtaining a copy
+## of this software and associated documentation files (the "Software"), to
+## deal with the Software without restriction, including without limitation
+## the rights to use, copy, modify, merge, publish, distribute, sublicense,
+## and/or sell copies of the Software, and to permit persons to whom the
+## Software is furnished to do so, subject to the following conditions:
+##
+##  - Redistributions of source code must retain the above copyright notice,
+##    this list of conditions and the following disclaimers.
+##  - Redistributions in binary form must reproduce the above copyright
+##    notice, this list of conditions and the following disclaimers in
+##    the documentation and/or other materials provided with the distribution.
+##  - Neither the names of Advanced Micro Devices, Inc,
+##    nor the names of its contributors may be used to endorse or promote
+##    products derived from this Software without specific prior written
+##    permission.
+##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+## IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+## FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+## THE CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+## OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+## ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+## DEALINGS WITH THE SOFTWARE.
+##
+################################################################################
+
+set -e
+
+# left-hand term originates from OFF = ON/OFF at package build
+rm_ldconfig() {
+  if [ "OFF" == "ON" ]; then
+    rm -f /etc/ld.so.conf.d/rocr-runtime.conf
+    ldconfig
+  fi
+}
+
+case "$1" in
+   ( remove | upgrade)
+       rm_ldconfig
+   ;;
+  ( purge )
+  ;;
+   ( * )
+       exit 0
+   ;;
+esac
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/rocm-core_7.2.1.70201-81~24.04_amd64.deb ./postinst
+#!/bin/bash
+set -e
+
+do_update_alternatives(){
+    # skip update if program doesn't exist
+    command -v update-alternatives >/dev/null || return 0
+    local altscore now
+    now=$(date -u +%s)          # Number of seconds since 1 Jan 1970
+
+    # The reason for this approach rather than using the build number
+    # is to allow for jobs from different builds. In one build job the
+    # job number might be at 1200, whilst in a release job the number
+    # may be only 1. This approach assums that if you install a build
+    # with a different semantic version then the highest is the
+    # desired one, but if you install two with the same semver then
+    # the newest is the desired version.
+
+    # Build up a score. It needs to fit in 32 bits
+    altscore=$((7 - 3))
+    altscore=$((altscore * 14 + 2)) # Allow up to 14 minor
+    altscore=$((altscore * 14 + 1)) # Allow up to 14 patch
+
+    # So far if the version is less than 9 we have a number (altscore)
+    # that is less than 1175.  2**31/1175 is about 1.8 million. So
+    # multiply altscore by 1,000,000 and add in a factor of how many
+    # minutes have passed from an arbitary point in time (1,600,000,000
+    # seconds after 1 Jan 1970 or Sep 13 12:26:40 2020) on the
+    # basis that no one is going to be installing a new version more
+    # often than every minute. This does get things wrong if a million
+    # minutes pass and you are downgrading, but the chances of someone
+    # waiting almost 2 years between installing a version and the
+    # previous patch level is small.
+
+
+    altscore=$((altscore*1000000+(now-1600000000)/60))
+
+    # Update the /opt/rocm symlink
+    # For custom location installation of rpm package, /opt/rocm symlink is not required
+    # TBD: For custom location installation of deb package.
+    if [[ ${ID_LIKE:-$ID} == "debian" ]] || [[ "$RPM_INSTALL_PREFIX0" == "/opt/rocm-"* ]] ; then
+        update-alternatives --install "/opt/rocm" "rocm" "/opt/rocm-7.2.1" "$altscore"
+    fi
+
+    for loc in "/usr/share/modules/modulefiles" "/usr/local/Modules/modulefiles" "/usr/share/Modules/modulefiles" "/usr/share/Modules/3.2.10/modulefiles"
+    do
+       if [ -d "$loc" ]
+       then
+           mkdir -p "$loc/rocm"
+           if [[ ${ID_LIKE:-$ID} == "debian" ]] ; then
+               update-alternatives --install "$loc/rocm/7.2.1" "rocmmod7.2.1" "/opt/rocm-7.2.1/lib/rocmmod" "$altscore"
+           else
+               update-alternatives --install "$loc/rocm/7.2.1" "rocmmod7.2.1" "$RPM_INSTALL_PREFIX0/lib/rocmmod" "$altscore"
+           fi
+           break;
+       fi
+    done
+    true
+}
+
+if [ -e /etc/os-release ] && source /etc/os-release && [[ ${ID_LIKE:-$ID} == "debian" ]]
+then
+    case "$1" in
+       (configure)
+       do_update_alternatives
+       ;;
+       (abort-upgrade|abort-remove|abort-deconfigure)
+           echo "$1"
+       ;;
+       (*)
+          exit 0
+       ;;
+    esac
+else
+    do_update_alternatives
+fi
+
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/rocm-core_7.2.1.70201-81~24.04_amd64.deb ./prerm
+#!/bin/bash
+set -e
+
+do_update_alternatives(){
+    # skip update if program doesn't exist
+    command -v update-alternatives >/dev/null || return 0
+    # Update the /opt/rocm symlink
+    if [[ ${ID_LIKE:-$ID} == "debian" ]] || [[ "$RPM_INSTALL_PREFIX0" == "/opt/rocm-"* ]] ; then
+        update-alternatives --remove "rocm" "/opt/rocm-7.2.1"
+    fi
+
+    if [[ ${ID_LIKE:-$ID} == "debian" ]] ; then
+        update-alternatives --remove "rocmmod7.2.1" "/opt/rocm-7.2.1/lib/rocmmod"|| true
+    else
+        update-alternatives --remove "rocmmod7.2.1" "$RPM_INSTALL_PREFIX0/lib/rocmmod"|| true
+    fi
+}
+
+if [ -e /etc/os-release ] && source /etc/os-release && [[ ${ID_LIKE:-$ID} == "debian" ]]
+then
+   case "$1" in
+       (remove | upgrade)
+           do_update_alternatives
+       ;;
+       (purge)
+       ;;
+       (*)
+           exit 0
+       ;;
+   esac
+else
+     do_update_alternatives
+fi
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/rocm-llvm_22.0.0.26084.70201-81~24.04_amd64.deb ./prerm
+rm -f "/opt/rocm-7.2.1/bin/amdclang"
+rm -f "/opt/rocm-7.2.1/bin/amdclang++"
+rm -f "/opt/rocm-7.2.1/bin/amdclang-cl"
+rm -f "/opt/rocm-7.2.1/bin/amdclang-cpp"
+rm -f "/opt/rocm-7.2.1/bin/amdflang"
+rm -f "/opt/rocm-7.2.1/bin/amdlld"
+rm -f "/opt/rocm-7.2.1/bin/offload-arch"
+rmdir --ignore-fail-on-non-empty "/opt/rocm-7.2.1/bin"
+
+
+resources/Downloads/AMD/ROCm-7.2.1/debs/rocm-llvm_22.0.0.26084.70201-81~24.04_amd64.deb ./postinst
+mkdir -p "/opt/rocm-7.2.1/bin"
+ln -s "../lib/llvm/bin/amdclang" "/opt/rocm-7.2.1/bin/amdclang"
+ln -s "../lib/llvm/bin/amdclang++" "/opt/rocm-7.2.1/bin/amdclang++"
+ln -s "../lib/llvm/bin/amdclang-cl" "/opt/rocm-7.2.1/bin/amdclang-cl"
+ln -s "../lib/llvm/bin/amdclang-cpp" "/opt/rocm-7.2.1/bin/amdclang-cpp"
+ln -s "../lib/llvm/bin/amdflang" "/opt/rocm-7.2.1/bin/amdflang"
+ln -s "../lib/llvm/bin/amdlld" "/opt/rocm-7.2.1/bin/amdlld"
+ln -s "../lib/llvm/bin/offload-arch" "/opt/rocm-7.2.1/bin/offload-arch"
