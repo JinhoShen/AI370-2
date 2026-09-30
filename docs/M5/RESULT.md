@@ -64,3 +64,7 @@ M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且re
 ## Post-reboot outcome
 
 M5 verification-policy false negative / CP5 RECOVERED（非 workload failure）。開機驗證 CNN 與 GPU regression 通過，最終 kernel signature gate 觸發回復。現況與驗證界線見 [reboot/RESULT.md](reboot/RESULT.md)。未進 M6。
+
+## Reboot validation
+
+M5 PASS: see reboot/STATUS, cnn-result.json, XRT/module/version and HIP/Vulkan evidence.

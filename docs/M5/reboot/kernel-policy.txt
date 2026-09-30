@@ -1,0 +1,2 @@
+WARNING (Secure Boot disabled; exact DKMS loaded):  9月 30 18:28:04 shen-AI-Series kernel: amdxdna: module verification failed: signature and/or required key missing - tainting kernel
+PASS: no functional accelerator kernel failure

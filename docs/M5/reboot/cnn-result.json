@@ -7,25 +7,25 @@
     "CPUExecutionProvider"
   ],
   "cpu_fallback_disabled": true,
-  "profile_path": "output/M5/reboot-cnn/ort-profile_2026-09-30_18-13-11.json",
+  "profile_path": "output/M5/reboot-cnn/ort-profile_2026-09-30_18-28-06.json",
   "profile_node_providers": [
     "VitisAIExecutionProvider"
   ],
   "npu_device_fds": {
     "6": {
       "device": "/dev/accel/accel0",
-      "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t917\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t8\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t0 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
+      "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t921\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t8\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t0 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
     }
   },
   "after_npu_device_fds": {
     "6": {
       "device": "/dev/accel/accel0",
-      "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t917\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t8\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t14719188 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
+      "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t921\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t8\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t14738505 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
     }
   },
   "iterations": 10,
-  "elapsed_seconds": 0.01623138799999957,
-  "npu_hardware_time_delta_ns": 14719188,
+  "elapsed_seconds": 0.016212039999999206,
+  "npu_hardware_time_delta_ns": 14738505,
   "max_abs_errors": [
     0.0
   ],
