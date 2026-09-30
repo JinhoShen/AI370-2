@@ -1,0 +1,24 @@
+CP0 local archive verification
+2026-09-30T08:46:58+00:00
+Checkpoint: /home/shen/AI370-2/output/recovery/CP0-20260930T084329Z
+Root archive exit code:
+0
+Archive checksums:
+root.tar: OK
+efi.tar: OK
+Root archive stderr bytes:
+1055
+Recorded status:
+ARCHIVES_READABLE; RESTORE_NOT_TESTED; LIVE_FILESYSTEM_NOT_ATOMIC
+Partition table present:
+YES
+Restore selected files to isolated directory:
+usr/lib/os-release: RESTORED
+etc/passwd: RESTORED
+etc/group: RESTORED
+etc/fstab: RESTORED
+var/lib/dpkg/status: RESTORED
+Baseline kernel and initramfs: RESTORED
+EFI archive: RESTORED
+RESULT: SELECTED_FILE_RESTORE_PASS
+LIMITS: live filesystem backup, same NVMe, full system boot restore NOT TESTED
