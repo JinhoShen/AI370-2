@@ -1,0 +1,6 @@
+2026-09-30T10:13:11+00:00
+Boot before: e14d132f-c5fe-45a4-a3c9-d76e59a0f77e
+Boot now: a1a3b25a-fb97-47d8-8571-ac5268d8e0b6
+ 9月 30 18:13:09 shen-AI-Series kernel: amdxdna: module verification failed: signature and/or required key missing - tainting kernel
+Kernel accelerator error detected
+VERIFICATION FAILED (1); collecting evidence and recovering CP5

@@ -1,0 +1,2 @@
+Device: AMD Radeon 890M Graphics (RADV GFX1150) (vendor 1002 device 150e)
+PASS: 1024 GPU shader results verified; CPU fallback forbidden
