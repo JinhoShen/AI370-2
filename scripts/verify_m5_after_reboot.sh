@@ -58,6 +58,8 @@ journalctl -k -b --no-pager > "$report/kernel.txt"
 # the exact requested module has already passed the path/version checks.
 python3 verify/m5_kernel_policy.py "$report/kernel.txt" "$report/secure-boot.txt" /sys/module/amdxdna/version > "$report/kernel-policy.txt"
 
+# All functional gates passed. Documentation errors must not roll back working hardware.
+trap - EXIT
 python3 - <<'PY'
 from pathlib import Path
 import json, shutil
