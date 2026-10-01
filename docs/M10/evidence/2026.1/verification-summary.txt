@@ -1,0 +1,2 @@
+vpp_version_rc=0
+platform_count=8

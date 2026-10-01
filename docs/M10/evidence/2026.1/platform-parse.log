@@ -1,0 +1,974 @@
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vrk160_base/vrk160_base.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           vrk160_base
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vrk160_base/vrk160_base.xpfm
+Description:        The VRK160 Vitis base platform is built for the VRK160 evaluation kit. It provides a heterogeneous architecture with Arm® Cortex®-A72 application processors, Cortex®-R5F real-time processors, LPDDR5 memory, and RF support up to 18 GHz with ADC sample rates up to 32 GSPS. This platform enables development of high-performance applications in signal processing and compute-intensive domains using Versal™ adaptive SoCs.
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            vrk160_base
+Name:                             vrk160_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcvr1602
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vrk160:1.2
+Board Part:                       xcvr1602-vsva2488-2MP-e-S-es1
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 42
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          16
+NoC PL NMU:          22
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         624.993750
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.496875
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.248437
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.124218
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         99.999000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIE1
+NPI Base Address: 0xf6fa0000
+AXI Base Address: 0x0
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 1 # Rows: 3
+
+==========
+Valid SLRs
+==========
+SLR0
+
+=====================
+Resource Availability
+=====================
+  =====
+  Total
+  =====
+    LUTs:  550526
+    FFs:   1101465
+    BRAMs: 1109
+    DSPs:  2256
+
+==================
+Memory Information
+==================
+  Bus SP Tag: AIE
+  Bus SP Tag: LPDDR
+  Bus SP Tag: LPDDR0
+  Bus SP Tag: LPDDR1
+  Bus SP Tag: LPDDR2
+  Bus SP Tag: LPDDR3
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  vrk160_base
+System Configurations:
+  System Config Name:                      vrk160_base
+  System Config Description:               The VRK160 Vitis base platform is built for the VRK160 evaluation kit. It provides a heterogeneous architecture with Arm® Cortex®-A72 application processors, Cortex®-R5F real-time processors, LPDDR5 memory, and RF support up to 18 GHz with ADC sample rates up to 32 GSPS. This platform enables development of high-performance applications in signal processing and compute-intensive domains using Versal™ adaptive SoCs.
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:
+    Boot Image Data:
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_202610_1/xilinx_vck190_base_202610_1.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           xilinx_vck190_base_202610_1
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_202610_1/xilinx_vck190_base_202610_1.xpfm
+Description:         A base platform targeting VCK190 which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            versal_extensible_platform_base
+Name:                             versal_extensible_platform_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcvc1902
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vck190:3.4
+Board Part:                       xcvc1902-vsva2197-2MP-e-S
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 50
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          28
+NoC PL NMU:          28
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         625.000000
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.500000
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.250000
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.125000
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         100.000000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIE1
+NPI Base Address: 0xf70a0000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 1 # Rows: 8
+
+==========
+Valid SLRs
+==========
+SLR0
+
+==================
+Memory Information
+==================
+  Bus SP Tag: DDR
+  Bus SP Tag: LPDDR
+  Bus SP Tag: LPDDR1
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  xilinx_vck190_base_202610_1
+System Configurations:
+  System Config Name:                      xilinx_vck190_base_202610_1
+  System Config Description:                A base platform targeting VCK190 which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:            boot/linux.bif
+    Boot Image Data:           xrt/image
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vck190_base/vck190_base.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           vck190_base
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vck190_base/vck190_base.xpfm
+Description:         This platform is a new EDF(Yacto based) platform introduced in 2026.1. The base platform targeting VCK190 which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            versal_extensible_platform_base
+Name:                             versal_extensible_platform_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcvc1902
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vck190:3.4
+Board Part:                       xcvc1902-vsva2197-2MP-e-S
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 50
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          28
+NoC PL NMU:          28
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         625.000000
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.500000
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.250000
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.125000
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         100.000000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIE1
+NPI Base Address: 0xf70a0000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 1 # Rows: 8
+
+==========
+Valid SLRs
+==========
+SLR0
+
+==================
+Memory Information
+==================
+  Bus SP Tag: DDR
+  Bus SP Tag: LPDDR
+  Bus SP Tag: LPDDR1
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  vck190_base
+System Configurations:
+  System Config Name:                      vck190_base
+  System Config Description:                This platform is a new EDF(Yacto based) platform introduced in 2026.1. The base platform targeting VCK190 which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:
+    Boot Image Data:
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vek280_base_202610_1/xilinx_vek280_base_202610_1.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           xilinx_vek280_base_202610_1
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vek280_base_202610_1/xilinx_vek280_base_202610_1.xpfm
+Description:         A base platform targeting VEK280 which is the first Versal AI Edge series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 12GB LPDDR4 component, 304 AI engines, 1312 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vek280.html
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            versal_extensible_platform_base
+Name:                             versal_extensible_platform_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcve2802
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vek280:1.2
+Board Part:                       xcve2802-vsvh1760-2MP-e-S
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 38
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          21
+NoC PL NMU:          21
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         625.000000
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.500000
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.250000
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.125000
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         100.000000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIEML
+NPI Base Address: 0xf6d10000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 3 # Rows: 8
+Mem Row Start: 1 # Rows: 2
+
+==========
+Valid SLRs
+==========
+SLR0
+
+==================
+Memory Information
+==================
+  Bus SP Tag: LPDDR1
+  Bus SP Tag: LPDDR2
+  Bus SP Tag: LPDDR3
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  xilinx_vek280_base_202610_1
+System Configurations:
+  System Config Name:                      xilinx_vek280_base_202610_1
+  System Config Description:                A base platform targeting VEK280 which is the first Versal AI Edge series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 12GB LPDDR4 component, 304 AI engines, 1312 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vek280.html
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:            boot/linux.bif
+    Boot Image Data:           xrt/image
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vek385_base/vek385_base.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           vek385_base
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vek385_base/vek385_base.xpfm
+Description:         The VEK385 Vitis base platform is designed for the VEK385 evaluation kit, enabling developers to create high-performance applications using AI and DSP engines that deliver over 10× the scalar compute performance of current server-class CPUs. This platform features a powerful heterogeneous architecture with 8 Arm® Cortex®-A78 application processors, 10 Arm® Cortex®-R5 real-time processors, and 20GB of high-speed LPDDR5X memory. It offers a robust foundation for building advanced solutions in AI, signal processing, and compute-intensive domains using AMD Versal™ adaptive SoCs.
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            vek385_1_base
+Name:                             vek385_1_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xc2ve3858
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vek385_1:1.0
+Board Part:                       xc2ve3858-ssva2112-2MP-e-S
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 36
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          24
+NoC PL NMU:          30
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         624.993750
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.496875
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.248437
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.124218
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         99.999000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIE2PS
+NPI Base Address: 0xf6d50000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 3 # Rows: 4
+Mem Row Start: 1 # Rows: 2
+
+==========
+Valid SLRs
+==========
+SLR0
+
+=====================
+Resource Availability
+=====================
+  =====
+  Total
+  =====
+    LUTs:  542576
+    FFs:   1085673
+    BRAMs: 1342
+    DSPs:  2064
+
+==================
+Memory Information
+==================
+  Bus SP Tag: AIE
+  Bus SP Tag: LPDDR
+  Bus SP Tag: LPDDR01
+  Bus SP Tag: LPDDR23
+  Bus SP Tag: LPDDR4
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  vek385_base
+System Configurations:
+  System Config Name:                      vek385_base
+  System Config Description:                The VEK385 Vitis base platform is designed for the VEK385 evaluation kit, enabling developers to create high-performance applications using AI and DSP engines that deliver over 10× the scalar compute performance of current server-class CPUs. This platform features a powerful heterogeneous architecture with 8 Arm® Cortex®-A78 application processors, 10 Arm® Cortex®-R5 real-time processors, and 20GB of high-speed LPDDR5X memory. It offers a robust foundation for building advanced solutions in AI, signal processing, and compute-intensive domains using AMD Versal™ adaptive SoCs.
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a78
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:
+    Boot Image Data:
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/kv260_base/kv260_base.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           kv260_base
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/kv260_base/kv260_base.xpfm
+Description:         A base platform targeting kv260 kria SOM
+Hardware:                             1
+Has Software Platform(s):             1
+Has Hardware Emulation:               0
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            kv260_som_som240_1_connector_kv260_carrier_som240_1_connector_base
+Name:                             kv260_som_som240_1_connector_kv260_carrier_som240_1_connector_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      zynquplus
+FPGA Device:                      xck26
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:kv260_som:2.0
+Board Part:                       xck26-sfvc784-2LV-c
+
+=================
+Clock Information
+=================
+  Default Clock Index: 0
+  Clock Index:         0
+    Frequency:         149.998500
+    Status:            fixed
+  Clock Index:         1
+    Frequency:         299.997000
+    Status:            fixed
+  Clock Index:         2
+    Frequency:         74.999250
+    Status:            fixed
+  Clock Index:         3
+    Frequency:         99.999000
+    Status:            fixed
+  Clock Index:         4
+    Frequency:         199.998000
+    Status:            fixed
+  Clock Index:         5
+    Frequency:         399.996000
+    Status:            fixed
+  Clock Index:         6
+    Frequency:         599.994000
+    Status:            fixed
+
+==========
+Valid SLRs
+==========
+SLR0
+
+==================
+Memory Information
+==================
+  Bus SP Tag: HP0
+  Bus SP Tag: HP1
+  Bus SP Tag: HP2
+  Bus SP Tag: HP3
+  Bus SP Tag: HPC0
+  Bus SP Tag: HPC1
+  Bus SP Tag: LPD
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  kv260_base
+System Configurations:
+  System Config Name:                      kv260_base
+  System Config Description:                A base platform targeting kv260 kria SOM
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a53
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:            boot/linux.bif
+    Boot Image Data:           xrt/image
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmu_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_dfx_202610_1/xilinx_vck190_base_dfx_202610_1.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           xilinx_vck190_base_dfx_202610_1
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_dfx_202610_1/xilinx_vck190_base_dfx_202610_1.xpfm
+Description:         update for vck190_base_dfx latest : A base platform targeting VCK190_BASE_DFX which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+Hardware:                             1
+Has Software Platform(s):             1
+Has Hardware Emulation:               1
+
+=====================================================
+Reconfigurable Partition Platform (Shell) Information
+=====================================================
+  Reconfigurable Partition:
+    id: 0
+    Hardware Platform:            /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_dfx_202610_1/hw/rp.xsa
+    Hardware Emulation Platform:  /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/xilinx_vck190_base_dfx_202610_1/hw_emu/hw_emu.xsa
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            vck190_dfx_base
+Name:                             vck190_dfx_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcvc1902
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vck190:3.4
+Board Part:                       xcvc1902-vsva2197-2MP-e-S
+
+==========
+Design IDs
+==========
+  Design ID:             4027603075
+  Parent ID:             1730996520
+  Node ID:               2
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 50
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          28
+NoC PL NMU:          20
+
+=================
+Clock Information
+=================
+  Default Clock Index: 2
+  Clock Index:         0
+    Frequency:         625.000000
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         100.000000
+    Status:            fixed
+  Clock Index:         2
+    Frequency:         312.500000
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         156.250000
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         78.125000
+    Status:            fixed_non_ref
+
+========================
+AIE Hardware Information
+========================
+Arch: AIE1
+NPI Base Address: 0xf70a0000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 1 # Rows: 8
+
+==========
+Valid SLRs
+==========
+SLR0
+
+=====================
+Resource Availability
+=====================
+  =====
+  Total
+  =====
+    LUTs:  894631
+    FFs:   1791465
+    BRAMs: 967
+    DSPs:  1968
+
+==================
+Memory Information
+==================
+  Bus SP Tag: DDR
+  Bus SP Tag: LPDDR
+  Bus SP Tag: S_AXI_AIE
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  xilinx_vck190_base_dfx_202610_1
+System Configurations:
+  System Config Name:                      xilinx_vck190_base_dfx_202610_1
+  System Config Description:                update for vck190_base_dfx latest : A base platform targeting VCK190_BASE_DFX which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:            boot/linux.bif
+    Boot Image Data:           xrt/image
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT
+
+
+## /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vek280_base/vek280_base.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           vek280_base
+File:               /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/base_platforms/vek280_base/vek280_base.xpfm
+Description:        This platform is a new EDF(Yacto based) platform introduced in 2026.1. A base platform targeting VEK280 which is the first Versal AI Edge series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 12GB LPDDR4 component, 304 AI engines, 1312 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vek280.html
+Hardware:                             1
+Has Software Platform(s):             1
+Supports Hardware Emulation Target:   1
+Has Hardware Emulation:               1
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           xilinx.com
+Board:                            versal_extensible_platform_base
+Name:                             versal_extensible_platform_base
+Version:                          1.0
+Generated Version:                2026.1
+Is Extensible:                      1
+Supports Hardware Target:           1
+Is a Hardware Emulation Platform:   0
+FPGA Family:                      versal
+FPGA Device:                      xcve2802
+Board Vendor:                     xilinx.com
+Board Name:                       xilinx.com:vek280:1.2
+Board Part:                       xcve2802-vsvh1760-2MP-e-S
+
+==============
+AIE Partitions
+==============
+       Start Col: 0
+       # Columns: 38
+
+=====================
+Available Resources
+=====================
+NoC PL NSU:          21
+NoC PL NMU:          21
+
+=================
+Clock Information
+=================
+  Default Clock Index: 1
+  Clock Index:         0
+    Frequency:         625.000000
+    Status:            fixed_non_ref
+  Clock Index:         1
+    Frequency:         312.500000
+    Status:            fixed_non_ref
+  Clock Index:         2
+    Frequency:         156.250000
+    Status:            fixed_non_ref
+  Clock Index:         3
+    Frequency:         78.125000
+    Status:            fixed_non_ref
+  Clock Index:         4
+    Frequency:         100.000000
+    Status:            fixed
+
+========================
+AIE Hardware Information
+========================
+Arch: AIEML
+NPI Base Address: 0xf6d10000
+AXI Base Address: 0x20000000000
+Shim Row Start: 0 # Rows: 1
+Core Row Start: 3 # Rows: 8
+Mem Row Start: 1 # Rows: 2
+
+==========
+Valid SLRs
+==========
+SLR0
+
+==================
+Memory Information
+==================
+  Bus SP Tag: LPDDR1
+  Bus SP Tag: LPDDR2
+  Bus SP Tag: LPDDR3
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            2
+Default System Configuration:  vek280_base
+System Configurations:
+  System Config Name:                      vek280_base
+  System Config Description:               This platform is a new EDF(Yacto based) platform introduced in 2026.1. A base platform targeting VEK280 which is the first Versal AI Edge series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 12GB LPDDR4 component, 304 AI engines, 1312 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vek280.html
+  System Config Default Processor Group:   xrt
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         1
+  System Config Processor Groups:
+    Processor Group Name:      aiengine
+    Processor Group CPU Type:  ai_engine
+    Processor Group m_os Name:   aiengine
+    Processor Group Name:      xrt
+    Processor Group CPU Type:  cortex-a72
+    Processor Group m_os Name:   xrt
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:
+    Boot Image BIF:
+    Boot Image Data:
+    Boot Image Boot Mode:
+    Boot Image RootFileSystem:
+    Boot Image Mount Path:
+    Boot Image Read Me:
+    Boot Image QEMU Args:      qemu/pmc_args.txt:qemu/qemu_args.txt
+    Boot Image QEMU Boot:
+    Boot Image QEMU Dev Tree:
+Supported Runtimes:
+  Runtime: C/C++
+  Runtime: XRT

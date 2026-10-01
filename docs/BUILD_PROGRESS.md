@@ -20,6 +20,7 @@
 | M9 protected-stack regression | PASS | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；HIP/Vulkan 1024-result checks and VitisAI-only NPU CNN passed; XRT/NPU/firmware versions preserved |
 | M9 Acceleration components | INSTALLED / VERIFIED / DEFERRED | docs/M9/ACCELERATION_INSTALL_RESULT.md；Vitis acceleration CLI and 8 embedded platforms verified; FPGA card runtime/XRT host API remain deferred |
 | M9 board definitions | VERIFIED | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；Vivado recognizes Xilinx SP701 and Digilent Arty A7-35; Spartan-7 device support added and used in synthesis |
+| M10 Vitis / HLS / platforms | PASS | docs/M10/RESULT.md；v++ 2026.1、SP701 HLS C synthesis 與 8 個 embedded platforms 個別解析通過 |
 | M11 FPGA hardware validation | DEFERRED | Hardware Manager found no connected JTAG target; no bitstream programming or live hardware result claimed |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
