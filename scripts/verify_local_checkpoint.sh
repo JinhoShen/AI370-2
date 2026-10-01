@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 [[ $EUID -eq 0 ]] || { echo 'Run with sudo in the local terminal.' >&2; exit 1; }
-checkpoint=/home/shen/AI370-2/output/recovery/CP0-20260930T084329Z
-report=/home/shen/AI370-2/docs/CP0_VERIFICATION.txt
+checkpoint=${1:-$(find /home/shen/AI370-2/output/recovery -mindepth 1 -maxdepth 1 -type d -name 'CP0-*' -printf '%T@ %p\n' | sort -nr | head -1 | cut -d' ' -f2-)}
+[[ -n $checkpoint && -d $checkpoint ]] || { echo 'No CP0 checkpoint found; pass its directory as argument.' >&2; exit 2; }
+report=${2:-/home/shen/AI370-2/docs/$(basename "$checkpoint")-VERIFICATION.txt}
 scratch=$(mktemp -d "$checkpoint/restore-check.XXXXXX")
 trap 'result=$?; rm -rf -- "$scratch"; if [[ -f $report ]]; then chmod 644 "$report"; fi; if [[ $result -ne 0 ]]; then echo "Verification failed. See $report" >&2; fi' EXIT
 {

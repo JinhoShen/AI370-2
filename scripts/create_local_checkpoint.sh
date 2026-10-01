@@ -13,6 +13,14 @@ df -h / > "$checkpoint/disk-space.txt"
 lsblk -o NAME,SIZE,FSTYPE,UUID,MOUNTPOINTS > "$checkpoint/disks.txt"
 dpkg-query -W > "$checkpoint/packages.txt"
 uname -a > "$checkpoint/kernel.txt"
+date -u --iso-8601=seconds > "$checkpoint/created-utc.txt"
+lsmod > "$checkpoint/modules.txt"
+dkms status > "$checkpoint/dkms.txt" 2>&1 || true
+journalctl --boot --no-pager > "$checkpoint/journal-current-boot.txt"
+journalctl -k --boot --no-pager > "$checkpoint/kernel-journal-current-boot.txt"
+if command -v xrt-smi >/dev/null; then
+  timeout 30s xrt-smi examine > "$checkpoint/xrt-examine.txt" 2>&1 || true
+fi
 if command -v sfdisk >/dev/null; then
   sfdisk --dump /dev/nvme0n1 > "$checkpoint/partition-table.txt"
 fi
@@ -21,6 +29,7 @@ set +e
 tar --acls --xattrs --numeric-owner --sparse --one-file-system \
   --exclude=./proc --exclude=./sys --exclude=./dev --exclude=./run \
   --exclude=./tmp --exclude=./mnt --exclude=./media --exclude=./lost+found \
+  --exclude=./var/log/syslog \
   --exclude=./home/shen/AI370-2/resources \
   --exclude=./home/shen/AI370-2/output \
   --exclude=./swap.img --exclude=./swapfile \
@@ -37,6 +46,6 @@ tar -tf "$checkpoint/root.tar" > "$checkpoint/root-file-list.txt"
 tar -tf "$checkpoint/efi.tar" > "$checkpoint/efi-file-list.txt"
 (cd "$checkpoint" && sha256sum root.tar efi.tar > SHA256SUMS && sha256sum -c SHA256SUMS)
 sync
-printf '%s\n' 'ARCHIVES_READABLE; RESTORE_NOT_TESTED; LIVE_FILESYSTEM_NOT_ATOMIC' > "$checkpoint/STATUS"
+printf '%s\n' 'ARCHIVES_READABLE; JOURNAL_CAPTURED_SEPARATELY; SYSLOG_EXCLUDED_AS_LIVE_FILE; RESTORE_NOT_TESTED; LIVE_FILESYSTEM_NOT_ATOMIC' > "$checkpoint/STATUS"
 echo "Checkpoint archives saved: $checkpoint"
 echo 'Requires agent review and restore validation before phase PASS.'
