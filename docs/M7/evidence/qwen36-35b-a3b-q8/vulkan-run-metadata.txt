@@ -1,0 +1,16 @@
+backend=vulkan
+binary=/home/shen/AI370-2/output/M6/build-vulkan/bin/llama-cli
+model=/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
+start=2026-10-01T18:14:31+08:00
+memavailable_before_bytes=43219984384
+memory.max=34359738368
+memory.swap.max=0
+vmstat_swap_before=pswpin=195290 pswpout=637371 
+command=llama-cli -m <model> -c 64 -b 8 -ub 4 -t 4 -tb 4 -n 4 --reasoning off --device Vulkan0 --gpu-layers 1 -p 'Reply with exactly READY.' --single-turn --no-display-prompt --simple-io --verbose
+
+finish=2026-10-01T18:14:40+08:00
+exit_code=1
+memavailable_after_bytes=44543987712
+vmstat_swap_after=pswpin=212150 pswpout=1209257 
+memory.peak=11860533248
+memory.swap.peak=0

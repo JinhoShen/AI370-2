@@ -1,0 +1,7 @@
+# Vulkan llama.cpp device enumeration
+Available devices:
+  Vulkan0: AMD Radeon 890M Graphics (RADV GFX1150) (40275 MiB, 39176 MiB free)
+
+# ROCm llama.cpp device enumeration
+Available devices:
+  ROCm0: AMD Radeon 890M Graphics (23891 MiB, 23886 MiB free)

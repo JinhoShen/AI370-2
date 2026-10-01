@@ -1,0 +1,5 @@
+path=/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
+size_bytes=36903139328
+mtime=2026-10-01 15:43:45.619663297 +0800
+mtime_epoch=1790840625
+d8d7842cc657d720f39546878e431937c84473aa130c36371669ac17c80c7361  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf

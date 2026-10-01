@@ -1,0 +1,16 @@
+backend=cpu
+binary=/home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli
+model=/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
+start=2026-10-01T18:09:58+08:00
+memavailable_before_bytes=44673843200
+memory.max=41875931136
+memory.swap.max=0
+vmstat_swap_before=pswpin=16685 pswpout=34527 
+command=llama-cli -m <model> -c 64 -b 8 -ub 4 -t 4 -tb 4 -n 4 --reasoning off --device none --gpu-layers 0 -p 'Reply with exactly READY.' --single-turn --no-display-prompt --simple-io --verbose
+
+finish=2026-10-01T18:10:21+08:00
+exit_code=0
+memavailable_after_bytes=46912974848
+vmstat_swap_after=pswpin=56640 pswpout=635589 
+memory.peak=29331161088
+memory.swap.peak=0

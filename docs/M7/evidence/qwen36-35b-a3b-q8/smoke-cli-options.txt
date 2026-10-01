@@ -1,0 +1,21 @@
+25:-c,    --ctx-size N                     size of the prompt context (default: 0, 0 = loaded from model)
+27:-n,    --predict, --n-predict N         number of tokens to predict (default: -1, -1 = infinity)
+29:-b,    --batch-size N                   logical maximum batch size (default: 2048)
+31:-ub,   --ubatch-size N                  physical maximum batch size (default: 512)
+71:-kvo,  --kv-offload, -nkvo, --no-kv-offload
+72:                                        whether to enable KV cache offloading (default: enabled)
+90:-lm,   --load-mode MODE                 model loading mode (default: auto)
+118:-dev,  --device <dev1,dev2,..>          comma-separated list of devices to use for offloading (none = don't
+119:                                        offload)
+134:-ngl,  --gpu-layers, --n-gpu-layers N   max. number of layers to store in VRAM, either an exact number,
+145:-ts,   --tensor-split N0,N1,N2,...      fraction of the model to offload to each GPU, comma-separated list of
+165:--op-offload, --no-op-offload           whether to offload host tensor operations to device (default: true)
+368:                                        offload draft sampling to the backend (default: enabled)
+371:                                        comma-separated list of devices to use for offloading the draft model
+372:                                        (none = don't offload, default: follows --device)
+374:--spec-draft-ngl, -ngld, --gpu-layers-draft, --n-gpu-layers-draft N
+419:--display-prompt, --no-display-prompt   whether to print prompt at generation (default: true)
+441:-st,   --single-turn                    run conversation for a single turn only, then exit when done
+455:--mmproj-offload, --no-mmproj-offload   whether to enable GPU offloading for multimodal projector (default:
+458:-mmdev, --mmproj-device DEVICE          device to use for multimodal projector (none = don't offload, default:
+551:--simple-io                             use basic IO for better compatibility in subprocesses and limited

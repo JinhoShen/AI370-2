@@ -13,6 +13,7 @@
 | M5 NPU | PASS | docs/M5/reboot/STATUS；重開機後DKMS/firmware、CNN正確性、硬體usage、no-fallback及HIP/Vulkan通過 |
 | M6 Local LLM foundation | PASS | docs/M6/RESULT.md；本地 llama.cpp CPU/Vulkan/ROCm 獨立 build 與 CLI/server/Lemonade 實際 backend 短測通過；M5 stack 未改 |
 | M7 Local LLM benchmark | PASS (conservative baseline) | docs/M7/RESULT.md；本地 GGUF/context64 CPU/Vulkan/ROCm 三次 prefill/decode、RSS/GTT/VRAM/swap/kernel log；未做高壓長測 |
+| M7 Qwen3.6-35B-A3B Q8_0 model smoke | DOWNLOAD / SHA256 / GGUF metadata / CPU inference VERIFIED; Vulkan FAILED; ROCm inference DEFERRED | docs/M7/QWEN36_Q8_SMOKE.md；低負載 smoke 專項，不代表高負載/穩定性 PASS；Vulkan RADV command submission error 後停止 GPU 測試 |
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
 | M9 native route | INSTALLED; LICENSE GATE | docs/M9/NATIVE_INSTALL_RESULT.md；Vivado/Vitis/Vitis Embedded/HLS 2026.1 installed natively; no apt transaction or protected-stack changes |
 | M9 Vivado/Vitis/HLS validation | BLOCKED BY LICENSE | Tool versions and IDE startup pass; Vivado Tcl/RTL synthesis and HLS synthesis require valid Vivado license; M9 not PASS |
