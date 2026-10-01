@@ -20,8 +20,8 @@
 | Platform / Xilinx Records | COMPLETE（文件） | 最新只讀平台狀態與2026.1安裝差異已記錄 | 文件不是新增測試結果 | [Platform record](platform/AI370_2_PLATFORM_RECORD.md), [Xilinx record](platform/XILINX_2026_1_INSTALLATION_RECORD.md) |
 | M11 SP701 Physical FPGA | DEFERRED / WAITING FOR HARDWARE TARGET | 尚無JTAG target evidence | JTAG detection→implementation→bitstream→program→observable execution→regression | [ROADMAP](ROADMAP.md) |
 | M12 AI + FPGA Integration | IN PROGRESS / PRE-HARDWARE PARTIAL | GPU/NPU coexistence、SP701 synthesis/placement/route/utilization、post-route checkpoint VERIFIED；protected stack未變更 | Bitstream 因 NSTD-1/UCIO-1 缺少 I/O constraints BLOCKED；timing unconstrained；host↔FPGA、JTAG與hardware execution未驗證 | [M12 RESULT](M12/RESULT.md), [ROADMAP](ROADMAP.md) |
-| M13 AMD Ross Agentic AI | PLANNED / NOT INSTALLED | 只有AMD官方資料研究規劃，無本機安裝或驗證 | Codex/MCP/Vivado/Vitis/Skills/KB及offline能力待驗證 | [ROADMAP](ROADMAP.md) |
-| M14 Automation / Reproducible Rebuild | PLANNED | 無 end-to-end rebuild PASS | 將已驗證流程護欄化並實際rebuild/recovery演練 | [ROADMAP](ROADMAP.md) |
+| M13 AMD Ross Agentic AI | RESEARCH COMPLETE / INSTALLATION BLOCKED | 官方定位、MCP、Skills、Knowledge Base、Codex CLI compatibility與offline direction已記錄；本機未安裝 | AMD credential download gate；startup、MCP、Vivado/Vitis、Skills/KB與offline均未測試 | [M13 RESULT](M13/RESULT.md), [ROADMAP](ROADMAP.md) |
+| M14 Automation / Reproducible Rebuild | IN PROGRESS | Guarded verifier 已實測：inventory、protected stack、GPU/NPU、FPGA artifacts、kernel audit；deferred 項目明列 | install/rebuild helpers、recovery rehearsal、Ross verifier、SP701 physical automation尚未完成 | [M14 RESULT](M14/RESULT.md), [ROADMAP](ROADMAP.md) |
 | M15 Final Golden Workstation | PLANNED | 尚無Final Golden State | integrated regression、recovery、docs/security audit、temporary privilege cleanup、final checkpoint | [ROADMAP](ROADMAP.md) |
 
 ## Project controls
