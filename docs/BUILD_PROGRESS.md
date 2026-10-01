@@ -14,6 +14,7 @@
 | M6 Local LLM foundation | PASS | docs/M6/RESULT.md；本地 llama.cpp CPU/Vulkan/ROCm 獨立 build 與 CLI/server/Lemonade 實際 backend 短測通過；M5 stack 未改 |
 | M7 Local LLM benchmark | PASS (conservative baseline) | docs/M7/RESULT.md；本地 GGUF/context64 CPU/Vulkan/ROCm 三次 prefill/decode、RSS/GTT/VRAM/swap/kernel log；未做高壓長測 |
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
+| M9 Vivado/Vitis 2026.1 | GATE — awaiting OS decision | docs/M9/PRECHECK_GATE.md；Ubuntu 24.04.4 unsupported；installer untouched |
 | FPGA | NOT RUN | 2026.1 OS compatibility gate保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
