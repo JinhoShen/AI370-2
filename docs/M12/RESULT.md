@@ -36,3 +36,9 @@ No matching `amdgpu`, `amdxdna`, XRT, page-fault, TTM, GPU-reset, hang or soft-l
 **NOT VERIFIED:** a practical host↔FPGA workload, FPGA runtime/card compatibility, XRT C++ host API (headers remain unavailable), JTAG, implementation/bitstream programming, physical FPGA execution, or sustained resource contention.
 
 M12 remains **IN PROGRESS**. The next M12 slice requires selecting a concrete host↔FPGA data/control workload; physical execution remains dependent on M11 hardware target availability. M7.1 and M8 remain OPEN/DEFERRED as recorded in the Roadmap.
+
+## M12.1 host↔FPGA integration gate
+
+The installed 2026.1 platform inventory was checked without changing the toolchain. The eight parsed `.xpfm` files target KV260, VCK190, VEK280, VEK385 and VRK160 embedded platforms; none targets the SP701 Spartan-7 part. The current system XRT installation exposes runtime libraries and NPU tools but no `xrt*.h` development headers, and the M9 record already marks the XRT C++ host API DEFERRED. `v++` therefore has no safe, hardware-relevant host build path for the current SP701 setup.
+
+**M12.1 status: DEFERRED / UNKNOWN.** A future host↔FPGA workload needs either a matching platform/runtime and headers or an actual SP701-specific supported flow. `hw_emu`/`hw` options visible in `v++` help are capability declarations, not evidence that a compatible platform or FPGA target is available. No emulation or hardware result is claimed.

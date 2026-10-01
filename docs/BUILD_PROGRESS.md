@@ -19,7 +19,7 @@
 | M10 Vitis / HLS / Platforms | PASS（software scope） | `v++`, SP701 HLS、8 embedded platforms個別解析 | 不代表platform programming或硬體執行 | [M10](M10/RESULT.md) |
 | Platform / Xilinx Records | COMPLETE（文件） | 最新只讀平台狀態與2026.1安裝差異已記錄 | 文件不是新增測試結果 | [Platform record](platform/AI370_2_PLATFORM_RECORD.md), [Xilinx record](platform/XILINX_2026_1_INSTALLATION_RECORD.md) |
 | M11 SP701 Physical FPGA | DEFERRED / WAITING FOR HARDWARE TARGET | 尚無JTAG target evidence | JTAG detection→implementation→bitstream→program→observable execution→regression | [ROADMAP](ROADMAP.md) |
-| M12 AI + FPGA Integration | IN PROGRESS | GPU/NPU sequential coexistence smoke VERIFIED；protected stack未變更 | 選定並實測 host↔FPGA workload；FPGA runtime/API、JTAG與hardware execution仍未驗證 | [M12 RESULT](M12/RESULT.md), [ROADMAP](ROADMAP.md) |
+| M12 AI + FPGA Integration | IN PROGRESS / host↔FPGA DEFERRED | GPU/NPU sequential coexistence smoke VERIFIED；protected stack未變更 | 現有 `.xpfm` 無 SP701 platform；XRT C++ headers、FPGA runtime/API、JTAG與hardware execution仍未驗證 | [M12 RESULT](M12/RESULT.md), [ROADMAP](ROADMAP.md) |
 | M13 AMD Ross Agentic AI | PLANNED / NOT INSTALLED | 只有AMD官方資料研究規劃，無本機安裝或驗證 | Codex/MCP/Vivado/Vitis/Skills/KB及offline能力待驗證 | [ROADMAP](ROADMAP.md) |
 | M14 Automation / Reproducible Rebuild | PLANNED | 無 end-to-end rebuild PASS | 將已驗證流程護欄化並實際rebuild/recovery演練 | [ROADMAP](ROADMAP.md) |
 | M15 Final Golden Workstation | PLANNED | 尚無Final Golden State | integrated regression、recovery、docs/security audit、temporary privilege cleanup、final checkpoint | [ROADMAP](ROADMAP.md) |
