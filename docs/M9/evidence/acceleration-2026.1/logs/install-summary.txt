@@ -1,0 +1,6 @@
+AMD FPGA & Adaptive SoC installer 2026.1, archive SHA-256 8180734068136de4520d57cc894e34be5bb26ca311ca9e10b6534cffbc08f059.
+Operation: registered installation entrypoint /home/shen/tools/Xilinx/2026.1/.xinstall/2026.1/xsetup --agree XilinxEULA,3rdPartyEULA -b Add -c acceleration-add-config.txt.
+Selected module: Install devices for Alveo and edge acceleration platforms, with child selections Devices for Alveo and edge acceleration platforms and Versal Devices for Alveo and edge acceleration platforms.
+Installer log: /home/shen/tools/Xilinx/2026.1/.xinstall/2026.1/xinstall.log records adding devices to the existing Vitis Unified Software Platform in /home/shen/tools/Xilinx/2026.1. All three module entries were checked; completion timestamp 2026-10-01 15:59:25.694.
+Existing Artix-7, Kria and Zynq UltraScale+ MPSoC selections were locked and unchanged. No Vivado/Vitis/HLS reinstall was performed.
+The installer did not install or replace a standalone system XRT package. System packages remained xrt-base 2.21.75, xrt-npu 2.21.75, and xrt_plugin-amdxdna 2.21; no APT/dpkg XRT transaction occurred. The bundled Vitis xclbinutil reports build XRT 2.19.0. With XILINX_XRT=/opt/xilinx/xrt, the Vitis wrapper dispatches to system xclbinutil with XRT 2.21.75 (see xrt-selection.log). No FPGA card execution is claimed.

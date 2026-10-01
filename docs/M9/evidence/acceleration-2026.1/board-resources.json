@@ -1,0 +1,9 @@
+{
+  "source_sha256": "0fde023aba20b693394c40e611b1702b61a7b07741435527476e9ceac99ee61b",
+  "source_board_definitions": 417,
+  "malformed_xml": 0,
+  "installed_board_definitions": 456,
+  "digilent_arty_a7_35_present": true,
+  "vivado_2026_1_board_recognition": "UNKNOWN; license-gated Tcl query did not pass",
+  "preexisting_destination_path_conflicts": 0
+}

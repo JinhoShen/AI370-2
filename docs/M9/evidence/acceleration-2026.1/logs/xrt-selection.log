@@ -1,0 +1,23 @@
+# Bundled Vitis xclbinutil with XILINX_XRT unset
+****** xclbinutil v2026.1 (64-bit)
+       XRT Build Version: 2.19.0
+    Build Version Branch: Vitis
+      Build Version Hash: f02de266f785111094b02d32a9012bd0da3abd58
+ Build Version Hash Date: Thu, 6 Feb 2025 16:56:30 -0800
+      Build Version Date: Fri, 07 Feb 2025 10:52:04 -0700
+
+# Vitis wrapper explicitly using existing system XRT at /opt/xilinx/xrt
+       XRT Build Version: 2.21.75
+    Build Version Branch: HEAD
+      Build Version Hash: 4eb1f4392a012b4e6eca759762389c612537f7c7
+ Build Version Hash Date: Tue, 3 Feb 2026 12:44:36 -0800
+      Build Version Date: Mon, 09 Mar 2026 20:30:37 +0000
+
+# XRT-SMI using installed system package
+  Version              : 2.21.75
+  Branch               : HEAD
+  Hash                 : 4eb1f4392a012b4e6eca759762389c612537f7c7
+  Hash Date            : 2026-03-09 20:30:37
+  amdxdna Version      : 2.21.260102.53.release_20260309, 6f881ad230142b707ca8ce5b33fca426a926c551
+  virtio-pci Version   : 6.17.0-14-generic
+  NPU Firmware Version : 1.1.2.64

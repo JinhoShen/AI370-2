@@ -1,0 +1,71 @@
+vivado -version
+vivado v2026.1 (64-bit)
+Tool Version Limit: 2026.06
+SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+rc=0
+
+vitis -v
+Autocomplete enabled for the xrt-smi command
+XILINX_XRT        : /opt/xilinx/xrt
+PATH              : /opt/xilinx/xrt/bin:/home/shen/.local/bin:/home/shen/.codex/packages/app-server-daemon/releases/0.159.3-x86_64-unknown-linux-musl/codex-path:/home/shen/.codex/tmp/arg0/codex-arg0Qzv8Ib:/home/shen/.codex/tmp/arg0/codex-arg0T5LQKr:/home/shen/.codex/packages/app-server-daemon/releases/0.159.2-x86_64-unknown-linux-musl/codex-path:/home/shen/.codex/tmp/arg0/codex-arg0CRNEC5:/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/shen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+LD_LIBRARY_PATH   : /opt/xilinx/xrt/lib
+PYTHONPATH        : /opt/xilinx/xrt/python
+
+****** Vitis Development Environment
+****** Vitis v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:17:16
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+rc=0
+
+vitis_hls version: previously verified at M9 core install
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2026.1 (64-bit)
+SW Build 6493734 on Jun 16 2026
+IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+Tool Version Limit: 2026.06
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+source evidence: ../../native-2026.1/logs/vitis-hls-version.log
+
+v++ --version (Vitis wrapper; XILINX_XRT unset unless wrapper autoselects)
+
+****** v++ v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Thu Oct  1 16:13:16 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+rc=0
+
+vitis-run --version (Vitis wrapper; XILINX_XRT unset unless wrapper autoselects)
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Thu Oct  1 16:13:16 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+rc=0
+
+platforminfo --version (Vitis wrapper; XILINX_XRT unset unless wrapper autoselects)
+****** platforminfo v2026.1 (64-bit)
+rc=0
+
+xclbinutil --version (Vitis wrapper; XILINX_XRT unset unless wrapper autoselects)
+****** xclbinutil v2026.1 (64-bit)
+       XRT Build Version: 2.19.0
+    Build Version Branch: Vitis
+      Build Version Hash: f02de266f785111094b02d32a9012bd0da3abd58
+ Build Version Hash Date: Thu, 6 Feb 2025 16:56:30 -0800
+      Build Version Date: Fri, 07 Feb 2025 10:52:04 -0700
+rc=0
+
+emconfigutil --version (Vitis wrapper; XILINX_XRT unset unless wrapper autoselects)
+****** emconfigutil v2026.1 (64-bit)
+rc=0

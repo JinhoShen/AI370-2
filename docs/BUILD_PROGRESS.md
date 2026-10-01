@@ -16,8 +16,10 @@
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
 | M9 native route | INSTALLED; LICENSE GATE | docs/M9/NATIVE_INSTALL_RESULT.md；Vivado/Vitis/Vitis Embedded/HLS 2026.1 installed natively; no apt transaction or protected-stack changes |
 | M9 Vivado/Vitis/HLS validation | BLOCKED BY LICENSE | Tool versions and IDE startup pass; Vivado Tcl/RTL synthesis and HLS synthesis require valid Vivado license; M9 not PASS |
-| M9 protected-stack regression | PASS | docs/M9/NATIVE_INSTALL_RESULT.md；post-install HIP/Vulkan 1024-result tests and VitisAI-only NPU CNN passed |
-| FPGA | NOT RUN | Local Digilent board definitions installed; no physical FPGA board programming; synthesis remains license-gated |
+| M9 protected-stack regression | PASS | docs/M9/ACCELERATION_INSTALL_RESULT.md；post-Acceleration HIP/Vulkan 1024-result tests and VitisAI-only NPU CNN passed; system XRT/NPU enumeration preserved |
+| M9 Acceleration components | INSTALLED / PARTIAL VERIFICATION | docs/M9/ACCELERATION_INSTALL_RESULT.md；Alveo/edge/Versal device support Add completed; Vitis acceleration CLI and 8 embedded platforms verified; FPGA card/runtime and XRT host headers deferred |
+| M9 local board definitions | INSTALLED; recognition UNKNOWN | docs/M9/ACCELERATION_INSTALL_RESULT.md；Xilinx Board Store + Digilent definitions available; Vivado board-part enumeration remains license-gated |
+| FPGA | NOT RUN | No physical FPGA card enumerated/programmed; kernel synthesis remains license-gated |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
 Golden tag只代表M0證據，不代表recovery或完整workstation完成。

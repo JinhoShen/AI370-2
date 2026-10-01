@@ -1,0 +1,7 @@
+45234:2026-10-01 13:53:43,385 INFO : com.xilinx.installer.workflow.j:-1 - Installation directory is /home/shen/tools/Xilinx/2026.1
+101122:2026-10-01 15:55:50,365 INFO : com.xilinx.installer.workflow.j:-1 - Adding design tools/devices to Edition: Vitis Unified Software Platform
+101123:2026-10-01 15:55:50,365 INFO : com.xilinx.installer.workflow.j:-1 - Installation directory is /home/shen/tools/Xilinx/2026.1
+109112:	|-- ✓ Install devices for Alveo and edge acceleration platforms
+109113:	| |-- ✓ Devices for Alveo and edge acceleration platforms
+109114:	| |-- ✓ Versal Devices for Alveo and edge acceleration platforms
+109209:2026-10-01 15:59:25,694 INFO : com.xilinx.installer.cli.d:-1 - Install completed successfully.If AMD FPGAs & Adaptive SoCs tools are currently running, please restart to see the devices you've just added.

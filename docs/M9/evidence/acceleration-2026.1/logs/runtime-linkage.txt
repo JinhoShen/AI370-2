@@ -1,0 +1,5 @@
+The Vitis xclbinutil is a wrapper: with XILINX_XRT unset it invokes its Vitis 2026.1 bundled xclbinutil; with XILINX_XRT=/opt/xilinx/xrt it invokes /opt/xilinx/xrt/bin/xclbinutil. Both normal wrapper invocations execute successfully; captured build versions are in ../xrt-selection.log.
+
+The direct unwrapped ELF depends on tool-local Boost 1.72 and RDI libraries. Running ldd on that ELF without the vendor loader environment reports those libraries as unresolved; this is not the supported wrapper invocation. No symlinks or system library changes were made.
+
+System runtime packages remain xrt-base 2.21.75, xrt-npu 2.21.75, xrt_plugin-amdxdna 2.21. The installed runtime tree has libxrt_coreutil.so.2.21.75 but no XRT C++ development headers. XRT-SMI runtime/device evidence is in xrt-examine.log.
