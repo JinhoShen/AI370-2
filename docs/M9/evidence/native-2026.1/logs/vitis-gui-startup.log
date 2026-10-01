@@ -1,0 +1,13 @@
+Autocomplete enabled for the xrt-smi command
+XILINX_XRT        : /opt/xilinx/xrt
+PATH              : /opt/xilinx/xrt/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/microblaze/lin/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/microblaze/linux_toolchain/lin64_le/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/aarch32/lin/gcc-arm-none-eabi/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/aarch64/lin/aarch64-linux/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/aarch64/lin/aarch64-none/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/armr5/lin/gcc-arm-none-eabi/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/aietools/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/riscv/lin/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/riscv/linux_toolchain/lin32/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/gnu/riscv/linux_toolchain/lin64/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/functional_suite/hil:/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin:/home/shen/tools/Xilinx/2026.1/2026.1/Model_Composer/bin:/home/shen/.local/bin:/home/shen/.codex/packages/app-server-daemon/releases/0.159.3-x86_64-unknown-linux-musl/codex-path:/home/shen/.codex/tmp/arg0/codex-arg0Qzv8Ib:/home/shen/.codex/tmp/arg0/codex-arg0T5LQKr:/home/shen/.codex/packages/app-server-daemon/releases/0.159.2-x86_64-unknown-linux-musl/codex-path:/home/shen/.codex/tmp/arg0/codex-arg0CRNEC5:/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/shen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+LD_LIBRARY_PATH   : /opt/xilinx/xrt/lib
+PYTHONPATH        : /opt/xilinx/xrt/python:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/functional_suite/vfs/python:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/functional_suite/varray/python:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/functional_suite/lib/python:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/functional_suite/hil/python
+
+****** Vitis Development Environment
+****** Vitis v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:17:16
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+Creating workspace directory: /home/shen/tools/Xilinx/workspaces/m9-2026.1

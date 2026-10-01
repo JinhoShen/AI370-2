@@ -14,9 +14,10 @@
 | M6 Local LLM foundation | PASS | docs/M6/RESULT.md；本地 llama.cpp CPU/Vulkan/ROCm 獨立 build 與 CLI/server/Lemonade 實際 backend 短測通過；M5 stack 未改 |
 | M7 Local LLM benchmark | PASS (conservative baseline) | docs/M7/RESULT.md；本地 GGUF/context64 CPU/Vulkan/ROCm 三次 prefill/decode、RSS/GTT/VRAM/swap/kernel log；未做高壓長測 |
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
-| M9 native route | USER-DECIDED; PRE-INSTALL CHECKPOINT VERIFIED; APT GATE BLOCKED | docs/M9/NATIVE_INSTALL_DECISION.md；Ubuntu 24.04.4 host; solver proposes Mesa/RADV upgrades; no package installed and installer not launched |
-| M9 Vivado/Vitis/HLS validation | NOT STARTED — GATED | 先解決受保護 Mesa stack transaction；VM route history preserved；M9 not PASS |
-| FPGA | NOT RUN | 尚未開始 Vivado synthesis 或硬體驗證 |
+| M9 native route | INSTALLED; LICENSE GATE | docs/M9/NATIVE_INSTALL_RESULT.md；Vivado/Vitis/Vitis Embedded/HLS 2026.1 installed natively; no apt transaction or protected-stack changes |
+| M9 Vivado/Vitis/HLS validation | BLOCKED BY LICENSE | Tool versions and IDE startup pass; Vivado Tcl/RTL synthesis and HLS synthesis require valid Vivado license; M9 not PASS |
+| M9 protected-stack regression | PASS | docs/M9/NATIVE_INSTALL_RESULT.md；post-install HIP/Vulkan 1024-result tests and VitisAI-only NPU CNN passed |
+| FPGA | NOT RUN | Local Digilent board definitions installed; no physical FPGA board programming; synthesis remains license-gated |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
 Golden tag只代表M0證據，不代表recovery或完整workstation完成。
