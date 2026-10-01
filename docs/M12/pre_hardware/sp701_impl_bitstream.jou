@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Thu Oct  1 20:26:29 2026
+# Process ID         : 422349
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.tcl -log /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.log -journal /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.jou
+# Log file           : /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.log
+# Journal file       : /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5096.163 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 48747 MB
+#-----------------------------------------------------------
+source /home/shen/AI370-2/docs/M12/pre_hardware/sp701_impl_bitstream.tcl

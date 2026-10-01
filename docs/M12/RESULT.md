@@ -42,3 +42,23 @@ M12 remains **IN PROGRESS**. The next M12 slice requires selecting a concrete ho
 The installed 2026.1 platform inventory was checked without changing the toolchain. The eight parsed `.xpfm` files target KV260, VCK190, VEK280, VEK385 and VRK160 embedded platforms; none targets the SP701 Spartan-7 part. The current system XRT installation exposes runtime libraries and NPU tools but no `xrt*.h` development headers, and the M9 record already marks the XRT C++ host API DEFERRED. `v++` therefore has no safe, hardware-relevant host build path for the current SP701 setup.
 
 **M12.1 status: DEFERRED / UNKNOWN.** A future host↔FPGA workload needs either a matching platform/runtime and headers or an actual SP701-specific supported flow. `hw_emu`/`hw` options visible in `v++` help are capability declarations, not evidence that a compatible platform or FPGA target is available. No emulation or hardware result is claimed.
+
+## Phase A pre-hardware implementation gate
+
+The existing minimal `m9_adder` smoke design was taken from the saved RTL through implementation using Vivado 2026.1 and the SP701 part `xc7s100fgga676-2`. No synthesis or implementation rerun was needed after the initial run; the retained log and artifacts were inspected.
+
+| Sub-item | Verdict | Evidence / boundary |
+|---|---|---|
+| Synthesis | PASS | `synth_design completed successfully`; 0 synthesis errors in `pre_hardware/sp701_impl_bitstream.log` |
+| Optimization / placement | PASS | `opt_design`, `place_design` completed; precondition DRC had 0 errors |
+| Route | PASS | `route_design completed successfully`; `output/M12/pre-hardware/post_route.dcp` exists and is readable, SHA-256 `d609124ddac694fe7ae8edb8a60a0e7abbbdf2b1d6231775f1eef3631082fc64` |
+| Utilization | VERIFIED | `utilization_implemented.rpt`: 4 LUTs, 5 registers, 14 bonded I/O, 1 BUFG |
+| Timing | UNCONSTRAINED / NOT VALIDATED | No user timing constraints; five registers have no clock constraint and input/output delays are absent; WNS/TNS are `NA` |
+| Bitstream | BLOCKED BY BOARD CONSTRAINT | `write_bitstream` stopped at DRC `NSTD-1` and `UCIO-1`: all 14 ports have default IOSTANDARD and no LOC. Bitgen was not run. No severity override was used. |
+| HLS | PASS (prior evidence) | SP701 `m9_adder` C synthesis and reports are retained in M9 evidence |
+| hw_server | SOFTWARE READY | Vivado 2026.1 `hw_server` started and listened on TCP port 3122 in a local readiness probe; no target was connected or programmed |
+| Physical SP701 | HARDWARE PENDING / NOT TESTED | No JTAG target evidence tonight |
+
+The installed SP701 Board Store data includes `part0_pins.xml` with named pin mappings and a differential `SYSCLK_P/N` pair, but it does not provide a complete XDC mapping for this generic single-ended `clk`, `a`, `b` and `sum` top-level interface. Mapping those ports to guessed pins or converting the clock without a defined design interface would be unsafe. No constraint was added and no bitstream was fabricated by downgrading DRC severity.
+
+Phase A therefore remains **PRE-HARDWARE PARTIAL**: synthesis, placement, route, utilization, checkpoint and HLS are verified; timing is not validated; bitstream and hardware programming remain pending a proper SP701 design/XDC interface.
