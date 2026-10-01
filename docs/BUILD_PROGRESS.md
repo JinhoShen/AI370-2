@@ -14,8 +14,8 @@
 | M6 Local LLM foundation | PASS | docs/M6/RESULT.md；本地 llama.cpp CPU/Vulkan/ROCm 獨立 build 與 CLI/server/Lemonade 實際 backend 短測通過；M5 stack 未改 |
 | M7 Local LLM benchmark | PASS (conservative baseline) | docs/M7/RESULT.md；本地 GGUF/context64 CPU/Vulkan/ROCm 三次 prefill/decode、RSS/GTT/VRAM/swap/kernel log；未做高壓長測 |
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
-| M9.0–M9.1 Vivado/Vitis 2026.1 | PRECHECK + INVENTORY COMPLETE; EXECUTION GATED | docs/M9/M9.0_PRECHECK.md、M9.1_FPGA_INVENTORY.md；Ubuntu 24.04.3 guest route recorded; required ISO absent; FPGA target/license UNKNOWN; installer unextracted |
-| M9.2 Vivado 2026.1 | NOT STARTED — GATED | docs/M9/PRECHECK_GATE.md；先補齊已選 guest install media 與 target/component scope；未建立 VM、未安裝工具 |
+| M9 native route | USER-DECIDED; PRE-INSTALL CHECKPOINT VERIFIED; APT GATE BLOCKED | docs/M9/NATIVE_INSTALL_DECISION.md；Ubuntu 24.04.4 host; solver proposes Mesa/RADV upgrades; no package installed and installer not launched |
+| M9 Vivado/Vitis/HLS validation | NOT STARTED — GATED | 先解決受保護 Mesa stack transaction；VM route history preserved；M9 not PASS |
 | FPGA | NOT RUN | 尚未開始 Vivado synthesis 或硬體驗證 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。

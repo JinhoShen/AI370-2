@@ -6,7 +6,9 @@ if [[ ${EUID} -ne 0 ]]; then
 fi
 destination=/home/shen/AI370-2/output/recovery
 mkdir -p "$destination"
-checkpoint="$destination/CP0-$(date -u +%Y%m%dT%H%M%SZ)"
+checkpoint_prefix=${CHECKPOINT_PREFIX:-CP0}
+[[ $checkpoint_prefix =~ ^[A-Za-z0-9._-]+$ ]] || { echo 'Invalid CHECKPOINT_PREFIX.' >&2; exit 2; }
+checkpoint="$destination/${checkpoint_prefix}-$(date -u +%Y%m%dT%H%M%SZ)"
 mkdir "$checkpoint"
 chmod 700 "$checkpoint"
 df -h / > "$checkpoint/disk-space.txt"
