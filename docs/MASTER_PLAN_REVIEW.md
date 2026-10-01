@@ -1,6 +1,8 @@
 # AI370 2 MASTER PLAN REVIEW
 
-日期：2026-09-30（Asia/Taipei）。狀態：**REVIEW COMPLETE / IMPLEMENTATION NOT STARTED**。
+原始 review 日期：2026-09-30（Asia/Taipei）。以下 review 內容是當日規劃快照；「implementation not started」只描述該 review 寫成時的狀態，不代表目前狀態。後續實際結果以各 milestone result document 為準，現行 M0–M15 狀態統一見 [`ROADMAP.md`](ROADMAP.md)，詳細時間統一見 [`EXECUTION_TIMELINE.md`](EXECUTION_TIMELINE.md)。
+
+**目前狀態索引（2026-10-01）：** M0–M10 已有部分或全部實際執行紀錄，但 PASS 範圍不擴張；M0.1、M1、M8 為 PARTIAL；M7.1 為 OPEN；M11 DEFERRED 等待 SP701/JTAG target；M12–M15 為 PLAN。AMD Ross 已列入 M13，尚未安裝或驗證。Roadmap 為唯一詳細里程碑狀態來源。
 
 本文件是施工建議，不是安裝授權或階段 PASS。此次只讀取既有證據、檢視安裝包 metadata／腳本與查詢官方文件，新增本 review；沒有安裝、更新、修改 Kernel／BIOS／driver／權限、初始化 Git 或進入 M0.1。
 
@@ -61,7 +63,9 @@ GPU 的 16 GiB UMA、約 23.33 GiB GTT 與 Linux RAM 不可相加當成模型容
 
 先保留 BIOS UMA 配置；只有證據顯示需求時才獨立評估 UMA／TTM 變更。cgroup RAM 限制不是所有 GPU/GTT allocation 的完整上限。
 
-## 3. Corrected phase order
+## 3. Corrected phase order (historical proposal)
+
+本節表格保留 2026-09-30 review 當時的建議次序，不是現在的進度表；實際 M0–M10 結果及新 M11–M15 定義以 `docs/ROADMAP.md` 為準。M13/M14 的舊定義已由 M13 Ross、M14 Automation、M15 Final Golden Workstation 取代，不改寫既有 result/evidence。
 
 保留原 phase ID，執行順序調整如下。每個可修改子階段仍須 PLAN → PRECHECK → INSTALL/CONFIGURE → VERIFY → DOCUMENT → GIT COMMIT，通過才前進。
 
@@ -298,6 +302,6 @@ Benchmark 先固定小模型與保守 context；完成測試再逐項增加。M7
 
 ## 11. 下一階段開始前需要定案的事項
 
-M0.1前先確認本review與recovery範圍；M1定案現在Kernel的驗證路線和精確transaction。M5前定案XRT/inbox-driver或有獨立rollback的DKMS路線。M9前定案2026.1的支持OS方案、device subset、license及空間。M11前才決定實際board。
+（歷史建議，2026-09-30）M0.1前先確認本review與recovery範圍；M1定案當時Kernel的驗證路線和精確transaction。M5前定案XRT/inbox-driver或有獨立rollback的DKMS路線。M9前定案2026.1的支持OS方案、device subset、license及空間。M11前才決定實際board。其後已選定 SP701；當前執行狀態以 `docs/ROADMAP.md` 為準。
 
-**此次停止於review。所有後續phase、下載、Git初始化與系統變更均未開始。**
+**歷史 review 停止聲明：** review 撰寫時後續 phase 尚未開始。之後各階段進度以各自 commit/result 為準；不要把本句套用到目前狀態。現行規劃請讀 `docs/ROADMAP.md`。
