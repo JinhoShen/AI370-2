@@ -42,7 +42,7 @@ verify/npu_cnn.py已停用ORT CPU fallback、禁止emulation，要求profile所�
 
 ## PASS CRITERIA / STOP
 
-M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且regression無新增不可接受問題時PASS。目前**FAIL**，因runtime/inboxdriver配套限制**BLOCKED**；未安裝DKMS、未換Kernel/driver/firmware、未裝2.25、未reboot。沒有跨越重大變更gate，也沒有開始M6。
+此段記錄原始相容性診斷時的狀態：當時inbox driver無法完成CNN compute，M5尚未PASS。後續使用者批准切換指定的DKMS/firmware並完成重開機驗證；最終狀態以本文件下方「Reboot validation」及 [reboot/STATUS](reboot/STATUS) 為準。
 後續可先研究與inboxdriver相符的2.21 userspace/測試artifact；不得在未有具體證據時聲稱此路線一定可行。若需換driver/Kernel，必須另提相容性/rollback方案並取得獨立批准，現有禁令仍有效。
 
 ## ROLLBACK
@@ -63,8 +63,8 @@ M5只在真實NPU compute完成、結果正確、無CPUfallback證據充分且re
 
 ## Post-reboot outcome
 
-M5 verification-policy false negative / CP5 RECOVERED（非 workload failure）。開機驗證 CNN 與 GPU regression 通過，最終 kernel signature gate 觸發回復。現況與驗證界線見 [reboot/RESULT.md](reboot/RESULT.md)。未進 M6。
+第一次 post-reboot run 的 rollback 是 verification-policy false negative，並非 workload failure：CNN/VitisAI/NPU execution 與 GPU regression 均通過，Secure Boot disabled 時的 module signature warning 被誤判為致命失敗。CP5 recovery 已完成並核對。修正政策後再次切換並完整驗證，最終結果見 [reboot/RESULT.md](reboot/RESULT.md)。
 
 ## Reboot validation
 
-M5 PASS: see reboot/STATUS, cnn-result.json, XRT/module/version and HIP/Vulkan evidence.
+M5 PASS: see reboot/STATUS, cnn-result.json, XRT/module/version and HIP/Vulkan evidence. Golden State commit: `849377c8f2da4c8cc230fc97c1c12fb800899d48`; tag: `ai370-2-npu-golden`.

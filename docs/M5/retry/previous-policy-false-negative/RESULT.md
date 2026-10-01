@@ -12,3 +12,7 @@ CP5 腳本已移除指定 plugin/DKMS，恢復 inbox module、原 firmware、SHI
 本次回復後尚未再次 reboot，因此回復 initramfs 的下一次開機驗證仍未完成；不宣稱完整 boot recovery 已驗證。M5 保持 FAIL / CP5 recovered，未進 M6。
 
 使用者確認此次為 verification-policy false negative，非 M5 workload failure。修正 verifier：Secure Boot disabled 且指定 DKMS 已正確載入時，signature warning 不單獨觸發 rollback；功能性 kernel faults 仍觸發 rollback。重新切換與完整開機驗證已授權。
+
+## Subsequent resolution
+
+上述內容是 CP5 recovery 當下的狀態紀錄。之後已按授權重新切換並完成完整 post-reboot M5 verification；signature warning 僅記為 WARNING。最終 M5 PASS、版本與 Golden State commit/tag 見 `../../reboot/RESULT.md` 及主 M5 RESULT。
