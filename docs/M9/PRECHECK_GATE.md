@@ -8,6 +8,7 @@
 - Filesystem containing repository/resources: 619 GiB free at precheck.
 - Local installer: `resources/Agent_Tools_Docs/02_FPGA/Vivado_Vitis_2026.1/FPGAs_AdaptiveSoCs_Unified_SDI_2026.1_0616_1700.tar`, 105,522,216,960 bytes (about 98.3 GiB), not extracted. `docs/SHA256SUMS.local` records expected SHA-256 `8180734068136de4520d57cc894e34be5bb26ca311ca9e10b6534cffbc08f059`; the release asset remains in its existing resource location.
 - The only locally inventoried Ubuntu ISO is `resources/Agent_Tools_Docs/01_OS/Ubuntu/ubuntu-24.04.1-desktop-amd64.iso`; there is no local 24.04.3 ISO. No VM was created and no installer component was selected.
+- An external Transcend USB is now mounted at `/media/shen/Transcend` as exFAT. It contains `FPGAs_AdaptiveSoCs_Unified_SDI_2025.2_1114_2157_1.tar` (102,739,568,640 bytes; 2025.2) and Ubuntu 24.04.4 / 24.04.1 ISOs; it has about 7.6 GiB free. The 2025.2 archive's contents/checksum were not read or verified and it remains untouched. The USB does not contain the requested 24.04.3 ISO.
 - No M9 device/board subset, license/entitlement, or intended Vivado-only versus Vitis Embedded versus Vitis Acceleration component set has been recorded.
 
 ## Existing compatibility evidence and boundary
@@ -16,7 +17,7 @@
 
 The review estimates approximately 98.3 GiB to stage/extract the installer, 35 GB for Vitis Embedded or 200 GB for a full Vitis install depending on selected components. This machine has 619 GiB free for one selected installation or a VM disk plus extraction; capacity does not choose the supported-OS route. Vitis Embedded/HLS memory is listed as 32 GB minimum / 64 GB recommended; Vitis Acceleration lists 64 GB minimum / 80 GB recommended. Current visible RAM is 46 GiB, so a 32 GiB embedded-tool guest would be near the minimum and acceleration cannot meet the listed minimum in a VM on this host.
 
-No new compatibility research, OS mutation, installer launch, VM creation, or license/device assumption was made at this gate.
+No new compatibility research, OS mutation, installer launch, VM creation, file copy, or license/device assumption was made at this gate. The external 2025.2 archive is an additional inventory item, not authorization to replace the planned 2026.1 release.
 
 ## Decision required before M9
 
