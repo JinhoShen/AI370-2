@@ -1,0 +1,108 @@
+{
+    "platforms": [
+        {
+            "baseName": "vrk160_base",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "true",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/vrk160_base\/vrk160_base.xpfm"
+        },
+        {
+            "baseName": "xilinx_vck190_base_202610_1",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/xilinx_vck190_base_202610_1\/xilinx_vck190_base_202610_1.xpfm"
+        },
+        {
+            "baseName": "vck190_base",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/vck190_base\/vck190_base.xpfm"
+        },
+        {
+            "baseName": "xilinx_vek280_base_202610_1",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/xilinx_vek280_base_202610_1\/xilinx_vek280_base_202610_1.xpfm"
+        },
+        {
+            "baseName": "vek385_base",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "true",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/vek385_base\/vek385_base.xpfm"
+        },
+        {
+            "baseName": "kv260_base",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/kv260_base\/kv260_base.xpfm"
+        },
+        {
+            "baseName": "xilinx_vck190_base_dfx_202610_1",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "impl",
+            "usesPR": "true",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/xilinx_vck190_base_dfx_202610_1\/xilinx_vck190_base_dfx_202610_1.xpfm"
+        },
+        {
+            "baseName": "vek280_base",
+            "version": "1.0",
+            "type": "sdsoc",
+            "dataCenter": "false",
+            "embedded": "true",
+            "externalHost": "false",
+            "serverManaged": "false",
+            "platformState": "pre_synth",
+            "usesPR": "false",
+            "segmentedConfiguration": "false",
+            "platformFile": "\/home\/shen\/tools\/Xilinx\/2026.1\/2026.1\/Vitis\/base_platforms\/vek280_base\/vek280_base.xpfm"
+        }
+    ]
+}

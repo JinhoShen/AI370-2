@@ -15,12 +15,12 @@
 | M7 Local LLM benchmark | PASS (conservative baseline) | docs/M7/RESULT.md；本地 GGUF/context64 CPU/Vulkan/ROCm 三次 prefill/decode、RSS/GTT/VRAM/swap/kernel log；未做高壓長測 |
 | M7 Qwen3.6-35B-A3B Q8_0 model smoke | DOWNLOAD / SHA256 / GGUF metadata / CPU inference VERIFIED; Vulkan FAILED; ROCm inference DEFERRED | docs/M7/QWEN36_Q8_SMOKE.md；低負載 smoke 專項，不代表高負載/穩定性 PASS；Vulkan RADV command submission error 後停止 GPU 測試 |
 | M8 NPU Local AI evaluation | DEFERRED (local ONNX PASS) | docs/M8/RESULT.md；VitisAI-only CNN 正確性/硬體 counter 通過；NPU LLM 權重不在本機；tiny unsupported graphs 未冒充 PASS |
-| M9 native route | INSTALLED; LICENSE GATE | docs/M9/NATIVE_INSTALL_RESULT.md；Vivado/Vitis/Vitis Embedded/HLS 2026.1 installed natively; no apt transaction or protected-stack changes |
-| M9 Vivado/Vitis/HLS validation | BLOCKED BY LICENSE | Tool versions and IDE startup pass; Vivado Tcl/RTL synthesis and HLS synthesis require valid Vivado license; M9 not PASS |
-| M9 protected-stack regression | PASS | docs/M9/ACCELERATION_INSTALL_RESULT.md；post-Acceleration HIP/Vulkan 1024-result tests and VitisAI-only NPU CNN passed; system XRT/NPU enumeration preserved |
-| M9 Acceleration components | INSTALLED / PARTIAL VERIFICATION | docs/M9/ACCELERATION_INSTALL_RESULT.md；Alveo/edge/Versal device support Add completed; Vitis acceleration CLI and 8 embedded platforms verified; FPGA card/runtime and XRT host headers deferred |
-| M9 local board definitions | INSTALLED; recognition UNKNOWN | docs/M9/ACCELERATION_INSTALL_RESULT.md；Xilinx Board Store + Digilent definitions available; Vivado board-part enumeration remains license-gated |
-| FPGA | NOT RUN | No physical FPGA card enumerated/programmed; kernel synthesis remains license-gated |
+| M9 native route | INSTALLED; SOFTWARE TOOLCHAIN PASS | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；Vivado/Vitis/Vitis Embedded/HLS 2026.1 installed natively; active Enterprise license; OS support is not claimed |
+| M9 Vivado/Vitis/HLS validation | PASS | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；SP701 board/device recognition, Vivado RTL synthesis/utilization and Vitis HLS synthesis all passed |
+| M9 protected-stack regression | PASS | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；HIP/Vulkan 1024-result checks and VitisAI-only NPU CNN passed; XRT/NPU/firmware versions preserved |
+| M9 Acceleration components | INSTALLED / VERIFIED / DEFERRED | docs/M9/ACCELERATION_INSTALL_RESULT.md；Vitis acceleration CLI and 8 embedded platforms verified; FPGA card runtime/XRT host API remain deferred |
+| M9 board definitions | VERIFIED | docs/M9/LICENSE_UNLOCKED_VALIDATION.md；Vivado recognizes Xilinx SP701 and Digilent Arty A7-35; Spartan-7 device support added and used in synthesis |
+| M11 FPGA hardware validation | DEFERRED | Hardware Manager found no connected JTAG target; no bitstream programming or live hardware result claimed |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
 Golden tag只代表M0證據，不代表recovery或完整workstation完成。

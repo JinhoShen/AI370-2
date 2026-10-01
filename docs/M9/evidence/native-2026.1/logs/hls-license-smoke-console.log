@@ -1,0 +1,92 @@
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Thu Oct  1 18:47:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2026.1 6493734
+Sourcing Tcl script '/home/shen/AI370-2/docs/M9/native-toolchain-smoke/hls_smoke.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset /home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls
+WARNING: [HLS 200-2182] The 'hls' project will not automatically appear within Vitis IDE workspaces and is meant only for TCL batch use.  Please use open_component instead of open_project/open_solution to generate Vitis IDE compatible component files and directory structure.
+Resolution: For help on HLS 200-2182 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-2182.html
+INFO: [HLS 200-10] Opening and resetting solution '/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls'.
+M9_HLS_CWD=/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work
+M9_HLS_SOURCE_EXISTS=1
+INFO: [HLS 200-1510] Running: set_top m9_adder
+INFO: [HLS 200-1510] Running: add_files /home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/hls_adder.cpp
+INFO: [HLS 200-10] Adding design file '/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/hls_adder.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 -flow_target vivado
+INFO: [HLS 200-10] Creating and opening solution '/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2026.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+WARNING: [HLS 200-2149] The 'flow_target' option is deprecated and will be removed in a future release. For 'vivado' value you may simply remove the option for equivalent behavior.
+WARNING: [HLS 200-484] The 'open_solution -flow_target' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: set_part xc7s100fgga676-2
+INFO: [HLS 200-1611] Setting target device to 'xc7s100-fgga676-2'
+INFO: [HLS 200-1510] Running: create_clock -period 10
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.03 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.08 seconds; current allocated memory: 474.594 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'hls/hls_adder.cpp' ...
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.13 seconds. CPU system time: 0.22 seconds. Elapsed time: 0.36 seconds; current allocated memory: 476.027 MB.
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 6 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.43 seconds. CPU system time: 0.25 seconds. Elapsed time: 6.58 seconds; current allocated memory: 486.828 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 486.828 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 486.828 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 486.828 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 506.645 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 497.387 MB.
+INFO: [HLS 200-2255] Checking Wire Delay Status: Wire Delay Mode is ON
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'm9_adder' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'm9_adder'
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.03 seconds; current allocated memory: 497.387 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 497.387 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'm9_adder'
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'm9_adder/a' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'm9_adder/b' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'm9_adder' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'm9_adder'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 497.387 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 499.559 MB.
+INFO: [HLS 200-2225] Wrote inferred directives to file /home/shen/AI370-2/docs/M9/native-toolchain-smoke/work/hls/solution1/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.12 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.14 seconds; current allocated memory: 500.531 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for m9_adder.
+INFO: [VLOG 209-307] Generating Verilog RTL for m9_adder.
+INFO: [HLS 200-789] **** Estimated Fmax: 466.20 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:07; Allocated memory: 25.938 MB.
+INFO: [HLS 200-1510] Running: close_project
+INFO: [HLS 200-112] Total CPU user time: 2.92 seconds. Total CPU system time: 0.79 seconds. Total elapsed time: 8.56 seconds; peak allocated memory: 506.645 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 9s
+INFO: [vitis-run 60-1662] Stopping dispatch session having empty uuid.

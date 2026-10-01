@@ -10,3 +10,8 @@ __pycache__/
 .env
 credentials*
 *.key
+
+/vivado*.jou
+/vivado*.log
+docs/M9/native-toolchain-smoke/vivado-smoke*.jou
+docs/M9/native-toolchain-smoke/vivado-smoke*.log

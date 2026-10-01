@@ -1,0 +1,15 @@
+date=2026-10-01T18:55:28+08:00
+kernel=6.17.0-14-generic
+libdrm2=2.4.125-1ubuntu0.1~24.04.1
+libdrm-amdgpu1=2.4.125-1ubuntu0.1~24.04.1
+mesa-vulkan-drivers=25.2.8-0ubuntu0.24.04.1
+rocm-core=7.2.1.70201-81~24.04
+xrt-base=2.21.75
+xrt-npu=2.21.75
+xrt_plugin-amdxdna=2.21
+amdxdna_module_path=/lib/modules/6.17.0-14-generic/updates/dkms/amdxdna.ko.zst
+amdxdna_module_version=2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551
+amdxdna_dkms=xrt-amdxdna/2.21.260102.53.release, 6.17.0-14-generic, x86_64: installed;
+license_source_candidate=/home/shen/.Xilinx/Xilinx_shen.lic (contents intentionally not recorded)
+license_env_names=
+license_tool_status=Vivado reports valid Design Suite ENTERPRISE license; active; expires Permanent
