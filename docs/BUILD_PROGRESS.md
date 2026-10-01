@@ -11,6 +11,9 @@
 | M2 developer foundation | PASS (CLI/venv/IDE CLI) | M2_PYTHON_IDE_RESULT.md；GUIdebug未測 |
 | M3 ROCm | PASS | docs/M3/RESULT.md；HIP數值與Vulkan回歸PASS；既有package未升級 |
 | M5 NPU | PASS | docs/M5/reboot/STATUS；重開機後DKMS/firmware、CNN正確性、硬體usage、no-fallback及HIP/Vulkan通過 |
+| M6 Local LLM foundation | PASS | docs/M6/RESULT.md；本地 llama.cpp CPU/Vulkan/ROCm 獨立 build 與 CLI/server/Lemonade 實際 backend 短測通過；M5 stack 未改 |
+| M7 Local LLM benchmark | IN PROGRESS | docs/M7/RESULT.md（完成後） |
+| M8 NPU Local AI evaluation | PENDING | 沿用 M5 XDNA2 stack，不變更 driver |
 | FPGA | NOT RUN | 2026.1 OS compatibility gate保留 |
 
 Git identity僅repo-local自動化名稱，沒有global Git設定修改或remote/push。
