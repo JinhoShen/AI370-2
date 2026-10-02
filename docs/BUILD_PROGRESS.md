@@ -12,7 +12,7 @@
 | M4 Mesa / Vulkan | PASS | RADV Radeon 890M compute 1,024 結果正確、拒絕 CPU fallback | 不代表長時穩定性 | [M2_CORE_M4_RESULT](M2_CORE_M4_RESULT.md) |
 | M5 XDNA2 / XRT / Ryzen AI | PASS / NPU Golden State | post-reboot VitisAI-only CNN、無CPU fallback、輸出比對及HIP/Vulkan回歸 | 保護已驗證 Mesa/ROCm/XRT/amdxdna/firmware stack | [M5 status](M5/reboot/STATUS) |
 | M6 Local LLM | PASS | CPU/Vulkan/ROCm llama.cpp 短測，backend/device 可確認；Lemonade 短測 | 不含 Qwen Q8 問題或高負載穩定性 | [M6](M6/RESULT.md) |
-| M7 Conservative Benchmark | PASS（僅保守範圍） | context 64、三次量測、CPU/Vulkan/ROCm效能與資源記錄 | 不是 high-load/long-duration PASS | [M7](M7/RESULT.md) |
+| M7 Conservative Benchmark | PASS（僅保守範圍） | context 64、三次量測、CPU/Vulkan/ROCm效能與資源記錄 | 不是 high-load/long-duration PASS；Qwen3.8三個GGUF候選僅完成檔案盤點，未驗證/未推論 | [M7](M7/RESULT.md), [Qwen3.8 candidates](M7/QWEN38_CANDIDATE_MODELS.md) |
 | M7.1 Qwen Q8 Vulkan failure | OPEN | 檔案/SHA/metadata/CPU smoke verified；Vulkan smoke失敗，ROCm inference未執行 | RADV command submission/device-loss investigation未解決 | [Qwen smoke](M7/QWEN36_Q8_SMOKE.md) |
 | M8 NPU Local AI | PARTIAL | ONNX CNN workload PASS | NPU LLM evaluation DEFERRED（模型未在本機） | [M8](M8/RESULT.md) |
 | M9 Vivado / FPGA Toolchain | PASS（software scope） | Vivado 2026.1、SP701/Arty辨識、SP701 RTL synthesis/utilization、HLS與stack regression | 不是physical FPGA PASS；24.04.4 official support未確立 | [M9](M9/LICENSE_UNLOCKED_VALIDATION.md) |
