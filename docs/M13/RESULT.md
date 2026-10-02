@@ -34,7 +34,7 @@ The earlier M13 checkpoint recorded Ross as not installed because the AMD Linux 
 | Local document retrieval | PASS | CPU embedding service loaded the packaged Qwen embedding model; Weaviate import completed 725,911/725,911 records; AMD `vivado_doc_search` returned documentation through both direct MCP and Codex CLI. |
 | Retrieval container network | VERIFIED — isolated Docker network | All KB containers use a Docker `internal=true` bridge; container memory/CPU limits are configured and the MCP endpoint is reached from the host over the bridge. The configured host port is not actually published on this internal network; current Codex URL uses the live container address `172.18.0.4:8080`. Recheck the address after network/container recreation. |
 | End-to-end local answering / air-gapped agent | DEFERRED / NOT TESTED | The local Codex config selects `gpt-6-luna`; the KB retrieval layer is local and network-isolated, but no local answer-generation model was attached. No claim that the overall agent workflow is air-gapped or that an existing Qwen GGUF is supported. |
-| Controlled SP701 agent workflow | DEFERRED / HARDWARE PENDING | No design was modified and no physical board/JTAG operation was attempted. Requires M11 target availability and M12 hardware-ready constraints. |
+| Controlled SP701 agent workflow | DEFERRED / NOT TESTED | M11 later verified SP701 USB/JTAG and read-only `xc7s100` identity (see [M11 evidence](../M11/RESULT.md)); no design was modified or programmed. Ross-driven hardware workflow remains untested pending a valid M12 board design/constraints. |
 
 No Kernel, Mesa/RADV, libdrm, ROCm/HIP, system XRT 2.21.75, amdxdna DKMS, NPU firmware or FPGA software stack package was changed for Ross. The only APT transaction was 7 new Docker/container-runtime packages with 0 upgrades; the user was not added to the `docker` group. The local KB containers run CPU-only; no GPU/NPU inference was invoked. Docker's `.env` contains generated credentials and remains outside Git with mode 0600.
 
@@ -44,6 +44,6 @@ No Kernel, Mesa/RADV, libdrm, ROCm/HIP, system XRT 2.21.75, amdxdna DKMS, NPU fi
 2. Validate Vitis/Vitis Embedded assistant workflow boundaries; Ross MCP is Vivado-specific in the installed package, while HLS support is skill/CLI-driven.
 3. Evaluate a separate local answer-generation model only after choosing a bounded, stable CPU workload; do not assume Qwen GGUF compatibility from the embedding package.
 4. Verify end-to-end air-gap behavior for both the answer model and client. The current result establishes an isolated local retrieval backend only.
-5. After M11 hardware/JTAG becomes available, run only a reviewed, controlled SP701 agentic workflow; physical actions remain separately gated.
+5. With M11 now verifying the SP701 JTAG/device identity, a reviewed Ross workflow remains deferred until M12 has a valid design and board constraints; any programming action remains separately gated.
 
 M13 remains **IN PROGRESS**, not PASS. No changes were made to the protected GPU/NPU stack, and M7.1 remains OPEN.

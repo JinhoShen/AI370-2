@@ -62,3 +62,9 @@ The existing minimal `m9_adder` smoke design was taken from the saved RTL throug
 The installed SP701 Board Store data includes `part0_pins.xml` with named pin mappings and a differential `SYSCLK_P/N` pair, but it does not provide a complete XDC mapping for this generic single-ended `clk`, `a`, `b` and `sum` top-level interface. Mapping those ports to guessed pins or converting the clock without a defined design interface would be unsafe. No constraint was added and no bitstream was fabricated by downgrading DRC severity.
 
 Phase A therefore remains **PRE-HARDWARE PARTIAL**: synthesis, placement, route, utilization, checkpoint and HLS are verified; timing is not validated; bitstream and hardware programming remain pending a proper SP701 design/XDC interface.
+
+## 2026-10-02 SP701 JTAG identification update
+
+After the user set SW13 to JTAG mode, re-powered the board, and the Vivado 2026.1 Linux cable rules were installed, a read-only Hardware Manager probe detected one SP701 target. The USB identity (`Xilinx` / `SP701`, FT4232H serial `46602010028`) matched the Vivado JTAG target serial; `get_hw_devices` returned `xc7s100_0`, PART `xc7s100`, IDCODE `0x037C7093`. The installed SP701 board definition maps the board to `xc7s100fgga676-2`; the live hardware PART property does not expose package/speed suffix. DNA is not exposed as a property by this `hw_device`.
+
+This closes **JTAG target/device identification only**. No bitstream was loaded or programmed, and FPGA execution remains untested. The NSTD-1/UCIO-1 board-constraint block and unconstrained timing for the existing M12 smoke design remain unchanged. Full log, Tcl and checksums are retained in [M11 JTAG evidence](../M11/evidence/2026-10-02-jtag-detection/).
