@@ -1,0 +1,2 @@
+time=2026-10-02T10:35:01.495+08:00 level=INFO msg="server log" destination="stderr (foreground process)"
+vivado-mcp-server 2026.9.1 (commit: 2c4e86e5, built: 2026-09-29T19:09:49Z, channel: customer)

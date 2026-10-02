@@ -1,0 +1,120 @@
+{
+  "schema": "ai370-m14-verifier/v1",
+  "started": "2026-10-02T10:34:55+08:00",
+  "ended": "2026-10-02T10:35:01+08:00",
+  "overall": "PASS_WITH_DEFERRED",
+  "fail_count": 0,
+  "deferred_or_not_tested_count": 3,
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "system inventory",
+      "detail": "captured in output/M14/runs/20261002T103455+0800/system-inventory.txt"
+    },
+    {
+      "status": "PASS",
+      "name": "protected stack versions",
+      "detail": "all pinned package/module versions match documented Golden State"
+    },
+    {
+      "status": "PASS",
+      "name": "HIP GPU compute",
+      "detail": "bounded gfx1150 smoke; 1024 verified results"
+    },
+    {
+      "status": "PASS",
+      "name": "Vulkan/RADV compute",
+      "detail": "bounded GPU shader smoke passed with CPU fallback forbidden"
+    },
+    {
+      "status": "PASS",
+      "name": "XRT / NPU / firmware enumeration",
+      "detail": "Strix NPU detected; XRT 2.21.75 and firmware 1.1.2.64 observed"
+    },
+    {
+      "status": "PASS",
+      "name": "strict NPU CNN",
+      "detail": "VitisAI-only profile, hardware counter advanced, zero CPU-reference error"
+    },
+    {
+      "status": "PASS",
+      "name": "llama.cpp CPU backend",
+      "detail": "binary starts and lists backend devices; no model inference run"
+    },
+    {
+      "status": "PASS",
+      "name": "llama.cpp Vulkan backend",
+      "detail": "Vulkan device enumerated; no model inference run"
+    },
+    {
+      "status": "PASS",
+      "name": "llama.cpp ROCm/HIP backend",
+      "detail": "HIP device enumerated; no model inference run"
+    },
+    {
+      "status": "PASS",
+      "name": "Vivado",
+      "detail": "version 2026.1"
+    },
+    {
+      "status": "PASS",
+      "name": "Vitis v++",
+      "detail": "version 2026.1"
+    },
+    {
+      "status": "PASS",
+      "name": "Vitis platforminfo",
+      "detail": "version 2026.1"
+    },
+    {
+      "status": "PASS",
+      "name": "Vitis HLS evidence",
+      "detail": "retained SP701 csynth report present; no new synthesis run"
+    },
+    {
+      "status": "PASS",
+      "name": "SP701 software build artifacts",
+      "detail": "post-route DCP and utilization report present"
+    },
+    {
+      "status": "DEFERRED",
+      "name": "SP701 timing/bitstream",
+      "detail": "timing is unconstrained; bitstream is blocked by NSTD-1/UCIO-1 board I/O constraints"
+    },
+    {
+      "status": "NOT_TESTED",
+      "name": "SP701 physical hardware",
+      "detail": "no JTAG/board programming/execution check performed"
+    },
+    {
+      "status": "PASS",
+      "name": "Ross Vivado MCP binary",
+      "detail": "installed server reports version 2026.9.1"
+    },
+    {
+      "status": "PASS",
+      "name": "Ross Codex MCP configuration",
+      "detail": "Vivado MCP and local documentation MCP entries exist; no credential values emitted"
+    },
+    {
+      "status": "PASS",
+      "name": "Ross Agent Skills",
+      "detail": "49 installed skill definitions; live HLS skill execution is not tested"
+    },
+    {
+      "status": "PASS",
+      "name": "Ross local Knowledge Base MCP",
+      "detail": "configured endpoint initialized and advertised vivado_doc_search; no document query/load issued"
+    },
+    {
+      "status": "NOT_TESTED",
+      "name": "Ross HLS / VS Code / local answer agent",
+      "detail": "excluded from this bounded verifier; M13 records these as NOT TESTED/DEFERRED"
+    },
+    {
+      "status": "PASS",
+      "name": "kernel fault audit",
+      "detail": "no targeted GPU/NPU fault patterns during verifier window"
+    }
+  ]
+}
