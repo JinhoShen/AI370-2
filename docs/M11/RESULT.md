@@ -25,6 +25,12 @@ The USB manufacturer/product/serial and JTAG target serial agree, and Hardware M
 - This confirms JTAG visibility and device identity only. It does not pass bitstream generation, programming, observable hardware execution or post-program regression.
 - Existing M12 bitstream gate remains: the current smoke design lacks verified board I/O constraints and is blocked by NSTD-1/UCIO-1; its timing is unconstrained.
 
+## DDR memory test design discovery
+
+**Read-only discovery: VERIFIED. Physical DDR test: NOT RUN.** Vivado 2026.1's installed SP701 board definition provides a `ddr3_sdram` board interface and `ddr3_sdram_preset` for `mig_7series`. The local board component lists a Micron `MT8JTF12864HZ-1G6G1` 1 GB DDR3 SODIMM; the supplied MIG configuration selects `MT41K256M16XX-107`, a 16-bit memory bus, and 512 MiB configured MIG address space. The board's differential system clock is 200 MHz. MIG 7-series DDR3 example/traffic-generator templates are installed, but no pre-generated SP701 project or standalone SP701 DDR XDC was found. The future design must be generated through the board-aware MIG flow and use its generated constraints without guessed pins or timing.
+
+No DDR MIG design was generated, built or programmed in this discovery. The physical test plan and hashed local-file inventory are recorded in [`DDR_MEMORY_TEST_PLAN.md`](DDR_MEMORY_TEST_PLAN.md) and [`evidence/ddr-memory-discovery-2026-10-02/LOCAL_FILE_INVENTORY.md`](evidence/ddr-memory-discovery-2026-10-02/LOCAL_FILE_INVENTORY.md). These findings do not close M11 or alter the existing JTAG-only verdict.
+
 ## Evidence
 
 Raw USB descriptor, read-only Tcl probe, Vivado log/journal, hw_server discovery log and SHA-256 manifest are in [`evidence/2026-10-02-jtag-detection/`](evidence/2026-10-02-jtag-detection/). The Vivado log includes unrelated board-file parser warnings; target scan, target open and device-property reads succeeded. DNA absence is a property limitation, not a JTAG detection failure.
