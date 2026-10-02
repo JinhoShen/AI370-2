@@ -1,0 +1,41 @@
+{
+  "status": "PARSED",
+  "parser": "gguf-py from the locally installed llama.cpp source archive",
+  "parser_source_archive": "/home/shen/AI370-2/resources/Downloads/LocalAI/llama.cpp/llama.cpp-v0.5.0-7fe450e19305.tar.gz",
+  "weights_loaded": false,
+  "tensor_payloads_validated": false,
+  "metadata_kv_pairs": 45,
+  "tensor_count": 733,
+  "total_parameter_elements": 34660610688,
+  "quantization": "MOSTLY_IQ2_M",
+  "tensor_type_counts": {
+    "F32": 301,
+    "IQ2_S": 375,
+    "IQ3_S": 16,
+    "Q4_K": 40,
+    "Q5_K": 1
+  },
+  "tensor_elements_by_type": {
+    "F32": 22213248,
+    "IQ2_S": 32216186880,
+    "IQ3_S": 1399848960,
+    "Q4_K": 513802240,
+    "Q5_K": 508559360
+  },
+  "metadata": {
+    "GGUF.version": 3,
+    "general.architecture": "qwen35moe",
+    "general.name": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+    "general.size_label": "35B-A3B",
+    "general.file_type": 29,
+    "general.quantization_version": 2,
+    "qwen35moe.block_count": 40,
+    "qwen35moe.context_length": 262144,
+    "qwen35moe.embedding_length": 2048,
+    "qwen35moe.expert_count": 256,
+    "qwen35moe.expert_used_count": 8
+  },
+  "data_offset_bytes": 10989184,
+  "alignment_bytes": 32,
+  "model_bytes": 11659235456
+}

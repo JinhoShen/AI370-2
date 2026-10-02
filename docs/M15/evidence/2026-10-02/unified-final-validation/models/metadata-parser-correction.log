@@ -1,0 +1,9 @@
+Corrected metadata parser rerun using .venvs/npu21/bin/python (numpy 1.26.4)
+PASS	Qwen3.6-35B-A3B-Q8_0.gguf	PARSED	qwen35moe	MOSTLY_Q8_0	34660610688
+PASS	Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf	PARSED	qwen35moe	MOSTLY_IQ2_M	34660610688
+PASS	Qwen3.8-27B-UD-Q4_K_M.gguf	PARSED	qwen35	MOSTLY_Q4_K_M	27320697856
+PASS	Qwen3.8-27B-UD-Q4_K_XL.gguf	PARSED	qwen35	MOSTLY_Q4_K_M	27320697856
+PASS	Qwen3.8-27B-Uncensored-Q4_K_M.gguf	PARSED	qwen35	MOSTLY_Q4_K_M	27320697856
+PASS	gemma-4-31b-jang-crack-Q4_K_M.gguf	PARSED	gemma4	MOSTLY_Q4_K_M	30697345596
+PASS	mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf	PARSED	clip	MOSTLY_F16	446571248
+Initial M15 attempt used host /usr/bin/python3, which lacks NumPy; all seven initial metadata invocations exited before reading GGUF. This is a parser-runtime dependency issue, not malformed model data. The existing npu21 virtual environment provides NumPy 1.26.4; the corrected seven-file parse above succeeded.

@@ -1,0 +1,5 @@
+before:
+shen ALL=(ALL:ALL) NOPASSWD: ALL
+action: remove broad temporary NOPASSWD ALL build rule after M15 workload tests
+sudoers syntax validation:
+sudo: a password is required

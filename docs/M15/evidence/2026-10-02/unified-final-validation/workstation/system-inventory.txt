@@ -1,0 +1,10 @@
+captured_at=2026-10-02T15:47:26+08:00
+hostname=shen-AI-Series
+os=Ubuntu 24.04.4 LTS 24.04 (noble)
+kernel=6.17.0-14-generic
+architecture=x86_64
+memory=46.7 GiB
+root_fs=/dev/nvme0n1p2 ext4   rw,relatime
+gpu_pci=c5:00.0 Display controller [0380]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:150e] (rev c1)
+amdxdna_module=/lib/modules/6.17.0-14-generic/updates/dkms/amdxdna.ko.zst
+amdxdna_loaded_version=2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551

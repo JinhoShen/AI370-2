@@ -1,0 +1,37 @@
+{
+  "status": "PARSED",
+  "parser": "gguf-py from the locally installed llama.cpp source archive",
+  "parser_source_archive": "/home/shen/AI370-2/resources/Downloads/LocalAI/llama.cpp/llama.cpp-v0.5.0-7fe450e19305.tar.gz",
+  "weights_loaded": false,
+  "tensor_payloads_validated": false,
+  "metadata_kv_pairs": 44,
+  "tensor_count": 833,
+  "total_parameter_elements": 30697345596,
+  "quantization": "MOSTLY_Q4_K_M",
+  "tensor_type_counts": {
+    "F32": 422,
+    "Q4_K": 355,
+    "Q6_K": 56
+  },
+  "tensor_elements_by_type": {
+    "F32": 1331772,
+    "Q4_K": 25268060160,
+    "Q6_K": 5427953664
+  },
+  "metadata": {
+    "GGUF.version": 3,
+    "general.architecture": "gemma4",
+    "general.name": "Gemma 4 31B JANG_4M CRACK F16",
+    "general.size_label": "31B",
+    "general.file_type": 15,
+    "general.quantization_version": 2,
+    "qwen35moe.block_count": null,
+    "qwen35moe.context_length": null,
+    "qwen35moe.embedding_length": null,
+    "qwen35moe.expert_count": null,
+    "qwen35moe.expert_used_count": null
+  },
+  "data_offset_bytes": 15826496,
+  "alignment_bytes": 32,
+  "model_bytes": 18687057344
+}

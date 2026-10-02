@@ -1,0 +1,4 @@
+2026-10-02T16:05:37+08:00
+/dev/nvme0n1p2 982240026624 775742615552 156526895104  84% /
+250470367232	/home/shen/tools/Xilinx
+pre_vivado_root_tar_bytes=53255905280 (captured in prior privileged M15 inventory before broad sudo cleanup)

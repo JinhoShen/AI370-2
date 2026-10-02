@@ -1,0 +1,35 @@
+{
+  "status": "PARSED",
+  "parser": "gguf-py from the locally installed llama.cpp source archive",
+  "parser_source_archive": "/home/shen/AI370-2/resources/Downloads/LocalAI/llama.cpp/llama.cpp-v0.5.0-7fe450e19305.tar.gz",
+  "weights_loaded": false,
+  "tensor_payloads_validated": false,
+  "metadata_kv_pairs": 26,
+  "tensor_count": 334,
+  "total_parameter_elements": 446571248,
+  "quantization": "MOSTLY_F16",
+  "tensor_type_counts": {
+    "F16": 112,
+    "F32": 222
+  },
+  "tensor_elements_by_type": {
+    "F16": 443510784,
+    "F32": 3060464
+  },
+  "metadata": {
+    "GGUF.version": 3,
+    "general.architecture": "clip",
+    "general.name": "KL0.0764 3Ref",
+    "general.size_label": "447M",
+    "general.file_type": 1,
+    "general.quantization_version": 2,
+    "qwen35moe.block_count": null,
+    "qwen35moe.context_length": null,
+    "qwen35moe.embedding_length": null,
+    "qwen35moe.expert_count": null,
+    "qwen35moe.expert_used_count": null
+  },
+  "data_offset_bytes": 19648,
+  "alignment_bytes": 32,
+  "model_bytes": 899283072
+}

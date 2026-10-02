@@ -1,0 +1,23 @@
+PASS	system inventory	captured in output/M14/runs/20261002T154726+0800/system-inventory.txt
+PASS	protected stack versions	all pinned package/module versions match documented Golden State
+PASS	HIP GPU compute	bounded gfx1150 smoke; 1024 verified results
+PASS	Vulkan/RADV compute	bounded GPU shader smoke passed with CPU fallback forbidden
+PASS	XRT / NPU / firmware enumeration	Strix NPU detected; XRT 2.21.75 and firmware 1.1.2.64 observed
+PASS	strict NPU CNN	VitisAI-only profile, hardware counter advanced, zero CPU-reference error
+PASS	llama.cpp CPU backend	binary starts and lists backend devices; no model inference run
+PASS	llama.cpp Vulkan backend	Vulkan device enumerated; no model inference run
+PASS	llama.cpp ROCm/HIP backend	HIP device enumerated; no model inference run
+PASS	Vivado	version 2026.1
+PASS	Vitis v++	version 2026.1
+PASS	Vitis platforminfo	version 2026.1
+PASS	Vitis HLS evidence	retained SP701 csynth report present; no new synthesis run
+PASS	Ross HLS skill evidence	bounded csim/csynth/report evidence retained; no new HLS run
+PASS	SP701 build timing/bitstream evidence	separate constrained JTAG-to-AXI design has routed WNS +0.616 ns and a recorded bitstream hash
+PASS	SP701 prior physical transaction evidence	retained transcript contains four AXI vectors and post-test JTAG PASS; this verifier does not reprogram
+NOT_TESTED	SP701 live hardware state	this verifier is read-only and does not rescan or program the physical target
+PASS	Ross Vivado MCP binary	installed server reports version 2026.9.1
+PASS	Ross Codex MCP configuration	Vivado MCP and local documentation MCP entries exist; no credential values emitted
+PASS	Ross Agent Skills	49 installed skill definitions; live HLS skill execution is not tested
+PASS	Ross local Knowledge Base MCP	configured endpoint initialized and advertised vivado_doc_search; no document query/load issued
+NOT_TESTED	Ross HLS / VS Code / local answer agent	excluded from this bounded verifier; M13 records these as NOT TESTED/DEFERRED
+PASS	kernel fault audit	no targeted GPU/NPU fault patterns during verifier window

@@ -1,0 +1,49 @@
+{
+  "status": "PARSED",
+  "parser": "gguf-py from the locally installed llama.cpp source archive",
+  "parser_source_archive": "/home/shen/AI370-2/resources/Downloads/LocalAI/llama.cpp/llama.cpp-v0.5.0-7fe450e19305.tar.gz",
+  "weights_loaded": false,
+  "tensor_payloads_validated": false,
+  "metadata_kv_pairs": 50,
+  "tensor_count": 866,
+  "total_parameter_elements": 27320697856,
+  "quantization": "MOSTLY_Q4_K_M",
+  "tensor_type_counts": {
+    "F32": 360,
+    "IQ3_S": 4,
+    "IQ4_NL": 7,
+    "IQ4_XS": 117,
+    "Q3_K": 7,
+    "Q4_K": 104,
+    "Q5_K": 131,
+    "Q6_K": 30,
+    "Q8_0": 106
+  },
+  "tensor_elements_by_type": {
+    "F32": 2671616,
+    "IQ3_S": 356515840,
+    "IQ4_NL": 587202560,
+    "IQ4_XS": 8960081920,
+    "Q3_K": 623902720,
+    "Q4_K": 7473725440,
+    "Q5_K": 7030702080,
+    "Q6_K": 2209873920,
+    "Q8_0": 76021760
+  },
+  "metadata": {
+    "GGUF.version": 3,
+    "general.architecture": "qwen35",
+    "general.name": "Qwen3.8-27B",
+    "general.size_label": "27B",
+    "general.file_type": 15,
+    "general.quantization_version": 2,
+    "qwen35moe.block_count": null,
+    "qwen35moe.context_length": null,
+    "qwen35moe.embedding_length": null,
+    "qwen35moe.expert_count": null,
+    "qwen35moe.expert_used_count": null
+  },
+  "data_offset_bytes": 10996640,
+  "alignment_bytes": 32,
+  "model_bytes": 16464440224
+}

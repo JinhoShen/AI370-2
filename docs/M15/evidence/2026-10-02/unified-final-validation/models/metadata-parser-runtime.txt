@@ -1,0 +1,2 @@
+metadata_python=/home/shen/AI370-2/.venvs/npu21/bin/python
+metadata_python_numpy=1.26.4

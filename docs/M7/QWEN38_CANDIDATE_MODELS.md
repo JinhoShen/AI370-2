@@ -22,3 +22,7 @@ All observed files were under:
 - NPU support: UNKNOWN. These are GGUF files and no claim is made that they are usable on the XDNA2/VitisAI path.
 
 After the third download completes, verify that its size and mtime are stable before hashing or parsing it. Evaluate each model independently, starting with bounded CPU smoke and recording actual backend/device. Preserve the existing M7 conservative-only scope and M7.1 Qwen3.6 Q8 Vulkan issue as OPEN until its own evidence supports a status change.
+
+## Later M15 inventory observation — 2026-10-02
+
+The unified M15 inventory later observed the three Qwen3.8 files at 16,464,440,224 bytes, 17,559,178,144 bytes, and 16,810,714,528 bytes respectively. All three produced parseable GGUF metadata/tensor descriptors and full local SHA256 values; the uncensored file's mtime was 15:45:06 +08:00. This supersedes the earlier 4,600,570,891-byte in-progress snapshot as a later local observation. No trusted publisher digest was available for comparison, and parsing the header/tensor descriptors does not prove every tensor payload or the download source. No Qwen3.8 inference was run; all remain inventory candidates only. Exact values are in [M15 model inventory](../M15/evidence/2026-10-02/unified-final-validation/models/model-summary.tsv).

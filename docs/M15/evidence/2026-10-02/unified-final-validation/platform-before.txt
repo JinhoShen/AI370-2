@@ -1,0 +1,87 @@
+2026-10-02T15:47:26+08:00
+Linux shen-AI-Series 6.17.0-14-generic #14~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jan 15 15:52:10 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  24
+On-line CPU(s) list:                     0-23
+Vendor ID:                               AuthenticAMD
+Model name:                              AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+CPU family:                              26
+Model:                                   36
+Thread(s) per core:                      2
+Core(s) per socket:                      12
+Socket(s):                               1
+Stepping:                                0
+Frequency boost:                         enabled
+CPU(s) scaling MHz:                      52%
+CPU max MHz:                             5157.8950
+CPU min MHz:                             605.2640
+BogoMIPS:                                3992.27
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d amd_lbr_pmc_freeze
+Virtualization:                          AMD-V
+L1d cache:                               576 KiB (12 instances)
+L1i cache:                               384 KiB (12 instances)
+L2 cache:                                12 MiB (12 instances)
+L3 cache:                                24 MiB (2 instances)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-23
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Mitigation; IBPB on VMEXIT only
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB on VMEXIT
+               total        used        free      shared  buff/cache   available
+Mem:            46Gi       6.6Gi       9.8Gi        65Mi        30Gi        40Gi
+Swap:          8.0Gi       2.6Gi       5.4Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  915G  746G  123G  86% /
+
+[protected packages]
+hip-runtime-amd	7.2.53211.70201-81~24.04
+libdrm-amdgpu1:amd64	2.4.125-1ubuntu0.1~24.04.1
+linux-image-6.17.0-14-generic	6.17.0-14.14~24.04.1
+mesa-vulkan-drivers:amd64	25.2.8-0ubuntu0.24.04.1
+rocm-core	7.2.1.70201-81~24.04
+xrt-base	2.21.75
+xrt-npu	2.21.75
+xrt_plugin-amdxdna	2.21
+
+[amdxdna module]
+filename:       /lib/modules/6.17.0-14-generic/updates/dkms/amdxdna.ko.zst
+version:        2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551
+signer:         shen-AI-Series Secure Boot Module Signature key
+sig_key:        32:32:DF:7A:9E:79:E2:A7:8B:3D:85:8A:2F:3A:F3:F0:A8:81:70:58
+2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551
+
+[swap]
+Filename				Type		Size		Used		Priority
+/swap.img                               file		8388604		2706040		-2

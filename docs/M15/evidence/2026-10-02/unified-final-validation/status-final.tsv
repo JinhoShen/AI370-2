@@ -1,0 +1,26 @@
+status	check	detail
+PASS	GPU-Vulkan-XRT-NPU-tool-Ross verifier	existing guarded suite returned PASS_WITH_DEFERRED/zero failures; see nested summary
+PASS	GGUF metadata: Qwen3.6-35B-A3B-Q8_0.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: Qwen3.8-27B-UD-Q4_K_M.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: Qwen3.8-27B-UD-Q4_K_XL.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: Qwen3.8-27B-Uncensored-Q4_K_M.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: gemma-4-31b-jang-crack-Q4_K_M.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	GGUF metadata: mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf	corrected rerun with existing NumPy-enabled local venv parsed metadata and tensor descriptors
+PASS	Qwen3.6 Q8 integrity	SHA256 matches the recorded download digest
+DEFERRED	Qwen3-14B CPU/Vulkan/ROCm	no Qwen3-14B GGUF exists under resources; no substitute model used
+PASS	M7 model cpu inference	bounded generation completed and requested backend/device allocation was visible in the log
+PASS	M7 model vulkan inference	bounded generation completed and requested backend/device allocation was visible in the log
+PASS	M7 model hip inference	bounded generation completed and requested backend/device allocation was visible in the log
+OPEN	M7.1 Qwen3.6 Q8 Vulkan	existing bounded attempt produced RADV command-submission errors/device loss; keep OPEN and do not replay known kernel/driver failure
+NOT_TESTED	Qwen3.6 Q8 CPU	model CPU smoke already has M7 evidence; no additional duplicate inference in final suite
+NOT_TESTED	Qwen3.6 Q8 Vulkan/ROCm inference	Vulkan is a known device-lost/kernel error case; ROCm remains gated; no replay
+NOT_TESTED	Qwen3.8 candidate inference	the three new Qwen3.8 files are inventory candidates only; previous instruction limits them to inventory
+PASS	final targeted kernel audit	no targeted GPU/NPU fault signatures during final local-model stage
+PASS	Vitis HLS runtime startup	vitis-run --version completed with sourced Vitis 2026.1 environment
+PASS	GGUF metadata correction	all seven model/sidecar entries parsed by local venv; initial system-Python NumPy dependency issue retained in correction log
+PASS	Pre-Vivado checkpoint verification	50 GiB CP0 archive checksum and selected-file restore passed; this is only the historical pre-Xilinx baseline
+BLOCKED	Current-state M15 checkpoint	Xilinx tree 250470367232 bytes (233.2 GiB) exceeds latest free space 156526895104 bytes (145.8 GiB); CP0 predates Vivado/Vitis
+DEFERRED	Off-device recovery	no T7/external backup target is mounted; full boot recovery was not attempted
+PASS	Temporary broad sudo permission cleanup	removed /etc/sudoers.d/ai370-build NOPASSWD: ALL after workload verification; sudo -n now requires authentication
+DEFERRED	sudoers syntax audit	visudo -c could not run after cleanup because no noninteractive root authorization remains; narrow checkpoint-only helper rule retained

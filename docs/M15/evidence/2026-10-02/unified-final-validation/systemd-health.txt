@@ -1,0 +1,4 @@
+Final service inventory, 2026-10-02 16:05 +08:00:
+- system-level failed units: none
+- one old failed user scope remains: run-r59bbddc210be4a7a99fe130bb2c53264.scope; description is the M6 llama-gguf Qwen3.6 Q8 parser command, inactive since 2026-10-01 17:57:16 CST.
+- retained systemd properties showed Result=success despite the unit listed in the user failed set. No journal entries were available. The historical unit state was not reset.

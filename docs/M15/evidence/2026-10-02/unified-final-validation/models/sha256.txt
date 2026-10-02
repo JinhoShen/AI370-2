@@ -1,0 +1,7 @@
+d8d7842cc657d720f39546878e431937c84473aa130c36371669ac17c80c7361  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
+ba3a1d47a604f17ef74d913f9a9d9a2b456acc6925e7b168bfa2e6527246011c  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf
+322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_M.gguf
+3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf
+4c5e2db039e9325ac7724c8846c71356a24ad1cdfa28002d73ecb6be645f9675  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-Uncensored-Q4_K_M.gguf
+b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/gemma-4-31b-jang-crack-Q4_K_M.gguf
+c8e702344a81f8c226a914aa980ed6e1f604bce9374f1fed8e65c896908af414  /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf
