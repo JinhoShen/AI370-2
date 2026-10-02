@@ -20,8 +20,8 @@
 | Platform / Xilinx Records | COMPLETE（文件） | 最新只讀平台狀態與2026.1安裝差異已記錄 | 文件不是新增測試結果 | [Platform record](platform/AI370_2_PLATFORM_RECORD.md), [Xilinx record](platform/XILINX_2026_1_INSTALLATION_RECORD.md) |
 | M11 SP701 Physical FPGA | DEFERRED / WAITING FOR HARDWARE TARGET | 尚無JTAG target evidence | JTAG detection→implementation→bitstream→program→observable execution→regression | [ROADMAP](ROADMAP.md) |
 | M12 AI + FPGA Integration | IN PROGRESS / PRE-HARDWARE PARTIAL | GPU/NPU coexistence、SP701 synthesis/placement/route/utilization、post-route checkpoint VERIFIED；protected stack未變更 | Bitstream 因 NSTD-1/UCIO-1 缺少 I/O constraints BLOCKED；timing unconstrained；host↔FPGA、JTAG與hardware execution未驗證 | [M12 RESULT](M12/RESULT.md), [ROADMAP](ROADMAP.md) |
-| M13 AMD Ross Agentic AI | RESEARCH COMPLETE / INSTALLATION BLOCKED | 官方定位、MCP、Skills、Knowledge Base、Codex CLI compatibility與offline direction已記錄；本機未安裝 | AMD credential download gate；startup、MCP、Vivado/Vitis、Skills/KB與offline均未測試 | [M13 RESULT](M13/RESULT.md), [ROADMAP](ROADMAP.md) |
-| M14 Automation / Reproducible Rebuild | IN PROGRESS | Guarded verifier 已實測：inventory、protected stack、GPU/NPU、FPGA artifacts、kernel audit；deferred 項目明列 | install/rebuild helpers、recovery rehearsal、Ross verifier、SP701 physical automation尚未完成 | [M14 RESULT](M14/RESULT.md), [ROADMAP](ROADMAP.md) |
+| M13 AMD Ross Agentic AI | IN PROGRESS — Vivado MCP / local doc retrieval VERIFIED | Ross 2026.9.1 binary、VS Code extension、Codex Skills 已安裝；Codex CLI 實際呼叫 local AMD doc-search；Vivado MCP 讀取 Vivado 2026.1/SP701 part；725,911 筆本機文件匯入並可搜尋 | Vitis/HLS agent execution、Vitis Embedded integration、VS Code active UI、local answer model/end-to-end air-gap、SP701 workflow仍 NOT TESTED/DEFERRED | [M13 RESULT](M13/RESULT.md), [M13 evidence](M13/evidence/2026-10-02/ROSS_M13_VALIDATION.md), [ROADMAP](ROADMAP.md) |
+| M14 Automation / Reproducible Rebuild | IN PROGRESS | Guarded verifier 已實測：inventory、protected stack、GPU/NPU、FPGA artifacts、kernel audit；deferred 項目明列 | install/rebuild helpers、dependency/change guard、recovery rehearsal、Ross verifier、SP701 physical automation尚未完成 | [M14 RESULT](M14/RESULT.md), [ROADMAP](ROADMAP.md) |
 | M15 Final Golden Workstation | PLANNED | 尚無Final Golden State | integrated regression、recovery、docs/security audit、temporary privilege cleanup、final checkpoint | [ROADMAP](ROADMAP.md) |
 
 ## Project controls
@@ -29,5 +29,5 @@
 - M5 NPU Golden State 與已驗證 GPU/NPU/FPGA stack 保持受保護狀態；未經單獨決策不得將 Mesa、ROCm、XRT、amdxdna、NPU firmware 或 Kernel 變更混入 roadmap 工作。
 - M9/M10 的 PASS 僅涵蓋軟體工具、SP701 software synthesis/HLS 與已列明的平台檢查；SP701 JTAG、programming、hardware execution 尚未驗證。
 - M7.1 保持 OPEN；一般 Vulkan regression PASS 不會關閉 Qwen Q8 的獨立失敗。
-- M0.1 不是完整 recovery PASS；M9 手工安裝成功不是自動化重建能力；Ross 尚未安裝或驗證。
+- M0.1 不是完整 recovery PASS；M9 手工安裝成功不是自動化重建能力；M13 Ross 僅有明確記錄的軟體/本機搜尋驗證，尚未整體 PASS。
 - 詳細實際時間與未來 ESTIMATE 集中維護於 [`EXECUTION_TIMELINE.md`](EXECUTION_TIMELINE.md)。ACTUAL project date window 不代表投入工時。

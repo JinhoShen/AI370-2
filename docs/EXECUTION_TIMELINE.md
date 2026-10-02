@@ -1,6 +1,6 @@
 # AI370-2 Execution Timeline
 
-**Execution evidence cutoff:** prior implementation/platform record `ac4373fb2cb1b38853c966a8c91dcd3e5867b9ca` (2026-10-01 19:15:41 +08:00); this roadmap/timeline planning revision is not included as milestone execution.
+**Execution evidence cutoff:** M13 validation evidence through 2026-10-02 10:10:29 +08:00 (Vivado MCP smoke log); earlier committed project checkpoint `34892ce8163f37d946d314303d6dcd3d4ad871fd` (2026-10-01 20:41:59 +08:00).
 **Timezone:** Asia/Taipei (+08:00), unless a source timestamp explicitly says UTC.
 **Time accounting rule:** ACTUAL dates/times below identify timestamped evidence events, not necessarily the start/end of human or agent work. Unless a test log has an explicit start and finish, elapsed working time is UNKNOWN. Git commit-to-commit gaps are not counted as labor.
 
@@ -23,14 +23,14 @@
 | M10 — Vitis / HLS / Platforms | 2026-10-01 19:01:53 +08:00, timestamp in `vpp-version.log` | 2026-10-01 19:03:04 +08:00, M10 PASS commit; platform parse evidence file timestamp 19:01:59 +08:00 | PASS — Vitis/`v++`/HLS/platform metadata scope | `1d5f6fa1` | UNKNOWN for full milestone; the retained platform-parse log itself spans at least 6 seconds from the `v++` session start to parse evidence, not the entire milestone effort | Hardware platform build/execution and FPGA XRT card runtime remain deferred/unknown. |
 | Platform / Xilinx documentation | UNKNOWN; no authoring start timestamp recorded | 2026-10-01 19:15:41 +08:00, platform/Xilinx records commit | COMPLETE as documentation commit | `ac4373fb` | UNKNOWN | Documentation records M9/M10 and M11 constraints; it does not change hardware state. |
 | M11 — SP701 Physical FPGA Validation | 2026-10-01 18:54:03 +08:00, Vivado Hardware Manager probe session start | Not complete; probe at 18:54:11 +08:00 reported no matching targets | DEFERRED / WAITING FOR HARDWARE TARGET | Probe evidence committed with `0b8c9220` | 8-second Hardware Manager probe window only; M11 elapsed time is UNKNOWN/not completed | Requires SP701 JTAG/cable connection and actual target enumeration. No bitstream/program/hardware PASS. |
-| M12 — AI + FPGA Integration | No actual start evidence | No actual completion evidence | PLANNED | None | UNKNOWN | Workload, host↔FPGA path and supported FPGA runtime are not yet selected/verified; M11 and a concrete design are prerequisites. |
-| M13 — AMD Ross Agentic AI Environment | No actual installation/integration start evidence. Official source research dated 2026-10-01 is planning preparation only; no Ross result exists. | No actual completion evidence | PLANNED; Ross NOT INSTALLED / NOT VERIFIED | None | UNKNOWN | Requires authorized download access and version-specific OS/client/model/tool compatibility validation. |
-| M14 — Automation / Reproducible Rebuild | No actual end-to-end automation start evidence | No actual completion evidence | PLANNED | None | UNKNOWN | Must implement and verify guarded rebuild/recovery flows; manual historical success is insufficient. Ross workflow automation depends on M13. |
+| M12 — AI + FPGA Integration | 2026-10-01 20:13:56 +08:00, first M12 GPU/NPU coexistence commit | Not complete; latest pre-hardware result commit 2026-10-01 20:29:59 +08:00 documents bitstream blocked by missing I/O constraints | IN PROGRESS — PRE-HARDWARE PARTIAL | `8f17fbe`, `3e67eb2`, `04efb1c` | UNKNOWN | Needs valid SP701 board constraints and physical M11 target for host↔FPGA/hardware validation. |
+| M13 — AMD Ross Agentic AI Environment | 2026-10-02 09:46:29 +08:00, first timestamped local 2026.9.1 MCP `--version` execution | No milestone completion evidence; Vivado MCP smoke completed 2026-10-02 10:10:29 +08:00 but several M13 subitems remain open | IN PROGRESS — Vivado MCP and local doc retrieval VERIFIED | `34892ce` (prior gate/checkpoint); current evidence in [`M13 result`](M13/RESULT.md) | UNKNOWN; test-window timestamps do not measure total work | Local answer-model/end-to-end air-gap, Vitis/HLS agent execution and physical SP701 workflow remain NOT TESTED/DEFERRED. |
+| M14 — Automation / Reproducible Rebuild | 2026-10-01, first guarded verifier result; exact execution start time UNKNOWN | Not complete; M14 verifier checkpoint committed 2026-10-01 20:41:59 +08:00 | IN PROGRESS — guarded workstation verifier verified | `34892ce` | UNKNOWN | Installation/rebuild helpers, dependency guard, recovery rehearsal, Ross verifier and SP701 physical automation remain incomplete. |
 | M15 — Final Golden Workstation | No actual final-validation start evidence | No actual completion evidence | PLANNED; no final Golden State | None | UNKNOWN | Depends on integrated evidence, recovery validation, docs/security audit and explicit treatment of deferred/open items. |
 
 ## ACTUAL PROJECT WINDOW SO FAR
 
-Committed/system evidence confirms engineering activity from **2026-09-30 through 2026-10-01**. The earliest timestamped system inventory evidence is 2026-09-30 15:55:58 +08:00; the latest committed project record at this evidence cutoff is 2026-10-01 19:15:41 +08:00. This is a calendar evidence window only. **Total actual effort / person-hours: UNKNOWN**; the date range must not be interpreted as continuous work or labor duration.
+Committed/system evidence confirms engineering activity from **2026-09-30 through 2026-10-02**. The earliest timestamped system inventory evidence is 2026-09-30 15:55:58 +08:00; the latest current evidence event is 2026-10-02 10:10:29 +08:00. This is a calendar evidence window only. **Total actual effort / person-hours: UNKNOWN**; the date range must not be interpreted as continuous work or labor duration.
 
 ## PLAN / ESTIMATE
 
@@ -41,7 +41,7 @@ All durations in this section are user-provided planning estimates, not schedule
 | M7.1 | **ESTIMATE: 0.5–1 working day** | Reproduce/diagnose safely and resolve or document the Qwen Q8 Vulkan issue. It remains OPEN until evidence supports closure. |
 | M11 | **ESTIMATE: 0.5–1 working day after SP701/JTAG is available** | Physical board/cable connected and target detected; then implementation, bitstream, programming, observable execution and regressions. |
 | M12 | **ESTIMATE: 1–2 working days** | Requires selected practical integration workload and verified FPGA host/runtime path; exact approach remains PLAN/UNKNOWN. |
-| M13 | **ESTIMATE: 1–2 working days** | Requires AMD download access and official/current configuration details; includes scoped install, Codex/MCP/skills and offline checks. No Ross installation is implied. |
+| M13 | **Original user-provided ESTIMATE: 1–2 working days; remaining duration UNKNOWN** | The local download gate is cleared and partial installation/verification is recorded. Remaining work is listed in [ROADMAP.md](ROADMAP.md); estimate is not a completion prediction. |
 | M14 | **ESTIMATE: 1–2 working days** | Automate only validated procedures and run a guarded rebuild/recovery rehearsal. |
 | M15 | **ESTIMATE: 0.5–1 working day** | Final regression/recovery/audit after prior milestone evidence is ready. |
 

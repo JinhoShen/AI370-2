@@ -24,3 +24,9 @@ The script intentionally reports, rather than hides, these conditions:
 ## Scope boundary
 
 This is **AUTOMATION VERIFIED for the executed checks above**, not a complete M14 rebuild PASS. Installation helpers, dependency guards, recovery/checkpoint rehearsal, Ross verification and SP701 physical automation remain incomplete or unexecuted. No protected GPU/NPU stack was changed.
+
+## 2026-10-02 status addendum
+
+The Ross download/installation gate is cleared for the artifacts currently available under `resources/ROSS`: the 2026.9.1 Vivado MCP server, VS Code extension and Codex Agent Skills are installed; Codex CLI successfully invoked the local AMD doc-search MCP. See [M13 validation evidence](../M13/evidence/2026-10-02/ROSS_M13_VALIDATION.md).
+
+M14 remains IN PROGRESS. No Ross verification automation has been added or tested; this manual M13 evidence does not establish a reproducible Ross rebuild. Installation helpers, dependency/change guards, recovery/checkpoint rehearsal and SP701 physical automation remain outstanding. The earlier 2026-10-01 statement that Ross installation was deferred records the state at that time and is retained as history.
