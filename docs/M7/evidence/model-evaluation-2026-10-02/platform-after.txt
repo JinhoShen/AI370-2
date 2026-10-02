@@ -1,0 +1,22 @@
+2026-10-02T17:28:15+08:00
+6.17.0-14-generic
+hip-runtime-amd=7.2.53211.70201-81~24.04
+libdrm-amdgpu1:amd64=2.4.125-1ubuntu0.1~24.04.1
+linux-image-6.17.0-14-generic=6.17.0-14.14~24.04.1
+mesa-vulkan-drivers:amd64=25.2.8-0ubuntu0.24.04.1
+rocm-core=7.2.1.70201-81~24.04
+xrt-base=2.21.75
+xrt-npu=2.21.75
+xrt_plugin-amdxdna=2.21
+amdxdna_module=2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551
+               total        used        free      shared  buff/cache   available
+Mem:            46Gi       3.3Gi        24Gi        38Mi        19Gi        43Gi
+Swap:          8.0Gi       5.7Gi       2.3Gi
+Filename				Type		Size		Used		Priority
+/swap.img                               file		8388604		5940740		-2
+gtt_used_bytes=132071424
+vram_used_bytes=913874944
+Available devices:
+  Vulkan0: AMD Radeon 890M Graphics (RADV GFX1150) (40275 MiB, 39277 MiB free)
+Available devices:
+  ROCm0: AMD Radeon 890M Graphics (23891 MiB, 23886 MiB free)

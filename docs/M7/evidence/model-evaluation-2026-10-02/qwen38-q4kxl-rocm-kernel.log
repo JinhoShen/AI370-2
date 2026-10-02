@@ -1,0 +1,1 @@
+Oct 02 17:23:28 shen-AI-Series kernel: workqueue: amdgpu_amdkfd_restore_userptr_worker [amdgpu] hogged CPU for >13333us 35 times, consider switching to WQ_UNBOUND
