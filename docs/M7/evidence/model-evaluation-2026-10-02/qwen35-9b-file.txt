@@ -1,0 +1,1 @@
+/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf\t5966095584 bytes\t2026-09-22 15:48:53.000000000 +0800
