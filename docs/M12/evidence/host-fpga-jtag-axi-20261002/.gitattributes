@@ -1,0 +1,4 @@
+# Preserve byte-for-byte vendor tool output; fixed-width reports contain intentional trailing spaces.
+*.log -whitespace
+*.rpt -whitespace
+*.md -whitespace

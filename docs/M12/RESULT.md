@@ -2,6 +2,8 @@
 
 Date: 2026-10-01 (Asia/Taipei). This is the first M12 software-only validation slice. It does not close M12 and does not claim physical FPGA execution.
 
+**Current status (2026-10-02): IN PROGRESS — physical Host↔FPGA JTAG-to-AXI control/data path VERIFIED; production XRT application path DEFERRED.** See the [SP701 integration report](SP701_HOST_FPGA_INTEGRATION_REPORT.md). Historical entries below retain their original checkpoint meaning.
+
 ## Scope and guardrails
 
 - Reused the existing M5 NPU Golden State and M9/M10 FPGA software installation.
@@ -72,3 +74,11 @@ This closes **JTAG target/device identification only**. No bitstream was loaded 
 ## Later M11 DDR hardware update
 
 The statements above describe the M12 smoke design and its state at that checkpoint. A separate M11 design using the official SP701 MIG DDR3 preset was later programmed and passed a bounded 16 MiB physical DDR write/read/compare test. This does not resolve the M12 smoke design's missing I/O constraints, and does not verify an application-level host↔FPGA integration path. See the [M11 DDR3 report](../M11/SP701_DDR3_Memory_Test_Report.md).
+
+## 2026-10-02 physical Host↔FPGA path
+
+The original `.xpfm`/XRT C++ host-API blocker did not have to be solved by changing system XRT: installed-platform inventory has no SP701 platform, development headers are absent, and the existing XRT 2.21.75 is the protected NPU runtime. Local-first research through Ross's configured Knowledge Base found AMD PG174/UG908 guidance for Vivado JTAG-to-AXI on Spartan-7. A separate SP701 design was built with the locally installed `jtag_axi` v1.2 IP and an AXI-Lite register that returns the bitwise-NOT of a host-written word.
+
+Vivado 2026.1 synthesized/routed the design with zero DRC errors and timing met the specified 200 MHz clock (WNS +0.616 ns, TNS 0). After target/PART/IDCODE assertion, the bitstream was programmed to volatile FPGA configuration. Four physical host JTAG-to-AXI write/read vectors returned the expected results, and the same JTAG target remained available. Full details and source are in the [integration report](SP701_HOST_FPGA_INTEGRATION_REPORT.md) and [evidence](evidence/host-fpga-jtag-axi-20261002/).
+
+This proves a **physical development/control and data round-trip**, not a deployed application protocol or Vitis/XRT accelerator runtime. M12 acceptance is split accordingly: the host↔FPGA bring-up/control path is PASS; XRT host API/`xclbin` execution, GPU/NPU-driven FPGA workload, and throughput/data-plane behavior remain DEFERRED/NOT TESTED. No DDR test was repeated, and the protected GPU/NPU stack was not changed. The Ross local-KB-assisted workflow is also recorded as bounded M13 engineering-workflow evidence in [`M13_M12_LOCAL_ENGINEERING_WORKFLOW.md`](../M13/evidence/2026-10-02/M13_M12_LOCAL_ENGINEERING_WORKFLOW.md).

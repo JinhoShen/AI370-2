@@ -1,0 +1,3 @@
+# Preserve captured tool/KB output byte-for-byte for cross-milestone evidence.
+*.log -whitespace
+*.md -whitespace

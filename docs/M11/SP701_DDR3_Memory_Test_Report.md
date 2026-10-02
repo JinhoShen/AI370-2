@@ -8,7 +8,7 @@ FPGA: `xc7s100fgga676-2`
 
 **SP701 DDR3 hardware memory test: PASS for the measured 16 MiB address window and 30-second MIG traffic run.** Synthesis, implementation, DRC, timing, bitstream generation, programming, calibration, physical writes/reads, zero sticky compare/error indication, and post-test JTAG access all passed. This does not establish coverage of the full 512 MiB MIG range or 1 GiB SODIMM.
 
-**M11 overall remains IN PROGRESS.** This report closes the bounded DDR hardware test only. Remaining M11/M12 post-program regression and integration scope is still tracked separately; the DDR result does not mark M11 complete.
+**M11 status: PASS for the bounded physical validation scope.** M11's verified scope includes SP701 JTAG identity, official MIG build/programming, the bounded DDR hardware test below, post-test JTAG access, and the already-started post-program regression evidence retained under [`../evidence/post-program-regression-2026-10-02/`](evidence/post-program-regression-2026-10-02/). It does not claim full 512 MiB MIG or 1 GiB module coverage. Host↔FPGA application integration belongs to M12.
 
 ## Configuration and constraints
 

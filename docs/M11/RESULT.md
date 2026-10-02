@@ -1,6 +1,6 @@
 # M11 SP701 Physical FPGA Validation
 
-**Status: IN PROGRESS — SP701 JTAG identity VERIFIED; bounded DDR3 physical hardware test PASS; post-program regression and integration scope remains open.**
+**Status: PASS — bounded SP701 physical validation scope.** JTAG identity, volatile bitstream programming, official MIG DDR3 operation, bounded physical write/read/compare, post-test JTAG access, and the already-authorized post-program GPU/NPU regression round are verified. Full MIG-range/physical-module coverage is not claimed.
 
 Date: 2026-10-02 (Asia/Taipei).
 
@@ -42,3 +42,5 @@ Raw USB descriptor, read-only Tcl probe, Vivado log/journal, hw_server discovery
 On 2026-10-02, the official SP701 MIG 7-series configuration was built, programmed to the verified SP701, and exercised with the MIG example traffic generator. Synthesis and implementation passed, blocking DRC count was zero, routed timing met constraints (WNS +0.994 ns, TNS 0.000 ns), and programming returned startup status HIGH. During a 30-second physical run, calibration remained asserted, MIG write/read status event counters reached 14,210,117 / 6,558,522, and the official sticky compare/error signal remained zero. Post-test JTAG access and FPGA IDCODE remained available.
 
 The actual traffic configuration is a 16 MiB window (`0x00000000`–`0x00ffffff`), not the full 512 MiB MIG address space or 1 GB physical SODIMM. Completion pulses and per-pattern completion were not captured; the example provides no total numeric error counter. These limits are retained in the [DDR3 hardware test report](SP701_DDR3_Memory_Test_Report.md) and [evidence directory](evidence/ddr3-hardware-test-2026-10-02/). This DDR test PASS does not assert full M11/M12 completion.
+
+The previously pending post-program regression round was completed on 2026-10-02 and saved under [`evidence/post-program-regression-2026-10-02/`](evidence/post-program-regression-2026-10-02/). It records the already-started HIP, Vulkan, strict NPU CNN/XRT check and kernel-log audit; no additional regression is implied here. M12 host↔FPGA integration is tracked separately.

@@ -1,0 +1,7 @@
+start=2026-10-02T14:00:59+08:00
+HIP: exit 0
+Vulkan: exit 0
+XRT: first direct script invocation exit 126 (non-executable helper); retry via bash exit 0
+NPU CNN: exit 0
+Kernel journal query: exit 0; filtered fault/reset keyword matches: 0
+end=2026-10-02T14:01:03+08:00

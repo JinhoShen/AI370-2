@@ -1,0 +1,9 @@
+cb628714362aac5cfd31ce8f1a1ec457979714035f5e55d09f88ac4358263045  docs/M11/evidence/post-program-regression-2026-10-02/README.md
+86db1784c5ab69aa49ff187bab1ad3a38d64cb7557322702e8530c48d10b4672  docs/M11/evidence/post-program-regression-2026-10-02/cnn-result.json
+a5f0a9a1552f62a4c0fadae4ac58ab41cc09f7c753b3d361414fa4b7f295081a  docs/M11/evidence/post-program-regression-2026-10-02/hip.log
+19c4e28b2f54ea8f217db4e622b0a5c758efa7b77ce2dc0394b6d159568c0b2e  docs/M11/evidence/post-program-regression-2026-10-02/kernel-audit.log
+03831f22266521db26d4ebce3d9ebb4da2e45494de10d56292d7dabe90b3070e  docs/M11/evidence/post-program-regression-2026-10-02/npu-cnn.log
+78fde3a54bab70eaf65c65bb505fe249db756ad39596e7d435bae2fdb54e0ce4  docs/M11/evidence/post-program-regression-2026-10-02/ort-profile.json
+b0bad22cbe278cc3f48257195fb85b70da5a84ba3d44ea1a434fb692aaad6039  docs/M11/evidence/post-program-regression-2026-10-02/run-metadata.txt
+a83a896cbac257c988b3c4f86a976515ce3a9442f37fb851584ad5ee1d83926c  docs/M11/evidence/post-program-regression-2026-10-02/vulkan.log
+9ca9ff1ed8d10ad1ebb041e938a5fdf138871473717f2abaabf7f88eb31927d8  docs/M11/evidence/post-program-regression-2026-10-02/xrt-examine.log

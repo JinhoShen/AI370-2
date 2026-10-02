@@ -1,0 +1,145 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Fri Oct  2 14:25:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source projects/FPGA/SP701_Host_FPGA_JTAG_AXI/program_and_smoke.tcl
+# set expected_target "127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A"
+# set expected_idcode "00000011011111000111000010010011"
+# set bit_file [file normalize [file join [file dirname [info script]] vivado SP701_Host_FPGA_JTAG_AXI.runs impl_1 sp701_host_fpga_top.bit]]
+# set probes_file [file normalize [file join [file dirname [info script]] vivado SP701_Host_FPGA_JTAG_AXI.runs impl_1 sp701_host_fpga_top.ltx]]
+# if {![file exists $bit_file] || ![file exists $probes_file]} {error "Bitstream/probes file absent"}
+# puts "M12_BITSTREAM=$bit_file"
+M12_BITSTREAM=/home/shen/AI370-2/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/vivado/SP701_Host_FPGA_JTAG_AXI.runs/impl_1/sp701_host_fpga_top.bit
+# puts "M12_PROBES=$probes_file"
+M12_PROBES=/home/shen/AI370-2/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/vivado/SP701_Host_FPGA_JTAG_AXI.runs/impl_1/sp701_host_fpga_top.ltx
+# open_hw_manager
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+# connect_hw_server -url TCP:127.0.0.1:3121
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:127.0.0.1:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# refresh_hw_server
+# set targets [get_hw_targets]
+# puts "M12_TARGETS=$targets"
+M12_TARGETS=127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# if {[lsearch -exact $targets $expected_target] < 0} {error "Expected SP701 target missing; refuse programming"}
+# open_hw_target $expected_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# set devices [get_hw_devices]
+# if {[llength $devices] != 1} {error "Expected exactly one FPGA"}
+# set device [lindex $devices 0]
+# current_hw_device $device
+# refresh_hw_device $device
+INFO: [Labtools 27-2302] Device xc7s100 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+WARNING: [Labtools 27-1347] Unable to find Debug Probes file []. Please update hw_device property [PROBES.FILE]
+ Update of hw_probe objects, will be skipped.
+WARNING: [Labtools 27-1974] Mismatch between the design programmed into the device xc7s100_0 and the probes file(s) .
+The device design has 1 ILA core(s) and 0 VIO core(s). 0 ILA core(s) and 0 VIO core(s) are matched in the probes file(s).
+Resolution: 
+1. Reprogram device with the correct programming file and associated probes file(s) OR
+2. Goto device properties and associate the correct probes file(s) with the programming file already programmed in the device.
+# set part [get_property PART $device]
+# set idcode [get_property IDCODE $device]
+# puts "M12_PREPROGRAM_PART=$part"
+M12_PREPROGRAM_PART=xc7s100
+# puts "M12_PREPROGRAM_IDCODE=$idcode"
+M12_PREPROGRAM_IDCODE=00000011011111000111000010010011
+# if {$part ne "xc7s100" || $idcode ne $expected_idcode} {error "Unexpected FPGA identity; refuse programming"}
+# set_property PROGRAM.FILE $bit_file $device
+# set_property PROBES.FILE $probes_file $device
+# puts "M12_PROGRAM_START=[clock seconds]"
+M12_PROGRAM_START=1790922361
+# program_hw_devices $device
+INFO: [Labtools 27-3164] End of startup status: HIGH
+# refresh_hw_device -update_hw_probes true $device
+INFO: [Labtools 27-2302] Device xc7s100 (JTAG device index = 0) is programmed with a design that has 1 JTAG AXI core(s).
+# puts "M12_PROGRAM_RESULT=PASS"
+M12_PROGRAM_RESULT=PASS
+# set axi_cores [get_hw_axis -of_objects $device]
+# puts "M12_JTAG_AXI_CORES=$axi_cores"
+M12_JTAG_AXI_CORES=hw_axi_1
+# if {[llength $axi_cores] != 1} {error "Expected one detected JTAG-to-AXI core"}
+# set axi [lindex $axi_cores 0]
+# set inputs {0x12345678 0x00000000 0xffffffff 0xa5a5f00d}
+# set expecteds {0xedcba987 0xffffffff 0x00000000 0x5a5a0ff2}
+# set index 0
+# foreach input $inputs expected $expecteds {
+#   set wr_name m12_write_$index
+#   set rd_name m12_read_$index
+#   create_hw_axi_txn $wr_name $axi -type write -address 0x00000000 -data $input -force
+#   run_hw_axi [get_hw_axi_txns $wr_name]
+#   puts "M12_WRITE_$index=[report_hw_axi_txn $wr_name -w 32]"
+#   create_hw_axi_txn $rd_name $axi -type read -address 0x00000004 -force
+#   run_hw_axi [get_hw_axi_txns $rd_name]
+#   set report [report_hw_axi_txn $rd_name -w 32]
+#   puts "M12_READ_$index=$report"
+#   if {![regexp -nocase [string range $expected 2 end] $report]} {error "Readback mismatch at vector $index, expected $expected"}
+#   incr index
+# }
+INFO: [Labtoolstcl 44-481] WRITE DATA is: 0x12345678
+M12_WRITE_0=       0  12345678 
+
+INFO: [Labtoolstcl 44-481] READ DATA is: edcba987
+M12_READ_0=       4  edcba987 
+
+INFO: [Labtoolstcl 44-481] WRITE DATA is: 0x00000000
+M12_WRITE_1=       0  00000000 
+
+INFO: [Labtoolstcl 44-481] READ DATA is: ffffffff
+M12_READ_1=       4  ffffffff 
+
+INFO: [Labtoolstcl 44-481] WRITE DATA is: 0xffffffff
+M12_WRITE_2=       0  ffffffff 
+
+INFO: [Labtoolstcl 44-481] READ DATA is: 00000000
+M12_READ_2=       4  00000000 
+
+INFO: [Labtoolstcl 44-481] WRITE DATA is: 0xa5a5f00d
+M12_WRITE_3=       0  a5a5f00d 
+
+INFO: [Labtoolstcl 44-481] READ DATA is: 5a5a0ff2
+M12_READ_3=       4  5a5a0ff2 
+
+# refresh_hw_server
+# if {[lsearch -exact [get_hw_targets] $expected_target] < 0} {error "SP701 JTAG target vanished after transactions"}
+# refresh_hw_device -update_hw_probes true $device
+INFO: [Labtools 27-2302] Device xc7s100 (JTAG device index = 0) is programmed with a design that has 1 JTAG AXI core(s).
+# puts "M12_POSTTEST_DEVICE=[get_hw_devices]"
+M12_POSTTEST_DEVICE=xc7s100_0
+# puts "M12_POSTTEST_IDCODE=[get_property IDCODE $device]"
+M12_POSTTEST_IDCODE=00000011011111000111000010010011
+# puts "M12_AXI_LOOPBACK_TRANSFORM=PASS"
+M12_AXI_LOOPBACK_TRANSFORM=PASS
+# puts "M12_POSTTEST_JTAG=PASS"
+M12_POSTTEST_JTAG=PASS
+# close_hw_target
+INFO: [Labtoolstcl 44-464] Closing hw_target 127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# close_hw_manager
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 14:26:04 2026...
