@@ -1,0 +1,153 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 12:35:22 2026
+# Process ID         : 1084809
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source projects/FPGA/SP701_DDR3_Memory_Test/program_and_test.tcl -log docs/M11/evidence/ddr3-hardware-test-2026-10-02/program-and-ddr-test.log -journal docs/M11/evidence/ddr3-hardware-test-2026-10-02/program-and-ddr-test.jou
+# Log file           : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/program-and-ddr-test.log
+# Journal file       : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/program-and-ddr-test.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5141.323 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43115 MB
+#-----------------------------------------------------------
+source projects/FPGA/SP701_DDR3_Memory_Test/program_and_test.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set evidence_dir [file normalize [file join $script_dir .. .. .. docs M11 evidence ddr3-hardware-test-2026-10-02]]
+# set bit_file [file join $script_dir artifacts SP701_DDR3_Memory_Test.bit]
+# set probe_file [file join $script_dir SP701_DDR3_Memory_Test.runs impl_1 SP701_DDR3_Memory_Test.ltx]
+# set expected_target "127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A"
+# set expected_idcode "00000011011111000111000010010011"
+# if {![file exists $bit_file] || ![file exists $probe_file]} {
+#   error "Required bitstream or debug probes file is missing"
+# }
+# open_hw_manager
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+# connect_hw_server -url TCP:127.0.0.1:3121
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:127.0.0.1:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# refresh_hw_server
+# set targets [get_hw_targets]
+# puts "DDR_PREPROGRAM_TARGET_COUNT=[llength $targets]"
+DDR_PREPROGRAM_TARGET_COUNT=1
+# puts "DDR_PREPROGRAM_TARGETS=$targets"
+DDR_PREPROGRAM_TARGETS=127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# if {[lsearch -exact $targets $expected_target] < 0} { error "Expected SP701 JTAG target is absent; programming refused" }
+# open_hw_target $expected_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# set devices [get_hw_devices]
+# puts "DDR_PREPROGRAM_DEVICE_COUNT=[llength $devices]"
+DDR_PREPROGRAM_DEVICE_COUNT=1
+# if {[llength $devices] != 1} { error "Expected exactly one FPGA on the SP701 target" }
+# set device [lindex $devices 0]
+# current_hw_device $device
+# refresh_hw_device $device
+INFO: [Labtools 27-1435] Device xc7s100 (JTAG device index = 0) is not programmed (DONE status = 0).
+# set part [get_property PART $device]
+# set idcode [get_property IDCODE $device]
+# puts "DDR_PREPROGRAM_DEVICE=$device"
+DDR_PREPROGRAM_DEVICE=xc7s100_0
+# puts "DDR_PREPROGRAM_PART=$part"
+DDR_PREPROGRAM_PART=xc7s100
+# puts "DDR_PREPROGRAM_IDCODE=$idcode"
+DDR_PREPROGRAM_IDCODE=00000011011111000111000010010011
+# puts "DDR_PREPROGRAM_IDCODE_HEX=0x037c7093"
+DDR_PREPROGRAM_IDCODE_HEX=0x037c7093
+# if {$part ne "xc7s100" || $idcode ne $expected_idcode} { error "Live FPGA identity mismatch; programming refused" }
+# set_property PROGRAM.FILE $bit_file $device
+# set_property PROBES.FILE $probe_file $device
+# puts "DDR_PROGRAM_START_EPOCH=[clock seconds]"
+DDR_PROGRAM_START_EPOCH=1790915727
+# program_hw_devices $device
+INFO: [Labtools 27-3164] End of startup status: HIGH
+# puts "DDR_PROGRAM_RESULT=PASS"
+DDR_PROGRAM_RESULT=PASS
+# puts "DDR_PROGRAM_END_EPOCH=[clock seconds]"
+DDR_PROGRAM_END_EPOCH=1790915729
+# refresh_hw_device -update_hw_probes true $device
+INFO: [Labtools 27-2302] Device xc7s100 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+# set ilas [get_hw_ilas -of_objects $device]
+# puts "DDR_HW_ILA_COUNT=[llength $ilas]"
+DDR_HW_ILA_COUNT=1
+# if {[llength $ilas] != 1} { error "Expected one MIG telemetry ILA after programming" }
+# set ila [lindex $ilas 0]
+# puts "DDR_HW_ILA=$ila"
+DDR_HW_ILA=hw_ila_1
+# puts "DDR_HW_ILA_PROBES=[get_hw_probes -of_objects $ila]"
+DDR_HW_ILA_PROBES=calib_done compare_error read_complete read_status_count test_complete write_complete write_status_count
+# set dwell_start [clock seconds]
+# puts "DDR_TEST_DWELL_START_EPOCH=$dwell_start"
+DDR_TEST_DWELL_START_EPOCH=1790915730
+# after 30000
+# set dwell_end [clock seconds]
+# puts "DDR_TEST_DWELL_END_EPOCH=$dwell_end"
+DDR_TEST_DWELL_END_EPOCH=1790915760
+# puts "DDR_TEST_DWELL_SECONDS=[expr {$dwell_end - $dwell_start}]"
+DDR_TEST_DWELL_SECONDS=30
+# run_hw_ila -trigger_now $ila
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-Oct-02 12:36:00
+# wait_on_hw_ila $ila
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-Oct-02 12:36:00
+# set data [upload_hw_ila_data $ila]
+# set csv_file [file join $evidence_dir ddr-ila-data.csv]
+# set ila_file [file join $evidence_dir ddr-ila-data.ila]
+# write_hw_ila_data -force -csv_file $csv_file $data
+# write_hw_ila_data -force $ila_file $data
+# puts "DDR_ILA_CSV=$csv_file"
+DDR_ILA_CSV=/home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/ddr-ila-data.csv
+# puts "DDR_ILA_BINARY=$ila_file"
+DDR_ILA_BINARY=/home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/ddr-ila-data.ila
+# refresh_hw_server
+# set post_targets [get_hw_targets]
+# puts "DDR_POSTTEST_TARGET_COUNT=[llength $post_targets]"
+DDR_POSTTEST_TARGET_COUNT=1
+# puts "DDR_POSTTEST_TARGETS=$post_targets"
+DDR_POSTTEST_TARGETS=127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# if {[lsearch -exact $post_targets $expected_target] < 0} { error "SP701 target disappeared after the DDR test" }
+# refresh_hw_device -update_hw_probes true $device
+INFO: [Labtools 27-2302] Device xc7s100 (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+# set post_devices [get_hw_devices]
+# puts "DDR_POSTTEST_DEVICES=$post_devices"
+DDR_POSTTEST_DEVICES=xc7s100_0
+# if {[llength $post_devices] != 1 || [get_property IDCODE [lindex $post_devices 0]] ne $expected_idcode} {
+#   error "FPGA/JTAG identity did not remain accessible after DDR test"
+# }
+# puts "DDR_POSTTEST_JTAG=PASS"
+DDR_POSTTEST_JTAG=PASS
+# close_hw_target
+INFO: [Labtoolstcl 44-464] Closing hw_target 127.0.0.1:3121/xilinx_tcf/Xilinx/46602010028A
+# close_hw_manager
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 12:36:00 2026...

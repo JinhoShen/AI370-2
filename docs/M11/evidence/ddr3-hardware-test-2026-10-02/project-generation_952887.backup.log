@@ -1,0 +1,60 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 12:00:35 2026
+# Process ID         : 952887
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source projects/FPGA/SP701_DDR3_Memory_Test/create_project.tcl -log docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.log -journal docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.jou
+# Log file           : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.log
+# Journal file       : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5139.064 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43170 MB
+#-----------------------------------------------------------
+source projects/FPGA/SP701_DDR3_Memory_Test/create_project.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_root $script_dir
+# set staging_root [file join $project_root _staging]
+# set board_part_name xilinx.com:sp701:part0:1.0
+# set fpga_part_name xc7s100fgga676-2
+# set mig_input [file normalize [file join $project_root config sp701_mig.prj]]
+# set config_dir [file join $staging_root mig_config]
+# set example_dir [file join $staging_root mig_example]
+# if {![file exists $mig_input]} {
+#   error "Missing preserved SP701 MIG project: $mig_input"
+# }
+# if {![file exists [file join $project_root SP701_DDR3_Memory_Test.xpr]]} {
+#   file mkdir $staging_root
+#   create_project sp701_mig_config $config_dir -part $fpga_part_name
+#   set_property board_part $board_part_name [current_project]
+#   create_ip -vendor xilinx.com -library ip -name mig_7series -version 4.2 -module_name mig_7series_0
+#   set mig [get_ips mig_7series_0]
+#   set_property CONFIG.XML_INPUT_FILE $mig_input $mig
+#   generate_target all $mig
+#   create_ip_run $mig
+#   launch_runs mig_7series_0_synth_1 -jobs 4
+#   wait_on_run mig_7series_0_synth_1
+#   open_example_project -force -dir $example_dir -in_process $mig
+#   save_project_as -force -dir $project_root SP701_DDR3_Memory_Test
+# } else {
+#   open_project [file join $project_root SP701_DDR3_Memory_Test.xpr]
+# }
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite:
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.xpr
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.srcs
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.cache
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.hw
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.ip_user_files
+     /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/_staging/mig_config/sp701_mig_config.gen
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 12:00:36 2026...

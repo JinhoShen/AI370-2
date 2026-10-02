@@ -1,0 +1,57 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 12:27:40 2026
+# Process ID         : 1027234
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source projects/FPGA/SP701_DDR3_Memory_Test/build_to_route.tcl -log docs/M11/evidence/ddr3-hardware-test-2026-10-02/build-final.log -journal docs/M11/evidence/ddr3-hardware-test-2026-10-02/build-final.jou
+# Log file           : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/build-final.log
+# Journal file       : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/build-final.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5140.716 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43179 MB
+#-----------------------------------------------------------
+source projects/FPGA/SP701_DDR3_Memory_Test/build_to_route.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_file [file join $script_dir SP701_DDR3_Memory_Test.xpr]
+# set evidence_dir [file normalize [file join $script_dir .. .. .. docs M11 evidence ddr3-hardware-test-2026-10-02]]
+# file mkdir $evidence_dir
+# open_project $project_file
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/shen/tools/Xilinx/2026.1/2026.1/data/ip'.
+# set_property part xc7s100fgga676-2 [current_project]
+INFO: [Project 1-154] The current project board 'xilinx.com:sp701:part0:1.0' is reset to empty (None). Use 'Project Settings' part selector (GUI) or issue set_property Tcl Command to set the board again.
+WARNING: [IP_Flow 19-2162] IP 'mig_7series_0' is locked:
+* This IP has board specific outputs. Current project board 'unset' and the board 'xilinx.com:sp701:part0:1.0' used to customize the IP 'mig_7series_0' do not match.
+# set_property board_part xilinx.com:sp701:part0:1.0 [current_project]
+# update_compile_order -fileset sources_1
+# launch_runs synth_1 -jobs 6
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/SP701_DDR3_Memory_Test.srcs/sources_1/ip/mig_7series_0/mig_7series_0.xci' is already up-to-date
+ERROR: [Common 17-69] Command failed:  Run 'synth_1' needs to be reset before launching. The run can be reset using the Tcl command 'reset_run synth_1'.
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 12:27:45 2026...

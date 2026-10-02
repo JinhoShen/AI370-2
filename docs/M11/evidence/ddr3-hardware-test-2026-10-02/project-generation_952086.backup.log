@@ -1,0 +1,66 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 11:59:52 2026
+# Process ID         : 952086
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source projects/FPGA/SP701_DDR3_Memory_Test/create_project.tcl -log docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.log -journal docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.jou
+# Log file           : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.log
+# Journal file       : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/project-generation.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5141.558 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43253 MB
+#-----------------------------------------------------------
+source projects/FPGA/SP701_DDR3_Memory_Test/create_project.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_root $script_dir
+# set staging_root [file join $project_root _staging]
+# set board_part_name xilinx.com:sp701:part0:1.0
+# set fpga_part_name xc7s100fgga676-2
+# set mig_input [file normalize [file join $project_root config sp701_mig.prj]]
+# set config_dir [file join $staging_root mig_config]
+# set example_dir [file join $staging_root mig_example]
+# if {![file exists $mig_input]} {
+#   error "Missing preserved SP701 MIG project: $mig_input"
+# }
+# if {![file exists [file join $project_root SP701_DDR3_Memory_Test.xpr]]} {
+#   file mkdir $staging_root
+#   create_project sp701_mig_config $config_dir -part $fpga_part_name
+#   set_property board_part $board_part_name [current_project]
+#   set mig [create_ip -vendor xilinx.com -library ip -name mig_7series -version 4.2 -module_name mig_7series_0]
+#   set_property CONFIG.XML_INPUT_FILE $mig_input $mig
+#   generate_target all $mig
+#   wait_on_run [get_runs mig_7series_0_synth_1]
+#   open_example_project -force -dir $example_dir -in_process $mig
+#   save_project_as -force -dir $project_root SP701_DDR3_Memory_Test
+# } else {
+#   open_project [file join $project_root SP701_DDR3_Memory_Test.xpr]
+# }
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/shen/tools/Xilinx/2026.1/2026.1/data/ip'.
+ERROR: [Common 17-142] Invalid property name 'CONFIG.XML_INPUT_FILE'.  Please use the 'list_property' command to find properties supported by the target 'file' object.
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 11:59:56 2026...

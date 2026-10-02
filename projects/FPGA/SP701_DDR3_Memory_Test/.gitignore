@@ -1,0 +1,25 @@
+# Vivado-generated products: retain the XPR, IP customization, HDL/XDC sources,
+# project configuration, reports and explicit evidence; omit volatile caches.
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+*.jou
+*.log
+*.str
+*.wdb
+*.vcd
+*.dcp
+*.bit
+*.ltx
+*.rpt
+*.pb
+*.wcfg
+*.xpe
+*.backup*
+_staging/
+src/official_mig_example/

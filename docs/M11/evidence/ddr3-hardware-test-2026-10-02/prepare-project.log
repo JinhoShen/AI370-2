@@ -1,0 +1,121 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 12:22:05 2026
+# Process ID         : 971392
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source projects/FPGA/SP701_DDR3_Memory_Test/prepare_project.tcl -log docs/M11/evidence/ddr3-hardware-test-2026-10-02/prepare-project.log -journal docs/M11/evidence/ddr3-hardware-test-2026-10-02/prepare-project.jou
+# Log file           : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/prepare-project.log
+# Journal file       : /home/shen/AI370-2/docs/M11/evidence/ddr3-hardware-test-2026-10-02/prepare-project.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5143.991 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43072 MB
+#-----------------------------------------------------------
+source projects/FPGA/SP701_DDR3_Memory_Test/prepare_project.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_file [file join $script_dir SP701_DDR3_Memory_Test.xpr]
+# set source_dir [file join $script_dir src official_mig_example]
+# set wrapper_file [file join $script_dir src sp701_ddr3_memory_test_top.v]
+# set board_xdc [file join $script_dir constraints sp701_reset.xdc]
+# set evidence_dir [file normalize [file join $script_dir .. .. .. docs M11 evidence ddr3-hardware-test-2026-10-02]]
+# if {![file exists $project_file]} { error "Missing generated MIG example XPR: $project_file" }
+# open_project $project_file
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/shen/tools/Xilinx/2026.1/2026.1/data/ip'.
+# set_property part xc7s100fgga676-2 [current_project]
+INFO: [Project 1-154] The current project board 'xilinx.com:sp701:part0:1.0' is reset to empty (None). Use 'Project Settings' part selector (GUI) or issue set_property Tcl Command to set the board again.
+WARNING: [IP_Flow 19-2162] IP 'mig_7series_0' is locked:
+* This IP has board specific outputs. Current project board 'unset' and the board 'xilinx.com:sp701:part0:1.0' used to customize the IP 'mig_7series_0' do not match.
+# set_property board_part xilinx.com:sp701:part0:1.0 [current_project]
+# foreach f [get_files -quiet -of_objects [get_filesets sources_1]] {
+#   if {[string first "/_staging/mig_example/" [file normalize $f]] >= 0} {
+#     remove_files $f
+#   }
+# }
+# foreach f [get_files -quiet -of_objects [get_filesets constrs_1]] {
+#   if {[string first "/_staging/mig_example/" [file normalize $f]] >= 0} {
+#     remove_files $f
+#   }
+# }
+# set rtl_files [list \
+#   [file join $source_dir mig_7series_v4_2_axi4_tg.v] \
+#   [file join $source_dir mig_7series_v4_2_axi4_wrapper.v] \
+#   [file join $source_dir mig_7series_v4_2_cmd_prbs_gen_axi.v] \
+#   [file join $source_dir mig_7series_v4_2_data_gen_chk.v] \
+#   [file join $source_dir mig_7series_v4_2_tg.v] \
+#   [file join $source_dir example_top.v] \
+#   $wrapper_file]
+# add_files -norecurse $rtl_files
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/mig_7series_v4_2_axi4_tg.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/mig_7series_v4_2_axi4_wrapper.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/mig_7series_v4_2_cmd_prbs_gen_axi.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/mig_7series_v4_2_data_gen_chk.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/mig_7series_v4_2_tg.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/example_top.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/sp701_ddr3_memory_test_top.v' cannot be added to the project because it already exists in the project, skipping this file
+# add_files -fileset constrs_1 -norecurse [file join $source_dir example_top.xdc]
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/example_top.xdc' cannot be added to the project because it already exists in the project, skipping this file
+# add_files -fileset constrs_1 -norecurse $board_xdc
+WARNING: [filemgmt 56-12] File '/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/constraints/sp701_reset.xdc' cannot be added to the project because it already exists in the project, skipping this file
+# set_property top SP701_DDR3_Memory_Test [get_filesets sources_1]
+# update_compile_order -fileset sources_1
+# if {[llength [get_ips ila_0 -quiet]] == 0} {
+#   create_ip -vendor xilinx.com -library ip -name ila -version 6.2 -module_name ila_0
+# }
+# set ila [get_ips ila_0]
+# set_property -dict [list \
+#   CONFIG.C_NUM_OF_PROBES {7} \
+#   CONFIG.C_PROBE0_WIDTH {1} \
+#   CONFIG.C_PROBE1_WIDTH {1} \
+#   CONFIG.C_PROBE2_WIDTH {32} \
+#   CONFIG.C_PROBE3_WIDTH {32} \
+#   CONFIG.C_PROBE4_WIDTH {1} \
+#   CONFIG.C_PROBE5_WIDTH {1} \
+#   CONFIG.C_PROBE6_WIDTH {1} \
+#   CONFIG.C_DATA_DEPTH {1024}] $ila
+# generate_target all $ila
+# if {[llength [get_runs ila_0_synth_1 -quiet]] == 0} { create_ip_run $ila }
+# report_ip_status -file [file join $evidence_dir ip-status.rpt]
+# puts "DDR_PROJECT=[get_property DIRECTORY [current_project]]/[get_property NAME [current_project]].xpr"
+DDR_PROJECT=/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/SP701_DDR3_Memory_Test.xpr
+# puts "DDR_BOARD=[get_property BOARD_PART [current_project]]"
+DDR_BOARD=xilinx.com:sp701:part0:1.0
+# puts "DDR_PART=[get_property PART [current_project]]"
+DDR_PART=xc7s100fgga676-2
+# puts "DDR_IP_LOCKED=[get_property IS_LOCKED $ila]"
+DDR_IP_LOCKED=0
+# puts "DDR_TOP=[get_property TOP [get_filesets sources_1]]"
+DDR_TOP=SP701_DDR3_Memory_Test
+# puts "DDR_RTL_COUNT=[llength [get_files -of_objects [get_filesets sources_1]]]"
+DDR_RTL_COUNT=121
+# puts "DDR_CONSTRAINTS=[get_files -of_objects [get_filesets constrs_1]]"
+DDR_CONSTRAINTS=/home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/src/official_mig_example/example_top.xdc /home/shen/AI370-2/projects/FPGA/SP701_DDR3_Memory_Test/constraints/sp701_reset.xdc
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 12:22:10 2026...

@@ -1,7 +1,7 @@
 # M11 SP701 onboard DDR3 hardware test plan
 
-**Discovery status:** local board preset and MIG example path VERIFIED by read-only inspection.  
-**Physical DDR test status:** NOT RUN. No bitstream was generated or programmed as part of this discovery.
+**Discovery status:** local board preset and MIG example path VERIFIED by read-only inspection.
+**Discovery record status:** Historical read-only plan, superseded by the execution documented in [`SP701_DDR3_Memory_Test_Report.md`](SP701_DDR3_Memory_Test_Report.md). At discovery time no bitstream was generated/programmed and no DDR access occurred.
 
 ## Confirmed board and MIG configuration
 
@@ -46,9 +46,13 @@ The initial board test should exercise a small bounded range and short run. Larg
 - AMD, [UG586: Traffic Generator](https://docs.amd.com/r/en-US/ug586_7Series_MIS/example_design/rtl/traffic_gen): describes the example traffic generator stimulus.
 - AMD, [UG586: Isolating the Data Error](https://docs.amd.com/r/en-US/ug586_7Series_MIS/Isolating-the-Data-Error): MIG traffic-generator error isolation with debug capture.
 
-## Current limitations
+## Limitations recorded at discovery time
 
 - This is design discovery and a proposed test only; no MIG core was generated, no synthesis/implementation was run for this DDR design, no bitstream was created or programmed, and no DDR access occurred.
 - The board file's module-capacity description (1 GB) differs from the supplied MIG project's configured address space (512 MiB). Reconcile only with authoritative board/MIG evidence if full-module coverage is later required.
 - The generated example's exact debug/control ports and whether its default traffic sequence covers the intended bounded range must be verified from the generated output before the hardware run.
 - Current M12 smoke-design bitstream blocker (unconstrained top-level I/O) is separate. The DDR design must use the board-aware MIG-generated constraints and pass its own DRC/timing review.
+
+## Execution outcome (2026-10-02)
+
+The planned SP701 DDR3 test was subsequently executed. The bounded 16 MiB physical MIG traffic test passed with calibration asserted and no sticky MIG compare/error indication; synthesis, implementation, DRC, timing, bitstream programming and post-test JTAG checks passed. See the [formal hardware report](SP701_DDR3_Memory_Test_Report.md) and [dated evidence](evidence/ddr3-hardware-test-2026-10-02/). The run did not cover the full 512 MiB MIG configured range or 1 GiB SODIMM, and this result alone does not close overall M11/M12.

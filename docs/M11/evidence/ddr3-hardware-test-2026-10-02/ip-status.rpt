@@ -1,0 +1,31 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Fri Oct  2 12:22:10 2026
+| Host         : shen-AI-Series running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 2 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| Instance Name | Status     | Recommendation      | Change    | IP Name            | IP      | New Version   | New        | Original Part        |
+|               |            |                     | Log       |                    | Version |               | License    |                      |
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| ila_0         | Up-to-date | No changes required |  *(1)     | ILA (Integrated    | 6.2     | 6.2 (Rev. 20) | Included   | xc7s100fgga676-2     |
+|               |            |                     |           | Logic Analyzer)    | (Rev.   |               |            |                      |
+|               |            |                     |           |                    | 20)     |               |            |                      |
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| mig_7series_0 | Up-to-date | No changes required |  *(2)     | Memory Interface   | 4.2     | 4.2 (Rev. 2)  | Included   | xc7s100fgga676-2     |
+|               |            |                     |           | Generator (MIG 7   | (Rev.   |               |            |                      |
+|               |            |                     |           | Series)            | 2)      |               |            |                      |
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+*(1) /home/shen/tools/Xilinx/2026.1/2026.1/data/ip/xilinx/ila_v6_2/doc/ila_v6_2_changelog.txt
+*(2) /home/shen/tools/Xilinx/2026.1/2026.1/data/ip/xilinx/mig_7series_v4_2/doc/mig_7series_v4_2_changelog.txt

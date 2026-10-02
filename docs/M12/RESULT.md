@@ -68,3 +68,7 @@ Phase A therefore remains **PRE-HARDWARE PARTIAL**: synthesis, placement, route,
 After the user set SW13 to JTAG mode, re-powered the board, and the Vivado 2026.1 Linux cable rules were installed, a read-only Hardware Manager probe detected one SP701 target. The USB identity (`Xilinx` / `SP701`, FT4232H serial `46602010028`) matched the Vivado JTAG target serial; `get_hw_devices` returned `xc7s100_0`, PART `xc7s100`, IDCODE `0x037C7093`. The installed SP701 board definition maps the board to `xc7s100fgga676-2`; the live hardware PART property does not expose package/speed suffix. DNA is not exposed as a property by this `hw_device`.
 
 This closes **JTAG target/device identification only**. No bitstream was loaded or programmed, and FPGA execution remains untested. The NSTD-1/UCIO-1 board-constraint block and unconstrained timing for the existing M12 smoke design remain unchanged. Full log, Tcl and checksums are retained in [M11 JTAG evidence](../M11/evidence/2026-10-02-jtag-detection/).
+
+## Later M11 DDR hardware update
+
+The statements above describe the M12 smoke design and its state at that checkpoint. A separate M11 design using the official SP701 MIG DDR3 preset was later programmed and passed a bounded 16 MiB physical DDR write/read/compare test. This does not resolve the M12 smoke design's missing I/O constraints, and does not verify an application-level host↔FPGA integration path. See the [M11 DDR3 report](../M11/SP701_DDR3_Memory_Test_Report.md).
