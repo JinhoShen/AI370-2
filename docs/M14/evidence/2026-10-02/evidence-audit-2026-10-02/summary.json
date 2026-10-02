@@ -1,0 +1,146 @@
+{
+  "schema": "ai370-m14-evidence-audit/v1",
+  "captured_at": "2026-10-02T15:18:00+08:00",
+  "head": "5eb3734657c0cf509f7d2a8e4862a3564dd76c73",
+  "overall": "PASS_WITH_DEFERRED",
+  "fail_count": 0,
+  "deferred_or_not_tested_count": 5,
+  "execution_policy": "read-only evidence/package/module checks; no GPU/NPU/LLM workload or FPGA programming",
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "Git whitespace check",
+      "detail": "working diffs pass git diff --check"
+    },
+    {
+      "status": "PASS",
+      "name": "M11 regression evidence integrity",
+      "detail": "all listed files match saved SHA256"
+    },
+    {
+      "status": "PASS",
+      "name": "M12 build/transaction evidence integrity",
+      "detail": "all listed files match saved SHA256"
+    },
+    {
+      "status": "PASS",
+      "name": "M13 local-KB/HLS skill evidence integrity",
+      "detail": "workflow and HLS skill outputs match saved SHA256"
+    },
+    {
+      "status": "PASS",
+      "name": "M11 DDR report",
+      "detail": "present: docs/M11/SP701_DDR3_Memory_Test_Report.md"
+    },
+    {
+      "status": "PASS",
+      "name": "M12 source build flow",
+      "detail": "present: projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl"
+    },
+    {
+      "status": "PASS",
+      "name": "M12 retained physical transcript",
+      "detail": "present: docs/M12/evidence/host-fpga-jtag-axi-20261002/program-and-smoke.log"
+    },
+    {
+      "status": "PASS",
+      "name": "M12 physical transaction record",
+      "detail": "four expected AXI loopback vectors and post-test JTAG marker found"
+    },
+    {
+      "status": "PASS",
+      "name": "M13 HLS C simulation transcript",
+      "detail": "present: docs/M13/evidence/2026-10-02/hls-skill-smoke/vitis-run-csim.log"
+    },
+    {
+      "status": "PASS",
+      "name": "M13 HLS synthesis report",
+      "detail": "present: docs/M13/evidence/2026-10-02/hls-skill-smoke/csynth.rpt"
+    },
+    {
+      "status": "PASS",
+      "name": "M13 HLS skill evidence",
+      "detail": "bounded csim PASS and Spartan-7-targeted csynth report present"
+    },
+    {
+      "status": "PASS",
+      "name": "APT protected-stack guard tests",
+      "detail": "parser fixture tests passed without package changes"
+    },
+    {
+      "status": "PASS",
+      "name": "APT safe transaction simulation evidence",
+      "detail": "cowsay was simulated as userspace-only; no package was installed"
+    },
+    {
+      "status": "DEFERRED",
+      "name": "APT protected-change live simulation",
+      "detail": "protected transaction classification is covered by negative parser fixtures; no real protected package transaction was requested"
+    },
+    {
+      "status": "DEFERRED",
+      "name": "M12 XRT host application",
+      "detail": "SP701 .xpfm and XRT C++ development headers are absent; system XRT stays protected for NPU"
+    },
+    {
+      "status": "DEFERRED",
+      "name": "M13 local answer-model / air-gap",
+      "detail": "local KB retrieval is verified; answer-model plus client end-to-end isolation remains untested"
+    },
+    {
+      "status": "DEFERRED",
+      "name": "M0.1 full recovery",
+      "detail": "file-level checkpoint exists; off-device and full restore validation remain outstanding"
+    },
+    {
+      "status": "NOT_TESTED",
+      "name": "M15 unified regression",
+      "detail": "intentionally not run by this read-only evidence audit"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package linux-image-6.17.0-14-generic",
+      "detail": "6.17.0-14.14~24.04.1"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package mesa-vulkan-drivers",
+      "detail": "25.2.8-0ubuntu0.24.04.1"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package libdrm-amdgpu1",
+      "detail": "2.4.125-1ubuntu0.1~24.04.1"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package rocm-core",
+      "detail": "7.2.1.70201-81~24.04"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package hip-runtime-amd",
+      "detail": "7.2.53211.70201-81~24.04"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package xrt-base",
+      "detail": "2.21.75"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package xrt-npu",
+      "detail": "2.21.75"
+    },
+    {
+      "status": "PASS",
+      "name": "protected package xrt_plugin-amdxdna",
+      "detail": "2.21"
+    },
+    {
+      "status": "PASS",
+      "name": "amdxdna protected module",
+      "detail": "2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551 (DKMS path)"
+    }
+  ]
+}

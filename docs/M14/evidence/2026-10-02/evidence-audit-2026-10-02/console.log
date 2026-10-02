@@ -1,0 +1,30 @@
+PASS      Git whitespace check — working diffs pass git diff --check
+PASS      M11 regression evidence integrity — all listed files match saved SHA256
+PASS      M12 build/transaction evidence integrity — all listed files match saved SHA256
+PASS      M13 local-KB/HLS skill evidence integrity — workflow and HLS skill outputs match saved SHA256
+PASS      M11 DDR report — present: docs/M11/SP701_DDR3_Memory_Test_Report.md
+PASS      M12 source build flow — present: projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl
+PASS      M12 retained physical transcript — present: docs/M12/evidence/host-fpga-jtag-axi-20261002/program-and-smoke.log
+PASS      M12 physical transaction record — four expected AXI loopback vectors and post-test JTAG marker found
+PASS      M13 HLS C simulation transcript — present: docs/M13/evidence/2026-10-02/hls-skill-smoke/vitis-run-csim.log
+PASS      M13 HLS synthesis report — present: docs/M13/evidence/2026-10-02/hls-skill-smoke/csynth.rpt
+PASS      M13 HLS skill evidence — bounded csim PASS and Spartan-7-targeted csynth report present
+PASS      APT protected-stack guard tests — parser fixture tests passed without package changes
+PASS      APT safe transaction simulation evidence — cowsay was simulated as userspace-only; no package was installed
+DEFERRED  APT protected-change live simulation — protected transaction classification is covered by negative parser fixtures; no real protected package transaction was requested
+DEFERRED  M12 XRT host application — SP701 .xpfm and XRT C++ development headers are absent; system XRT stays protected for NPU
+DEFERRED  M13 local answer-model / air-gap — local KB retrieval is verified; answer-model plus client end-to-end isolation remains untested
+DEFERRED  M0.1 full recovery — file-level checkpoint exists; off-device and full restore validation remain outstanding
+NOT_TESTED M15 unified regression — intentionally not run by this read-only evidence audit
+
+[protected stack read-only guard]
+PASS      protected package linux-image-6.17.0-14-generic — 6.17.0-14.14~24.04.1
+PASS      protected package mesa-vulkan-drivers — 25.2.8-0ubuntu0.24.04.1
+PASS      protected package libdrm-amdgpu1 — 2.4.125-1ubuntu0.1~24.04.1
+PASS      protected package rocm-core — 7.2.1.70201-81~24.04
+PASS      protected package hip-runtime-amd — 7.2.53211.70201-81~24.04
+PASS      protected package xrt-base — 2.21.75
+PASS      protected package xrt-npu — 2.21.75
+PASS      protected package xrt_plugin-amdxdna — 2.21
+PASS      amdxdna protected module — 2.21.260102.53.release_20260309,6f881ad230142b707ca8ce5b33fca426a926c551 (DKMS path)
+Summary: /home/shen/AI370-2/output/M14/evidence-audit/20261002T151800+0800/summary.json
