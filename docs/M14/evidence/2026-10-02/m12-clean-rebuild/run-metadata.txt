@@ -1,0 +1,17 @@
+M12 clean out-of-tree rebuild
+Date: 2026-10-02 (Asia/Taipei)
+Vivado: 2026.1 build 6511674
+Source: projects/FPGA/SP701_Host_FPGA_JTAG_AXI
+Build script: projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl
+Build root: output/M14/rebuild-2026-10-02/vivado
+Command: AI370_M12_BUILD_ROOT=/home/shen/AI370-2/output/M14/rebuild-2026-10-02/vivado vivado -mode batch -source /home/shen/AI370-2/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl
+Exit status: 0
+Implementation: Complete through write_bitstream
+DRC errors: 0
+Timing: user constraints met; WNS 0.616 ns, TNS 0.000 ns; WHS 0.052 ns, THS 0.000 ns
+Utilization: 1184 LUT (1.85%), 2482 registers (1.94%)
+Bitstream path (generated, ignored): output/M14/rebuild-2026-10-02/vivado/SP701_Host_FPGA_JTAG_AXI.runs/impl_1/sp701_host_fpga_top.bit
+Old and rebuilt bitstream size: 3687023 bytes each
+Byte comparison: 4 differing bytes; diff offsets 199, 202, 204, 205 are within the .bit header timestamp value. No programming was performed with the rebuilt file.
+Hardware status: NOT TESTED in this rebuild; previous physical JTAG-to-AXI transactions remain separate evidence.
+Protected stack: no changes requested or made.

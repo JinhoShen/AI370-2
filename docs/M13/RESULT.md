@@ -1,6 +1,6 @@
 # M13 AMD Ross Agentic AI — status and validation
 
-**Current status: IN PROGRESS — core Vivado MCP and local documentation search VERIFIED; full M13 is not PASS.**
+**Current status: IN PROGRESS — Vivado MCP/local documentation search and bounded Ross HLS skill workflow VERIFIED; full M13 is not PASS.**
 
 Review date: 2026-10-02 (Asia/Taipei). This result distinguishes AMD-published product statements from AI370-2 execution. Detailed local evidence is in [`evidence/2026-10-02/ROSS_M13_VALIDATION.md`](evidence/2026-10-02/ROSS_M13_VALIDATION.md).
 
@@ -24,12 +24,12 @@ The earlier M13 checkpoint recorded Ross as not installed because the AMD Linux 
 |---|---|---|
 | Vivado MCP binary / version | INSTALLED / VERIFIED | AMD 2026.9.1 customer-channel Linux binary; SHA-256 and `--version` recorded in dated evidence. |
 | VS Code Vivado AI extension | INSTALLED | AMD `vivado-ai-extension` 2026.9.1 is installed in VS Code 1.139.1. Extension-host activation and Copilot Chat UI were not tested in the active editor window. |
-| AMD Ross Codex Agent Skills | INSTALLED / VERIFIED | Codex plugin `amd-ross-agentic-ai-assistant` 2026.9.1 is enabled; cache contains 49 `SKILL.md` files. The HLS synthesis-report skill is present. A live HLS skill execution is NOT TESTED. |
+| AMD Ross Codex Agent Skills | INSTALLED / VERIFIED | Codex plugin `amd-ross-agentic-ai-assistant` 2026.9.1 is enabled; cache contains 49 `SKILL.md` files. The HLS run-flow and synth-report Skills are present and have bounded C simulation/synthesis/report evidence. |
 | Vivado MCP startup / discovery | PASS | Native stdio MCP initialize and `tools/list` passed; 13 tools discovered without invoking a design-changing tool. |
 | Codex CLI ↔ AMD doc-search MCP | PASS | Fresh ephemeral Codex CLI session invoked `vivado_doc_search`; it returned AMD UG835 `report_timing_summary` content and source URL. |
 | Vivado 2026.1 integration | PASS — bounded read-only smoke | MCP started Vivado in a new `/tmp` directory; `version` returned Vivado 2026.1, and `get_parts` recognized `xc7s100fgga676-2`; session closed. No synthesis, project modification or hardware action. |
 | Vitis Unified / Vitis Embedded integration | NOT TESTED | Ross docs/skills are present, but no Vitis Unified IDE or Embedded workflow was driven through the assistant. M10 software validation remains separate evidence. |
-| Vitis HLS agent workflow | NOT TESTED | HLS Agent Skills are installed. The attempt to have Codex CLI inspect/use the skill was blocked by its local `bwrap` sandbox setup (`RTM_NEWADDR` failure); no HLS command was run through Ross. Existing M10 HLS PASS is not relabeled as Ross integration. |
+| Vitis HLS Skill workflow | VERIFIED — bounded CLI fallback | Followed installed `hls-run-flow` Skill to run isolated Vitis HLS 2026.1 C synthesis for `invert32`, then ran `hls-synth-report`; both generated a report with successful exit. This was the Skill-documented terminal fallback, not a Vitis IDE or autonomous MCP operation. See [HLS Skill evidence](evidence/2026-10-02/hls-skill-smoke/README.md). The earlier Codex CLI attempt blocked by `bwrap` (`RTM_NEWADDR`) remains historical. |
 | Local Knowledge Base package | INSTALLED / VERIFIED | AMD package build 20260918 with Qwen3-Embedding-0.6B, preloaded llama.cpp/MCP/Weaviate/snapshot images; archive hash, versions and import result are recorded in evidence. |
 | Local document retrieval | PASS | CPU embedding service loaded the packaged Qwen embedding model; Weaviate import completed 725,911/725,911 records; AMD `vivado_doc_search` returned documentation through both direct MCP and Codex CLI. |
 | Retrieval container network | VERIFIED — isolated Docker network | All KB containers use a Docker `internal=true` bridge; container memory/CPU limits are configured and the MCP endpoint is reached from the host over the bridge. The configured host port is not actually published on this internal network; current Codex URL uses the live container address `172.18.0.4:8080`. Recheck the address after network/container recreation. |
@@ -40,10 +40,10 @@ No Kernel, Mesa/RADV, libdrm, ROCm/HIP, system XRT 2.21.75, amdxdna DKMS, NPU fi
 
 ## Remaining M13 work
 
-1. Exercise a Ross HLS skill with a disposable HLS component and verify its report output, without conflating it with prior M10 evidence.
-2. Validate Vitis/Vitis Embedded assistant workflow boundaries; Ross MCP is Vivado-specific in the installed package, while HLS support is skill/CLI-driven.
-3. Evaluate a separate local answer-generation model only after choosing a bounded, stable CPU workload; do not assume Qwen GGUF compatibility from the embedding package.
-4. Verify end-to-end air-gap behavior for both the answer model and client. The current result establishes an isolated local retrieval backend only.
-5. The bounded M12 local-KB-assisted JTAG-to-AXI engineering workflow is now VERIFIED as one M13 workflow result. Vivado MCP-driven hardware control, application-facing deployed transport, Ross HLS/Vitis skill execution and full local/air-gapped agent behavior remain DEFERRED / NOT TESTED.
+1. Validate Vitis Unified/Embedded assistant boundaries. The installed Ross MCP is Vivado-specific; HLS is skill/CLI-driven, and no Vitis IDE assistant flow was run.
+2. HLS C/RTL cosimulation and implementation remain NOT TESTED.
+3. Evaluate a separate local answer-generation model only during the planned unified Local AI validation; do not assume Qwen GGUF compatibility from the embedding package.
+4. Verify end-to-end air-gap behavior for both answer model and client. Current evidence establishes a locally hosted retrieval service on an internal Docker network, not an air-gapped Codex/client workflow.
+5. The bounded M12 local-KB-assisted JTAG-to-AXI engineering workflow and separate isolated Vitis HLS C-simulation/synthesis/report workflow using installed Ross Skills are VERIFIED. Vivado MCP-driven hardware control, Vitis IDE integration, HLS cosimulation/implementation, application-facing deployed transport and full local/air-gapped agent behavior remain DEFERRED / NOT TESTED.
 
 M13 remains **IN PROGRESS**, not PASS. No changes were made to the protected GPU/NPU stack, and M7.1 remains OPEN.

@@ -1,0 +1,17 @@
+{
+  "actions": [
+    {
+      "action": "install_or_change",
+      "package": "cowsay",
+      "protected": false
+    }
+  ],
+  "protected_changes": [],
+  "expected_action_count": 1,
+  "verdict": "SAFE_SIMULATION",
+  "requested": [
+    "cowsay"
+  ],
+  "exit_status": 0,
+  "log": "output/M14/apt-simulations/20261002T151932+0800.log"
+}

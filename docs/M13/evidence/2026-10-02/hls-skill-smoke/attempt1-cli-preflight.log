@@ -1,0 +1,5 @@
+ERROR: [v++ 82-10343] Please specify either --platform or --part to proceed with the flow
+Usage: v++ [options] <input file...>
+Try v++ --help
+ or v++ --compile --mode aie --help
+ or v++ --compile --mode hls --help

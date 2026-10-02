@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-02",
+  "timezone": "Asia/Taipei",
+  "tool": "Vitis HLS 2026.1 build 6493734 via v++ 2026.1 build 6511674",
+  "start": "2026-10-02 15:00:05",
+  "finish": "2026-10-02 15:00:22",
+  "elapsed_reported_seconds": 16,
+  "target_part": "xc7s100fgga676-2",
+  "top": "invert32",
+  "flow": "C synthesis only",
+  "first_attempt_exit": 2,
+  "first_attempt_reason": "part was specified in config but v++ required --part command-line option",
+  "retry_exit": 0,
+  "report_skill_exit": 0,
+  "result": "PASS \u2014 bounded C simulation and C synthesis report generated; not RTL implementation or hardware execution",
+  "metrics_from_report": {
+    "estimated_fmax_mhz": 1184.83,
+    "lut": 32,
+    "bram": 0,
+    "dsp": 0,
+    "ff": "not listed"
+  },
+  "notes": [
+    "Six unrelated installed board.xml files emitted CRITICAL WARNING parser warnings during IP export; HLS command exited 0 and csynth report was generated.",
+    "Estimated Fmax is synthesis estimate only, not routed timing.",
+    "No programming, FPGA hardware, system stack mutation, model inference, or GPU/NPU regression performed."
+  ],
+  "csim_start": "2026-10-02 15:03:36",
+  "csim_exit": 0,
+  "csim_result": "PASS: 4 HLS C simulation vectors matched"
+}

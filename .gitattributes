@@ -1,0 +1,4 @@
+# Preserve captured vendor tool output byte-for-byte; whitespace is part of evidence.
+*.log -whitespace
+*.rpt -whitespace
+*.xdc -whitespace

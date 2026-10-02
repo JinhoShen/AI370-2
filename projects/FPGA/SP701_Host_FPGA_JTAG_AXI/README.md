@@ -18,3 +18,10 @@ Open the project:
 ```bash
 vivado /home/shen/AI370-2/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/vivado/SP701_Host_FPGA_JTAG_AXI.xpr
 ```
+
+For a clean out-of-tree rebuild that preserves the existing GUI project and generated files, set `AI370_M12_BUILD_ROOT` to an empty directory before running `build.tcl`. The script writes the XPR, runs, and reports below that directory. It does not program the board.
+
+```bash
+AI370_M12_BUILD_ROOT=/absolute/path/to/empty/build-dir \
+  vivado -mode batch -source /home/shen/AI370-2/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl
+```

@@ -1,0 +1,32 @@
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Fri Oct  2 15:03:36 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/shen/AI370-2/output/M13/ross-hls-skill-smoke 
+INFO: [HLS 200-2006] Changing directory to /home/shen/AI370-2/output/M13
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/M13/ross-hls-skill-smoke/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/shen/AI370-2/output/M13/ross-hls-skill-smoke'.
+INFO: [HLS 200-2174] Applying component config ini file ../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=src/invert32.cpp' from ../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(2)
+INFO: [HLS 200-10] Adding design file '/home/shen/AI370-2/projects/FPGA/Ross_HLS_Skill_Smoke/src/invert32.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=src/testbench.cpp' from ../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(6)
+INFO: [HLS 200-10] Adding test bench file '/home/shen/AI370-2/projects/FPGA/Ross_HLS_Skill_Smoke/src/testbench.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=invert32' from ../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(3)
+INFO: [HLS 200-1465] Applying config ini 'clock=5ns' from ../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(5)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/M13/ross-hls-skill-smoke/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../../projects/FPGA/Ross_HLS_Skill_Smoke/src/testbench.cpp in debug mode
+   Compiling ../../../../../../projects/FPGA/Ross_HLS_Skill_Smoke/src/invert32.cpp in debug mode
+   Generating csim.exe
+PASS: 4 HLS C simulation vectors matched
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 0.61 seconds. Total CPU system time: 0.21 seconds. Total elapsed time: 0.94 seconds; peak allocated memory: 152.477 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 4s
