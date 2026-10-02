@@ -19,14 +19,16 @@ Maintain one row per resource with:
 | Verification status | `VERIFIED` only for an actual integrity/rebuild check; otherwise use `PRESENT`, `USER-REPORTED`, `UNKNOWN`, `NOT TESTED`, or `EXCLUDED`. |
 | Notes | Compatibility gates, license handling, prerequisites and evidence link. |
 
-`SHA256SUMS` should be generated in the deployment-kit directory for the selected payloads and repository bundle. Keep paths relative to a stable T7 directory, use `sha256sum -c` to verify, and record manifest generation date and commit. Do not put credentials or license keys in it.
+`SHA256SUMS` is generated in the deployment-kit directory for selected payloads and the repository bundle, with paths relative to the T7 root. Do not put credentials or license keys in it.
 
 ## Observed T7 resources (2026-10-02)
 
-The media is mounted, but resource closure is not complete. The statuses below are inventory facts only.
+The media is mounted and the current AI370-2 Git bundle has been written and clone-verified. Resource closure is still partial. The statuses below are inventory facts only.
 
 | Resource | Requirement | Observed path / identity | Exact size | SHA256 / verification | Purpose / notes |
 |---|---|---|---:|---|---|
+| Current AI370-2 repository bundle | REQUIRED | `AI370-2_Deployment/AI370-2-main-7a51ff1.bundle`, main HEAD `7a51ff1f964356114ef8a1105a8dfb890485f219` | 12,196,671 | SHA256 `ed48f5611a56a0624b2d316265cf279206f0da942841b7af435763584c791aa7`; `git bundle verify` PASS; temporary `git clone -b main` HEAD and all three local tags matched. | Contains committed AI370-2 history, docs and scripts. Clone explicitly with `-b main`; bundle has no default checkout branch. T7 `T7_MANIFEST.md` and `SHA256SUMS` are media-side companion records. |
+| Deployment SHA256 manifest | REQUIRED | `AI370-2_Deployment/SHA256SUMS` | 9 entries | Bundle/manifest/README and four XRT package entries pass `sha256sum -c`; Ubuntu ISO and Vivado installer hashes were independently recomputed in this session. | Covers the repository bundle, companion manifest/readme, Ubuntu ISO, Vivado/Vitis archive and four XRT/NPU 2.21 packages. It does not claim all T7 resources are integrity-verified. |
 | Ubuntu installer | REQUIRED | `Agent_Tools_Docs/01_OS/Ubuntu/ubuntu-24.04.1-desktop-amd64.iso` | 6,203,355,136 | Full SHA256 `c2e6f4dc37ac944e2ed507f87c6188dd4d3179bf4a3f9e110d3c88d1f3294bdc` recomputed and matched the existing T7 checksum list. **Not the exact 24.04.4 install image.** | Base install media observed. Suitability for a reproducible 24.04.4 deployment remains to be decided/verified; no new download was made. |
 | AMD/Xilinx Vivado/Vitis unified installer | REQUIRED | `Agent_Tools_Docs/02_FPGA/Vivado_Vitis_2026.1/FPGAs_AdaptiveSoCs_Unified_SDI_2026.1_0616_1700.tar` | 105,522,216,960 | SHA256 `8180734068136de4520d57cc894e34be5bb26ca311ca9e10b6534cffbc08f059`; full T7 and system-file hashes matched; system copy is byte-identical. | Rebuild installer. The system duplicate may be considered safe to delete, but **no deletion is authorized or performed**. Preserve the installed toolchain at `/home/shen/tools/Xilinx/2026.1`. |
 | Existing expanded Vivado/Vitis installer tree | OPTIONAL | `Agent_Tools_Docs/02_FPGA/Vivado_Vitis_2026.1/FPGAs_AdaptiveSoCs_Unified_SDI_2026.1_0616_1700/` | Not measured as a tree | NOT VERIFIED | Present alongside the archive; not equivalent to the installed `/home/shen/tools/Xilinx/2026.1` tree and not yet assessed as a clean installer source. |
@@ -35,22 +37,22 @@ The media is mounted, but resource closure is not complete. The statuses below a
 | RyzenAI XRT/NPU archive | CONDITIONAL — M5/NPU rebuild | `Agent_Tools_Docs/03_RyzenAI/XRT_NPU/RAI_1.7.1_Linux_NPU_XRT.zip` | 18,797,282 | PRESENT; hash not verified in this session | Potential source for NPU runtime/driver components; archive contents and exact amdxdna package identity remain UNKNOWN. |
 | Alternate XRT 2.25 / amdxdna 7.0-rc packages | EXCLUDED | `Agent_Tools_Docs/06_AI370_2_Downloads/LocalAI/Lemonade-Ubuntu24.04/debs/` | Present | NOT VERIFIED | **Do not use for the AI370-2 Golden stack** without a new explicit compatibility gate; these files differ from protected XRT 2.21.75 / amdxdna 2.21 release. |
 | ROCm 7.2.1 package resources | REQUIRED — GPU rebuild | `Agent_Tools_Docs/06_AI370_2_Downloads/AMD/ROCm-7.2.1/` | Directory present; total not measured | NOT VERIFIED | Package files observed. Complete package-set checksum, dependency closure and clean install replay are not tested. |
-| AI370-2 project snapshot | REQUIRED | `Agent_Tools_Docs/AI370-2_Workstation_20261001/`, branch `main`, HEAD `db83562` | Directory tree not measured | NOT CURRENT: working tree has modifications; does not represent current local HEAD | Do not treat this snapshot as the deployment repository. A current commit-addressed repository bundle is still to be placed and verified. |
+| Earlier AI370-2 project snapshot | OPTIONAL / HISTORICAL | `Agent_Tools_Docs/AI370-2_Workstation_20261001/`, branch `main`, HEAD `db83562` | Directory tree not measured | NOT CURRENT: working tree has modifications; does not represent current local HEAD | Preserve as-is; do not treat it as the deployment repository or overwrite it. Use the commit-addressed bundle above. |
 | Ross MCP / Skills / Local Knowledge Base | CONDITIONAL — M13 rebuild | No dedicated portable release/KB bundle confirmed in the targeted inventory | UNKNOWN | UNKNOWN | Current workstation readiness is recorded in M13/M15; T7 presence and reproducibility are NOT VERIFIED. Never assume the installed local database is included in Git. |
 | Local GGUF models | OPTIONAL | `Agent_Tools_Docs/04_Local_AI/GGUF/`; Qwen3.6 Q8 and IQ2 plus other files observed | Per-file values are in existing T7 directory; not re-inventoried here | Existing checksum list covers some, not all; no blanket verification | Select only desired models for migration; models are not needed to rebuild the base workstation. No model inference was run for this inventory. |
 | Xilinx license / credentials | NEVER INCLUDE | No path recorded | — | — | Keep license files, keys, passwords and tokens out of Git and deployment manifests. Re-provision secrets separately through the authorized license process. |
 
 ## Deployment-kit acceptance
 
-The kit is ready only when its selected resource list is closed, every REQUIRED payload has a version/path/byte-size and verified SHA256 (or a documented trusted package source), the repository bundle points to a named AI370-2 commit and passes `git bundle verify`/clone checks, and `SHA256SUMS` passes on T7. A clean rebuild/migration smoke is separate evidence; inventory alone is not a rebuild PASS.
+The kit is ready only when its selected resource list is closed, every REQUIRED payload has a version/path/byte-size and verified SHA256 (or a documented trusted package source), the repository bundle points to a named AI370-2 commit and passes `git bundle verify`/clone checks, and `SHA256SUMS` passes on the selected bundle, manifest, Ubuntu/Vivado installer and four listed XRT/NPU packages on T7. A clean rebuild/migration smoke is separate evidence; inventory alone is not a rebuild PASS.
 
 When updating T7, use a new `AI370-2_Deployment/` directory and preserve the existing `Agent_Tools_Docs` tree. Do not overwrite the old project snapshot, delete the system installer, alter the installed Xilinx toolchain, or include current-machine root images. Record only observed assets; unresolved entries remain `UNKNOWN` or `NOT VERIFIED`.
 
 ## Next actions once media is available
 
 1. Reconfirm mount, filesystem health/status, free space and exact paths; retain the existing T7 data.
-2. Place a bundle for the committed current `main` branch in a new deployment directory; verify it and test cloning to a temporary location.
-3. Generate a T7-local `SHA256SUMS` for the current repository bundle and chosen installer/runtime payloads. Ubuntu/Vivado hashes and the four listed XRT/NPU package hashes are already verified; broader ROCm/RyzenAI/Ross resource checksums remain open. The Vivado/Vitis installer is already verified byte-identical to the system copy.
+2. Refresh the commit-addressed bundle when `main` advances; verify it and test cloning to a temporary location.
+3. Extend the T7-local `SHA256SUMS` when selecting more payloads. Ubuntu/Vivado hashes and the four listed XRT/NPU package hashes are verified; broader ROCm/RyzenAI/Ross resource checksums remain open. The Vivado/Vitis installer is verified byte-identical to the system copy.
 4. Resolve the OS media gap (the observed ISO is Ubuntu 24.04.1; AI370-2's installed host is 24.04.4) without asserting official AMD/Xilinx support.
 5. Confirm required AMD/XDNA2, ROCm, Ross/Skills/KB and selected model resources; explicitly exclude incompatible alternate XRT/DKMS packages from the Golden rebuild set.
 6. Do not delete the system installer unless the user separately directs it. A duplicate-safe-to-delete recommendation is supported by the exact matching size and SHA256, but deletion has not occurred.
