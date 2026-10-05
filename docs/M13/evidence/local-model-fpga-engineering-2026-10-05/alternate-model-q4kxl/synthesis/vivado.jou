@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct  5 12:34:15 2026
+# Process ID         : 271449
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/build_synth.tcl -log /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.log -journal /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.jou
+# Log file           : /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.log
+# Journal file       : /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 605.264 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 48261 MB
+#-----------------------------------------------------------
+source /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/build_synth.tcl

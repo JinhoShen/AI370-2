@@ -1,0 +1,101 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+
+
+Loading model... 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b0-7fe450e19305b828c199d602c23a8337aaa1f03b
+model      : /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> This is your one bounded correction after your previous patch failed `patch --dry-run`. Read the exact original source and your previous response below. Fix the patch only; return at most 3 short plan bullets and exactly one valid unified diff. Do not include shell commands or markdown fences.
+
+The requested change remains: use the existing REG1 `control_reg` at 0x04. If `control_reg[1]` is one, REG2 returns REG0 (`input_reg`) + REG3 (`offset_reg`) with 32-bit wrap; if zero, preserve `~input_reg ... (truncated)
+- Remove the added `mode_reg` declaration and the `8'h04` write case from the previous patch.
+- Modify the `REG_CONTROL` write block to check `control_reg[1]` and update `s_axi_rdata` in the read block accordingly.
+- Ensure the diff only touches the existing `control_reg` logic without introducing new registers or address cases.
+
+diff --git a/local_model_axi_lite.v b/local_model_axi_lite.v
+index 1234567..abcdefg 100644
+--- a/local_model_axi_lite.v
++++ b/local_model_axi_lite.v
+@@ -46,6 +46,13 @@ module local_model_axi_lite (
+           REG_OFFSET: begin
+             for (byte_index = 0; byte_index < 4; byte_index = byte_index + 1)
+               if (wstrb_hold[byte_index])
+                 offset_reg[byte_index*8 +: 8] <= wdata_hold[byte_index*8 +: 8];
+             s_axi_bresp <= AXI_OKAY;
+           end
++          REG_CONTROL: begin
++            for (byte_index = 0; byte_index < 4; byte_index = byte_index + 1)
++              if (wstrb_hold[byte_index])
++                control_reg[byte_index*8 +: 8] <= wdata_hold[byte_index*8 +: 8];
++            s_axi_bresp <= AXI_OKAY;
++          end
+           default: s_axi_bresp <= AXI_SLVERR;
+         endcase
+         aw_pending   <= 1'b0;
+@@ -70,6 +77,13 @@ module local_model_axi_lite (
+           REG_CONTROL: begin
+             s_axi_rdata <= control_reg;
+             s_axi_rresp <= AXI_OKAY;
+           end
++          REG_RESULT: begin
++            if (control_reg[1])
++              s_axi_rdata <= input_reg + offset_reg;
++            else
++              s_axi_rdata <= ~input_reg;
++            s_axi_rresp <= AXI_OKAY;
++          end
+           default: begin
+             s_axi_rdata <= 32'hbaad_f00d;
+             s_axi_rresp <= AXI_SLVERR;
+           end
+         endcase
+
+[ Prompt: 33.0 t/s | Generation: 9.5 t/s ]
+
+
+Exiting...
+	Command being timed: "systemd-run --user --scope --quiet --unit=ai370-localmodel-fpga-qwen35-9b-correction-20261005 -p MemoryMax=30G -p MemorySwapMax=0 -- timeout --signal=TERM --kill-after=5s 900 /home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf --ctx-size 4096 --batch-size 8 --ubatch-size 4 --threads 24 --threads-batch 24 --n-predict 1000 --reasoning off --device none --gpu-layers 0 --seed 1 --temp 0.1 --single-turn --no-display-prompt --simple-io --file docs/M13/evidence/local-model-fpga-engineering-2026-10-05/model-comparison-qwen35-9b/correction-1/correction-input.md"
+	User time (seconds): 2873.01
+	System time (seconds): 2.46
+	Percent of CPU this job got: 2340%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:02.83
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7927436
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 53
+	Minor (reclaiming a frame) page faults: 635893
+	Voluntary context switches: 5149
+	Involuntary context switches: 127221
+	Swaps: 0
+	File system inputs: 23808
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,18 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Mon Oct  5 10:16:42 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/baseline_snapshot/xsim_script.tcl
+# xsim {baseline_snapshot} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+TEST_PASS baseline_and_selected_mode=0
+$finish called at time : 130 ns : File "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/sim/tb_local_model_axi_lite.sv" Line 91
+exit
+INFO: xsimkernel Simulation Memory Usage: 142524 KB (Peak: 208060 KB), Simulation CPU Usage: 480 ms
+INFO: [Common 17-206] Exiting xsim at Mon Oct  5 10:16:44 2026...

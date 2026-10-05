@@ -1,0 +1,38 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v" into library work
+INFO: [VRFC 10-311] analyzing module local_model_axi_lite
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/sim/tb_local_model_axi_lite.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_local_model_axi_lite
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin/unwrapped/lnx64.o/xelab tb_local_model_axi_lite -s q4kxl_snapshot 
+Multi-threading is on. Using 22 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by AMD, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.local_model_axi_lite
+Compiling module work.tb_local_model_axi_lite
+Built simulation snapshot q4kxl_snapshot
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Mon Oct  5 12:34:01 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/q4kxl_snapshot/xsim_script.tcl
+# xsim {q4kxl_snapshot} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+TEST_PASS baseline_and_selected_mode=1
+$finish called at time : 460 ns : File "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/sim/tb_local_model_axi_lite.sv" Line 91
+exit
+INFO: xsimkernel Simulation Memory Usage: 142524 KB (Peak: 208060 KB), Simulation CPU Usage: 480 ms
+INFO: [Common 17-206] Exiting xsim at Mon Oct  5 12:34:03 2026...

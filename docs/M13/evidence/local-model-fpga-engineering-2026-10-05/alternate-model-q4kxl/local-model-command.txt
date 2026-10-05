@@ -1,0 +1,1 @@
+CPU-only; no CPUQuota set; all 24 online CPU threads; MemoryMax=30G; MemorySwapMax=0; 900-second process timeout. Local Model has prompt text only and no tool, shell, file-write, Vivado or simulator access.

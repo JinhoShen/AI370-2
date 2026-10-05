@@ -1,0 +1,16 @@
+--- a/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v
++++ b/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v
+@@ -107,9 +107,12 @@
+           REG_CONTROL: begin
+             s_axi_rdata <= control_reg;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_RESULT: begin
+-            s_axi_rdata <= ~input_reg;
++            if (control_reg[1])
++              s_axi_rdata <= input_reg + offset_reg;
++            else
++              s_axi_rdata <= ~input_reg;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_OFFSET: begin

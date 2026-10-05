@@ -1,0 +1,21 @@
+--- a/local_model_axi_lite.v
++++ b/local_model_axi_lite.v
+@@ -26,6 +26,10 @@
+   reg [31:0] input_reg;
+   reg [31:0] control_reg;
+   reg [31:0] offset_reg;
++
++  wire [31:0] result_wire;
++  assign result_wire = control_reg[1] ? (input_reg + offset_reg) : (~input_reg);
+
+   reg aw_pending;
+   reg w_pending;
+@@ -95,7 +99,7 @@
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_RESULT: begin
+-            s_axi_rdata <= ~input_reg;
++            s_axi_rdata <= result_wire;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_OFFSET: begin

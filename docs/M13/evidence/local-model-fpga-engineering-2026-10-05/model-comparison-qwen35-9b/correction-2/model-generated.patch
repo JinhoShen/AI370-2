@@ -1,0 +1,32 @@
+diff --git a/local_model_axi_lite.v b/local_model_axi_lite.v
+index 1234567..abcdefg 100644
+--- a/local_model_axi_lite.v
++++ b/local_model_axi_lite.v
+@@ -35,6 +35,7 @@ module local_model_axi_lite (
+   reg [31:0] control_reg;
+   reg [31:0] offset_reg;
+
++  wire [31:0] result_data;
+   reg aw_pending;
+   reg w_pending;
+   reg [7:0]  awaddr_hold;
+@@ -40,6 +41,10 @@ module local_model_axi_lite (
+   integer byte_index;
+
+   assign s_axi_awready = !aw_pending && !s_axi_bvalid;
++  assign result_data = control_reg[1] ? (input_reg + offset_reg) : (~input_reg);
++
++  assign s_axi_wready  = !w_pending && !s_axi_bvalid;
++  assign s_axi_arready = !s_axi_rvalid;
+
+   always @(posedge aclk) begin
+     if (!aresetn) begin
+@@ -96,7 +101,7 @@ module local_model_axi_lite (
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_RESULT: begin
+-            s_axi_rdata <= ~input_reg;
++            s_axi_rdata <= result_data;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_OFFSET: begin

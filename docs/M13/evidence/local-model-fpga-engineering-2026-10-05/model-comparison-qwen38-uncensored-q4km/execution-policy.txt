@@ -1,0 +1,1 @@
+CPU-only, all 24 online CPU threads, no CPUQuota, MemoryMax=30G, MemorySwapMax=0, timeout=900s; one-shot patch task; no tool/shell/file-write access.

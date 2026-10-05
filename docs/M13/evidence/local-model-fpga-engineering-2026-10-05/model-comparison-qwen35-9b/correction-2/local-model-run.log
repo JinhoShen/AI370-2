@@ -1,0 +1,96 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+
+
+Loading model... 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b0-7fe450e19305b828c199d602c23a8337aaa1f03b
+model      : /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Test-feedback correction: the prior correction prompt mistakenly suggested editing the REG_CONTROL write case. That instruction was wrong. The existing `control_reg` declaration and REG_CONTROL write case are already correct and MUST remain unchanged. The requested change is only in result selection.
+
+Using the original source and your prior patch below, return at most 3 short plan bullets and exactly one valid unified diff. Add one combinational result wire after existing register declarations  ... (truncated)
+- Add a combinational wire `result_data` after register declarations to compute `input_reg + offset_reg` when `control_reg[1]` is 1, otherwise `~input_reg`.
+- Modify the `REG_RESULT` read case to assign `s_axi_rdata` from the new `result_data` wire instead of the direct expression.
+- Ensure no changes are made to write cases, reset logic, or any other module functionality.
+
+diff --git a/local_model_axi_lite.v b/local_model_axi_lite.v
+index 1234567..abcdefg 100644
+--- a/local_model_axi_lite.v
++++ b/local_model_axi_lite.v
+@@ -35,6 +35,7 @@ module local_model_axi_lite (
+   reg [31:0] control_reg;
+   reg [31:0] offset_reg;
+ 
++  wire [31:0] result_data;
+   reg aw_pending;
+   reg w_pending;
+   reg [7:0]  awaddr_hold;
+@@ -40,6 +41,10 @@ module local_model_axi_lite (
+   integer byte_index;
+ 
+   assign s_axi_awready = !aw_pending && !s_axi_bvalid;
++  assign result_data = control_reg[1] ? (input_reg + offset_reg) : (~input_reg);
++
++  assign s_axi_wready  = !w_pending && !s_axi_bvalid;
++  assign s_axi_arready = !s_axi_rvalid;
+ 
+   always @(posedge aclk) begin
+     if (!aresetn) begin
+@@ -96,7 +101,7 @@ module local_model_axi_lite (
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_RESULT: begin
+-            s_axi_rdata <= ~input_reg;
++            s_axi_rdata <= result_data;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_OFFSET: begin
+
+[ Prompt: 28.3 t/s | Generation: 7.8 t/s ]
+
+
+Exiting...
+	Command being timed: "systemd-run --user --scope --quiet --unit=ai370-localmodel-fpga-qwen35-9b-correction2-20261005 -p MemoryMax=30G -p MemorySwapMax=0 -- timeout --signal=TERM --kill-after=5s 900 /home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/Lemonade/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf --ctx-size 4096 --batch-size 8 --ubatch-size 4 --threads 24 --threads-batch 24 --n-predict 1000 --reasoning off --device none --gpu-layers 0 --seed 1 --temp 0.1 --single-turn --no-display-prompt --simple-io --file docs/M13/evidence/local-model-fpga-engineering-2026-10-05/model-comparison-qwen35-9b/correction-2/correction-input.md"
+	User time (seconds): 3220.61
+	System time (seconds): 4.75
+	Percent of CPU this job got: 2322%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:18.90
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7926944
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 635842
+	Voluntary context switches: 5209
+	Involuntary context switches: 279115
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

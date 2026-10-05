@@ -1,0 +1,4 @@
+CPU-only bounded model request (stdout is preserved verbatim as local-model-response.txt; stderr as run log):
+systemd-run --user --scope --quiet --unit=ai370-localmodel-fpga-20261005 -p MemoryMax=30G -p MemorySwapMax=0 -p CPUQuota=400% -- timeout --signal=TERM --kill-after=5s 1800 /home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_M.gguf --ctx-size 4096 --batch-size 8 --ubatch-size 4 --threads 4 --threads-batch 4 --n-predict 900 --reasoning off --device none --gpu-layers 0 --seed 1 --temp 0.1 --single-turn --no-display-prompt --simple-io --file local-model-prompt.txt
+
+No model tool/plugin, shell, file-write or Vivado access is provided.

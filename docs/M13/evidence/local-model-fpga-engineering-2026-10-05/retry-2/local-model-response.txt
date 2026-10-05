@@ -1,0 +1,53 @@
+
+
+Loading model...
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b0-7fe450e19305b828c199d602c23a8337aaa1f03b
+model      : /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Correct your previous patch after this actual parser feedback. Do not change files or claim validation.
+
+Actual second tool feedback: `git apply --check` again failed, with `error: corrupt patch at line 15`. No RTL was changed. Your first retry repeated the invalid hunk. This is a unified-diff structure problem; recount the exact old and new lines covered by the hunk and emit a syntactically valid patch. Keep the intended RTL behavior unchanged. This is correction attempt 2 of at most 3.
+
+
+# Pat ... (truncated)
+```diff
+--- a/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v
++++ b/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v
+@@ -86,7 +86,11 @@ module local_model_axi_lite (
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_RESULT: begin
+-            s_axi_rdata <= ~input_reg;
++            if (control_reg[1])
++              s_axi_rdata <= input_reg + offset_reg;
++            else
++              s_axi_rdata <= ~input_reg;
+             s_axi_rresp <= AXI_OKAY;
+           end
+           REG_OFFSET: begin
+```
+
+[ Prompt: 5.7 t/s | Generation: 3.0 t/s ]
+
+
+Exiting...

@@ -1,0 +1,1 @@
+One bounded correction; CPU-only, 24 threads, no CPUQuota, MemoryMax=30G, MemorySwapMax=0, timeout=900s; no tool or shell access.

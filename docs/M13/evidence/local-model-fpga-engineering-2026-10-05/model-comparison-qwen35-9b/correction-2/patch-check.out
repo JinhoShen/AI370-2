@@ -1,0 +1,5 @@
+checking file local_model_axi_lite.v
+Hunk #1 succeeded at 31 (offset -4 lines).
+Hunk #2 FAILED at 41.
+Hunk #3 succeeded at 110 (offset 13 lines).
+1 out of 3 hunks FAILED

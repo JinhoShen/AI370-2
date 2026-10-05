@@ -1,0 +1,4 @@
+Actual tool feedback from Codex safety review (git apply --check; no source was changed):
+error: corrupt patch at line 15
+
+The first proposed RTL change appears semantically aligned, but the unified-diff hunk is malformed. Please use the complete original source and your previous proposed diff below. Return a corrected unified diff that applies cleanly. Preserve the exact requested RTL behavior. Do not claim validation and do not provide shell commands.

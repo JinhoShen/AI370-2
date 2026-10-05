@@ -1,0 +1,26 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+	Command being timed: "systemd-run --user --scope --quiet --unit=ai370-localmodel-fpga-q4kxl-20261005 -p MemoryMax=30G -p MemorySwapMax=0 -- timeout --signal=TERM --kill-after=5s 900 /home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --ctx-size 4096 --batch-size 8 --ubatch-size 4 --threads 24 --threads-batch 24 --n-predict 800 --reasoning off --device none --gpu-layers 0 --seed 1 --temp 0.1 --single-turn --no-display-prompt --simple-io --file task-input.md"
+	User time (seconds): 9702.34
+	System time (seconds): 13.29
+	Percent of CPU this job got: 2290%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:04.15
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 19585876
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 263
+	Minor (reclaiming a frame) page faults: 1188132
+	Voluntary context switches: 72250
+	Involuntary context switches: 987321
+	Swaps: 0
+	File system inputs: 34227944
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v" into library work
+INFO: [VRFC 10-311] analyzing module local_model_axi_lite
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/sim/tb_local_model_axi_lite.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_local_model_axi_lite

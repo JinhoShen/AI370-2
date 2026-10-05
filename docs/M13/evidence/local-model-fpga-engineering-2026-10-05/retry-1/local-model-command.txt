@@ -1,0 +1,1 @@
+Same Qwen3.8 CPU llama.cpp binary and same cgroup resource limits as first response; correction prompt includes the real `git apply --check` error, initial patch and complete original RTL. The model has no shell/tool access.

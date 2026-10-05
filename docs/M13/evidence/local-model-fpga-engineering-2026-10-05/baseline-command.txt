@@ -1,0 +1,10 @@
+Vivado baseline synthesis:
+source /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/settings64.sh
+vivado -mode batch -source /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/build_synth.tcl
+
+Vivado/XSim baseline functional test (executed from output/M13/Local_AI_FPGA_Engineering_Test/xsim-baseline):
+xvlog -sv /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/sim/tb_local_model_axi_lite.sv
+xelab tb_local_model_axi_lite -s baseline_snapshot
+xsim baseline_snapshot -R
+
+No implementation, bitstream generation or programming command is used.

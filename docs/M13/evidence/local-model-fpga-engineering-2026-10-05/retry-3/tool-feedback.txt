@@ -1,0 +1,3 @@
+Actual parser feedback from the last two generated patches: `git apply --check` returned `error: corrupt patch at line 15`. No source was changed by either rejection. This is correction attempt 3 of a maximum of 3. The previous two responses repeated the same invalid hunk length.
+
+The target replacement is one old RTL line with four new RTL lines. For the hunk below, there are exactly 7 old-side lines and 10 new-side lines (six unchanged context lines, one removed line, four added lines). The unified diff header must report those exact counts. Produce one complete, syntactically valid unified diff for the requested behavior. Do not claim validation or provide shell commands.

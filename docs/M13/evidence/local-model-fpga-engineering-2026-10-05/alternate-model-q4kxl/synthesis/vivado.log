@@ -1,0 +1,271 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite ENTERPRISE license has been detected. Your current license is active and will expire on Permanent.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct  5 12:34:15 2026
+# Process ID         : 271449
+# Current directory  : /home/shen/AI370-2
+# Command line       : vivado -mode batch -source /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/build_synth.tcl -log /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.log -journal /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.jou
+# Log file           : /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.log
+# Journal file       : /home/shen/AI370-2/docs/M13/evidence/local-model-fpga-engineering-2026-10-05/alternate-model-q4kxl/synthesis/vivado.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 605.264 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 48261 MB
+#-----------------------------------------------------------
+source /home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/build_synth.tcl
+# set root [file normalize [file dirname [info script]]]
+# set out_root [file normalize [file join $root .. .. .. output M13 Local_AI_FPGA_Engineering_Test]]
+# file mkdir $out_root
+# set proj_dir [file join $out_root vivado]
+# create_project Local_AI_FPGA_Engineering_Test $proj_dir -part xc7s100fgga676-2 -force
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/Avnet/zub1cg/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/alinx/axku042/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.1/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.0/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa101_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+CRITICAL WARNING: [Board 49-56] Problem parsing board file - /home/shen/tools/Xilinx/2026.1/2026.1/data/boards/board_files/AlphaData/admpa100_2ms/1.2/board.xml.
+Resolution: Please contact your board vendor with this message.
+# add_files -norecurse [file join $root src local_model_axi_lite.v]
+# set_property top local_model_axi_lite [current_fileset]
+# read_xdc [file join $root constraints synth_clock.xdc]
+# update_compile_order -fileset sources_1
+# synth_design -top local_model_axi_lite -part xc7s100fgga676-2
+Command: synth_design -top local_model_axi_lite -part xc7s100fgga676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Device 21-403] Loading part xc7s100fgga676-2
+INFO: [Designutils 20-5008] Incremental synthesis strategy default
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 271566
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2646.070 ; gain = 523.062 ; free physical = 8785 ; free virtual = 44496
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'local_model_axi_lite' [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'local_model_axi_lite' (0#1) [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2733.039 ; gain = 610.031 ; free physical = 8674 ; free virtual = 44387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2733.039 ; gain = 610.031 ; free physical = 8674 ; free virtual = 44387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2733.039 ; gain = 610.031 ; free physical = 8674 ; free virtual = 44387
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2733.039 ; gain = 0.000 ; free physical = 8674 ; free virtual = 44387
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/constraints/synth_clock.xdc]
+Finished Parsing XDC File [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/constraints/synth_clock.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2805.871 ; gain = 0.000 ; free physical = 8662 ; free virtual = 44389
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2805.906 ; gain = 0.000 ; free physical = 8661 ; free virtual = 44388
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2805.906 ; gain = 682.898 ; free physical = 8659 ; free virtual = 44386
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s100fgga676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2813.875 ; gain = 690.867 ; free physical = 8658 ; free virtual = 44386
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2813.875 ; gain = 690.867 ; free physical = 8658 ; free virtual = 44386
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2813.875 ; gain = 690.867 ; free physical = 8658 ; free virtual = 44386
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 5     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 8     
+	   4 Input   32 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 160 (col length:80)
+BRAMs: 240 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2813.875 ; gain = 690.867 ; free physical = 8637 ; free virtual = 44372
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2909.875 ; gain = 786.867 ; free physical = 8516 ; free virtual = 44258
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2932.906 ; gain = 809.898 ; free physical = 8494 ; free virtual = 44236
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2932.906 ; gain = 809.898 ; free physical = 8494 ; free virtual = 44236
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     8|
+|3     |LUT1   |     2|
+|4     |LUT2   |    48|
+|5     |LUT3   |     4|
+|6     |LUT4   |     1|
+|7     |LUT5   |     3|
+|8     |LUT6   |    68|
+|9     |FDRE   |   178|
+|10    |IBUF   |    59|
+|11    |OBUF   |    41|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.719 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3126.719 ; gain = 930.844 ; free physical = 8308 ; free virtual = 44050
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3126.727 ; gain = 1003.711 ; free physical = 8308 ; free virtual = 44050
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3126.727 ; gain = 0.000 ; free physical = 8308 ; free virtual = 44051
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/constraints/synth_clock.xdc]
+Finished Parsing XDC File [/home/shen/AI370-2/projects/FPGA/Local_AI_FPGA_Engineering_Test/constraints/synth_clock.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3182.746 ; gain = 0.000 ; free physical = 8458 ; free virtual = 44201
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 9f990296
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 3182.781 ; gain = 1145.070 ; free physical = 8458 ; free virtual = 44201
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2469.133; main = 2469.133; forked = 336.661
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3995.715; main = 3182.750; forked = 1062.805
+# report_utilization -file [file join $out_root utilization.rpt]
+# report_timing_summary -file [file join $out_root timing-summary.rpt]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+# puts "LOCAL_MODEL_FPGA_SYNTHESIS=PASS"
+LOCAL_MODEL_FPGA_SYNTHESIS=PASS
+# puts "LOCAL_MODEL_FPGA_PROJECT=$proj_dir/Local_AI_FPGA_Engineering_Test.xpr"
+LOCAL_MODEL_FPGA_PROJECT=/home/shen/AI370-2/output/M13/Local_AI_FPGA_Engineering_Test/vivado/Local_AI_FPGA_Engineering_Test.xpr
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Mon Oct  5 12:34:36 2026...

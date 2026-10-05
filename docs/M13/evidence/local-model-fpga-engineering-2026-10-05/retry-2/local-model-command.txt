@@ -1,0 +1,1 @@
+Same model and CPU-only systemd resource guard; correction attempt 2/3 includes the repeated apply-check error, rejected patch, and source excerpt. No tool access was provided.

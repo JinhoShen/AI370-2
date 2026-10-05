@@ -1,0 +1,17 @@
+You are continuing the FPGA RTL change request. Your previous two patches failed `git apply --check` with `corrupt patch at line 15`; neither was applied. This is the final bounded correction attempt (3 of 3).
+
+Task: In `projects/FPGA/Local_AI_FPGA_Engineering_Test/src/local_model_axi_lite.v`, change only the `REG_RESULT` read behavior. If `control_reg[1]` is 1, return `input_reg + offset_reg` with normal 32-bit modulo arithmetic. If it is 0, preserve `~input_reg`. Do not change AXI protocol, registers, reset, strobes, error behavior, or other files.
+
+The exact source context is:
+
+          REG_CONTROL: begin
+            s_axi_rdata <= control_reg;
+            s_axi_rresp <= AXI_OKAY;
+          end
+          REG_RESULT: begin
+            s_axi_rdata <= ~input_reg;
+            s_axi_rresp <= AXI_OKAY;
+          end
+          REG_OFFSET: begin
+
+For the hunk, count carefully: 7 old-side lines, 10 new-side lines. The modified source expands the single old data assignment into four new RTL lines. Use a unified diff header consistent with those counts and include the exact file paths. Return a short plan followed by exactly one diff. No shell commands, no claims that tools were run.

@@ -1,0 +1,10 @@
+Inventory date: 2026-10-05 Asia/Taipei
+Model: /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_M.gguf
+Size: 16464440224 bytes
+SHA256: 322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482
+Metadata/test reference: docs/M7/LOCAL_MODEL_EVALUATION_2026-10-02.md; Qwen3.8-27B 27.32B parameter elements, Q4_K_M, GGUF v3, 866 tensors; CPU bounded smoke PASS; Vulkan and ROCm one-layer bounded smokes PASS. This run selects CPU only for conservative execution.
+llama.cpp CPU binary: /home/shen/AI370-2/output/M6/build-cpu/bin/llama-cli
+Prior CPU policy: 4 threads, MemoryMax=36G, MemorySwapMax=0, context 64, 2 output tokens. Prior kernel audit clean. This engineering task uses a bounded context/output with MemorySwapMax=0 and no GPU/NPU offload.
+Vivado: /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/settings64.sh; release 2026.1, build 6511674 per M9 evidence.
+Protected stack was not queried/changed for model startup. The existing M7/M15 records contain its exact validated versions. Current host observation: kernel 6.17.0-14-generic; RAM 46 GiB total / 42 GiB available at precheck; swap 8 GiB with 5.2 GiB already used. Test cgroup must set MemorySwapMax=0.
+No GPU/NPU inference, package installation, driver change, FPGA programming or physical hardware access is part of this task.

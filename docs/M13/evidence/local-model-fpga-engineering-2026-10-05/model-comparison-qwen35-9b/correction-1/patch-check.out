@@ -1,0 +1,2 @@
+checking file local_model_axi_lite.v
+patch: **** malformed patch at line 18:            default: s_axi_bresp <= AXI_SLVERR;
