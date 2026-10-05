@@ -1,0 +1,230 @@
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Mon Oct  5 14:10:49 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected 
+INFO: [HLS 200-2006] Changing directory to /home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected'.
+INFO: [HLS 200-1611] Setting target device to 'xc7s100-fgga676-2'
+INFO: [HLS 200-2174] Applying component config ini file ../../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=src/invert32.cpp' from ../../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(2)
+INFO: [HLS 200-10] Adding design file '/home/shen/AI370-2/projects/FPGA/Ross_HLS_Skill_Smoke/src/invert32.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=src/testbench.cpp' from ../../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(6)
+INFO: [HLS 200-10] Adding test bench file '/home/shen/AI370-2/projects/FPGA/Ross_HLS_Skill_Smoke/src/testbench.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=invert32' from ../../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(3)
+INFO: [HLS 200-1465] Applying config ini 'clock=5ns' from ../../../projects/FPGA/Ross_HLS_Skill_Smoke/hls_config.cfg(5)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/vitis-comp.json
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/lnx64/tools/clang-16/bin/clang++"
+   Compiling apatb_invert32.cpp
+   Compiling invert32.cpp_pre.cpp
+   Compiling testbench.cpp_pre.cpp
+   Compiling apatb_invert32_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+PASS: 4 HLS C simulation vectors matched
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_invert32_top xil_defaultlib.glbl -Oenable_linking_all_libraries -prj invert32.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_22 -L floating_point_v7_0_27 --lib ieee_proposed=./ieee_proposed -L uvm -relax -i ./svr -i ./svtb -i ./file_agent -i ./invert32_subsystem -s invert32 
+Multi-threading is on. Using 22 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by AMD, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/invert32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module invert32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/invert32.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_invert32_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/file_agent/file_agent_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/svr/svr_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/svr/svr_if.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/invert32_subsystem/invert32_subsystem_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/svtb/misc_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/ross-hls-cosim-implementation-20261005/cosim-work-corrected/hls/sim/verilog/svtb/sv_module_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sv_module_top
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_sv_module_top_sv
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling package xil_defaultlib.svr_pkg
+Compiling package xil_defaultlib.file_agent_pkg
+Compiling package xil_defaultlib.invert32_subsystem_pkg
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.invert32
+Compiling module xil_defaultlib.misc_interface_default
+Compiling module xil_defaultlib.svr_if_default
+Compiling module xil_defaultlib.sv_module_top
+Compiling module xil_defaultlib.nodf_module_intf_default
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_invert32_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot invert32
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Mon Oct  5 14:11:05 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/invert32/xsim_script.tcl
+# xsim {invert32} -testplusarg UVM_VERBOSITY=UVM_NONE -testplusarg UVM_TESTNAME=invert32_test_lib -testplusarg UVM_TIMEOUT=20000000000000 -autoloadwcfg -tclbatch {invert32.tcl}
+Time resolution is 1 ps
+source invert32.tcl
+## run all
+UVM_INFO /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18648) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18752) @ 0: reporter [UVMTOP] UVM testbench topology:
+---------------------------------------------------------------------------------------------------------------
+Name                                               Type                                  Size  Value           
+---------------------------------------------------------------------------------------------------------------
+uvm_test_top                                       invert32_test_lib                     -     @349            
+  top_env                                          invert32_env                          -     @360            
+    env_master_svr_input_r                         uvm_env                               -     @379            
+      m_agt                                        uvm_agent                             -     @582            
+        drv                                        uvm_driver #(REQ,RSP)                 -     @730            
+          rsp_port                                 uvm_analysis_port                     -     @749            
+          seq_item_port                            uvm_seq_item_pull_port                -     @739            
+        mon                                        uvm_monitor                           -     @759            
+          item_collect_port                        uvm_analysis_port                     -     @770            
+        sqr                                        uvm_sequencer                         -     @593            
+          rsp_export                               uvm_analysis_export                   -     @602            
+          seq_item_export                          uvm_seq_item_pull_imp                 -     @720            
+          arbitration_queue                        array                                 0     -               
+          lock_queue                               array                                 0     -               
+          num_last_reqs                            integral                              32    'd1             
+          num_last_rsps                            integral                              32    'd1             
+    env_slave_svr_ap_return                        uvm_env                               -     @392            
+      s_agt                                        uvm_agent                             -     @788            
+        drv                                        uvm_driver #(REQ,RSP)                 -     @936            
+          rsp_port                                 uvm_analysis_port                     -     @955            
+          seq_item_port                            uvm_seq_item_pull_port                -     @945            
+        mon                                        uvm_monitor                           -     @965            
+          item_collect_port                        uvm_analysis_port                     -     @976            
+        sqr                                        uvm_sequencer                         -     @799            
+          rsp_export                               uvm_analysis_export                   -     @808            
+          seq_item_export                          uvm_seq_item_pull_imp                 -     @926            
+          arbitration_queue                        array                                 0     -               
+          lock_queue                               array                                 0     -               
+          num_last_reqs                            integral                              32    'd1             
+          num_last_rsps                            integral                              32    'd1             
+    invert32_virtual_sqr                           invert32_virtual_sequencer            -     @444            
+      rsp_export                                   uvm_analysis_export                   -     @453            
+      seq_item_export                              uvm_seq_item_pull_imp                 -     @571            
+      arbitration_queue                            array                                 0     -               
+      lock_queue                                   array                                 0     -               
+      num_last_reqs                                integral                              32    'd1             
+      num_last_rsps                                integral                              32    'd1             
+    refm                                           invert32_reference_model              -     @402            
+      trans_num_idx                                integral                              32    'h0             
+    subsys_mon                                     invert32_subsystem_monitor            -     @415            
+      scbd                                         invert32_scoreboard                   -     @1003           
+        refm                                       invert32_reference_model              -     @402            
+          trans_num_idx                            integral                              32    'h0             
+        TVOUT_transaction_size_queue               da(integral)                          0     -               
+        file_wr_port_ap_return_ap_return           <unknown>                             -     @1013           
+          TV_FILE                                  string                                0     ""              
+          fp                                       integral                              32    'hxxxxxxxx      
+          file_open                                integral                              32    'h0             
+          write_file_done                          integral                              32    'h0             
+          write_section_done                       integral                              32    'h0             
+          TRANSACTION_NUM                          integral                              32    'h0             
+          transaction_num_idx                      integral                              32    'h0             
+          TRANSACTION_DEPTH                        integral                              32    'h0             
+          TRANSACTION_DEPTH_queue                  da(integral)                          0     -               
+          TRANSACTION_DEPTH_queue_for_depth_check  da(integral)                          0     -               
+          transaction_depth_idx                    integral                              32    'h0             
+          ap_done_num_idx                          integral                              32    'h0             
+          is_binary                                integral                              32    'h0             
+        write_file_done_ap_return_ap_return        integral                              32    'h0             
+        write_section_done_ap_return_ap_return     integral                              32    'h0             
+      svr_master_input_r_imp                       uvm_analysis_imp_svr_master_input_r   -     @424            
+      svr_slave_ap_return_imp                      uvm_analysis_imp_svr_slave_ap_return  -     @434            
+    env_master_svr_input_r                         uvm_env                               -     @379            
+    env_slave_svr_ap_return                        uvm_env                               -     @392            
+    refm                                           invert32_reference_model              -     @402            
+    invert32_virtual_sqr                           invert32_virtual_sequencer            -     @444            
+    invert32_cfg                                   invert32_config                       -     @374            
+      port_input_r_cfg                             svr_config                            -     @375            
+        svr_type                                   svr_inst_type                         32    SVR_MASTER      
+        prt_type                                   svr_protocol_type                     32    AP_NONE         
+        is_active                                  svr_active_passive_enum               1     SVR_ACTIVE      
+        reset_level                                svr_reset_level_enum                  1     RESET_LEVEL_HIGH
+        spec_cfg                                   svr_spec_cfg_enum                     32    NORMAL          
+        clatency                                   svr_latency                           -     @376            
+          transfer_latency                         integral                              32    'h0             
+      port_ap_return_cfg                           svr_config                            -     @377            
+        svr_type                                   svr_inst_type                         32    SVR_SLAVE       
+        prt_type                                   svr_protocol_type                     32    AP_NONE         
+        is_active                                  svr_active_passive_enum               1     SVR_ACTIVE      
+        reset_level                                svr_reset_level_enum                  1     RESET_LEVEL_HIGH
+        spec_cfg                                   svr_spec_cfg_enum                     32    NORMAL          
+        clatency                                   svr_latency                           -     @378            
+          transfer_latency                         integral                              32    'h0             
+      check_ena                                    integral                              32    'h0             
+      cover_ena                                    integral                              32    'h0             
+---------------------------------------------------------------------------------------------------------------
+
+UVM_INFO /home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 4 [n/a] @ "113000"
+// RTL Simulation : 1 / 4 [n/a] @ "133000"
+// RTL Simulation : 2 / 4 [n/a] @ "138000"
+// RTL Simulation : 3 / 4 [n/a] @ "143000"
+// RTL Simulation : 4 / 4 [n/a] @ "148000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 182500 ps : File "/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+## quit
+INFO: xsimkernel Simulation Memory Usage: 172912 KB (Peak: 225636 KB), Simulation CPU Usage: 510 ms
+INFO: [Common 17-206] Exiting xsim at Mon Oct  5 14:11:07 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+PASS: 4 HLS C simulation vectors matched
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-210] Design is translated to an combinational logic. II and Latency will be marked as all 0.
+INFO: [HLS 200-112] Total CPU user time: 67.26 seconds. Total CPU system time: 2.05 seconds. Total elapsed time: 14.71 seconds; peak allocated memory: 498.852 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 18s
