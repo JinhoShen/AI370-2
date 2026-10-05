@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a10a9b-2983-7652-bf48-f166a4dec10a"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Model metadata for `qwen3.8-local` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."}}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 1/5 (stream disconnected before completion: idle timeout waiting for SSE)"}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"READ_OK: bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted"}}
+{"type":"turn.completed","usage":{"input_tokens":12624,"cached_input_tokens":12036,"cache_write_input_tokens":0,"output_tokens":203,"reasoning_output_tokens":0}}

@@ -28,18 +28,20 @@ The existing CP0 archive (`CP0-20261001T024200Z`, 53,255,905,280 bytes / 49.6 Gi
 
 After workload verification, the temporary `/etc/sudoers.d/ai370-build` `NOPASSWD: ALL` rule was removed. The narrower checkpoint-verification rule remains. Noninteractive `sudo` now requires authentication; `visudo -c` could not be run after removal without interactive authorization, so sudoers syntax audit is DEFERRED. No attempt was made to bypass that authorization.
 
+On 2026-10-05, read-only `sudo -n -l` confirmed the current privilege list contains the normal password-gated `(ALL : ALL) ALL` rule and only one `NOPASSWD` command, `/usr/local/sbin/ai370-checkpoint-verify`; no broad `NOPASSWD: ALL` entry appeared. Running `visudo -c` directly as the unprivileged user returned permission denied. The syntax audit remains DEFERRED pending authorized administrative access.
+
 The final service inventory found no failed system-level units. One old failed user scope remains visible for the earlier `llama-gguf` Qwen3.6 Q8 parser command (2026-10-01 17:57); it is historical, not a fault from the M15 model smokes. The retained systemd state was not reset or rewritten.
 
 ## Final verdict and remaining work
 
-The unified regression is **PASS_WITH_DEFERRED** for the executed software and bounded physical-evidence scope. M15 remains **PRE-FINAL**, and no Final Golden State or tag was created. The earlier `status-final.tsv` is an immutable run-time snapshot from before the architecture decision; its current-state checkpoint `BLOCKED` row is reclassified **NOT REQUIRED** by the later decision, without changing the historical evidence. True M15 closure work is to complete the selected T7 resource/integrity closure and clean-deployment acceptance, run the pending sudoers syntax/security audit when administrative authorization is available, and perform the final scope review. No 350 GB current-state archive is required.
+The unified regression is **PASS_WITH_DEFERRED** for the executed software and bounded physical-evidence scope. M15 remains **PRE-FINAL**, and no Final Golden State or tag was created. The earlier `status-final.tsv` is an immutable run-time snapshot from before the architecture decision; its current-state checkpoint `BLOCKED` row is reclassified **NOT REQUIRED** by the later decision, without changing the historical evidence. True M15 closure work is to complete the selected T7 resource/integrity closure and clean-deployment acceptance after the media is mounted, run the pending sudoers syntax/security audit when administrative authorization is available, and perform the final scope review. No 350 GB current-state archive is required.
 
 - M7.1 Qwen3.6-35B-A3B Q8 Vulkan failure remains OPEN and is excluded from supported Local LLM workloads.
 - M8 NPU LLM evaluation remains DEFERRED; no supported NPU LLM model was available.
 - M12 standard XRT host-application/`xclbin` path remains DEFERRED; the physical JTAG-to-AXI path is verified.
-- M13 end-to-end local answer/air-gapped agent and Vitis IDE/cosimulation flows remain DEFERRED / NOT TESTED.
+- M13 has a bounded Codex-to-local-Qwen text response and a dispatched standard `exec_command`; Bubblewrap failed before the read-only command ran, so local tool execution is BLOCKED. End-to-end air-gap and Vitis IDE/cosimulation remain DEFERRED / NOT TESTED. See [local-provider evidence](../M13/evidence/local-model-fpga-engineering-2026-10-05/codex-local-provider-20261005/README.md).
 - M14 full toolchain rebuild and recovery automation are not verified by one clean M12 project rebuild.
-- No M15 Final Golden State exists. The deployment kit is not yet fully verified; the current repository bundle clone-verifies, the Vivado/Vitis installer is byte-identical to the system copy, and other required resources remain partially inventoried or unverified.
+- No M15 Final Golden State exists. T7 is currently not mounted; its last recorded repository-bundle clone verification and Vivado/Vitis installer hash comparison are historical evidence, while selected deployment-resource closure remains incomplete. The current machine was checked read-only: unprivileged `visudo -c` returned permission denied, so syntax/security audit requires authorized administrative access.
 
 ## Architecture decision update — 2026-10-02
 

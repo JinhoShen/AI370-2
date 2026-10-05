@@ -58,7 +58,7 @@ Use `docs/deployment/AI370-2_WORKSTATION_SNAPSHOT_INVENTORY.md` for model locati
 
 ## I. Vivado / Vitis / HLS (M9, M10)
 
-Use the original Vivado/Vitis 2026.1 installer TAR on T7 and its recorded SHA256. Do not copy `/home/shen/tools/Xilinx/2026.1` or re-use extracted installer trees. Select Vivado, Vitis Embedded, Vitis HLS, required device families, and only the needed Acceleration components. Confirm installed device/board/platform support through tool queries, not installer checkboxes alone.
+Use the original Vivado/Vitis 2026.1 installer TAR and its recorded SHA256. The final T7 target category is `AMD_AI_Workstation/01_System_Resources/`; that reorganized path is not currently verified because T7 is detached. Do not copy `/home/shen/tools/Xilinx/2026.1` or re-use extracted installer trees. Select Vivado, Vitis Embedded, Vitis HLS, required device families, and only the needed Acceleration components. Confirm installed device/board/platform support through tool queries, not installer checkboxes alone.
 
 Before adding prerequisites, inspect vendor `installLibs.sh` but do not blindly run a broad superseding package list. Simulate APT, inspect every protected graphics/ROCm/XRT/driver change, install only actual missing libraries, and never use fake ABI symlinks (e.g. ncurses/tinfo major versions). Verify `vivado -version`, Tcl batch startup, RTL synthesis, `vitis -v`, `vitis_hls -version`, HLS C synthesis/report, `v++` and platform enumeration. A valid license is separate from installation; keep license data outside Git and T7 manifests.
 
@@ -86,20 +86,20 @@ For a new board, establish the supported transport architecture from installed d
 
 Use AMD-provided artifacts and versions recorded in M13 evidence; keep downloaded installers/archives on T7 only when required for offline rebuild. Keep account/license secrets outside Git. Check the local KB container/image/snapshot, model, Skills and MCP requirements before assuming it is portable. Reconfigure machine-local endpoint/container addresses after migration.
 
-Reference-host evidence: AMD Vivado MCP startup/discovery, Codex CLI document search, Vivado 2026.1 read-only part/version queries, 49 installed Skills, local KB retrieval, and a bounded HLS Skill synthesis/report workflow passed. Ross materially informed the M12 JTAG-to-AXI design. End-to-end local answer generation/air-gap, full Vitis IDE assistant, and autonomous MCP hardware programming were not established. Do not assume an existing Qwen GGUF works as Ross's answer model.
+Reference-host evidence: AMD Vivado MCP startup/discovery, Codex CLI document search, Vivado 2026.1 read-only part/version queries, 49 installed Skills, local KB retrieval, and a bounded HLS Skill synthesis/report workflow passed. Ross materially informed the M12 JTAG-to-AXI design. A Qwen3.8 local response through Codex's custom provider is verified, but the standard exec tool failed before execution because Bubblewrap could not set up loopback (`RTM_NEWADDR`). End-to-end local tool use/air-gap, full Vitis IDE assistant, and autonomous MCP hardware programming remain unverified. Do not bypass the sandbox or assume an existing Qwen GGUF works as Ross's answer model.
 
 ## N. Unified final validation (M15)
 
 Only after subsystem work stabilizes, capture one timestamped, guarded final run covering platform inventory, HIP, Vulkan, XRT/NPU enumeration, strict NPU CNN, selected bounded Local AI model, Vivado/Vitis/HLS/v++, FPGA software artifacts, Ross readiness, automation and targeted kernel audit. Include board hardware tests only when physically available and safe. Recheck exact protected versions and evidence integrity. Keep OPEN/DEFERRED items visible; do not force an overall PASS by omitting a failing known issue.
 
-Old-host M15 was PRE-FINAL/PASS_WITH_DEFERRED with M7.1 OPEN, M8 NPU LLM DEFERRED and M13/M14 work still outstanding at the recorded time. A new host requires its own final evidence and status review.
+The reference host remains PRE-FINAL/PASS_WITH_DEFERRED: M7.1 is OPEN, M8 NPU LLM is DEFERRED, M12 XRT application integration remains DEFERRED, M13 local tool execution is BLOCKED by the sandbox runtime, M14 rebuild automation is incomplete, and T7 plus the sudoers syntax audit remain open. A new host requires its own final evidence and status review.
 
 ## O. Deployment / migration sequence
 
-1. Clone current `main` from GitHub. If offline, use a current T7 bundle and verify it, clone it, confirm expected HEAD/tags, then reconcile later with GitHub. The bundle currently inventoried on T7 is stale at `695437f`; do not treat it as current main (`8bc94d3` at inventory time).
+1. Clone current `main` from GitHub. If offline, use a current T7 bundle and verify it, clone it, confirm expected HEAD/tags, then reconcile later with GitHub. The bundle inventoried on T7 was verified at `695437f` and is stale relative to later local main commits; do not use it as current main. Before offline use, refresh the bundle from the final current `main`, then run `git bundle verify`, test-clone it, and assert clone HEAD equals `git rev-parse main`.
 2. Inventory hardware and Ubuntu; decide support/compatibility gates and storage capacity.
 3. Read this guide, `docs/ROADMAP.md`, platform records and the relevant milestone result/evidence before each milestone.
-4. Select T7 resources from `T7_MANIFEST.md` and verify exact size/SHA256 before use. T7's current Ubuntu ISO is 24.04.1; Xilinx TAR is 2026.1; Ryzen AI/NPU and ROCm resources need complete closure/hash review before claiming an offline kit.
+4. Select T7 resources from `T7_MANIFEST.md` and verify exact size/SHA256 before use. The final user-approved target root is `AMD_AI_Workstation/` with `01_System_Resources/`, `02_Deployment/AI370-2/`, and `03_AI_Models/`; these final paths must be rechecked after T7 is remounted. The earlier inventory found Ubuntu 24.04.1 and the 2026.1 Xilinx TAR; Ryzen AI/NPU and ROCm resources need complete closure/hash review before claiming an offline kit.
 5. Rebuild M0→M15 using scripts only within their documented scope. Create host-local venvs and build trees; never import them from the old machine snapshot.
 6. Write new-host evidence under a host/date-specific directory; preserve original repository history and old machine evidence.
 7. Keep a separate secrets procedure: restore the license/account configuration from its authorized source, never record secret values in Git or `SHA256SUMS`.

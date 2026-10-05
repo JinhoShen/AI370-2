@@ -1,0 +1,168 @@
+Oct 05 13:26:12 shen-AI-Series systemd[6163]: Started ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 4096 --threads 24 --threads-batch 24 --n-gpu-layers 0 --no-webui.
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.000.383 I srv  llama_server: initializing ...
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: warning: no usable GPU found, --gpu-layers option will be ignored
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: warning: one possible reason is that llama.cpp was compiled without GPU support
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: warning: consult docs/build.md for compilation instructions
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.003.001 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.003.998 I srv  init_listene: The UI is disabled
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.004.000 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.004.521 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+Oct 05 13:26:12 shen-AI-Series llama-server[310212]: 0.00.006.676 I srv    load_model: loading model '/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf'
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.322 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.331 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.336 W model has unused tensor blk.64.attn_q.weight (size = 51609600 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.338 W model has unused tensor blk.64.attn_k.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.340 W model has unused tensor blk.64.attn_v.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.347 W model has unused tensor blk.64.attn_output.weight (size = 25804800 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.348 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.350 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.352 W model has unused tensor blk.64.ffn_gate.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.354 W model has unused tensor blk.64.ffn_down.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.356 W model has unused tensor blk.64.ffn_up.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.359 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 43008000 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.361 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.364 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:26:13 shen-AI-Series llama-server[310212]: 0.00.894.369 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:26:23 shen-AI-Series llama-server[310212]: 0.11.354.863 I cmn          init: llama threadpool init, n_threads = 24
+Oct 05 13:26:24 shen-AI-Series llama-server[310212]: 0.12.316.394 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 4096, kv_unified = 'true'
+Oct 05 13:26:24 shen-AI-Series llama-server[310212]: 0.12.332.779 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+Oct 05 13:26:24 shen-AI-Series llama-server[310212]: 0.12.333.339 I srv  llama_server: model loaded
+Oct 05 13:26:24 shen-AI-Series llama-server[310212]: 0.12.333.357 I srv  llama_server: listening on http://127.0.0.1:18080
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.503.104 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.503.137 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.526.075 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.526.824 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.526.854 E srv    send_error: task id = 0, error: request (6124 tokens) exceeds the available context size (4096 tokens), try increasing it
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.526.861 I slot      release: id  3 | task 0 | stop processing: n_tokens = 0, truncated = 0
+Oct 05 13:27:40 shen-AI-Series llama-server[310212]: 1.28.526.893 W srv          stop: cancel task, id_task = 0
+Oct 05 13:28:09 shen-AI-Series systemd[6163]: Stopping ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 4096 --threads 24 --threads-batch 24 --n-gpu-layers 0 --no-webui...
+Oct 05 13:28:09 shen-AI-Series llama-server[310212]: 1.57.551.520 I srv    operator(): operator(): cleaning up before exit...
+Oct 05 13:28:10 shen-AI-Series systemd[6163]: Stopped ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 4096 --threads 24 --threads-batch 24 --n-gpu-layers 0 --no-webui.
+Oct 05 13:28:10 shen-AI-Series systemd[6163]: ai370-local-qwen-codex-20261005.service: Consumed 26.604s CPU time, 19.6G memory peak, 0B memory swap peak.
+Oct 05 13:28:10 shen-AI-Series systemd[6163]: Started ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui.
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.000.288 I srv  llama_server: initializing ...
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: warning: no usable GPU found, --gpu-layers option will be ignored
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: warning: one possible reason is that llama.cpp was compiled without GPU support
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: warning: consult docs/build.md for compilation instructions
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.002.847 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.002.993 I srv  init_listene: The UI is disabled
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.002.995 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.003.091 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+Oct 05 13:28:10 shen-AI-Series llama-server[311933]: 0.00.005.045 I srv    load_model: loading model '/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf'
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.839 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.848 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.853 W model has unused tensor blk.64.attn_q.weight (size = 51609600 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.855 W model has unused tensor blk.64.attn_k.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.857 W model has unused tensor blk.64.attn_v.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.863 W model has unused tensor blk.64.attn_output.weight (size = 25804800 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.865 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.867 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.868 W model has unused tensor blk.64.ffn_gate.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.870 W model has unused tensor blk.64.ffn_down.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.872 W model has unused tensor blk.64.ffn_up.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.875 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 43008000 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.877 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.879 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:28:11 shen-AI-Series llama-server[311933]: 0.00.758.885 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:28:12 shen-AI-Series llama-server[311933]: 0.02.283.164 I cmn          init: llama threadpool init, n_threads = 24
+Oct 05 13:28:13 shen-AI-Series llama-server[311933]: 0.02.996.964 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'
+Oct 05 13:28:13 shen-AI-Series llama-server[311933]: 0.03.003.658 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+Oct 05 13:28:13 shen-AI-Series llama-server[311933]: 0.03.003.719 I srv  llama_server: model loaded
+Oct 05 13:28:13 shen-AI-Series llama-server[311933]: 0.03.003.725 I srv  llama_server: listening on http://127.0.0.1:18080
+Oct 05 13:28:20 shen-AI-Series llama-server[311933]: 0.10.201.587 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:28:20 shen-AI-Series llama-server[311933]: 0.10.201.620 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:28:20 shen-AI-Series llama-server[311933]: 0.10.220.338 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+Oct 05 13:28:20 shen-AI-Series llama-server[311933]: 0.10.220.790 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+Oct 05 13:30:17 shen-AI-Series llama-server[311933]: 2.07.021.474 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2048, progress = 0.33, t = 116.80 s / 17.53 tokens per second
+Oct 05 13:32:17 shen-AI-Series llama-server[311933]: 4.07.405.460 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   4096, progress = 0.66, t = 237.18 s / 17.27 tokens per second
+Oct 05 13:32:20 shen-AI-Series llama-server[311933]: 4.10.254.875 W srv          stop: cancel task, id_task = 0
+Oct 05 13:32:49 shen-AI-Series llama-server[311933]: 4.39.157.707 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:32:49 shen-AI-Series llama-server[311933]: 4.39.158.615 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:33:51 shen-AI-Series llama-server[311933]: 5.41.611.335 I slot      release: id  0 | task 0 | stop processing: n_tokens = 5666, truncated = 0
+Oct 05 13:33:51 shen-AI-Series llama-server[311933]: 5.41.611.400 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.917 (> 0.100 thold), f_keep = 1.000
+Oct 05 13:33:51 shen-AI-Series llama-server[311933]: 5.41.611.789 I slot launch_slot_: id  0 | task 5 | processing task, is_child = 0
+Oct 05 13:34:13 shen-AI-Series llama-server[311933]: 6.03.380.705 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    335, progress = 0.97, t =  21.77 s / 15.39 tokens per second
+Oct 05 13:34:23 shen-AI-Series llama-server[311933]: 6.13.469.224 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    489, progress = 1.00, t =  31.86 s / 15.35 tokens per second
+Oct 05 13:34:25 shen-AI-Series llama-server[311933]: 6.15.155.864 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    512, progress = 1.00, t =  33.54 s / 15.26 tokens per second
+Oct 05 13:34:40 shen-AI-Series llama-server[311933]: 6.30.606.074 I slot print_timing: id  0 | task 5 | prompt eval time =   34014.75 ms /   516 tokens (   65.92 ms per token,    15.17 tokens per second)
+Oct 05 13:34:40 shen-AI-Series llama-server[311933]: 6.30.606.126 I slot print_timing: id  0 | task 5 |        eval time =   14979.35 ms /    48 tokens (  318.71 ms per token,     3.14 tokens per second)
+Oct 05 13:34:40 shen-AI-Series llama-server[311933]: 6.30.606.136 I slot print_timing: id  0 | task 5 |       total time =   48994.10 ms /   564 tokens
+Oct 05 13:34:40 shen-AI-Series llama-server[311933]: 6.30.606.151 I slot print_timing: id  0 | task 5 |    graphs reused =         47
+Oct 05 13:34:40 shen-AI-Series llama-server[311933]: 6.30.606.640 I slot      release: id  0 | task 5 | stop processing: n_tokens = 6229, truncated = 0
+Oct 05 13:35:45 shen-AI-Series llama-server[311933]: 7.34.986.378 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 414401010253
+Oct 05 13:35:45 shen-AI-Series llama-server[311933]: 7.35.248.221 I slot launch_slot_: id  0 | task 57 | processing task, is_child = 0
+Oct 05 13:36:04 shen-AI-Series llama-server[311933]: 7.54.436.649 I slot print_timing: id  0 | task 57 | prompt processing, n_tokens =    335, progress = 0.90, t =  19.19 s / 17.46 tokens per second
+Oct 05 13:36:06 shen-AI-Series llama-server[311933]: 7.56.371.568 I slot print_timing: id  0 | task 57 | prompt processing, n_tokens =    369, progress = 0.99, t =  21.12 s / 17.47 tokens per second
+Oct 05 13:36:28 shen-AI-Series llama-server[311933]: 8.17.769.327 I slot print_timing: id  0 | task 57 | prompt eval time =   21587.35 ms /   373 tokens (   57.87 ms per token,    17.28 tokens per second)
+Oct 05 13:36:28 shen-AI-Series llama-server[311933]: 8.17.769.387 I slot print_timing: id  0 | task 57 |        eval time =   20933.72 ms /    72 tokens (  294.84 ms per token,     3.39 tokens per second)
+Oct 05 13:36:28 shen-AI-Series llama-server[311933]: 8.17.769.412 I slot print_timing: id  0 | task 57 |       total time =   42521.07 ms /   445 tokens
+Oct 05 13:36:28 shen-AI-Series llama-server[311933]: 8.17.769.428 I slot print_timing: id  0 | task 57 |    graphs reused =        117
+Oct 05 13:36:28 shen-AI-Series llama-server[311933]: 8.17.769.905 I slot      release: id  0 | task 57 | stop processing: n_tokens = 444, truncated = 0
+Oct 05 13:37:31 shen-AI-Series systemd[6163]: Stopping ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui...
+Oct 05 13:37:31 shen-AI-Series llama-server[311933]: 9.21.541.895 I srv    operator(): operator(): cleaning up before exit...
+Oct 05 13:37:32 shen-AI-Series systemd[6163]: Stopped ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui.
+Oct 05 13:37:32 shen-AI-Series systemd[6163]: ai370-local-qwen-codex-20261005.service: Consumed 2h 44min 36.254s CPU time, 5.0G memory peak, 0B memory swap peak.
+Oct 05 13:48:04 shen-AI-Series systemd[6163]: Started ai370-local-qwen-codex-20261005.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui.
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.000.379 I srv  llama_server: initializing ...
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: warning: no usable GPU found, --gpu-layers option will be ignored
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: warning: one possible reason is that llama.cpp was compiled without GPU support
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: warning: consult docs/build.md for compilation instructions
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.002.297 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.002.394 I srv  init_listene: The UI is disabled
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.002.397 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.002.461 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+Oct 05 13:48:04 shen-AI-Series llama-server[326828]: 0.00.004.292 I srv    load_model: loading model '/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf'
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.344 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.357 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.362 W model has unused tensor blk.64.attn_q.weight (size = 51609600 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.364 W model has unused tensor blk.64.attn_k.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.366 W model has unused tensor blk.64.attn_v.weight (size = 5570560 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.373 W model has unused tensor blk.64.attn_output.weight (size = 25804800 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.374 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.376 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.378 W model has unused tensor blk.64.ffn_gate.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.380 W model has unused tensor blk.64.ffn_down.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.381 W model has unused tensor blk.64.ffn_up.weight (size = 73113600 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.385 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 43008000 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.387 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.389 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:48:05 shen-AI-Series llama-server[326828]: 0.00.772.394 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+Oct 05 13:48:06 shen-AI-Series llama-server[326828]: 0.02.264.644 I cmn          init: llama threadpool init, n_threads = 24
+Oct 05 13:48:07 shen-AI-Series llama-server[326828]: 0.02.946.033 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'
+Oct 05 13:48:07 shen-AI-Series llama-server[326828]: 0.02.949.477 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+Oct 05 13:48:07 shen-AI-Series llama-server[326828]: 0.02.949.516 I srv  llama_server: model loaded
+Oct 05 13:48:07 shen-AI-Series llama-server[326828]: 0.02.949.519 I srv  llama_server: listening on http://127.0.0.1:18080
+Oct 05 13:48:23 shen-AI-Series llama-server[326828]: 0.18.893.803 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:48:23 shen-AI-Series llama-server[326828]: 0.18.893.833 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:48:23 shen-AI-Series llama-server[326828]: 0.18.914.535 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+Oct 05 13:48:23 shen-AI-Series llama-server[326828]: 0.18.915.046 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+Oct 05 13:50:18 shen-AI-Series llama-server[326828]: 2.14.563.661 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2048, progress = 0.33, t = 115.65 s / 17.71 tokens per second
+Oct 05 13:52:19 shen-AI-Series llama-server[326828]: 4.14.684.904 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   4096, progress = 0.66, t = 235.77 s / 17.37 tokens per second
+Oct 05 13:53:23 shen-AI-Series llama-server[326828]: 5.18.965.848 W srv          stop: cancel task, id_task = 0
+Oct 05 13:53:23 shen-AI-Series llama-server[326828]: 5.19.127.443 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:53:23 shen-AI-Series llama-server[326828]: 5.19.127.487 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:53:58 shen-AI-Series llama-server[326828]: 5.54.161.539 I slot      release: id  0 | task 0 | stop processing: n_tokens = 5726, truncated = 0
+Oct 05 13:53:58 shen-AI-Series llama-server[326828]: 5.54.163.551 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.917 (> 0.100 thold), f_keep = 1.000
+Oct 05 13:53:58 shen-AI-Series llama-server[326828]: 5.54.164.121 I slot launch_slot_: id  0 | task 5 | processing task, is_child = 0
+Oct 05 13:54:16 shen-AI-Series llama-server[326828]: 6.12.136.637 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    275, progress = 0.96, t =  17.97 s / 15.30 tokens per second
+Oct 05 13:54:26 shen-AI-Series llama-server[326828]: 6.22.312.995 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    433, progress = 0.99, t =  28.15 s / 15.38 tokens per second
+Oct 05 13:54:32 shen-AI-Series llama-server[326828]: 6.28.358.563 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    512, progress = 1.00, t =  34.19 s / 14.97 tokens per second
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.49.934.053 I slot print_timing: id  0 | task 5 | prompt eval time =   34729.03 ms /   516 tokens (   67.30 ms per token,    14.86 tokens per second)
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.49.934.060 I slot print_timing: id  0 | task 5 |        eval time =   21040.73 ms /    69 tokens (  309.42 ms per token,     3.23 tokens per second)
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.49.934.061 I slot print_timing: id  0 | task 5 |       total time =   55769.76 ms /   585 tokens
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.49.934.065 I slot print_timing: id  0 | task 5 |    graphs reused =         68
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.49.934.419 I slot      release: id  0 | task 5 | stop processing: n_tokens = 6310, truncated = 0
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.50.075.720 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.50.075.741 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.50.094.529 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.989 (> 0.100 thold), f_keep = 1.000
+Oct 05 13:54:54 shen-AI-Series llama-server[326828]: 6.50.094.976 I slot launch_slot_: id  0 | task 78 | processing task, is_child = 0
+Oct 05 13:54:59 shen-AI-Series llama-server[326828]: 6.55.471.609 I slot print_timing: id  0 | task 78 | prompt processing, n_tokens =     68, progress = 1.00, t =   5.38 s / 12.65 tokens per second
+Oct 05 13:55:31 shen-AI-Series llama-server[326828]: 7.27.093.023 I slot print_timing: id  0 | task 78 | n_gen =    100, tg =   3.19 t/s, tg_3s =   3.22 t/s
+Oct 05 13:55:34 shen-AI-Series llama-server[326828]: 7.30.206.337 I slot print_timing: id  0 | task 78 | n_gen =    110, tg =   3.19 t/s, tg_3s =   3.21 t/s
+Oct 05 13:55:37 shen-AI-Series llama-server[326828]: 7.33.355.922 I slot print_timing: id  0 | task 78 | n_gen =    120, tg =   3.19 t/s, tg_3s =   3.18 t/s
+Oct 05 13:55:40 shen-AI-Series llama-server[326828]: 7.36.411.871 I slot print_timing: id  0 | task 78 | n_gen =    129, tg =   3.17 t/s, tg_3s =   2.95 t/s
+Oct 05 13:55:42 shen-AI-Series llama-server[326828]: 7.37.939.899 I slot print_timing: id  0 | task 78 | prompt eval time =    5928.05 ms /    72 tokens (   82.33 ms per token,    12.15 tokens per second)
+Oct 05 13:55:42 shen-AI-Series llama-server[326828]: 7.37.939.938 I slot print_timing: id  0 | task 78 |        eval time =   41916.70 ms /   134 tokens (  315.16 ms per token,     3.17 tokens per second)
+Oct 05 13:55:42 shen-AI-Series llama-server[326828]: 7.37.939.949 I slot print_timing: id  0 | task 78 |       total time =   47844.75 ms /   206 tokens
+Oct 05 13:55:42 shen-AI-Series llama-server[326828]: 7.37.939.960 I slot print_timing: id  0 | task 78 |    graphs reused =        199
+Oct 05 13:55:42 shen-AI-Series llama-server[326828]: 7.37.940.603 I slot      release: id  0 | task 78 | stop processing: n_tokens = 6515, truncated = 0

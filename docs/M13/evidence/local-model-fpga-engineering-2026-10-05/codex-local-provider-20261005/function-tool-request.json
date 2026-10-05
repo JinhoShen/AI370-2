@@ -1,0 +1,36 @@
+{
+  "model": "qwen3.8-local",
+  "input": "Use the record_result tool exactly once with status set to PASS and detail set to \"function call observed\". Do not answer with ordinary text.",
+  "tools": [
+    {
+      "type": "function",
+      "name": "record_result",
+      "description": "Record a fixed validation result. This tool has no side effects beyond returning the arguments for inspection.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "detail"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    }
+  ],
+  "tool_choice": "required",
+  "parallel_tool_calls": false,
+  "max_output_tokens": 128,
+  "stream": false
+}

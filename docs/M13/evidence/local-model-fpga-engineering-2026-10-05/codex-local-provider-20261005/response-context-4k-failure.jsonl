@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a10a88-33d7-7e20-8665-9e02ffa11af2"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  user (/tmp/ai370-codex-local-provider-20261005/config.toml): `model_supports_reasoning_summaries` is ignored."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Codex is ignoring 1 unrecognized configuration setting. Check for typos or deprecated settings.\n  user (/tmp/ai370-codex-local-provider-20261005/config.toml): `model_supports_reasoning_summaries` is ignored."}}
+{"type":"item.completed","item":{"id":"item_2","type":"error","message":"Model metadata for `qwen3.8-local` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."}}
+{"type":"turn.started"}
+{"type":"error","message":"{\"error\":{\"code\":400,\"message\":\"request (6124 tokens) exceeds the available context size (4096 tokens), try increasing it\",\"type\":\"exceed_context_size_error\",\"n_prompt_tokens\":6124,\"n_ctx\":4096}}"}
+{"type":"turn.failed","error":{"message":"{\"error\":{\"code\":400,\"message\":\"request (6124 tokens) exceeds the available context size (4096 tokens), try increasing it\",\"type\":\"exceed_context_size_error\",\"n_prompt_tokens\":6124,\"n_ctx\":4096}}"}}

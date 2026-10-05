@@ -1,0 +1,1 @@
+model_path=resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf\nfile_size_bytes=17559178144\nmtime=2026-10-02 11:57:42.567667704 +0800

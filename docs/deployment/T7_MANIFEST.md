@@ -2,7 +2,7 @@
 
 **Media role:** deployment and migration resources for rebuilding AI370-2 on this or another compatible workstation. T7 is not a current-machine image or a full-system tar target. Do not copy `/home/shen/tools/Xilinx/2026.1` to T7 for the purpose of M15 closure.
 
-**Status (inventory refresh 2026-10-05):** T7 is mounted at `/media/shen/T7` as exFAT, 931.5 GiB capacity, 215.2 GiB available (77% used). `Agent_Tools_Docs` is about 324 GiB. The `照片` directory was explicitly excluded from inventory and remains untouched. Resource inventory is partial; the deployment kit and clean rebuild have not been validated. `PRESENT` means a path was observed, not that its payload is complete or usable. The 2026-10-02 resource rows below preserve their prior verification history; current corrections are in “2026-10-05 inventory update”.
+**Status (inventory refresh 2026-10-05; media currently detached):** Earlier on 2026-10-05 T7 was observed mounted at `/media/shen/T7` as exFAT, 931.5 GiB capacity with 215.2 GiB available (77% used); `Agent_Tools_Docs` measured about 324 GiB. A later `findmnt` check in the current session found no mount. The `照片` directory was explicitly excluded from inventory and remains untouched. Resource inventory is partial; the deployment kit and clean rebuild have not been validated. `PRESENT` means a path was observed, not that its payload is complete or usable. The 2026-10-02 resource rows below preserve their prior verification history; the dated mounted inventory and current detached state are separated in the updates below.
 
 The rebuild process is documented in [AI370-2_REBUILD_GUIDE.md](AI370-2_REBUILD_GUIDE.md). The full read-only snapshot classification and model inventory is in [AI370-2_WORKSTATION_SNAPSHOT_INVENTORY.md](AI370-2_WORKSTATION_SNAPSHOT_INVENTORY.md). Neither document authorizes deletion or movement of media contents.
 
@@ -49,7 +49,13 @@ The media is mounted and the current AI370-2 Git bundle has been written and clo
 
 The kit is ready only when its selected resource list is closed, every REQUIRED payload has a version/path/byte-size and verified SHA256 (or a documented trusted package source), the repository bundle points to a named AI370-2 commit and passes `git bundle verify`/clone checks, and `SHA256SUMS` passes on the selected bundle, manifest, Ubuntu/Vivado installer and four listed XRT/NPU packages on T7. A clean rebuild/migration smoke is separate evidence; inventory alone is not a rebuild PASS.
 
-When updating T7, use a new `AI370-2_Deployment/` directory and preserve the existing `Agent_Tools_Docs` tree. Do not overwrite the old project snapshot, delete the system installer, alter the installed Xilinx toolchain, or include current-machine root images. Record only observed assets; unresolved entries remain `UNKNOWN` or `NOT VERIFIED`.
+Final target architecture (user decision; actual T7 paths are not verified while the media is detached): `/AMD_AI_Workstation/01_System_Resources/`, `/AMD_AI_Workstation/02_Deployment/AI370-2/`, and `/AMD_AI_Workstation/03_AI_Models/`. The `Agent_Tools_Docs/` and `AI370-2_Deployment/` paths above are historical source observations. After remount, compare hashes before reorganizing into the final root; preserve uncertain files and never access `/照片`. Do not delete the system installer, alter the installed Xilinx toolchain, or include current-machine root images. Record only observed assets; unresolved entries remain `UNKNOWN` or `NOT VERIFIED`.
+
+
+
+## Current media availability recheck (2026-10-05)
+
+A later read-only check in the current work session found `/media/shen/T7` is not mounted (`findmnt -T /media/shen/T7` returned no mount). No T7 contents were accessed or changed in this recheck. The size/capacity and file inventory above describe the earlier mounted inspection on 2026-10-05, not the current mount state. T7 Deployment Kit updates, current-HEAD bundle creation, checksum closure, and clean-media validation are therefore pending remount. The `照片` directory remains excluded and untouched.
 
 ## 2026-10-05 inventory update
 

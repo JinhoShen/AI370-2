@@ -1,0 +1,26 @@
+{
+  "completed_at": 1791178588,
+  "created_at": 1791178588,
+  "id": "resp_nUtA1QbyudXDSUzBaktzGMcGtXpxtsoX",
+  "model": "qwen3.8-local",
+  "object": "response",
+  "output": [
+    {
+      "id": "fc_bvziipwAU9qZnKWGjD8ALy7DBCVR2NVo",
+      "type": "function_call",
+      "status": "completed",
+      "arguments": "{\"status\":\"PASS\",\"detail\":\"function call observed\"}",
+      "call_id": "call_bvziipwAU9qZnKWGjD8ALy7DBCVR2NVo",
+      "name": "record_result"
+    }
+  ],
+  "status": "completed",
+  "usage": {
+    "input_tokens": 373,
+    "output_tokens": 72,
+    "total_tokens": 445,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    }
+  }
+}
