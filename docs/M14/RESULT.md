@@ -50,6 +50,10 @@ The Ross download/installation gate is cleared for the artifacts currently avail
 
 M14 remains IN PROGRESS. The readiness verifier does not establish a reproducible Ross installation/rebuild. The clean M12 rebuild is a bounded design-level result; full workstation/toolchain rebuild, recovery/checkpoint rehearsal and SP701 physical automation remain outstanding. The evidence audit validates retained M12 physical logs without claiming the live target is currently attached. The earlier 2026-10-01 statement that Ross installation was deferred records the state at that time and is retained as history.
 
+## 2026-10-06 Codex sandbox diagnosis
+
+Read-only probes found `kernel.apparmor_restrict_unprivileged_userns=1`, `unshare -Urn` denied at `uid_map`, and no installed `bwrap-userns-restrict` profile. OpenAI's Ubuntu 24.04 guidance recommends the dedicated AppArmor profile; APT simulation shows the profile package would also update `apparmor` and `libapparmor1`. Applying this system security-policy change requires administrator authorization and remains pending. The independent M14 verifier and evidence audit were not rerun because no protected stack or verifier code changed. See [M13 sandbox diagnostic evidence](../M13/evidence/2026-10-06/codex-sandbox-diagnostic.md).
+
 
 ## 2026-10-05 local provider compatibility check
 

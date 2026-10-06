@@ -1,0 +1,28 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  apparmor libapparmor1 python3-apparmor python3-libapparmor
+Suggested packages:
+  apparmor-profiles-extra vim-addon-manager
+The following NEW packages will be installed:
+  apparmor-profiles apparmor-utils python3-apparmor python3-libapparmor
+The following packages will be upgraded:
+  apparmor libapparmor1
+2 upgraded, 4 newly installed, 0 to remove and 430 not upgraded.
+Inst libapparmor1 [4.0.1really4.0.1-0ubuntu0.24.04.5] (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Inst apparmor [4.0.1really4.0.1-0ubuntu0.24.04.5] (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Inst python3-libapparmor (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Inst python3-apparmor (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
+Inst apparmor-utils (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
+Inst apparmor-profiles (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
+Conf libapparmor1 (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Conf apparmor (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Conf python3-libapparmor (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [amd64])
+Conf python3-apparmor (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
+Conf apparmor-utils (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
+Conf apparmor-profiles (4.0.1really4.0.1-0ubuntu0.24.04.8 Ubuntu:24.04/noble-updates [all])
