@@ -2,7 +2,9 @@
 
 **Media role:** deployment and migration resources for rebuilding AI370-2 on this or another compatible workstation. T7 is not a current-machine image or a full-system tar target. Do not copy `/home/shen/tools/Xilinx/2026.1` to T7 for the purpose of M15 closure.
 
-**Status (inventory refresh 2026-10-05; media currently detached):** Earlier on 2026-10-05 T7 was observed mounted at `/media/shen/T7` as exFAT, 931.5 GiB capacity with 215.2 GiB available (77% used); `Agent_Tools_Docs` measured about 324 GiB. A later `findmnt` check in the current session found no mount. The `照片` directory was explicitly excluded from inventory and remains untouched. Resource inventory is partial; the deployment kit and clean rebuild have not been validated. `PRESENT` means a path was observed, not that its payload is complete or usable. The 2026-10-02 resource rows below preserve their prior verification history; the dated mounted inventory and current detached state are separated in the updates below.
+**Current status (2026-10-06):** T7 is mounted at `/media/shen/T7` as `/dev/sda1` (exFAT, read/write). The approved root `/media/shen/T7/AMD_AI_Workstation/` exists with the three deployment categories. A current-head Git bundle was created and clone-verified; all 100 entries in the then-current `SHA256SUMS` passed. This is a deployment-media integrity check, not a clean-machine rebuild. Resource closure remains PARTIAL: exact Ubuntu 24.04.4 media, complete protected-stack dependency closure, and clean rebuild remain unverified. The `照片` directory was not accessed in this update and remains untouched. See [the dated M15 evidence](../M15/evidence/2026-10-06/t7-deployment/RESULT.md) and the T7 root `MASTER_MANIFEST.md` for the final refreshed bundle identity.
+
+**Historical note:** Sections below retain the dated 2026-10-02 and 2026-10-05 observations. Statements that the media was detached, the final root was unverified, or the bundle was stale describe those earlier snapshots only and are superseded by the 2026-10-06 update below. Historical evidence and prior status transitions are not rewritten.
 
 The rebuild process is documented in [AI370-2_REBUILD_GUIDE.md](AI370-2_REBUILD_GUIDE.md). The full read-only snapshot classification and model inventory is in [AI370-2_WORKSTATION_SNAPSHOT_INVENTORY.md](AI370-2_WORKSTATION_SNAPSHOT_INVENTORY.md). Neither document authorizes deletion or movement of media contents.
 
@@ -53,9 +55,9 @@ Final target architecture (user decision; actual T7 paths are not verified while
 
 
 
-## Current media availability recheck (2026-10-05)
+## Historical media availability recheck (2026-10-05)
 
-A later read-only check in the current work session found `/media/shen/T7` is not mounted (`findmnt -T /media/shen/T7` returned no mount). No T7 contents were accessed or changed in this recheck. The size/capacity and file inventory above describe the earlier mounted inspection on 2026-10-05, not the current mount state. T7 Deployment Kit updates, current-HEAD bundle creation, checksum closure, and clean-media validation are therefore pending remount. The `照片` directory remains excluded and untouched.
+A later read-only check on 2026-10-05 found `/media/shen/T7` was not mounted (`findmnt -T /media/shen/T7` returned no mount). No T7 contents were accessed or changed in that recheck. This is a dated historical observation, superseded by the mounted check on 2026-10-06.
 
 ## 2026-10-05 inventory update
 
@@ -83,11 +85,21 @@ The newest CP0 archive is historical pre-Vivado/Vitis recovery evidence: its `ro
 
 The manifest is not READY: the T7 bundle is stale relative to current `main`; Ubuntu exact-point media differs; the Qwen3.6 Q8 model copy is incomplete and a zero-byte model stub exists; resource hashes/closure are incomplete; and clean migration/rebuild has not been exercised. No payload was changed during the inventory update.
 
-## Next actions once media is available
+## Historical next actions before the 2026-10-06 remount
 
-1. Reconfirm mount, filesystem health/status, free space and exact paths; retain the existing T7 data.
-2. Refresh the commit-addressed bundle when `main` advances; verify it and test cloning to a temporary location.
-3. Extend the T7-local `SHA256SUMS` when selecting more payloads. Ubuntu/Vivado hashes and the four listed XRT/NPU package hashes are verified; broader ROCm/RyzenAI/Ross resource checksums remain open. The Vivado/Vitis installer is verified byte-identical to the system copy.
-4. Resolve the OS media gap (the observed ISO is Ubuntu 24.04.1; AI370-2's installed host is 24.04.4) without asserting official AMD/Xilinx support.
-5. Confirm required AMD/XDNA2, ROCm, Ross/Skills/KB and selected model resources; explicitly exclude incompatible alternate XRT/DKMS packages from the Golden rebuild set.
-6. Do not delete the system installer unless the user separately directs it. A duplicate-safe-to-delete recommendation is supported by the exact matching size and SHA256, but deletion has not occurred.
+Those actions were pending at the earlier inventory date. On 2026-10-06 the mount and formal root were rechecked, a current bundle was created and clone-tested, and all 100 then-listed sums passed. Remaining work is limited to refreshing the media's README/manifest/checksum inventory, resolving or documenting resource gaps, and deciding whether a clean-media rebuild is part of M15 acceptance. No deletion of the system installer is authorized or needed for this update.
+
+## 2026-10-06 mounted-media result
+
+| Item | Actual / verified result |
+|---|---|
+| Mount | `/dev/sda1` at `/media/shen/T7`, exFAT, read/write. Capacity 1,000,169,668,608 B; free 180,201,848,832 B at inspection. |
+| Final directory root | `/media/shen/T7/AMD_AI_Workstation/`; `01_System_Resources`, `02_Deployment`, and `03_AI_Models` all exist. |
+| Category logical sizes before final manifest refresh | System resources 126,175,674,368 B; deployment 36,700,160 B; models 111,583,559,680 B. These are logical file bytes, not allocated exFAT usage. |
+| Existing payload checksums | `sha256sum -c SHA256SUMS`: all 100 entries in the pre-refresh manifest returned `OK`, including the 2026.1 installer, selected system resources, model files, guide snapshot and prior bundle. A refreshed complete list is recorded on the media. |
+| Git bundle | A commit-addressed bundle was created, `git bundle verify` passed, and a temporary clone's HEAD exactly matched source `main`; the three Golden/toolchain tags were included. The final refreshed bundle filename, HEAD, size and SHA256 are authoritative in the T7 root `MASTER_MANIFEST.md`. |
+| Models | All manifest-listed Qwen3.8 and retained historical model files passed integrity checks. Qwen3.8 is the current candidate family; Qwen3.6 remains RETIRED, and integrity of its truncated Q8 copy does not make it a usable deployment model. No model inference was run. |
+| Data changes | No large installer or model was copied again. No file was deleted. The system Xilinx installation was not copied. The Photos directory was not accessed. |
+| Kit verdict | `PARTIAL`. Ubuntu 24.04.1 is present, not exact 24.04.4; protected-stack offline dependency closure, portable Ross resources and clean-host rebuild remain unverified. |
+
+This mounted-media result supersedes the dated detached/stale-bundle observations above without deleting or rewriting their history. Exact final file counts, logical bytes, refreshed bundle identity and SHA256 coverage are in the media root manifest and `SHA256SUMS`.
