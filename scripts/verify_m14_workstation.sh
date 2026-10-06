@@ -174,7 +174,7 @@ except Exception as exc:
     sys.exit(1)
 PY
 then pass 'Ross local Knowledge Base MCP' 'configured endpoint initialized and advertised vivado_doc_search; no document query/load issued'; else defer 'Ross local Knowledge Base MCP' 'configured endpoint did not pass initialize/tools-list readiness check'; fi
-not_tested 'Ross HLS / VS Code / local answer agent' 'excluded from this bounded verifier; M13 records these as NOT TESTED/DEFERRED'
+not_tested 'Ross HLS agent / VS Code / direct local-provider tools' 'excluded from this bounded verifier; M13 separately verifies supervised Qwen RTL editing plus XSim/Vivado synthesis, while these integrations remain DEFERRED/NOT TESTED'
 
 printf '\n[kernel fault audit]\n'
 journalctl -k --since "$started" --no-pager 2>"$out/journalctl-error.log" | rg -i 'page fault|ttm|soft lockup|gpu reset|ring timeout|amdgpu.*error|amdxdna.*error' >"$out/kernel-faults.log" || true
