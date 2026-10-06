@@ -8,7 +8,7 @@
 - Mount: `/media/shen/T7`, source `/dev/sda1`, exFAT, read/write.
 - Capacity: 1,000,169,668,608 bytes; used 819,967,819,776 bytes; free 180,201,848,832 bytes (about 167.8 GiB).
 - Formal root: `/media/shen/T7/AMD_AI_Workstation/` with `01_System_Resources/`, `02_Deployment/`, and `03_AI_Models/`.
-- At inspection, category logical sizes were 126,175,674,368 bytes (system resources), 36,700,160 bytes (deployment), and 111,583,559,680 bytes (models). The kit included 237,780,362,941 logical file bytes before the refreshed README/manifest/sums are written.
+- At inspection, `du -sx -B1` reported category allocated usage of 126,175,674,368 bytes (system resources), 36,700,160 bytes (deployment), and 111,583,559,680 bytes (models). Separately, the sum of file `stat` sizes was 237,780,362,941 logical bytes before the refreshed README/manifest/sums were written.
 
 ## Integrity and bundle verification
 

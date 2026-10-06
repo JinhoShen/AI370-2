@@ -95,8 +95,8 @@ Those actions were pending at the earlier inventory date. On 2026-10-06 the moun
 |---|---|
 | Mount | `/dev/sda1` at `/media/shen/T7`, exFAT, read/write. Capacity 1,000,169,668,608 B; free 180,201,848,832 B at inspection. |
 | Final directory root | `/media/shen/T7/AMD_AI_Workstation/`; `01_System_Resources`, `02_Deployment`, and `03_AI_Models` all exist. |
-| Category logical sizes before final manifest refresh | System resources 126,175,674,368 B; deployment 36,700,160 B; models 111,583,559,680 B. These are logical file bytes, not allocated exFAT usage. |
-| Existing payload checksums | `sha256sum -c SHA256SUMS`: all 100 entries in the pre-refresh manifest returned `OK`, including the 2026.1 installer, selected system resources, model files, guide snapshot and prior bundle. A refreshed complete list is recorded on the media. |
+| Category sizes before final manifest refresh | `du -sx -B1` allocated usage: system resources 126,175,674,368 B; deployment 36,700,160 B; models 111,583,559,680 B. Final logical-byte totals are in the T7 root manifest. |
+| Existing payload checksums | `sha256sum -c SHA256SUMS`: all 100 entries in the pre-refresh manifest returned `OK`, including the 2026.1 installer, selected system resources, model files, guide snapshot and prior bundle. The final refreshed list and its full verification result are recorded on the media. |
 | Git bundle | A commit-addressed bundle was created, `git bundle verify` passed, and a temporary clone's HEAD exactly matched source `main`; the three Golden/toolchain tags were included. The final refreshed bundle filename, HEAD, size and SHA256 are authoritative in the T7 root `MASTER_MANIFEST.md`. |
 | Models | All manifest-listed Qwen3.8 and retained historical model files passed integrity checks. Qwen3.8 is the current candidate family; Qwen3.6 remains RETIRED, and integrity of its truncated Q8 copy does not make it a usable deployment model. No model inference was run. |
 | Data changes | No large installer or model was copied again. No file was deleted. The system Xilinx installation was not copied. The Photos directory was not accessed. |
