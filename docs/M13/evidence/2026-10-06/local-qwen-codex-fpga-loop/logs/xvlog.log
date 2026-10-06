@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/codex-qwen-engineering-20261006/project/rtl/local_model_axi_lite.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module local_model_axi_lite
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shen/AI370-2/output/M13/codex-qwen-engineering-20261006/project/sim/tb_local_model_axi_lite.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_local_model_axi_lite

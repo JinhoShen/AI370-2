@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct  6 14:34:06 2026
+# Process ID         : 95
+# Current directory  : /home/shen/AI370-2/output/M13/codex-qwen-engineering-20261006/project
+# Command line       : xsim -log baseline-xsim-direct.log -mode tcl -source {xsim.dir/tb_baseline/xsim_script.tcl}
+# Log file           : /home/shen/AI370-2/output/M13/codex-qwen-engineering-20261006/project/baseline-xsim-direct.log
+# Journal file       : /home/shen/AI370-2/output/M13/codex-qwen-engineering-20261006/project/xsim.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 5140.217 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 41488 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_baseline/xsim_script.tcl
+# xsim {tb_baseline} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall
+ERROR: unexpected exception when evaluating tcl command
+    while executing
+"xsim {tb_baseline} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall"
+    (file "xsim.dir/tb_baseline/xsim_script.tcl" line 1)
+INFO: [Common 17-206] Exiting xsim at Tue Oct  6 14:34:07 2026...

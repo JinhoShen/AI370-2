@@ -1,0 +1,8 @@
+Codex CLI 0.159.2.
+Read-only sandbox probe: SANDBOX_READ_ONLY_BOUNDARY_OK.
+kernel.apparmor_restrict_unprivileged_userns=1.
+Installed /etc/apparmor.d/bwrap-userns-restrict SHA256 matched source profile: 11d39094f044f0cda0febb3ad517b830301da6b2ce929664af09ee9e4dd264f9.
+APT installed apparmor-profiles and updated AppArmor userspace; protected GPU/NPU/FPGA packages were not part of that transaction.
+llama.cpp CPU server: 0.5.0-dev, commit 7fe450e19305b828c199d602c23a8337aaa1f03b.
+Model: Qwen3.8-27B-UD-Q4_K_XL.gguf; SHA256 3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e.
+Inference backend: llama.cpp CPU only; 24 threads; loopback 127.0.0.1:18080; cgroup MemoryMax=30G, MemorySwapMax=0, RuntimeMaxSec=1800.

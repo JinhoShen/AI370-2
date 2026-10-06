@@ -1,0 +1,8 @@
+Vivado 2026.1 post-synthesis timing summary for the disposable RTL sandbox:
+WNS: +6.316 ns
+TNS: 0.000 ns
+TNS failing endpoints: 0
+TNS total endpoints: 307
+Vivado summary: All user specified timing constraints are met.
+
+This is a synthesis timing estimate only. No placement/route timing was run for this isolated M13 source-edit task.

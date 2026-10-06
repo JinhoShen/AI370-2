@@ -1,5 +1,7 @@
 # Codex Linux sandbox diagnostic
 
+> Historical snapshot: this records the pre-remediation AppArmor/Bubblewrap state. The scoped profile was subsequently installed under user authorization and restricted read-only sandbox execution passed. A separate Vivado license host-identity issue and its invocation-scoped workaround are documented in [`local-qwen-codex-fpga-loop/sandbox-license-diagnosis.md`](local-qwen-codex-fpga-loop/sandbox-license-diagnosis.md). The earlier findings below are retained as dated history.
+
 **Date:** 2026-10-06 (Asia/Taipei)
 **Result:** Read-only diagnosis. No package, security profile, kernel, GPU, NPU or FPGA configuration was changed.
 

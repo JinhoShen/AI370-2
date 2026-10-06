@@ -1,0 +1,21 @@
+Date: 2026-10-06 Asia/Taipei
+Codex CLI: 0.159.2
+Execution: workspace-write sandbox; invocation-scoped sandbox_workspace_write.network_access=true
+Model: Qwen3.8-27B-UD-Q4_K_XL; Q4_K_XL; llama.cpp CPU backend
+Vivado: 2026.1 (SW Build 6511674; IP Build 6504888)
+XSim: 2026.1 (SW Build 6511674; IP Build 6504888)
+
+Initial default-network sandbox attempt:
+  Vivado license checkout: FAIL (host-locked NIC/MAC was hidden by sandbox network namespace)
+Successful scoped retry:
+  Invocation environment: PYTHONPATH=, MATLABPATH= (runner unchanged)
+  Command: RUN_TAG=qwen-model-patch-network-sandbox ./scripts/run-validation.sh
+  Runner exit: 0
+  Runner marker: VALIDATION_PASS run=qwen-model-patch-network-sandbox xsim=PASS vivado_synthesis=PASS
+  XSim: TEST_PASS baseline_and_selected_mode=1
+  Vivado synthesis: PASS; 0 synthesis errors, 0 critical warnings, 0 warnings
+  Vivado valid-license checkout: PASS (license data not retained)
+  Utilization report: generated
+  Timing summary: generated; post-synthesis WNS=+6.316 ns, TNS=0.000 ns; all specified constraints met
+
+No HDL source changed outside the disposable ignored project. No M11/M12 project was built; no FPGA programming occurred. No Vivado/Vitis installation or protected stack changes were made in this validation.
