@@ -1,0 +1,10 @@
+AI370-2_Deployment/AI370-2-main.bundle: OK
+AI370-2_Deployment/AI370-2-main-7a51ff1.bundle: OK
+AI370-2_Deployment/AI370-2-main-7a51ff1-clean.bundle: OK
+AI370-2_Deployment/AI370-2-main-695437f.bundle: OK
+AI370-2_Deployment/T7_MANIFEST.md: OK
+AI370-2_Deployment/README.txt: OK
+Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base.deb: OK
+Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-base-dev.deb: OK
+Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_202610.2.21.75_24.04-amd64-npu.deb: OK
+Agent_Tools_Docs/03_RyzenAI/XRT_NPU/xrt_plugin.2.21.260102.53.release_24.04-amd64-amdxdna.deb: OK

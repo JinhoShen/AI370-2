@@ -1,0 +1,3 @@
+CODEX_HOME=<isolated temporary directory> codex exec --sandbox read-only --ephemeral --skip-git-repo-check -C <isolated temporary workspace> --model qwen3.8-local '<one bounded instruction: call exec_command exactly once to cat marker.txt>'
+llama-server: --host 127.0.0.1 --port 18080 --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui
+Transient service guard: MemoryMax=30G; MemorySwapMax=0; RuntimeMaxSec=900

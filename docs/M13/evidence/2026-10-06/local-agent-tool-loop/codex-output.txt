@@ -1,0 +1,7 @@
+The command exited with code 0. Exact output from the tool result:
+
+```
+AI370_LOCAL_TOOL_RESULT_20261006_91af
+```
+
+This came directly from the `exec_command` tool result for `cat marker.txt` in the workspace.

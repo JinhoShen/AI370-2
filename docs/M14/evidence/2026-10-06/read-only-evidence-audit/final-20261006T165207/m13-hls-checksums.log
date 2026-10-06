@@ -1,0 +1,11 @@
+README.md: OK
+attempt1-cli-preflight.log: OK
+csynth.rpt: OK
+hls_compile.log: OK
+hls_config.cfg: OK
+invert32.cpp: OK
+run-metadata.json: OK
+synth-report-skill.json: OK
+testbench.cpp: OK
+vitis-run-csim.log: OK
+vpp-hls.log: OK

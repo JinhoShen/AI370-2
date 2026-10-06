@@ -35,6 +35,8 @@ if (cd docs/M12/evidence/host-fpga-jtag-axi-20261002 && sha256sum -c SHA256SUMS)
 if (cd docs/M13/evidence/2026-10-02 && sha256sum -c M12_WORKFLOW_SHA256SUMS) > "$out/m13-workflow-checksums.log" 2>&1 && (cd docs/M13/evidence/2026-10-02/hls-skill-smoke && sha256sum -c SHA256SUMS) > "$out/m13-hls-checksums.log" 2>&1; then record PASS 'M13 local-KB/HLS skill evidence integrity' 'workflow and HLS skill outputs match saved SHA256'; else record FAIL 'M13 local-KB/HLS skill evidence integrity' 'checksum verification failed'; fi
 qwen_evidence="$project/docs/M13/evidence/2026-10-06/local-qwen-codex-fpga-loop"
 if (cd "$qwen_evidence" && sha256sum -c SHA256SUMS) > "$out/m13-local-qwen-checksums.log" 2>&1 && rg -q 'TEST_PASS baseline_and_selected_mode=1' "$qwen_evidence/logs/xsim-patched-network-sandbox.log" && rg -q 'VALIDATION_PASS .*xsim=PASS vivado_synthesis=PASS' "$qwen_evidence/logs/validation-summary.txt" && [[ -s "$qwen_evidence/reports/utilization-summary.txt" && -s "$qwen_evidence/reports/timing-summary.txt" ]]; then record PASS 'M13 local Qwen RTL/XSim/Vivado evidence' 'model-authored source, XSim/Vivado markers and report summaries match the retained SHA256 manifest'; else record FAIL 'M13 local Qwen RTL/XSim/Vivado evidence' 'manifest, verification marker, or report summary missing/invalid'; fi
+local_tool_evidence="$project/docs/M13/evidence/2026-10-06/local-agent-tool-loop"
+if (cd "$local_tool_evidence" && sha256sum -c SHA256SUMS) > "$out/m13-local-tool-checksums.log" 2>&1 && rg -q 'succeeded in 0ms' "$local_tool_evidence/codex-stderr.log" && rg -q 'AI370_LOCAL_TOOL_RESULT_20261006_91af' "$local_tool_evidence/codex-stderr.log" && rg -q 'AI370_LOCAL_TOOL_RESULT_20261006_91af' "$local_tool_evidence/codex-output.txt" && rg -q '^codex_exit=0$' "$local_tool_evidence/run-metadata.txt"; then record PASS 'M13 local Qwen Codex tool cycle' 'read-only exec result, model-reported exact marker, exit 0 and evidence checksums verified'; else record FAIL 'M13 local Qwen Codex tool cycle' 'tool transcript, marker, exit status, or evidence checksum invalid'; fi
 
 check_file 'M11 DDR report' "$project/docs/M11/SP701_DDR3_Memory_Test_Report.md"
 check_file 'M12 source build flow' "$project/projects/FPGA/SP701_Host_FPGA_JTAG_AXI/build.tcl"
@@ -54,7 +56,7 @@ PY
 then record PASS 'APT safe transaction simulation evidence' 'cowsay was simulated as userspace-only; no package was installed'; else record FAIL 'APT safe transaction simulation evidence' 'saved simulation did not meet guard assertions'; fi
 record DEFERRED 'APT protected-change live simulation' 'protected transaction classification is covered by negative parser fixtures; no real protected package transaction was requested'
 record DEFERRED 'M12 XRT host application' 'SP701 .xpfm and XRT C++ development headers are absent; system XRT stays protected for NPU'
-record DEFERRED 'M13 local answer-model / air-gap' 'local KB retrieval is verified; answer-model plus client end-to-end isolation remains untested'
+record DEFERRED 'M13 full agentic engineering / air-gap' 'bounded local Qwen text, read-only tool call and supervised RTL synthesis are verified; multi-step write-capable self-repair and end-to-end air-gap remain untested'
 record DEFERRED 'M0.1 full recovery' 'file-level checkpoint exists; off-device and full restore validation remain outstanding'
 record NOT_TESTED 'M15 unified regression' 'intentionally not run by this read-only evidence audit'
 

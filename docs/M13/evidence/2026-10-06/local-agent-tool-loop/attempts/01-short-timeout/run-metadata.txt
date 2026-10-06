@@ -1,0 +1,4 @@
+temporary_workspace=/tmp/ai370-local-qwen-tool-loop.y8w4jb
+resource_guard: CPU only; context=8192; threads=24; MemoryMax=30G; MemorySwapMax=0; RuntimeMaxSec=300
+provider_start=PASS; backend=CPU; localhost only
+codex_exit=124

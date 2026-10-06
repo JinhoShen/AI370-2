@@ -1,0 +1,67 @@
+Started ai370-qwen-agent-tool-loop-final-20261006.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui.
+0.00.000.278 I srv  llama_server: initializing ...
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+0.00.002.749 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.002.882 I srv  init_listene: The UI is disabled
+0.00.002.884 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+0.00.002.975 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.004.851 I srv    load_model: loading model '/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf'
+0.00.762.572 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+0.00.762.577 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+0.00.762.581 W model has unused tensor blk.64.attn_q.weight (size = 51609600 bytes) -- ignoring
+0.00.762.583 W model has unused tensor blk.64.attn_k.weight (size = 5570560 bytes) -- ignoring
+0.00.762.584 W model has unused tensor blk.64.attn_v.weight (size = 5570560 bytes) -- ignoring
+0.00.762.589 W model has unused tensor blk.64.attn_output.weight (size = 25804800 bytes) -- ignoring
+0.00.762.591 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+0.00.762.593 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+0.00.762.594 W model has unused tensor blk.64.ffn_gate.weight (size = 73113600 bytes) -- ignoring
+0.00.762.596 W model has unused tensor blk.64.ffn_down.weight (size = 73113600 bytes) -- ignoring
+0.00.762.598 W model has unused tensor blk.64.ffn_up.weight (size = 73113600 bytes) -- ignoring
+0.00.762.601 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 43008000 bytes) -- ignoring
+0.00.762.602 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+0.00.762.604 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+0.00.762.609 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+0.02.159.500 I cmn          init: llama threadpool init, n_threads = 24
+0.02.888.580 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'
+0.02.895.264 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.02.895.323 I srv  llama_server: model loaded
+0.02.895.329 I srv  llama_server: listening on http://127.0.0.1:18080
+0.04.439.698 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+0.04.439.728 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+0.04.459.469 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+0.04.459.940 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+2.00.734.600 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2048, progress = 0.33, t = 116.27 s / 17.61 tokens per second
+4.02.467.718 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   4096, progress = 0.66, t = 237.45 s / 17.25 tokens per second
+5.05.067.571 W srv          stop: cancel task, id_task = 0
+5.05.249.335 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+5.05.249.371 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+5.39.973.910 I slot      release: id  0 | task 0 | stop processing: n_tokens = 5700, truncated = 0
+5.39.974.670 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.917 (> 0.100 thold), f_keep = 1.000
+5.39.975.009 I slot launch_slot_: id  0 | task 5 | processing task, is_child = 0
+5.59.271.260 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    302, progress = 0.97, t =  19.30 s / 15.65 tokens per second
+6.09.024.423 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    452, progress = 0.99, t =  29.05 s / 15.56 tokens per second
+6.13.074.506 I slot print_timing: id  0 | task 5 | prompt processing, n_tokens =    512, progress = 1.00, t =  33.10 s / 15.47 tokens per second
+6.45.427.213 I slot print_timing: id  0 | task 5 | n_gen =    100, tg =   3.12 t/s, tg_3s =   3.15 t/s
+6.48.526.026 I slot print_timing: id  0 | task 5 | n_gen =    110, tg =   3.13 t/s, tg_3s =   3.23 t/s
+6.50.817.406 I slot print_timing: id  0 | task 5 | prompt eval time =   33682.73 ms /   516 tokens (   65.28 ms per token,    15.32 tokens per second)
+6.50.818.337 I slot print_timing: id  0 | task 5 |        eval time =   37159.61 ms /   117 tokens (  320.34 ms per token,     3.12 tokens per second)
+6.50.818.360 I slot print_timing: id  0 | task 5 |       total time =   70842.34 ms /   633 tokens
+6.50.818.383 I slot print_timing: id  0 | task 5 |    graphs reused =        116
+6.50.819.368 I slot      release: id  0 | task 5 | stop processing: n_tokens = 6332, truncated = 0
+6.50.910.188 W srv  server_chat_: unsupported Responses tool type 'namespace' skipped
+6.50.910.222 W srv  server_chat_: unsupported Responses tool type 'web_search' skipped
+6.50.932.798 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.988 (> 0.100 thold), f_keep = 1.000
+6.50.933.184 I slot launch_slot_: id  0 | task 126 | processing task, is_child = 0
+6.56.864.020 I slot print_timing: id  0 | task 126 | prompt processing, n_tokens =     71, progress = 1.00, t =   5.93 s / 11.97 tokens per second
+7.29.572.081 I slot print_timing: id  0 | task 126 | n_gen =    100, tg =   3.07 t/s, tg_3s =   3.11 t/s
+7.32.567.600 I slot print_timing: id  0 | task 126 | prompt eval time =    6437.80 ms /    75 tokens (   85.84 ms per token,    11.65 tokens per second)
+7.32.567.606 I slot print_timing: id  0 | task 126 |        eval time =   35196.44 ms /   109 tokens (  325.89 ms per token,     3.07 tokens per second)
+7.32.567.607 I slot print_timing: id  0 | task 126 |       total time =   41634.25 ms /   184 tokens
+7.32.567.608 I slot print_timing: id  0 | task 126 |    graphs reused =        223
+7.32.568.256 I slot      release: id  0 | task 126 | stop processing: n_tokens = 6515, truncated = 0
+7.32.942.923 I srv    operator(): operator(): cleaning up before exit...
+Stopping ai370-qwen-agent-tool-loop-final-20261006.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui...
+Stopped ai370-qwen-agent-tool-loop-final-20261006.service - /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server --host 127.0.0.1 --port 18080 --model /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --alias qwen3.8-local --ctx-size 8192 --threads 24 --threads-batch 24 --parallel 1 --n-gpu-layers 0 --no-webui.
+ai370-qwen-agent-tool-loop-final-20261006.service: Consumed 2h 55min 181ms CPU time, 3.9G memory peak, 0B memory swap peak.

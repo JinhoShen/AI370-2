@@ -1,0 +1,1 @@
+Attempt 00 used curl, which is absent; health check did not start inference.

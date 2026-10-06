@@ -1,0 +1,10 @@
+/media/shen/T7/AI370-2_Deployment/AI370-2-main-7a51ff1.bundle is okay
+The bundle contains these 6 refs:
+7a51ff1f964356114ef8a1105a8dfb890485f219 refs/heads/main
+0fe2791e1b182376b9abfd54de4ac05a8789dade refs/remotes/origin/main
+d903b1917ca196807e7eb70176fd672bf50fc370 refs/tags/ai370-2-fpga-toolchain-working
+140202adfa405a4ac38302127f79d474207f2a34 refs/tags/ai370-2-m0-golden
+ee514d413ec63b9ee8d9297ccdecbe57e6045aca refs/tags/ai370-2-npu-golden
+7a51ff1f964356114ef8a1105a8dfb890485f219 HEAD
+The bundle records a complete history.
+The bundle uses this hash algorithm: sha1
