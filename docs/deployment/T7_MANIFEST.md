@@ -2,7 +2,7 @@
 
 **Media role:** deployment and migration resources for rebuilding AI370-2 on this or another compatible workstation. T7 is not a current-machine image or a full-system tar target. Do not copy `/home/shen/tools/Xilinx/2026.1` to T7 for the purpose of M15 closure.
 
-**Current status (2026-10-06):** T7 is mounted at `/media/shen/T7` as `/dev/sda1` (exFAT, read/write). The approved root `/media/shen/T7/AMD_AI_Workstation/` exists with the three deployment categories. At the latest full check, the commit `23acc2f` current-main bundle cloned at the exact local HEAD and all 1,019 entries in the refreshed `SHA256SUMS` passed. This is a deployment-media integrity check, not a clean-machine rebuild. Resource closure remains PARTIAL: exact Ubuntu 24.04.4 media, complete protected-stack dependency closure, and clean rebuild remain unverified. The `照片` directory was not accessed. See [the dated M15 evidence](../M15/evidence/2026-10-06/t7-final-verification/RESULT.md) and the T7 root `MASTER_MANIFEST.md` for the latest bundle identity.
+**Current status (2026-10-06):** T7 is mounted at `/media/shen/T7` as `/dev/sda1` (exFAT, read/write). The approved root `/media/shen/T7/AMD_AI_Workstation/` exists with the three deployment categories. The full check at commit `8f6bf85` verified 1,023/1,023 entries; its current-main bundle cloned at exact HEAD with all three historical tags. This is a deployment-media integrity check, not a clean-machine rebuild. Resource closure remains PARTIAL: exact Ubuntu 24.04.4 media, complete protected-stack dependency closure, and clean rebuild remain unverified. The `照片` directory was not accessed. See [the dated M15 evidence](../M15/evidence/2026-10-06/t7-latest-sync/RESULT.md) and the T7 root `MASTER_MANIFEST.md` for the latest bundle identity.
 
 **Historical note:** Sections below retain the dated 2026-10-02 and 2026-10-05 observations. Statements that the media was detached, the final root was unverified, or the bundle was stale describe those earlier snapshots only and are superseded by the 2026-10-06 update below. Historical evidence and prior status transitions are not rewritten.
 
@@ -83,7 +83,7 @@ The newest CP0 archive is historical pre-Vivado/Vitis recovery evidence: its `ro
 - **Not part of the deployment recipe:** installed Xilinx tree, expanded installer, venvs, caches, generated build output and CP0 root image. CP0 remains historical evidence, not an image to apply to a new machine.
 - **UNKNOWN / incomplete:** exact complete AMD Ryzen AI offline installer closure, standalone matching amdxdna DKMS source/package, complete ROCm package/dependency closure, portable Ross Local KB snapshot and selected skills, and whether the older `.venvs` copy can be reconstructed fully offline.
 
-The manifest is not READY: the T7 bundle is stale relative to current `main`; Ubuntu exact-point media differs; the Qwen3.6 Q8 model copy is incomplete and a zero-byte model stub exists; resource hashes/closure are incomplete; and clean migration/rebuild has not been exercised. No payload was changed during the inventory update.
+At the 2026-10-05 inventory checkpoint, the manifest was not READY: the bundle was stale, exact-point Ubuntu media differed, a legacy Qwen3.6 Q8 copy was incomplete and a model stub was empty, resource closure was incomplete, and clean migration had not been exercised. The 2026-10-06 mounted-media verification below supersedes the then-stale bundle and selected-payload hash status; the kit remains PARTIAL for the explicitly listed offline-closure and rebuild gaps.
 
 ## Historical next actions before the 2026-10-06 remount
 
@@ -96,10 +96,14 @@ Those actions were pending at the earlier inventory date. On 2026-10-06 the moun
 | Mount | `/dev/sda1` at `/media/shen/T7`, exFAT, read/write. Capacity 1,000,169,668,608 B; free 180,201,848,832 B at inspection. |
 | Final directory root | `/media/shen/T7/AMD_AI_Workstation/`; `01_System_Resources`, `02_Deployment`, and `03_AI_Models` all exist. |
 | Category sizes before final manifest refresh | `du -sx -B1` allocated usage: system resources 126,175,674,368 B; deployment 36,700,160 B; models 111,583,559,680 B. Final logical-byte totals are in the T7 root manifest. |
-| Existing payload checksums | Historical pre-refresh run: 100 entries passed. Latest 2026-10-06 full refreshed manifest: 1,019/1,019 entries passed, including the selected 2026.1 installer, system resources, model files, guide snapshot and commit-addressed bundle; the on-media root manifest records exact versions, file counts and hashes. |
-| Git bundle | A commit-addressed bundle was created, `git bundle verify` passed, and a temporary clone's HEAD exactly matched source `main`; the three Golden/toolchain tags were included. The final refreshed bundle filename, HEAD, size and SHA256 are authoritative in the T7 root `MASTER_MANIFEST.md`. |
+| Existing payload checksums | Historical pre-refresh run: 100 entries passed. Commit `23acc2f` checkpoint: 1,019/1,019 passed. Latest full refreshed manifest at commit `8f6bf85`: 1,023/1,023 passed, including installer, resources, models, Guides and current bundle; exact final counts and size are in the T7 root manifest. |
+| Git bundle | The commit-addressed `8f6bf85` bundle passed `git bundle verify`; an isolated clone's HEAD exactly matched source `main` and all three Golden/toolchain tags were present. The T7 root `MASTER_MANIFEST.md` identifies the latest bundle after subsequent documentation commits. |
 | Models | All manifest-listed Qwen3.8 and retained historical model files passed integrity checks. Qwen3.8 is the current candidate family; Qwen3.6 remains RETIRED, and integrity of its truncated Q8 copy does not make it a usable deployment model. No model inference was run. |
 | Data changes | No large installer or model was copied again. No file was deleted. The system Xilinx installation was not copied. The Photos directory was not accessed. |
 | Kit verdict | `PARTIAL`. Ubuntu 24.04.1 is present, not exact 24.04.4; protected-stack offline dependency closure, portable Ross resources and clean-host rebuild remain unverified. |
 
 This mounted-media result supersedes the dated detached/stale-bundle observations above without deleting or rewriting their history. Exact final file counts, logical bytes, refreshed bundle identity and SHA256 coverage are in the media root manifest and `SHA256SUMS`.
+
+## Latest 2026-10-06 full-manifest pass
+
+The current bundle was refreshed to repository commit `8f6bf85573a340a6f17faff148cde6621d612695`, verified and cloned at the exact HEAD. Its full deployment-root `SHA256SUMS` check returned 1,023/1,023 `OK`. The current root manifest records 1,025 files, 237,874,361,103 logical bytes and 179,988,856,832 bytes free. The T7 kit remains `PARTIAL`; integrity does not substitute for missing exact-point OS/dependency resources or a clean-host rebuild.
