@@ -1,0 +1,11 @@
+--- a/rtl/local_model_axi_lite.v
++++ b/rtl/local_model_axi_lite.v
+@@ -110,7 +110,7 @@
+           end
+           REG_RESULT: begin
+             if (control_reg[1])
+-              s_axi_rdata <= input_reg ^ offset_reg;
++              s_axi_rdata <= input_reg + offset_reg;
+             else
+               s_axi_rdata <= ~input_reg;
+             s_axi_rresp <= AXI_OKAY;

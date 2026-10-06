@@ -1,0 +1,9 @@
+TEST_PASS baseline_and_selected_mode=1 attempt=2
+# xsim {tb_attempt_2} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+TEST_PASS baseline_and_selected_mode=1
+$finish called at time : 460 ns : File "/home/shen/AI370-2/output/M13/local-qwen-agent-write-loop-20261006/project/sim/tb_local_model_axi_lite.sv" Line 91
+exit
+INFO: xsimkernel Simulation Memory Usage: 142524 KB (Peak: 208060 KB), Simulation CPU Usage: 480 ms
+INFO: [Common 17-206] Exiting xsim at Tue Oct  6 18:19:36 2026...

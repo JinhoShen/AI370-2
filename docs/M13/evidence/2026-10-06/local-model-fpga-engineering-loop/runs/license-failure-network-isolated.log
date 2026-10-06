@@ -1,0 +1,35 @@
+XSim PASS marker missing (attempt=1)
+#-----------------------------------------------------------
+# xsim v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct  6 18:17:25 2026
+# Process ID         : 1549484
+# Current directory  : /home/shen/AI370-2/output/M13/local-qwen-agent-write-loop-20261006/project/runs/attempt-1
+# Command line       : xsim -mode tcl -source {xsim.dir/tb_attempt_1/xsim_script.tcl}
+# Log file           : /home/shen/AI370-2/output/M13/local-qwen-agent-write-loop-20261006/project/runs/attempt-1/xsim.log
+# Journal file       : /home/shen/AI370-2/output/M13/local-qwen-agent-write-loop-20261006/project/runs/attempt-1/xsim.jou
+# Running On         : shen-AI-Series
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.4 LTS
+# Processor Detail   : AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+# CPU Frequency      : 4057.510 MHz
+# CPU Physical cores : 12
+# CPU Logical cores  : 24
+# Host memory        : 50103 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 58693 MB
+# Available Virtual  : 43811 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_attempt_1/xsim_script.tcl
+# xsim {tb_attempt_1} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall
+
+Could not obtain the necessary license for Simulator.
+
+
+ERROR: Unable to get Licensing information for Vivado Simulator. License checkout failure. See the Vivado Licensing page for tier details and how to get the right license.
+ERROR: [Simtcl 6-50] Simulation engine failed to start: The Simulation shut down unexpectedly during initialization.
+Please see the Tcl Console or the Messages for details.
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Oct  6 18:17:28 2026...

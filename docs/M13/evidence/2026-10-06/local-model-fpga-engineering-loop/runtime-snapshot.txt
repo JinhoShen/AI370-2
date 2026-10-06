@@ -1,0 +1,11 @@
+Local engineering model: Qwen3.8-27B-UD-Q4_K_XL
+Model file: /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf
+Execution backend: llama.cpp CPU; --n-gpu-layers 0
+Threads: 24; threads-batch: 24; context: 8192; parallel: 1
+Memory guard: systemd user service MemoryMax=30G, MemorySwapMax=0
+Model server bind: 127.0.0.1:18080; reasoning disabled for patch-only request
+Vivado/XSim: 2026.1; XSim behavioral simulation only
+Sandbox: Bubblewrap; root filesystem read-only; only disposable project directory writable; /dev minimal; /proc mounted
+Network/license context: host network namespace retained for FlexNet host NIC identity; HOME retained read-only so existing ~/.Xilinx license source is visible. No license value, MAC address, or credential copied.
+Bounded runner: testbench SHA guard; maximum 3 simulation attempts; 1 actual seeded failure followed by 1 repaired PASS. Two earlier infrastructure-only license startup failures retained separately and did not execute the testbench.
+Protected system stack: no kernel, Mesa, libdrm, ROCm/HIP, XRT, amdxdna, NPU firmware, or FPGA hardware changes made. No FPGA programming.
