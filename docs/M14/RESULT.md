@@ -58,6 +58,8 @@ A separate follow-up identified the Vivado license failure: the host-locked Flex
 
 The read-only M14 evidence auditor was extended to verify the new local-Qwen source/test/report manifest and pass markers. A fresh run appears in the dated evidence link below. The broad workstation verifier was deliberately not rerun because it repeats HIP/Vulkan/NPU checks; its previous full result remains dated evidence rather than being needlessly repeated.
 
+The 2026-10-06 audit exited 0 with **PASS_WITH_DEFERRED**, 0 failures, and 5 deferred/not-tested groups. All M11/M12/M13 retained evidence checks, the new M13 Qwen/XSim/Vivado manifest, APT guard tests/safe simulation, and current protected package/module version checks passed. M15 unified regression was explicitly NOT_TESTED by this read-only audit. See [audit report and evidence](evidence/2026-10-06/read-only-evidence-audit/README.md).
+
 
 ## 2026-10-05 local provider compatibility check
 

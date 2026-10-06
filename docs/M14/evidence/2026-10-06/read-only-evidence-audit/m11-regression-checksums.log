@@ -1,0 +1,9 @@
+docs/M11/evidence/post-program-regression-2026-10-02/README.md: OK
+docs/M11/evidence/post-program-regression-2026-10-02/cnn-result.json: OK
+docs/M11/evidence/post-program-regression-2026-10-02/hip.log: OK
+docs/M11/evidence/post-program-regression-2026-10-02/kernel-audit.log: OK
+docs/M11/evidence/post-program-regression-2026-10-02/npu-cnn.log: OK
+docs/M11/evidence/post-program-regression-2026-10-02/ort-profile.json: OK
+docs/M11/evidence/post-program-regression-2026-10-02/run-metadata.txt: OK
+docs/M11/evidence/post-program-regression-2026-10-02/vulkan.log: OK
+docs/M11/evidence/post-program-regression-2026-10-02/xrt-examine.log: OK
