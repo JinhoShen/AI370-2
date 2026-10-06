@@ -2,7 +2,7 @@
 
 **Media role:** deployment and migration resources for rebuilding AI370-2 on this or another compatible workstation. T7 is not a current-machine image or a full-system tar target. Do not copy `/home/shen/tools/Xilinx/2026.1` to T7 for the purpose of M15 closure.
 
-**Current status (2026-10-06):** T7 is mounted at `/media/shen/T7` as `/dev/sda1` (exFAT, read/write). The approved root `/media/shen/T7/AMD_AI_Workstation/` exists with the three deployment categories. The full check at commit `8f6bf85` verified 1,023/1,023 entries; its current-main bundle cloned at exact HEAD with all three historical tags. This is a deployment-media integrity check, not a clean-machine rebuild. Resource closure remains PARTIAL: exact Ubuntu 24.04.4 media, complete protected-stack dependency closure, and clean rebuild remain unverified. The `照片` directory was not accessed. See [the dated M15 evidence](../M15/evidence/2026-10-06/t7-latest-sync/RESULT.md) and the T7 root `MASTER_MANIFEST.md` for the latest bundle identity.
+**Current status (2026-10-06):** T7 is mounted at `/media/shen/T7` as `/dev/sda1` (exFAT, read/write). The approved root `/media/shen/T7/AMD_AI_Workstation/` exists with the three deployment categories. The full check at commit `71f8248` verified 1,027/1,027 entries; its current-main bundle cloned at exact HEAD with all three historical tags. This is a deployment-media integrity check, not a clean-machine rebuild. Resource closure remains PARTIAL: exact Ubuntu 24.04.4 media, complete protected-stack dependency closure, and clean rebuild remain unverified. The `照片` directory was not accessed. See [the dated M15 evidence](../M15/evidence/2026-10-06/t7-latest-sync/RESULT.md) and the T7 root `MASTER_MANIFEST.md` for the latest bundle identity.
 
 **Historical note:** Sections below retain the dated 2026-10-02 and 2026-10-05 observations. Statements that the media was detached, the final root was unverified, or the bundle was stale describe those earlier snapshots only and are superseded by the 2026-10-06 update below. Historical evidence and prior status transitions are not rewritten.
 
@@ -106,4 +106,9 @@ This mounted-media result supersedes the dated detached/stale-bundle observation
 
 ## Latest 2026-10-06 full-manifest pass
 
-The current bundle was refreshed to repository commit `8f6bf85573a340a6f17faff148cde6621d612695`, verified and cloned at the exact HEAD. Its full deployment-root `SHA256SUMS` check returned 1,023/1,023 `OK`. The current root manifest records 1,025 files, 237,874,361,103 logical bytes and 179,988,856,832 bytes free. The T7 kit remains `PARTIAL`; integrity does not substitute for missing exact-point OS/dependency resources or a clean-host rebuild.
+The current bundle was refreshed to repository commit `71f8248d4fa3d67bf703fc6d7d563fbb7b00bf20`, verified and cloned at the exact HEAD. Its full deployment-root `SHA256SUMS` check returned 1,027/1,027 `OK`. The current root manifest records 1,025 files, 237,874,361,103 logical bytes and 179,988,856,832 bytes free. The T7 kit remains `PARTIAL`; integrity does not substitute for missing exact-point OS/dependency resources or a clean-host rebuild.
+
+
+## 2026-10-06 complete T7 verification
+
+The updated bundle and all 974 committed Guides files correspond to main at `71f8248`; the bundle clone matched exact HEAD and contained three historical tags. The complete T7 checksum manifest passed 1,027/1,027. T7 readiness remains PARTIAL because offline dependency closure and clean-host rebuild remain unverified. See [M15 full verification evidence](../M15/evidence/2026-10-06/t7-full-verification/).

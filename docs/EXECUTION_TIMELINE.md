@@ -1,6 +1,6 @@
 # AI370-2 Execution Timeline
 
-**Latest timed evidence:** 2026-10-06 16:52:07 +08:00 — M14 read-only evidence audit at `b1e75d3` returned PASS_WITH_DEFERRED, 0 failures and 5 deferred/not-tested groups. Later same-day T7 sync at commit `8f6bf85` passed bundle clone verification and a full 1,023-entry SHA256 check; exact wall-clock time was not retained. The local Qwen→Codex read-only tool call completed before the M14 audit; exact completion time was not retained. Earlier project checkpoint `34892ce8163f37d946d314303d6dcd3d4ad871fd` (2026-10-01 20:41:59 +08:00).
+**Latest timed evidence:** 2026-10-06 16:52:07 +08:00 — M14 read-only evidence audit at `b1e75d3` returned PASS_WITH_DEFERRED, 0 failures and 5 deferred/not-tested groups. Later same-day T7 sync at commit `71f8248` passed bundle clone verification and a full 1,027-entry SHA256 check; exact wall-clock time was not retained. The local Qwen→Codex read-only tool call completed before the M14 audit; exact completion time was not retained. Earlier project checkpoint `34892ce8163f37d946d314303d6dcd3d4ad871fd` (2026-10-01 20:41:59 +08:00).
 **Timezone:** Asia/Taipei (+08:00), unless a source timestamp explicitly says UTC.
 **Time accounting rule:** ACTUAL dates/times below identify timestamped evidence events, not necessarily the start/end of human or agent work. Unless a test log has an explicit start and finish, elapsed working time is UNKNOWN. Git commit-to-commit gaps are not counted as labor.
 
