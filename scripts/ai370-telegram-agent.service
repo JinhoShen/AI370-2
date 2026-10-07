@@ -1,0 +1,17 @@
+[Unit]
+Description=AI370-2 Telegram remote Codex agent
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/AI370-2
+ExecStart=/usr/bin/python3 %h/AI370-2/scripts/telegram_agent.py
+LoadCredential=telegram_bot_token:%h/.config/ai370-telegram/bot-token
+Restart=on-failure
+RestartSec=10
+UMask=0077
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

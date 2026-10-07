@@ -10,6 +10,9 @@ __pycache__/
 .env
 credentials*
 *.key
+bot-token
+telegram-bot-token
+telegram-token.txt
 
 /vivado*.jou
 /vivado*.log
