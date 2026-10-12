@@ -1,18 +1,20 @@
-# Telegram Remote Agent
+# Telegram Remote Local Agent
 
-**Status: INSTALLED LOCALLY / BLOCKED pending BotFather credential and live pairing. Telegram end-to-end behavior is NOT TESTED.**
+**Status: Local Agent integration IMPLEMENTED; Telegram E2E BLOCKED pending BotFather credential and private-chat pairing.** No token is stored in Git and none was inspected during this work.
 
-The minimal user-level service is `scripts/ai370-telegram-agent.service`; the stdlib-only controller is `scripts/telegram_agent.py`. It uses Telegram Bot API long polling, does not install a Python package, and launches the existing Codex CLI in the AI370-2 repository with `workspace-write` sandbox plus Codex automatic approval review. The CLI's configured model/provider is used (currently `gpt-6-luna`); this does not claim the Telegram requests use local Qwen.
+The user-level service `scripts/ai370-telegram-agent.service` runs the stdlib controller `scripts/telegram_agent.py`. For `/work`, `/continue`, or ordinary text, the controller launches `scripts/local_agent.py` in the AI370-2 repository. The Local Agent calls the already loaded Qwen3.8 model through the local Lemonade endpoint `127.0.0.1:13305`; it does not launch Codex CLI, call OpenAI APIs, or use a cloud model. The code execution and patch boundaries are defined in [M13 RESULT](RESULT.md) and the [Local Agent source](../../scripts/local_agent.py).
+
+Telegram is only the remote transport. It requires Internet access to the Telegram Bot API and cannot transport messages while the host is offline. The Local Agent itself supports local inference and sandboxed tools without Internet. Telegram's long-poll process never executes message text as a shell command. Model-generated patches are restricted by the Local Agent's path and patch policy; verification commands are selected from a fixed allowlist. The Local Agent's RTL/XSim flow exposes only a fixed Vivado runner, with host NIC identity visible because the existing license is host-MAC-bound.
 
 Supported private-chat interactions:
 
-- `/status` — Git branch/HEAD, short project status and agent queue state.
-- `/work <request>` or plain text — submit work to Codex.
-- `/continue <request>` — queue additional instructions; queued work resumes the same Codex session when available.
-- `/cancel` — send an interrupt to the active Codex process.
-- `/help` — command list.
+- `/status` — Git branch/HEAD, short project status and Local Agent queue state.
+- `/work <request>` or plain text — start a local Qwen-backed task.
+- `/continue <request>` — queue an additional task for the Local Agent after the active job.
+- `/cancel` — interrupt the active Local Agent process group.
+- `/help` — list commands.
 
-Only a private chat can pair. The first pairing requires the locally generated one-time code. The paired Telegram user/chat identifiers and Codex session id are stored with mode 0600 under `~/.local/state/ai370-telegram/`; the bot token is loaded from a systemd credential sourced at `~/.config/ai370-telegram/bot-token`, outside Git. The controller does not execute Telegram text as a shell command. Work is delegated as a Codex prompt under the repository workspace sandbox.
+Only a private chat can pair. The first pairing requires the locally generated one-time code. Paired Telegram user/chat identifiers are stored with mode 0600 under `~/.local/state/ai370-telegram/`; the bot token is loaded from a systemd credential sourced at `~/.config/ai370-telegram/bot-token`, outside Git. The controller stores no Codex session and does not save full model traces for Telegram requests.
 
 ## Install and activate
 
@@ -34,8 +36,12 @@ python3 scripts/telegram_agent.py --show-pairing-code
 
 In the bot's private chat, send `/pair <code>`. Check service state with `systemctl --user status ai370-telegram-agent.service` and logs with `journalctl --user -u ai370-telegram-agent.service`.
 
-## Current evidence and limitation
+## Current verification and limits
 
-Inventory on 2026-10-07 found no pre-existing Telegram bot, token environment variable, Telegram systemd service, or Telegram connector. Codex CLI 0.159.2 is installed and supports `codex exec resume <session-id>`; its current configured default is `gpt-6-luna`. Local Qwen tool-loop evidence remains separate and does not establish this Telegram integration's provider.
+The standalone Local Agent's bounded Qwen → RTL → XSim error-feedback repair passed, and its policy suite passed 4/4. Telegram controller policy tests passed 4/4. These checks do not prove Telegram API access. No BotFather credential is currently configured, so the user service remains disabled; bot authentication, phone-to-host message delivery, private pairing, remote task execution, queued follow-up delivery and result delivery are **NOT TESTED / WAITING_USER**.
 
-Local policy tests cover private-chat pairing, group rejection, unauthorized-user rejection, and basic token redaction. Since no bot token is configured, the unit remains installed but disabled and the following are **NOT TESTED**: Telegram API authentication, phone-to-host message delivery, live Codex execution from Telegram, session continuation through Telegram, and result delivery. Do not mark this integration PASS until those are exercised with the owner's bot and paired private chat.
+A separate offline smoke confirmed local Qwen inference plus a local read-only tool result with Bubblewrap external network access blocked. The host was not physically disconnected, and the Telegram transport requires Internet by design. Do not mark Telegram E2E or full system air-gap PASS until independently exercised with the owner's bot and paired private chat.
+
+## Historical note
+
+Inventory on 2026-10-07 found no pre-existing Telegram bot, token environment variable, Telegram systemd service, or Telegram connector. The first controller prototype delegated to Codex CLI; that implementation is superseded by the current direct Local Agent path. The historical implementation and tests remain in Git history.

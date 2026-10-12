@@ -1,5 +1,5 @@
 [Unit]
-Description=AI370-2 Telegram remote Codex agent
+Description=AI370-2 Telegram remote Local AI Agent
 After=network-online.target
 
 [Service]

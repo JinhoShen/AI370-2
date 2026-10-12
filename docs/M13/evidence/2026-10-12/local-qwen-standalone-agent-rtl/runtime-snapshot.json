@@ -1,0 +1,29 @@
+{
+  "date_local": "2026-10-12 Asia/Taipei",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "device": "cpu",
+  "status": "ready",
+  "checkpoint": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+  "backend_url": "http://127.0.0.1:8001/v1",
+  "recipe_options": {
+    "ctx_size": 8192,
+    "llamacpp_args": "--n-gpu-layers 0 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --spec-type draft-mtp",
+    "llamacpp_backend": "cpu"
+  },
+  "llama_model_metadata": {
+    "vocab_type": 2,
+    "n_vocab": 248320,
+    "n_ctx": 8192,
+    "n_ctx_train": 262144,
+    "n_embd": 5120,
+    "n_params": 27320697856,
+    "size": 17548181504,
+    "ftype": "Q4_K - Medium"
+  },
+  "logical_cpus": 24,
+  "provider": "http://127.0.0.1:13305/api/v1/chat/completions",
+  "agent_subprocess_network_policy": "--unshare-all; host networking is not shared for offline smoke",
+  "xsim_network_note": "RTL/XSim verification used the explicitly fixed XSim tool under Bubblewrap with host network namespace visible because the existing Vivado FlexNet license is tied to a host NIC MAC; no external service was called by the Local Agent.",
+  "host_cpu_model": "AMD Ryzen AI 9 HX 370 with Radeon 890M",
+  "physical_cores": 12
+}

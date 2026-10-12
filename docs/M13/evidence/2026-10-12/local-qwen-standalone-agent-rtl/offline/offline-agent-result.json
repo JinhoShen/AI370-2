@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETED",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "xsim_runs": 0,
+  "patches": 0,
+  "result": "The exact content of marker.txt is AI3702_OFFLINE_MARKER_9c71e5b4",
+  "tool_trace": "local-agent-trace.jsonl"
+}

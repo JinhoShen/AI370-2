@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Allow one paired Telegram private chat to operate a sandboxed Codex session."""
+"""Allow one paired Telegram private chat to operate the local AI370-2 agent."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ STATE_FILE = STATE_DIR / "state.json"
 PAIR_FILE = STATE_DIR / "pairing-code"
 _credential_dir = os.environ.get("CREDENTIALS_DIRECTORY", "/nonexistent")
 TOKEN_FILE = Path(os.environ.get("AI370_TELEGRAM_TOKEN_FILE") or (Path(_credential_dir) / "telegram_bot_token"))
-CODEX = os.environ.get("AI370_CODEX_BIN", "/usr/local/bin/codex")
+LOCAL_AGENT = ROOT / "scripts/local_agent.py"
 MAX_MESSAGE = 3500
 
 
@@ -164,16 +164,19 @@ class Agent:
         command, _, argument = text.partition(" ")
         command = command.split("@", 1)[0].lower()
         if command in {"/start", "/help"}:
-            await self.send(chat_id, "可用指令：/status、/work <工作>、/continue <追加要求>、/cancel。一般文字也會作為工作要求。Codex 僅在 AI370-2 workspace-write sandbox 執行。")
+            await self.send(chat_id, "可用指令：/status、/work <工作>、/continue <追加要求>、/cancel。一般文字也會作為工作要求。本機 Qwen Local Agent 會在受限工具政策下執行；不呼叫 Codex 或雲端模型 API。")
         elif command == "/status":
-            state = "Codex 工作執行中" if self.job and not self.job.done() else "Codex 閒置"
+            state = "Local Agent 工作執行中" if self.job and not self.job.done() else "Local Agent 閒置"
             await self.send(chat_id, f"{await asyncio.to_thread(_safe_git_status)}\nAgent: {state}\n待處理要求: {self.queue.qsize()}")
         elif command == "/cancel":
             if self.process and self.process.returncode is None:
-                self.process.send_signal(signal.SIGINT)
-                await self.send(chat_id, "已送出 Codex 中斷要求；sandbox 中的工作可能需要數秒結束。")
+                try:
+                    os.killpg(self.process.pid, signal.SIGINT)
+                except ProcessLookupError:
+                    pass
+                await self.send(chat_id, "已送出 Local Agent 中斷要求；sandbox 中的工作可能需要數秒結束。")
             else:
-                await self.send(chat_id, "目前沒有執行中的 Codex 工作。")
+                await self.send(chat_id, "目前沒有執行中的 Local Agent 工作。")
         elif command in {"/work", "/continue"}:
             if not argument.strip():
                 await self.send(chat_id, f"用法：{command} <工作要求>")
@@ -191,50 +194,33 @@ class Agent:
         await self.queue.put((chat_id, prompt))
         position = self.queue.qsize()
         if self.job and not self.job.done():
-            await self.send(chat_id, f"已排入 Codex 工作佇列（第 {position} 項）；目前工作完成後會接續同一 session。")
+            await self.send(chat_id, f"已排入 Local Agent 工作佇列（第 {position} 項）；目前工作完成後會接續執行。")
         else:
-            await self.send(chat_id, "已接收工作要求，開始交由 Codex 執行。")
+            await self.send(chat_id, "已接收工作要求，開始交由本機 Qwen Local Agent 執行。")
             self.job = asyncio.create_task(self.run_queue())
 
     async def run_queue(self) -> None:
         while not self.queue.empty() and not self.stop.is_set():
             chat_id, prompt = await self.queue.get()
-            await self.run_codex(chat_id, prompt)
+            await self.run_local_agent(chat_id, prompt)
 
-    async def run_codex(self, chat_id: int, prompt: str) -> None:
+    async def run_local_agent(self, chat_id: int, prompt: str) -> None:
         _private_state_dir()
-        output_file = STATE_DIR / f"last-message-{int(time.time())}.txt"
-        session_id = self.state.get("codex_session_id")
-        system_prompt = (
-            "You are the AI370-2 engineering agent. Work only in the repository at /home/shen/AI370-2. "
-            "Respect repository instructions, preserve protected GPU/NPU/FPGA stacks, do not run hardware programming "
-            "or destructive operations unless the user explicitly requested that exact action, keep evidence truthful, "
-            "and report changes and verification. This Telegram message is the user's task."
+        task = (
+            "You are the AI370-2 Local Engineering Agent. Use only local Qwen and the provided local tools. "
+            "No Codex, OpenAI API, shell-command tool, or cloud service is available. Preserve protected GPU/NPU/FPGA "
+            "stacks, do not perform destructive operations or hardware programming, keep evidence truthful, and report "
+            "what changed and which fixed checks actually ran. User request follows:\n\n" + prompt
         )
-        full_prompt = f"{system_prompt}\n\nUser request:\n{prompt}" if not session_id else prompt
-        if session_id:
-            args = [CODEX, "exec", "resume", session_id, "--json", "--output-last-message", str(output_file), full_prompt]
-        else:
-            args = [CODEX, "exec", "--json", "--sandbox", "workspace-write", "--approve-for-me", "--cd", str(ROOT), "--output-last-message", str(output_file), full_prompt]
+        args = [sys.executable, str(LOCAL_AGENT), "--workspace", str(ROOT), "--task", task,
+                "--timeout", "300", "--max-calls", "8", "--total-timeout", "1800"]
         started = time.monotonic()
         try:
             self.process = await asyncio.create_subprocess_exec(
                 *args, cwd=ROOT, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE,
                 start_new_session=True, limit=4 * 1024 * 1024,
             )
-            async def collect_session_id() -> None:
-                async for raw_line in self.process.stdout:
-                    try:
-                        event = json.loads(raw_line)
-                        if event.get("type") in {"thread.started", "thread.resumed"}:
-                            tid = event.get("thread_id") or event.get("thread", {}).get("id")
-                            if tid:
-                                self.state["codex_session_id"] = tid
-                                _write_state(self.state)
-                    except (json.JSONDecodeError, AttributeError):
-                        continue
-
-            stdout_task = asyncio.create_task(collect_session_id())
+            stdout_task = asyncio.create_task(self.process.stdout.read())
             stderr_task = asyncio.create_task(self.process.stderr.read())
             last_ping = started
             while self.process.returncode is None:
@@ -244,18 +230,17 @@ class Agent:
                     pass
                 now = time.monotonic()
                 if now - last_ping >= 120 and self.process.returncode is None:
-                    await self.send(chat_id, "Codex 仍在執行；完成或遇到阻礙時會回報。")
+                    await self.send(chat_id, "Local Agent 仍在執行；完成或遇到阻礙時會回報。")
                     last_ping = now
-            await stdout_task
+            stdout = (await stdout_task).decode(errors="replace")
             stderr = (await stderr_task).decode(errors="replace")
-            result = output_file.read_text(errors="replace").strip() if output_file.exists() else ""
-            output_file.unlink(missing_ok=True)
+            result = stdout.strip()
             if not result:
-                result = f"Codex 結束，exit={self.process.returncode}，但沒有 final response。\n{stderr[-1200:]}"
+                result = f"Local Agent 結束，exit={self.process.returncode}，但沒有 final response。\n{stderr[-1200:]}"
             elapsed = int(time.monotonic() - started)
-            await self.send(chat_id, f"Codex 完成（exit {self.process.returncode}，{elapsed}s）：\n{result}")
+            await self.send(chat_id, f"Local Agent 完成（exit {self.process.returncode}，{elapsed}s）：\n{result}")
         except Exception as exc:  # report controller failures without exposing traceback or credentials
-            await self.send(chat_id, f"Codex 啟動/執行失敗：{type(exc).__name__}: {exc}")
+            await self.send(chat_id, f"Local Agent 啟動/執行失敗：{type(exc).__name__}: {exc}")
         finally:
             self.process = None
 

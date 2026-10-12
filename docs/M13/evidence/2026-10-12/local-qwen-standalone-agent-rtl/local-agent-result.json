@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "workspace": "/home/shen/AI370-2/output/M13/local-agent-rtl-xsim-2026-10-12-retry6",
+  "xsim_runs": 2,
+  "patches": 1,
+  "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+}
