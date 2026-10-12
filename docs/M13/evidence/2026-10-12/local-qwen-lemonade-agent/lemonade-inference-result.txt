@@ -1,0 +1,15 @@
+Bounded Lemonade Qwen3.8 CPU inference, observed 2026-10-12 during this execution:
+
+Model: Qwen3.8-27B-UD-Q4_K_M.gguf
+Backend: llama.cpp CPU
+Context: 128
+Threads / threads-batch: 24 / 24
+GPU layers: 0
+Parallel slots: 1
+Request: one short prompt; max_tokens=2
+HTTP result: 200
+Response text: READY
+Elapsed: approximately 1.814 s
+Afterward: model unloaded; Lemonade service remained active and health endpoint returned 200.
+
+This is a bounded availability smoke, not a benchmark or stress test.

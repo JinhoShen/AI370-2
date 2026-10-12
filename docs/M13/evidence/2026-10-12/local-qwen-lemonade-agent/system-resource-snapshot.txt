@@ -1,0 +1,15 @@
+Observed during 2026-10-12 readiness follow-up:
+CPU model: AMD Ryzen AI 9 HX 370 w/ Radeon 890M
+Logical CPUs: 24 (0-23 online)
+Physical cores: 12
+Installed RAM: 64 GB per user-provided hardware specification
+Linux MemTotal: 48,928,804 kB (~46.7 GiB host-visible)
+Radeon reported UMA/VRAM budget: 16 GiB (shared-memory view; not additive)
+Lemonade CPUQuotaPerSecUSec: infinity
+Lemonade MemoryMax: infinity
+Lemonade MemorySwapMax: 0
+Current host available RAM after the bounded test: approximately 41 GiB
+Host swap: 8 GiB total, approximately 5 GiB already in use
+Root filesystem: 915 GiB total, 147 GiB available
+
+No fixed CPU or RAM ceiling is configured for Lemonade. The per-request context/output bounds and no-swap service setting remain.

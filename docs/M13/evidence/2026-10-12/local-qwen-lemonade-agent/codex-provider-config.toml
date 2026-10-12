@@ -1,0 +1,10 @@
+model = "qwen3.8-local"
+model_provider = "llama-local"
+model_context_window = 8192
+model_reasoning_effort = "low"
+
+[model_providers.llama-local]
+name = "Local llama.cpp"
+base_url = "http://127.0.0.1:18080/v1"
+wire_api = "responses"
+requires_openai_auth = false

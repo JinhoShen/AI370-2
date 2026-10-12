@@ -1,0 +1,12 @@
+Tool invocation:
+source /home/shen/tools/Xilinx/2026.1/2026.1/Vitis/settings64.sh
+export XILINX_VIVADO=/home/shen/tools/Xilinx/2026.1/2026.1/Vivado
+export RDI_DATADIR=/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/data:/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/data:/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/../SharedData/data
+export TCL_LIBRARY=/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/tps/tcl/tcl8.6
+export LD_LIBRARY_PATH=/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/lib/lnx64.o:/home/shen/tools/Xilinx/2026.1/2026.1/Vitis/lib/lnx64.o/Ubuntu/24:$LD_LIBRARY_PATH
+cd /home/shen/tools/Xilinx/2026.1/2026.1/Vitis
+bin/unwrapped/lnx64.o/vitis_hls -version
+
+Exit status: 0
+License checkout: NOT TESTED
+Synthesis: NOT RUN

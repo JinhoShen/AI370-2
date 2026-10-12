@@ -62,6 +62,10 @@ The initial 2026-10-06 audits at 16:44:21 and 16:52:07 +08:00 both exited 0 with
 
 The M14 evidence auditor verifies both the read-only local-provider tool cycle and the new bounded same-model XSim feedback repair. The latter is a supervised one-file controller loop; broader autonomous multi-file repair, Ross-driven HLS and VS Code assistant integrations remain untested. The full workstation verifier was not rerun.
 
+## 2026-10-12 integration readiness observation
+
+The existing Lemonade and local-Qwen Agent services were checked without rerunning M14's broad HIP/Vulkan/NPU verifier. Lemonade's actual port 13305 health endpoint and a bounded CPU inference passed; a fresh read-only Codex-to-local-Qwen tool cycle passed and its complete event transcript is retained under [M13 evidence](../M13/evidence/2026-10-12/local-qwen-lemonade-agent/). The resource policy now follows this host's detected capacity: no fixed CPUQuota or MemoryMax, with swap still disabled for the model service; this is a host configuration observation, not newly verified rebuild automation. No protected stack or accelerator regression was run. M14 remains IN PROGRESS because the clean-host rebuild, recovery rehearsal and fully reproducible deployment closure are still unverified.
+
 
 ## 2026-10-05 local provider compatibility check
 
