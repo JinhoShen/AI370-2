@@ -1,0 +1,37 @@
+{
+  "trial": "B3",
+  "condition": "ross",
+  "sequence_position": 6,
+  "started_local": "2026-10-12T14:57:32+08:00",
+  "elapsed_seconds": 1180.544,
+  "exit_code": 1,
+  "agent_status": "FAIL",
+  "resource_guard_stop": null,
+  "resource_guard": {
+    "min_memavailable_mib": 6144,
+    "max_swap_increase_mib": 2048
+  },
+  "xsim_attempts": 2,
+  "xsim_pass_markers": 0,
+  "model_patch_count": 0,
+  "ross_call_count": 2,
+  "observed_prompt_tokens": 26219,
+  "observed_completion_tokens": 432,
+  "ross_call_names": [
+    "ross_skill_read",
+    "ross_doc_search"
+  ],
+  "metrics": {},
+  "process_peak_rss_mib": 28244.0,
+  "host_min_memavailable_mib": 28853.2,
+  "host_max_swap_used_mib": 5713.6,
+  "process_cpu_core_equivalent_percent": 2308.0,
+  "process_cpu_machine_percent": 96.2,
+  "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+  "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+  "result": {
+    "status": "FAIL",
+    "error": "missing agent JSON result",
+    "stdout_tail": ""
+  }
+}

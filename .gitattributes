@@ -1,4 +1,4 @@
-# Preserve captured vendor tool output byte-for-byte; whitespace is part of evidence.
-*.log -whitespace
-*.rpt -whitespace
-*.xdc -whitespace
+# These files are a verbatim snapshot of installed AMD Ross Skills. Preserve
+# upstream whitespace as evidence; ordinary project files retain default checks.
+docs/M13/ross-runtime-skills/** whitespace=-blank-at-eol,-blank-at-eof
+docs/M13/evidence/2026-10-12/ross-ab-benchmark/** whitespace=-blank-at-eol,-blank-at-eof

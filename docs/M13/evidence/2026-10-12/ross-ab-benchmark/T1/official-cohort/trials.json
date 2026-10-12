@@ -1,0 +1,257 @@
+[
+  {
+    "trial": "A1",
+    "condition": "non_ross",
+    "sequence_position": 1,
+    "started_local": "2026-10-12T13:30:00+08:00",
+    "elapsed_seconds": 1058.246,
+    "exit_code": 0,
+    "agent_status": "PASS",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 1,
+    "model_patch_count": 1,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 27374,
+    "observed_completion_tokens": 498,
+    "ross_call_names": [],
+    "metrics": {
+      "model_request_seconds": 1049.45,
+      "ross_mcp_seconds": 0.0,
+      "prompt_tokens": 27374,
+      "completion_tokens": 498
+    },
+    "process_peak_rss_mib": 28771.2,
+    "host_min_memavailable_mib": 28836.5,
+    "host_max_swap_used_mib": 5717.7,
+    "process_cpu_core_equivalent_percent": 2290.8,
+    "process_cpu_machine_percent": 95.5,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+    "result": {
+      "status": "PASS",
+      "model": "Qwen3.8-27B-UD-Q4_K_XL",
+      "workspace": "/home/shen/AI370-2/output/M13/ross-ab-benchmark-2026-10-12/T1-timeout600/A1/workspace",
+      "xsim_runs": 2,
+      "patches": 1,
+      "metrics": {
+        "model_request_seconds": 1049.45,
+        "ross_mcp_seconds": 0.0,
+        "prompt_tokens": 27374,
+        "completion_tokens": 498
+      },
+      "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+    }
+  },
+  {
+    "trial": "B1",
+    "condition": "ross",
+    "sequence_position": 2,
+    "started_local": "2026-10-12T13:47:39+08:00",
+    "elapsed_seconds": 1184.976,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 26221,
+    "observed_completion_tokens": 430,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 28196.0,
+    "host_min_memavailable_mib": 28958.9,
+    "host_max_swap_used_mib": 5716.1,
+    "process_cpu_core_equivalent_percent": 2308.8,
+    "process_cpu_machine_percent": 96.2,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "B2",
+    "condition": "ross",
+    "sequence_position": 3,
+    "started_local": "2026-10-12T14:07:24+08:00",
+    "elapsed_seconds": 1112.461,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 26216,
+    "observed_completion_tokens": 431,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 27683.6,
+    "host_min_memavailable_mib": 29485.2,
+    "host_max_swap_used_mib": 5715.4,
+    "process_cpu_core_equivalent_percent": 2306.1,
+    "process_cpu_machine_percent": 96.1,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "A2",
+    "condition": "non_ross",
+    "sequence_position": 4,
+    "started_local": "2026-10-12T14:25:56+08:00",
+    "elapsed_seconds": 991.236,
+    "exit_code": 0,
+    "agent_status": "PASS",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 1,
+    "model_patch_count": 1,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 27374,
+    "observed_completion_tokens": 498,
+    "ross_call_names": [],
+    "metrics": {
+      "model_request_seconds": 982.532,
+      "ross_mcp_seconds": 0.0,
+      "prompt_tokens": 27374,
+      "completion_tokens": 498
+    },
+    "process_peak_rss_mib": 29052.7,
+    "host_min_memavailable_mib": 28563.9,
+    "host_max_swap_used_mib": 5714.7,
+    "process_cpu_core_equivalent_percent": 2301.5,
+    "process_cpu_machine_percent": 95.9,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+    "result": {
+      "status": "PASS",
+      "model": "Qwen3.8-27B-UD-Q4_K_XL",
+      "workspace": "/home/shen/AI370-2/output/M13/ross-ab-benchmark-2026-10-12/T1-timeout600/A2/workspace",
+      "xsim_runs": 2,
+      "patches": 1,
+      "metrics": {
+        "model_request_seconds": 982.532,
+        "ross_mcp_seconds": 0.0,
+        "prompt_tokens": 27374,
+        "completion_tokens": 498
+      },
+      "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+    }
+  },
+  {
+    "trial": "A3",
+    "condition": "non_ross",
+    "sequence_position": 5,
+    "started_local": "2026-10-12T14:42:27+08:00",
+    "elapsed_seconds": 904.954,
+    "exit_code": 0,
+    "agent_status": "PASS",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 1,
+    "model_patch_count": 1,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 27119,
+    "observed_completion_tokens": 360,
+    "ross_call_names": [],
+    "metrics": {
+      "model_request_seconds": 896.209,
+      "ross_mcp_seconds": 0.0,
+      "prompt_tokens": 27119,
+      "completion_tokens": 360
+    },
+    "process_peak_rss_mib": 27538.5,
+    "host_min_memavailable_mib": 29457.3,
+    "host_max_swap_used_mib": 5714.0,
+    "process_cpu_core_equivalent_percent": 2296.5,
+    "process_cpu_machine_percent": 95.7,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+    "result": {
+      "status": "PASS",
+      "model": "Qwen3.8-27B-UD-Q4_K_XL",
+      "workspace": "/home/shen/AI370-2/output/M13/ross-ab-benchmark-2026-10-12/T1-timeout600/A3/workspace",
+      "xsim_runs": 2,
+      "patches": 1,
+      "metrics": {
+        "model_request_seconds": 896.209,
+        "ross_mcp_seconds": 0.0,
+        "prompt_tokens": 27119,
+        "completion_tokens": 360
+      },
+      "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+    }
+  },
+  {
+    "trial": "B3",
+    "condition": "ross",
+    "sequence_position": 6,
+    "started_local": "2026-10-12T14:57:32+08:00",
+    "elapsed_seconds": 1180.544,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 2,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 26219,
+    "observed_completion_tokens": 432,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 28244.0,
+    "host_min_memavailable_mib": 28853.2,
+    "host_max_swap_used_mib": 5713.6,
+    "process_cpu_core_equivalent_percent": 2308.0,
+    "process_cpu_machine_percent": 96.2,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  }
+]

@@ -1,0 +1,3 @@
+# T2 isolated multi-file RTL engineering task
+
+Extend the AXI-Lite register block with `REG_OPERAND_B` at byte address `0x10`. Software must be able to write and read the register. When `control[2]` is set, `REG_RESULT` must return the 32-bit wrapping sum `REG_INPUT + REG_OPERAND_B`. Preserve the existing default bitwise-complement mode and `control[1]` XOR-with-offset mode. The fixed self-checking testbench verifies all these behaviors. The top-level AXI register module and separate `axi_result_datapath` are distinct RTL files; the requested change requires both files to be updated consistently. Do not change the testbench or runner.

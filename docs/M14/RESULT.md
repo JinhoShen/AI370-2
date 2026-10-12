@@ -25,7 +25,7 @@ The verifier reported, rather than hiding, these conditions:
 
 - SP701 timing/bitstream `DEFERRED`: timing is unconstrained; bitstream remains blocked by NSTD-1/UCIO-1 due to missing verified board I/O constraints;
 - SP701 physical JTAG/programming/execution `NOT_TESTED`;
-- Ross HLS Skill execution, VS Code UI activation and local answer-model/end-to-end air-gap `NOT_TESTED`;
+- Ross HLS run-flow Skill and local Qwen HLS CSim/CSynth source-validation cohort later exercised under M13; VS Code UI activation and local answer-model/end-to-end air-gap remain `NOT_TESTED`;
 - Local LLM checks are backend readiness only; no model inference was run.
 
 Machine-readable status and the small set of underlying logs are retained in the evidence directory linked above. Full run output remains under ignored `output/M14/runs/20261002T103455+0800/`.
@@ -60,7 +60,7 @@ The read-only M14 evidence auditor was extended to verify the new local-Qwen sou
 
 The initial 2026-10-06 audits at 16:44:21 and 16:52:07 +08:00 both exited 0 with **PASS_WITH_DEFERRED**, 0 failures, and 5 deferred/not-tested groups. After adding the bounded Qwen→XSim feedback-repair evidence, the audit ran at 18:24:40 +08:00 and again exited 0 with **PASS_WITH_DEFERRED**, 0 failures and 5 deferred/not-tested groups. All M11/M12/M13 retained evidence, APT guard tests/safe simulation and current protected package/module versions passed. M15 unified regression was explicitly NOT_TESTED by this read-only audit. See [the original audit series](evidence/2026-10-06/read-only-evidence-audit/README.md) and [18:24 closeout audit](evidence/2026-10-06/read-only-evidence-audit-182440/README.md).
 
-The M14 evidence auditor verifies both the read-only local-provider tool cycle and the new bounded same-model XSim feedback repair. The latter is a supervised one-file controller loop; broader autonomous multi-file repair, Ross-driven HLS and VS Code assistant integrations remain untested. The full workstation verifier was not rerun.
+The M14 evidence auditor verifies both the read-only local-provider tool cycle and the bounded same-model XSim feedback repair. The original repair was a supervised one-file loop; subsequent isolated M13 A/B work attempted multi-file repair and Ross-assisted HLS source validation, with mixed results recorded in M13. These experiments do not verify M14-wide unattended automation. The full workstation verifier was not rerun.
 
 ## 2026-10-12 integration readiness observation
 
@@ -78,3 +78,15 @@ A standalone M13 probe (not part of the repeatable M14 workstation verifier) con
 The four Local Agent policy tests and four Telegram controller policy tests passed. The standalone Qwen→RTL→XSim repair executed with actual model/tool evidence and passed the existing testbench. The offline-mode Local Agent read a unique marker through its local tool; an external network probe inside the Bubblewrap tool namespace returned `errno=101`. The model API itself stayed on loopback. The new evidence manifest and complete transcript are in [standalone Local Agent evidence](../M13/evidence/2026-10-12/local-qwen-standalone-agent-rtl/README.md).
 
 This adds a tested bounded verification component to M14; it does not complete the unattended clean-host rebuild, full recovery rehearsal, offline dependency closure or whole-workstation automation. Telegram's code path now uses the Local Agent, but live Bot API authentication/pairing remains WAITING_USER. No protected stack or FPGA hardware was changed, and the full workstation verifier was not rerun.
+
+## 2026-10-13 Ross-agent policy and experiment support
+
+The Local Agent gained bounded opt-in AMD Ross Skill/local MCP calls and a guarded two-file patch policy for isolated M13 A/B trials. Policy unit tests and measured experiment results are documented in [M13 Ross benchmark report](../M13/M13_ROSS_AB_BENCHMARK_REPORT.md). This verifies the scoped agent component only; it does not verify M14's full workstation automation, offline rebuild, or recovery workflow. The broad verifier was not rerun.
+
+
+## 2026-10-13 M13 Ross benchmark closeout
+
+The fixed corrected M13 T2 multi-file A/B cohort has now completed all six trials; T1/T2/T3 outcomes and checksummed curated evidence are in [the M13 Ross benchmark report](../M13/M13_ROSS_AB_BENCHMARK_REPORT.md). This closes the benchmark sample collection, not the broader M14 automation scope. The M14 full workstation verifier and accelerator regressions were not rerun.
+
+
+The 2026-10-13 M13 experiment-support verification reran `python3 scripts/test_local_agent.py` (16/16) and `python3 scripts/test_telegram_agent.py` (4/4), Python byte-compilation for the Local Agent and T1/T2/HLS runners, and `bash -n` for the fixed T2/HLS validators. This is a scoped test-suite update; no M14-wide verifier or GPU/NPU/FPGA regression was rerun.

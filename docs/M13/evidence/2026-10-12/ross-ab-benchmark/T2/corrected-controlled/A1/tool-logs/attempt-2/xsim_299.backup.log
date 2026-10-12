@@ -1,0 +1,18 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Oct 13 01:34:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_attempt_2/xsim_script.tcl
+# xsim {tb_attempt_2} -testplusarg TEST_NEW_MODE -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+TEST_PASS multi_file_mode=1
+$finish called at time : 600 ns : File "/home/shen/AI370-2/output/M13/ross-ab-benchmark-2026-10-13/T2-corrected-controlled/A1/workspace/sim/tb_local_model_axi_lite.sv" Line 99
+exit
+INFO: xsimkernel Simulation Memory Usage: 142528 KB (Peak: 208064 KB), Simulation CPU Usage: 470 ms
+INFO: [Common 17-206] Exiting xsim at Tue Oct 13 01:34:35 2026...

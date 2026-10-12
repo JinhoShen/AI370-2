@@ -1,0 +1,2 @@
+Read TASK_SPEC.md and the RTL. This is one independent T1 trial. First read task/spec and DUT, then call run_xsim on unchanged baseline, diagnose its real output, submit the smallest RTL-only repair using apply_patch (or after a rejected diff, your exact apply_replacement), and rerun XSim. Do not change testbench or runner. Require the actual terminal PASS marker. Do not claim success otherwise.
+This is the non-Ross control: use only the provided source, task specification and fixed tools. Do not use or consult AMD Ross Skills or Knowledge Base.

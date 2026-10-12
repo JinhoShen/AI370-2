@@ -1,0 +1,1 @@
+Read TASK_SPEC.md, then read hls_config.cfg, src/invert32.cpp and src/testbench.cpp. Run the unchanged HLS baseline before patching. Diagnose actual C simulation output; fix only src/invert32.cpp and rerun until fixed C simulation and C synthesis both pass. Do not edit testbench/config. This is the non-Ross control. Do not call or consult any Ross tool.

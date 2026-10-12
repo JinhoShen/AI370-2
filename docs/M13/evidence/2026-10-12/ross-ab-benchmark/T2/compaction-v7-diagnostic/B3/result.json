@@ -1,0 +1,49 @@
+{
+  "trial": "B3",
+  "condition": "ross",
+  "sequence_position": 6,
+  "started_local": "2026-10-13T00:56:02+08:00",
+  "elapsed_seconds": 1006.639,
+  "exit_code": 1,
+  "agent_status": "FAIL",
+  "resource_guard_stop": null,
+  "hard_timeout": null,
+  "model_patch_count": 0,
+  "applied_patch_paths": [],
+  "ross_call_count": 2,
+  "ross_call_names": [
+    "ross_skill_read",
+    "ross_doc_search"
+  ],
+  "ross_call_seconds": 0.083,
+  "ross_context_chars": 1800,
+  "ross_mcp_chars": 1200,
+  "xsim_attempts": 1,
+  "xsim_pass_markers": 0,
+  "observed_prompt_tokens": 29041,
+  "observed_completion_tokens": 1150,
+  "process_peak_rss_mib": 27826.4,
+  "host_min_memavailable_mib": 29451.5,
+  "host_max_swap_used_mib": 5629.6,
+  "seed_source_sha256": {
+    "rtl/local_model_axi_lite.v": "e87539f4b67f0528c260af65c3125ba2f8fcc3a4c71980f078f79f7de13f5ef6",
+    "rtl/axi_result_datapath.v": "6d1d8cf66b473056031a7284b96a3a180d76a87ade0ae67c64f8405f74fc186f"
+  },
+  "final_source_sha256": {
+    "rtl/local_model_axi_lite.v": "e87539f4b67f0528c260af65c3125ba2f8fcc3a4c71980f078f79f7de13f5ef6",
+    "rtl/axi_result_datapath.v": "6d1d8cf66b473056031a7284b96a3a180d76a87ade0ae67c64f8405f74fc186f"
+  },
+  "result": {
+    "status": "FAIL",
+    "error": "missing Agent result JSON",
+    "stdout_tail": ""
+  },
+  "agent_policy": {
+    "request_timeout_seconds": 900,
+    "total_timeout_seconds": 2400,
+    "max_completion_tokens": 2048,
+    "max_tool_calls": 14,
+    "validation_attempt_cap": 3
+  },
+  "trial_wall_timeout_seconds": 2500
+}

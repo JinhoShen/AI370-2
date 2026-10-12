@@ -2,6 +2,16 @@
 
 **Current status: IN PROGRESS — the standalone Local Agent calls local Qwen/Lemonade directly and has a bounded RTL → XSim failure → model repair → XSim PASS; Telegram source invokes this Local Agent without Codex. Ross/Vivado MCP/HLS evidence remains separately verified. Live Telegram, full Vitis-agent workflow and full physical air-gap remain NOT TESTED; full M13 is not PASS.**
 
+## Ross + Local Qwen A/B work (2026-10-12/13)
+
+The completed bounded benchmark is recorded in [`M13_ROSS_AB_BENCHMARK_REPORT.md`](M13_ROSS_AB_BENCHMARK_REPORT.md), with raw per-trial traces and SHA256 manifest in [`evidence/2026-10-12/ross-ab-benchmark/`](evidence/2026-10-12/ross-ab-benchmark/). Genuine opt-in Ross Skill and local AMD Knowledge Base MCP calls were observed from the Local Agent. No Codex CLI or cloud model was used in the trial runtime.
+
+- T1 basic RTL repair: Non-Ross 3/3 PASS; Ross 0/3 PASS despite real Skill/MCP calls.
+- T2 multi-file RTL: initial T2-v5 cohort Non-Ross 2/3, Ross 0/3 after Ross-context/tool-call failures. A later fixed-prompt corrected 3×3 cohort passed Non-Ross 3/3 and Ross 1/3. Ross B1 passed after two rejected model patch formats and a third valid model-authored patch; B2/B3 exceeded the 8192-token context and did not patch source. T2-v6/v7 remain separately labeled exploratory diagnostics.
+- T3 HLS: fixed C-simulation/C-synthesis source-validation cohort passed 3/3 in both arms. Mean end-to-end time was 507.941 s Non-Ross and 521.613 s Ross; this sample shows no average time benefit (Ross 2.69% slower).
+
+**Ross assessment: PARTIAL; no general success or speed advantage established.** M13 remains IN PROGRESS, not PASS. Live Telegram remains WAITING_USER for a bot token; Qwen-driven Vivado Tcl control through MCP, Vitis Unified/Embedded agent workflow, and full physically disconnected operation remain NOT_TESTED/DEFERRED. M11/M12 hardware and protected accelerator stacks were not modified by this work.
+
 Review date: 2026-10-06 (Asia/Taipei). This result distinguishes AMD-published product statements from AI370-2 execution. Detailed local evidence is in [`evidence/2026-10-02/ROSS_M13_VALIDATION.md`](evidence/2026-10-02/ROSS_M13_VALIDATION.md) and the dated evidence linked below.
 
 ## OFFICIAL CONFIRMED

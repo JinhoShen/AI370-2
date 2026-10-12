@@ -1,0 +1,11 @@
+Captured UTC: 2026-10-12T17:13:19+00:00
+CPU: AMD Ryzen AI 9 HX 370 w/ Radeon 890M; logical CPUs=24; cores/socket=12
+Memory: Mem:            46Gi        17Gi       1.5Gi        40Mi        27Gi        28Gi
+Swap: Swap:          8.0Gi       5.5Gi       2.5Gi
+Local model: Qwen3.8-27B-UD-Q4_K_XL; existing Lemonade loopback OpenAI-compatible API; CPU inference; GPU layers 0.
+Model path: /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf
+Model size bytes: 17559178144 (previously inventoried; model not copied into evidence).
+Observed llama-server configuration: /home/shen/AI370-2/output/M6/build-cpu/bin/llama-server -m /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf --ctx-size 8192 --port 8001 --n-gpu-layers 0 --threads 24 --threads-batch 24
+No Kernel, Mesa, ROCm, HIP, GPU/NPU driver, XRT, amdxdna, firmware, Vivado installation, or FPGA programming changes were made for M13 Ross A/B runs.
+These runs used model CPU inference and software simulation/HLS tools only; not an offline host-disconnect test.
+Snapshot-time model server request active: False
