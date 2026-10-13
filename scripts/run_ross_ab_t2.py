@@ -7,12 +7,14 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SEED=ROOT/'docs/M13/evidence/2026-10-12/ross-ab-benchmark/T2/seed'
 OUT=Path(os.environ.get('AI370_ROSS_AB_OUT',str(ROOT/'output/M13/ross-ab-benchmark-2026-10-12/T2-multifile')))
-MODEL='Qwen3.8-27B-UD-Q4_K_XL'
+MODEL=os.environ.get('AI370_LOCAL_MODEL','Qwen3.8-27B-UD-Q4_K_XL')
 ROSS_URL=os.environ.get('AI370_ROSS_DOCSEARCH_URL','')
 ROSS_CONTEXT_CHARS=int(os.environ.get('AI370_ROSS_CONTEXT_CHARS','1800'))
 ROSS_MCP_CHARS=int(os.environ.get('AI370_ROSS_MCP_CHARS','1200'))
-REQUEST_TIMEOUT=900
-TOTAL_TIMEOUT=2400
+REQUEST_TIMEOUT=int(os.environ.get('AI370_MODEL_LAB_REQUEST_TIMEOUT','900'))
+TOTAL_TIMEOUT=int(os.environ.get('AI370_MODEL_LAB_TOTAL_TIMEOUT','2400'))
+COMPLETION_CAP=int(os.environ.get('AI370_MODEL_LAB_COMPLETION_CAP','2048'))
+TOOL_CALL_CAP=int(os.environ.get('AI370_MODEL_LAB_TOOL_CALL_CAP','14'))
 TRIAL_WALL_TIMEOUT=2500
 SEQUENCE=[tuple((p[0],int(p[1:]))) for p in os.environ.get('AI370_ROSS_AB_SEQUENCE','A1,B1,B2,A2,A3,B3').split(',')]
 
@@ -76,7 +78,7 @@ def run_trial(label,rep):
     # The model must read the exact specification through the workspace tool; avoid duplicating
     # its full text in the system prompt, which consumes scarce local-model context.
     task=(work/'TASK_INSTRUCTIONS.md').read_text()+"\nUse TASK_SPEC.md as the complete engineering request; do not infer requirements beyond it.\n"
-    command=[sys.executable,str(ROOT/'scripts/local_agent.py'),'--workspace',str(work),'--task',task,'--timeout',str(REQUEST_TIMEOUT),'--total-timeout',str(TOTAL_TIMEOUT),'--max-completion-tokens','2048','--max-calls','14','--multi-file-xsim','--editable-path','rtl/local_model_axi_lite.v','--editable-path','rtl/axi_result_datapath.v','--trace',str(trace)]
+    command=[sys.executable,str(ROOT/'scripts/local_agent.py'),'--workspace',str(work),'--task',task,'--timeout',str(REQUEST_TIMEOUT),'--total-timeout',str(TOTAL_TIMEOUT),'--max-completion-tokens',str(COMPLETION_CAP),'--max-calls',str(TOOL_CALL_CAP),'--multi-file-xsim','--editable-path','rtl/local_model_axi_lite.v','--editable-path','rtl/axi_result_datapath.v','--trace',str(trace)]
     if label=='B':
         if not ROSS_URL: raise RuntimeError('AI370_ROSS_DOCSEARCH_URL required for condition B')
         command += ['--ross-docsearch-url',ROSS_URL,'--ross-context-chars',str(ROSS_CONTEXT_CHARS),'--ross-mcp-chars',str(ROSS_MCP_CHARS)]

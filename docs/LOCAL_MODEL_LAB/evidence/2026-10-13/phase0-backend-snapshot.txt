@@ -1,0 +1,22 @@
+2026-10-13T08:41:04+08:00
+nproc=24
+MemTotal:       48928804 kB
+MemAvailable:   31642508 kB
+SwapTotal:       8388604 kB
+SwapFree:        2518352 kB
+llama-cli CPU: version: 0.5.0-dev (build 0, commit 7fe450e19305b828c199d602c23a8337aaa1f03b)
+
+[cpu devices]
+Available devices:
+  (none)
+
+[vulkan devices]
+Available devices:
+  Vulkan0: AMD Radeon 890M Graphics (RADV GFX1150) (40275 MiB, 39362 MiB free)
+
+[hip devices]
+Available devices:
+  ROCm0: AMD Radeon 890M Graphics (23891 MiB, 23886 MiB free)
+
+[active backend]
+{"model_name": "Qwen3.8-27B-UD-Q4_K_XL", "checkpoint": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf", "device": "cpu", "status": "ready", "backend_health": "ready", "launch_command": ["/home/shen/AI370-2/output/M6/build-cpu/bin/llama-server", "-m", "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf", "--ctx-size", "8192", "--port", "8001", "--jinja", "--metrics", "--n-gpu-layers", "0", "--parallel", "1", "--reasoning", "off", "--threads", "24", "--threads-batch", "24", "--spec-type", "draft-mtp"], "recipe_options": {"ctx_size": 8192, "llamacpp_args": "--n-gpu-layers 0 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --spec-type draft-mtp", "llamacpp_backend": "cpu"}, "pid": 3125377}

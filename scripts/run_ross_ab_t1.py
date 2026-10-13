@@ -17,10 +17,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/M13/evidence/2026-10-12/local-qwen-standalone-agent-rtl/source"
 OUT = Path(os.environ.get("AI370_ROSS_AB_OUT", str(ROOT / "output/M13/ross-ab-benchmark-2026-10-12/T1-timeout600")))
-MODEL = "Qwen3.8-27B-UD-Q4_K_XL"
+MODEL = os.environ.get("AI370_LOCAL_MODEL", "Qwen3.8-27B-UD-Q4_K_XL")
 ROSS_URL = os.environ.get("AI370_ROSS_DOCSEARCH_URL", "")
 FULL_SEQUENCE = [("A", 1), ("B", 1), ("B", 2), ("A", 2), ("A", 3), ("B", 3)]
 SEQUENCE = [tuple((part[0], int(part[1:]))) for part in os.environ.get("AI370_ROSS_AB_SEQUENCE", "A1,B1,B2,A2,A3,B3").split(",")]
+REQUEST_TIMEOUT = os.environ.get("AI370_MODEL_LAB_REQUEST_TIMEOUT", "600")
+TOTAL_TIMEOUT = os.environ.get("AI370_MODEL_LAB_TOTAL_TIMEOUT", "1800")
+COMPLETION_CAP = os.environ.get("AI370_MODEL_LAB_COMPLETION_CAP", "512")
+TOOL_CALL_CAP = os.environ.get("AI370_MODEL_LAB_TOOL_CALL_CAP", "12")
 
 
 def proc_snapshot(agent_pid: int) -> tuple[int, int, int, int]:
@@ -96,7 +100,7 @@ def run_trial(label: str, rep: int) -> dict:
     result_path = root / "result.json"
     task = (work / "TASK_INSTRUCTIONS.md").read_text() + "\nUser engineering request: " + (work / "TASK_SPEC.md").read_text()
     command = [sys.executable, str(ROOT / "scripts/local_agent.py"), "--workspace", str(work), "--task", task,
-               "--timeout", "600", "--total-timeout", "1800", "--max-calls", "12", "--xsim",
+               "--timeout", REQUEST_TIMEOUT, "--total-timeout", TOTAL_TIMEOUT, "--max-completion-tokens", COMPLETION_CAP, "--max-calls", TOOL_CALL_CAP, "--xsim",
                "--editable-path", "rtl/local_model_axi_lite.v", "--trace", str(trace)]
     if label == "B":
         if not ROSS_URL:

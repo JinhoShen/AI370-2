@@ -1,0 +1,77 @@
+{
+  "result": "PASS",
+  "local_time": "2026-10-13T08:35:27+0800",
+  "model_file": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+  "backend": "llama.cpp CPU server; --n-gpu-layers 0",
+  "backend_version": "0.5.0-dev (7fe450e19305b828c199d602c23a8337aaa1f03b)",
+  "context": 8192,
+  "threads": 24,
+  "threads_batch": 24,
+  "command": "POST http://127.0.0.1:8001/v1/chat/completions; temperature=0; max_tokens=2; prompt=\"Reply with exactly READY.\"",
+  "http_status": 200,
+  "elapsed_seconds": 1.102,
+  "response": {
+    "model": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "content": "READY",
+    "finish_reason": "stop",
+    "usage": {
+      "completion_tokens": 2,
+      "prompt_tokens": 17,
+      "total_tokens": 19,
+      "prompt_tokens_details": {
+        "cached_tokens": 13
+      }
+    },
+    "timings": {
+      "cache_n": 13,
+      "prompt_n": 4,
+      "prompt_ms": 715.569,
+      "prompt_per_token_ms": 178.89225,
+      "prompt_per_second": 5.589957083104495,
+      "predicted_n": 2,
+      "predicted_ms": 382.693,
+      "predicted_per_token_ms": 382.693,
+      "predicted_per_second": 2.613060599488363
+    }
+  },
+  "meminfo_before_bytes": {
+    "MemTotal": 50103095296,
+    "MemAvailable": 32390660096,
+    "SwapTotal": 8589930496,
+    "SwapFree": 2578206720
+  },
+  "meminfo_after_bytes": {
+    "MemTotal": 50103095296,
+    "MemAvailable": 32389824512,
+    "SwapTotal": 8589930496,
+    "SwapFree": 2578210816
+  },
+  "loaded_models": [
+    {
+      "name": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "model": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "modified_at": "",
+      "size": "",
+      "digest": "",
+      "type": "model",
+      "description": "",
+      "tags": [
+        ""
+      ],
+      "capabilities": [
+        "completion"
+      ],
+      "parameters": "",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "",
+        "families": [
+          ""
+        ],
+        "parameter_size": "",
+        "quantization_level": ""
+      }
+    }
+  ]
+}

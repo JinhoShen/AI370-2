@@ -1,0 +1,6 @@
+96d471ad2d67caed528a6a9de056f50be30578391a50691e64d4e412d267e0e1  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/README.md
+3c483751f7d277ad5a6803af625ff6633e3306c27e52e08918ff16cbd2571a1b  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/phase0-backend-snapshot.txt
+a08d4db0e56e53968d90bbe1341796472a7527e7761942df882a47bd8d69c8a8  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/phase0-inventory.tsv
+ea79b203784723e479004abc998e730d6ad6f9d739381d7edb80ad16f85db9bf  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/qwen38-xl-cpu-smoke.json
+d0f9257ce57928255c81842e1a5b886e7ab1d4613f1c8a52054bc7285bec8f71  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/qwen38-xl-lemonade-smoke.json
+ce57b6b1de313892d0ae1a5fff0b0183fb13cfc30b3dd327e2397abac1d74ab4  docs/LOCAL_MODEL_LAB/evidence/2026-10-13/qwen38xl-m13-baseline.json

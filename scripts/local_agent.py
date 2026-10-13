@@ -53,6 +53,10 @@ class AgentError(RuntimeError):
     pass
 
 
+def _verification_profile_enabled(*, xsim: bool, multi_file_xsim: bool, hls: bool) -> bool:
+    return xsim or multi_file_xsim or hls
+
+
 def _loopback_endpoint(base_url: str) -> str:
     parsed = urllib.parse.urlparse(base_url)
     if parsed.scheme != "http" or not parsed.hostname or parsed.username or parsed.password:
@@ -793,7 +797,7 @@ def main() -> int:
             result = agent.run()
         finally:
             agent.close()
-        verify_enabled = args.xsim or args.hls
+        verify_enabled = _verification_profile_enabled(xsim=args.xsim, multi_file_xsim=args.multi_file_xsim, hls=args.hls)
         status = "PASS" if verify_enabled and agent.xsim_passed and agent.patch_count >= 1 and agent.validation_count >= 2 else "COMPLETED"
         if verify_enabled and status != "PASS":
             raise AgentError("Task ended without a model-authored source patch and independently verified post-patch PASS")

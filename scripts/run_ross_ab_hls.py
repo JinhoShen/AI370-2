@@ -21,8 +21,12 @@ SOURCE = ROOT / "projects/FPGA/Ross_HLS_Skill_Smoke"
 OUT = Path(os.environ.get("AI370_ROSS_AB_OUT", str(ROOT / "output/M13/ross-ab-benchmark-2026-10-12/T3-HLS-timeout600")))
 ROSS_URL = os.environ.get("AI370_ROSS_DOCSEARCH_URL", "")
 SEQUENCE = [tuple((part[0], int(part[1:]))) for part in os.environ.get("AI370_ROSS_AB_SEQUENCE", "A1,B1,B2,A2,A3,B3").split(",")]
-MODEL = "Qwen3.8-27B-UD-Q4_K_XL"
-TRIAL_HARD_TIMEOUT = 1800
+MODEL = os.environ.get("AI370_LOCAL_MODEL", "Qwen3.8-27B-UD-Q4_K_XL")
+REQUEST_TIMEOUT = int(os.environ.get("AI370_MODEL_LAB_REQUEST_TIMEOUT", "600"))
+TOTAL_TIMEOUT = int(os.environ.get("AI370_MODEL_LAB_TOTAL_TIMEOUT", "1800"))
+COMPLETION_CAP = int(os.environ.get("AI370_MODEL_LAB_COMPLETION_CAP", "512"))
+TOOL_CALL_CAP = int(os.environ.get("AI370_MODEL_LAB_TOOL_CALL_CAP", "12"))
+TRIAL_HARD_TIMEOUT = TOTAL_TIMEOUT
 
 
 def seed(label: str, rep: int) -> Path:
@@ -61,7 +65,7 @@ def run_trial(label: str, rep: int) -> dict:
     trace, stdout, stderr = root / "local-agent-trace.jsonl", root / "stdout.json", root / "stderr.log"
     task = (work / "TASK_INSTRUCTIONS.md").read_text() + "\nEngineering specification:\n" + (work / "TASK_SPEC.md").read_text()
     command = [sys.executable, str(ROOT / "scripts/local_agent.py"), "--workspace", str(work), "--task", task,
-               "--timeout", "600", "--total-timeout", "1800", "--max-calls", "12", "--hls",
+               "--timeout", str(REQUEST_TIMEOUT), "--total-timeout", str(TOTAL_TIMEOUT), "--max-completion-tokens", str(COMPLETION_CAP), "--max-calls", str(TOOL_CALL_CAP), "--hls",
                "--editable-path", "src/invert32.cpp", "--trace", str(trace)]
     if label == "B":
         if not ROSS_URL:

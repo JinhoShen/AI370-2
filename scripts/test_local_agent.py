@@ -12,6 +12,12 @@ import local_agent
 
 
 class LocalAgentPolicyTests(unittest.TestCase):
+    def test_multi_file_xsim_requires_final_verification_pass(self):
+        self.assertTrue(local_agent._verification_profile_enabled(xsim=False, multi_file_xsim=True, hls=False))
+        self.assertTrue(local_agent._verification_profile_enabled(xsim=True, multi_file_xsim=False, hls=False))
+        self.assertTrue(local_agent._verification_profile_enabled(xsim=False, multi_file_xsim=False, hls=True))
+        self.assertFalse(local_agent._verification_profile_enabled(xsim=False, multi_file_xsim=False, hls=False))
+
     def test_completion_token_budget_is_bounded(self):
         agent = local_agent.LocalAgent(local_agent.ROOT, task="test", max_completion_tokens=2048)
         self.assertEqual(agent.max_completion_tokens, 2048)

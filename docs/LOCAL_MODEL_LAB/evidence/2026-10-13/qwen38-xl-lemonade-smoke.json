@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "local_time": "2026-10-13T08:40:24+0800",
+  "api": "http://127.0.0.1:13305/api/v1/chat/completions",
+  "model_id": "Qwen3.8-27B-UD-Q4_K_XL",
+  "active_backend": [
+    {
+      "model_name": "Qwen3.8-27B-UD-Q4_K_XL",
+      "checkpoint": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "device": "cpu",
+      "backend_health": "ready",
+      "status": "ready",
+      "launch_command": [
+        "/home/shen/AI370-2/output/M6/build-cpu/bin/llama-server",
+        "-m",
+        "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "--ctx-size",
+        "8192",
+        "--port",
+        "8001",
+        "--jinja",
+        "--metrics",
+        "--n-gpu-layers",
+        "0",
+        "--parallel",
+        "1",
+        "--reasoning",
+        "off",
+        "--threads",
+        "24",
+        "--threads-batch",
+        "24",
+        "--spec-type",
+        "draft-mtp"
+      ]
+    }
+  ],
+  "context_tokens": 8192,
+  "cpu_threads": 24,
+  "batch_threads": 24,
+  "gpu_layers": 0,
+  "prompt": "Reply with exactly READY.",
+  "request_max_tokens": 2,
+  "http_status": 200,
+  "elapsed_seconds": 0.957,
+  "response": {
+    "model": "Qwen3.8-27B-UD-Q4_K_XL",
+    "content": "READY",
+    "finish_reason": "stop",
+    "usage": {
+      "completion_tokens": 2,
+      "prompt_tokens": 17,
+      "prompt_tokens_details": {
+        "cached_tokens": 13
+      },
+      "total_tokens": 19
+    },
+    "timings": {
+      "cache_n": 13,
+      "predicted_ms": 389.904,
+      "predicted_n": 2,
+      "predicted_per_second": 2.564733883212278,
+      "predicted_per_token_ms": 389.904,
+      "prompt_ms": 561.404,
+      "prompt_n": 4,
+      "prompt_per_second": 7.124993765630455,
+      "prompt_per_token_ms": 140.351
+    }
+  },
+  "meminfo_before_bytes": {
+    "MemTotal": 50103095296,
+    "MemAvailable": 32374751232,
+    "SwapTotal": 8589930496,
+    "SwapFree": 2578755584
+  },
+  "meminfo_after_bytes": {
+    "MemTotal": 50103095296,
+    "MemAvailable": 32374484992,
+    "SwapTotal": 8589930496,
+    "SwapFree": 2578755584
+  },
+  "model_load_time": "NOT_INSTRUMENTED; model was already loaded"
+}

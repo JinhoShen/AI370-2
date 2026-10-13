@@ -14,6 +14,8 @@ Clean rebuild validation for AMD Ryzen AI 9 HX 370 / Radeon 890M / XDNA2 / FPGA.
 **2026-10-12 readiness update：** Lemonade 在實際設定的 `127.0.0.1:13305` 健康檢查與 bounded Qwen3.8 CPU inference 通過；新的 standalone 本機 Qwen→Local Agent RTL/XSim 修正閉環及 Vivado/Vitis/HLS 版本啟動通過；工具 sandbox 外網阻斷 smoke 通過。M13/M14 仍 IN PROGRESS，M15 仍 PRE-FINAL；Telegram 等待 BotFather token，沒有宣稱 FINAL_GOLDEN_PASS。詳見 [M15 readiness follow-up](docs/M15/RESULT.md) 與 [M13 evidence](docs/M13/evidence/2026-10-12/local-qwen-standalone-agent-rtl/)。
 
 **2026-10-13 Ross A/B update：** 本地 Qwen3.8 + Local Agent 已實際呼叫 Ross Skill 與本機 Knowledge Base MCP。T1 A=3/3、B=0/3；修正後 T2 A=3/3、B=1/3（另兩次 B 因 8192-token context overflow 失敗）；T3 兩組 3/3，但 Ross 平均慢 2.69%。正式 T2 3×3 cohort 已完成，先前 v5/v6/v7 為分開保留的診斷歷史。M13 維持 IN PROGRESS/PARTIAL，沒有宣稱 Ross 普遍提升成功率或速度。細節與失敗樣本見 [M13 Ross benchmark report](docs/M13/M13_ROSS_AB_BENCHMARK_REPORT.md)。
+
+**2026-10-13 Local Model Lab update：** 已盤點五個候選槽位並建立只會使用「已在 loopback server 載入模型」的 guarded runner。Qwen3.8 Q4_K_XL current CPU smoke PASS，正式 T1/T2/T3 A/B 數據沿用 M13；Gemma 4 有既有 bounded smoke evidence，但目前未載入。GPT-OSS 20B、Devstral Small 2 尚未安裝，RESERVED 尚未指定，因此沒有跨模型排名，Lab 維持 PARTIAL。沒有下載或切換正式模型。詳見 [Local Model Lab](docs/LOCAL_MODEL_LAB/RESULT.md) 與 [重跑流程](docs/LOCAL_MODEL_LAB/PROTOCOL.md)。
 Kernel更換、DKMS/amdxdna替換、XRT版本取捨、graphics regression風險、FPGA unsupported OS、破壞性操作及人工帳號/硬體要求依 Roadmap gate 管理。
 
 GPU、NPU、FPGA使用獨立環境；XRT 2.21/2.25禁止混裝。
