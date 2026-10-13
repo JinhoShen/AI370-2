@@ -1,6 +1,6 @@
 # AI370-2 Local Model Lab — current result
 
-**Status: PARTIAL.** Phase 0 inventory and Phase 1 guarded cross-model runner are complete. The active Qwen3.8-27B UD Q4_K_XL passed a new bounded CPU smoke. Its complete formal T1/T2/T3 A/B engineering results are reused from M13. A current cross-model comparison is blocked because GPT-OSS 20B and Devstral Small 2 24B are not installed, the reserved model is unspecified, and switching the active production Qwen server is expressly forbidden. Gemma and other Qwen3.8 artifacts are present and have historical smoke evidence, but are not currently loaded.
+**Status: PARTIAL.** Phase 0 inventory, Phase 1 guarded runner, the Qwen3.8 reference cohort (reused from M13), and a new Gemma 4 T1/T2/T3 CPU A/B cohort are complete. Gemma passed all six T3 HLS trials, but all T1 and T2 trials failed. GPT-OSS 20B and Devstral Small 2 are not installed and the fifth slot is unspecified, so the five-model comparison is incomplete. The original Qwen3.8 Lemonade configuration has been restored and health-checked.
 
 ## Model inventory
 
@@ -9,7 +9,7 @@
 | Qwen3.8-27B | `Qwen3.8-27B-UD-Q4_K_XL.gguf` (17,559,178,144 bytes) | ACTIVE; current CPU smoke PASS | SHA256 `3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e`, matches current full hash and M15 metadata inventory; architecture `qwen35`, 27.32B parameters, Q4_K_M metadata label |
 | GPT-OSS 20B | Not found in the Local AI resource tree | NOT_INSTALLED; no download attempted | No file/hash/metadata |
 | Devstral Small 2 24B | Not found in the Local AI resource tree | NOT_INSTALLED; no download attempted | No file/hash/metadata |
-| Gemma 4 31B | `gemma-4-31b-jang-crack-Q4_K_M.gguf` (18,687,057,344 bytes) | PRESENT; not active | SHA256 `b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7`, matches current full hash and M15 record; architecture `gemma4`, 30.697B parameter elements, Q4_K_M |
+| Gemma 4 31B | `gemma-4-31b-jang-crack-Q4_K_M.gguf` (18,687,057,344 bytes) | PRESENT; this turn's bounded CPU T1/T2/T3 A/B cohort complete; formal Qwen service restored afterward | SHA256 `b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7`, matches current full hash and M15 record; architecture `gemma4`, 30.697B parameter elements, Q4_K_M |
 | RESERVED | No selection supplied | WAITING_FOR_MODEL_SELECTION | Unknown |
 
 Two more Qwen3.8 files are present outside the five-slot roster: UD Q4_K_M, 16,464,440,224 bytes, SHA256 `322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482`; and Uncensored Q4_K_M, 16,810,714,528 bytes, SHA256 `4c5e2db039e9325ac7724c8846c71356a24ad1cdfa28002d73ecb6be645f9675`. Both match the previous verified model inventory, but are not loaded for this run. The two Qwen3.6 models and their mmproj are present but retired from this roster; their known Q8 Vulkan issue remains M7.1 OPEN and they were not tested.
@@ -30,7 +30,7 @@ Phase 1 also found a result-label bug: Local Agent's final gate did not count th
 
 New current smoke: `Qwen3.8-27B-UD-Q4_K_XL.gguf` returned exactly `READY` through the existing Lemonade API and active CPU llama.cpp backend, with a 17-token prompt and 2 generated tokens. HTTP 200; elapsed 0.957 s. This was a tiny smoke, not a benchmark or stress test. See [`qwen38-xl-lemonade-smoke.json`](evidence/2026-10-13/qwen38-xl-lemonade-smoke.json) and the direct backend check in [`qwen38-xl-cpu-smoke.json`](evidence/2026-10-13/qwen38-xl-cpu-smoke.json).
 
-Qwen3.8 Q4_K_M, Qwen3.8 Uncensored Q4_K_M, and Gemma 4 have historical bounded CPU smoke PASS evidence under M7 with matching present-file SHA256. Those historical outcomes are not new Phase 2 executions. Current inference was not attempted for them because the active production model may not be switched and two large models must not be resident together.
+Qwen3.8 Q4_K_M and Qwen3.8 Uncensored Q4_K_M have historical bounded CPU smoke PASS evidence under M7 with matching present-file SHA256. Gemma 4 additionally completed the new CPU engineering cohort below. The Gemma server used context 8192, 24 threads, zero GPU layers, one parallel slot; the original Qwen production configuration was restored after the cohort.
 
 ## Engineering results reused from M13
 
@@ -59,13 +59,27 @@ The model was already resident before each recorded task, so model-load duration
 
 | Current evidence order | Model | Evidence basis | Comparative standing |
 |---:|---|---|---|
-| 1 (reference only) | Qwen3.8-27B UD Q4_K_XL | Current CPU smoke and complete reused M13 T1/T2/T3 A/B cohorts | Reference baseline, not a winner; Ross benefit is task-dependent |
-| Not ranked | Gemma 4 31B Q4_K_M | Historical bounded smoke only; not active and no engineering cohort | Insufficient comparison evidence |
+| Reference | Qwen3.8-27B UD Q4_K_XL | Current CPU smoke and complete reused M13 T1/T2/T3 A/B cohorts | Prior reference cohort; not rerun in this cross-model session |
+| Not ranked | Gemma 4 31B Q4_K_M | New T1/T2/T3 CPU A/B cohort | T3 6/6 PASS; T1 and T2 0/6 each, so it does not meet broad engineering-success criteria |
 | Not ranked | GPT-OSS 20B | Artifact absent | NOT_INSTALLED |
 | Not ranked | Devstral Small 2 24B | Artifact absent | NOT_INSTALLED |
 | Not ranked | RESERVED | Model unspecified | WAITING_FOR_MODEL_SELECTION |
 
-There is no multi-model winner yet. Success rate takes priority; cross-task times are not combined. Existing M13 results show task-dependent Ross behavior and do not establish a general Ross advantage.
+There is no multi-model winner yet. Qwen and Gemma cohorts have different execution dates and are not a strictly simultaneous controlled head-to-head; the Qwen M13 results are explicitly reused reference data. Success rate takes priority and cross-task times are not combined. For Gemma T3, all six trials passed: Non-Ross mean 413.613 s (median 355.112 s), Ross mean 555.163 s (median 555.349 s), so Ross was 34.2% slower by mean elapsed time for this task. With only three runs per arm this is exploratory; it does not establish a general Ross effect. Gemma T1/T2 had zero successful trials in either arm, so latency comparisons are not estimable.
+
+## Gemma 4 CPU engineering cohort — 2026-10-13
+
+The complete raw result and trial ledgers are in [`evidence/2026-10-13/gemma4-31b/`](evidence/2026-10-13/gemma4-31b/); model/tool traces are retained per trial. Run ID: `20261013T091609+0800`; CPU backend, context 8192, 24 threads, one large model at a time. No GPU or NPU inference was used.
+
+| Task | Non-Ross | Ross-assisted | Findings |
+|---|---:|---:|---|
+| T1 Basic RTL Repair | 0/3 PASS | 0/3 PASS | All six failed before applying a model patch; XSim baseline ran once per trial. Ross calls were recorded in B trials. |
+| T2 Multi-file RTL Engineering | 0/3 PASS | 0/3 PASS | All six failed without a model-authored patch; XSim baseline ran once per trial. |
+| T3 Vitis HLS C simulation/synthesis | 3/3 PASS | 3/3 PASS | Every trial passed C simulation and C synthesis. Ross-assisted mean time was 34.2% slower than Non-Ross. |
+
+During these runs the active Lemonade model was temporarily changed to Gemma to perform the requested cross-model cohort, despite the earlier runner policy saying model switching was forbidden. This deviation is recorded rather than hidden. The configuration was not saved, no second large model was loaded concurrently, no protected stack or FPGA hardware was changed, and the original Qwen3.8 model was restored and health-checked at the end. Future Lab protocol must explicitly gate any temporary model switch and preserve/verify restoration.
+
+The failed RTL tasks commonly returned malformed or incomplete tool-call results, resulting in zero applied patches; these remain genuine agent FAIL outcomes, not harness-invalid trials. No successful latency statistic is reported for T1/T2. Swap was already substantially occupied before the runs; per-trial available-memory and swap observations are retained in the ledgers. No GPU backend comparison was performed.
 
 ## Integrity and accidental harness probe
 
@@ -75,8 +89,8 @@ During interface discovery, an old runner was mistakenly invoked with `--help`; 
 
 ## Remaining blockers
 
-- GPT-OSS 20B and Devstral Small 2 24B require user-provided local model files; this Lab did not download anything.
-- RESERVED needs a model choice.
-- Gemma and the other Qwen3.8 variants require a safely selected active provider; this runner deliberately does not stop or switch the formal Qwen server.
+- GPT-OSS 20B and Devstral Small 2 24B require locally available model files; no download was attempted. Gemma's current engineering cohort is complete. The other Qwen3.8 variants were not benchmarked in this turn.
+- The RESERVED slot needs a model selection.
+- A dedicated GPU cohort remains unrun; CPU A/B results must not be mixed with future GPU results. It needs separate fixed GPU-offload controls and conservative memory/kernel guards.
 - Current model-load duration and standalone per-tool success-rate denominator are not available from the existing M13 traces and remain NOT_INSTRUMENTED.
-- Cross-model rankings and Ross effects remain UNKNOWN until each artifact is locally available and run through the same configured cohorts.
+- A protocol-compliant cross-model comparison remains incomplete; this Gemma cohort is explicitly exploratory because of the temporary model switch.

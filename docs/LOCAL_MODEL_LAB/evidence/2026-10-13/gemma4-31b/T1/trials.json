@@ -1,0 +1,215 @@
+[
+  {
+    "trial": "A1",
+    "condition": "non_ross",
+    "sequence_position": 1,
+    "started_local": "2026-10-13T09:16:09+08:00",
+    "elapsed_seconds": 963.359,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 48961,
+    "observed_completion_tokens": 922,
+    "ross_call_names": [],
+    "metrics": {},
+    "process_peak_rss_mib": 694.7,
+    "host_min_memavailable_mib": 12596.0,
+    "host_max_swap_used_mib": 7978.3,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "B1",
+    "condition": "ross",
+    "sequence_position": 2,
+    "started_local": "2026-10-13T09:32:13+08:00",
+    "elapsed_seconds": 783.125,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 32644,
+    "observed_completion_tokens": 314,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 703.4,
+    "host_min_memavailable_mib": 11594.6,
+    "host_max_swap_used_mib": 7098.8,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "B2",
+    "condition": "ross",
+    "sequence_position": 3,
+    "started_local": "2026-10-13T09:45:16+08:00",
+    "elapsed_seconds": 787.445,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 34227,
+    "observed_completion_tokens": 190,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 718.8,
+    "host_min_memavailable_mib": 13395.9,
+    "host_max_swap_used_mib": 6847.0,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "A2",
+    "condition": "non_ross",
+    "sequence_position": 4,
+    "started_local": "2026-10-13T09:58:23+08:00",
+    "elapsed_seconds": 969.555,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 48961,
+    "observed_completion_tokens": 922,
+    "ross_call_names": [],
+    "metrics": {},
+    "process_peak_rss_mib": 714.6,
+    "host_min_memavailable_mib": 12189.0,
+    "host_max_swap_used_mib": 6807.2,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "A3",
+    "condition": "non_ross",
+    "sequence_position": 5,
+    "started_local": "2026-10-13T10:14:33+08:00",
+    "elapsed_seconds": 918.319,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 0,
+    "observed_prompt_tokens": 48943,
+    "observed_completion_tokens": 923,
+    "ross_call_names": [],
+    "metrics": {},
+    "process_peak_rss_mib": 714.0,
+    "host_min_memavailable_mib": 11442.1,
+    "host_max_swap_used_mib": 6942.3,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  },
+  {
+    "trial": "B3",
+    "condition": "ross",
+    "sequence_position": 6,
+    "started_local": "2026-10-13T10:29:51+08:00",
+    "elapsed_seconds": 784.694,
+    "exit_code": 1,
+    "agent_status": "FAIL",
+    "resource_guard_stop": null,
+    "resource_guard": {
+      "min_memavailable_mib": 6144,
+      "max_swap_increase_mib": 2048
+    },
+    "xsim_attempts": 1,
+    "xsim_pass_markers": 0,
+    "model_patch_count": 0,
+    "ross_call_count": 2,
+    "observed_prompt_tokens": 32644,
+    "observed_completion_tokens": 314,
+    "ross_call_names": [
+      "ross_skill_read",
+      "ross_doc_search"
+    ],
+    "metrics": {},
+    "process_peak_rss_mib": 714.6,
+    "host_min_memavailable_mib": 10535.2,
+    "host_max_swap_used_mib": 6919.6,
+    "process_cpu_core_equivalent_percent": 0.0,
+    "process_cpu_machine_percent": 0.0,
+    "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "final_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+    "result": {
+      "status": "FAIL",
+      "error": "missing agent JSON result",
+      "stdout_tail": ""
+    }
+  }
+]

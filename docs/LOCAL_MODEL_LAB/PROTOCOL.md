@@ -5,7 +5,7 @@ The Lab compares local model artifacts on the M13 engineering tasks without chan
 ## Fixed controls
 
 - Five roster entries are in [`../../config/local_model_lab.json`](../../config/local_model_lab.json). A model must exist locally and be the model already active in a loopback llama.cpp server before a test can run.
-- No model download, server start/stop, model hot swap, formal Agent setting change, cloud provider, or concurrent large-model load is performed by the runner.
+- No model download, server start/stop, model hot swap, formal Agent setting change, cloud provider, or concurrent large-model load is performed by the runner. Any separately authorized manual model-load experiment is outside the runner's fixed-protocol guarantee; it must be labeled exploratory if it conflicts with the no-switch restriction, and must preserve the original launch/configuration record and verify restoration. Such a run must not be presented as an acceptance-grade controlled cohort.
 - CPU is the engineering comparison backend. The active server must report the exact model path and launch with context 8192, 24 threads, 24 batch threads, and zero GPU layers. The settings are checked before a run.
 - The interleaved order is A1 → B1 → B2 → A2 → A3 → B3, with three trials per arm. Each trial has a fresh workspace from the same seed.
 - Per-task timeouts, completion-token caps, tool-call caps and validation caps are fixed in the JSON config and passed to the existing M13 runners. Patch cap remains enforced by Local Agent policy.

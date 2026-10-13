@@ -1,0 +1,31 @@
+
+****** vitis-run v2026.1 (64-bit)
+  **** SW Build 6511674 on 2026-06-16-13:16:19
+  **** Start of session at: Tue Oct 13 13:33:19 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+  **** HLS Build v2026.1 6493734
+INFO: [HLS 200-2005] Using work_dir /home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/runs/hls-csim 
+INFO: [HLS 200-2006] Changing directory to /home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/runs
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/runs/hls-csim/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/runs/hls-csim'.
+INFO: [HLS 200-2174] Applying component config ini file ../hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=src/invert32.cpp' from ../hls_config.cfg(2)
+INFO: [HLS 200-10] Adding design file '/home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/src/invert32.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=src/testbench.cpp' from ../hls_config.cfg(6)
+INFO: [HLS 200-10] Adding test bench file '/home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/src/testbench.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=invert32' from ../hls_config.cfg(3)
+INFO: [HLS 200-1465] Applying config ini 'clock=5ns' from ../hls_config.cfg(5)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/shen/AI370-2/output/LOCAL_MODEL_LAB/20261013T091609+0800/gemma4_31b/T3/A1/workspace/runs/hls-csim/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src/invert32.cpp in debug mode
+   Generating csim.exe
+PASS: 4 HLS C simulation vectors matched
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 0.57 seconds. Total CPU system time: 0.22 seconds. Total elapsed time: 0.71 seconds; peak allocated memory: 152.480 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 3s
