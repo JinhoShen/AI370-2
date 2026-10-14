@@ -1,0 +1,14 @@
+{
+  "backend": "vulkan",
+  "threads": 24,
+  "threads_batch": 24,
+  "layers": 99,
+  "context": 16384,
+  "batch": 2048,
+  "ubatch": 512,
+  "fa": "off",
+  "cache_k": "f16",
+  "cache_v": "f16",
+  "mtp": false,
+  "name": "engineering-vulkan-16384-fa-off"
+}

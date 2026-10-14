@@ -1,0 +1,62 @@
+{
+  "trial": "A1",
+  "condition": "non_ross",
+  "sequence_position": 1,
+  "started_local": "2026-10-13T20:34:32+08:00",
+  "elapsed_seconds": 591.183,
+  "exit_code": 0,
+  "agent_status": "PASS",
+  "resource_guard_stop": null,
+  "hard_timeout": null,
+  "model_patch_count": 1,
+  "applied_patch_paths": [
+    [
+      "rtl/local_model_axi_lite.v",
+      "rtl/axi_result_datapath.v"
+    ]
+  ],
+  "ross_call_count": 0,
+  "ross_call_names": [],
+  "ross_call_seconds": 0,
+  "ross_context_chars": null,
+  "ross_mcp_chars": null,
+  "xsim_attempts": 2,
+  "xsim_pass_markers": 1,
+  "observed_prompt_tokens": 28294,
+  "observed_completion_tokens": 2051,
+  "process_peak_rss_mib": 9465.8,
+  "host_min_memavailable_mib": 32398.8,
+  "host_max_swap_used_mib": 7796.8,
+  "process_cpu_machine_percent": 1.2,
+  "process_cpu_core_equivalent_percent": 28.4,
+  "seed_source_sha256": {
+    "rtl/local_model_axi_lite.v": "e87539f4b67f0528c260af65c3125ba2f8fcc3a4c71980f078f79f7de13f5ef6",
+    "rtl/axi_result_datapath.v": "6d1d8cf66b473056031a7284b96a3a180d76a87ade0ae67c64f8405f74fc186f"
+  },
+  "final_source_sha256": {
+    "rtl/local_model_axi_lite.v": "c681c1bb6b577c00fac518285555fe71a398c5f69f465983b83f024aed6b07f4",
+    "rtl/axi_result_datapath.v": "33f72ddb2987b77ea1d616ff82b2353b35e6f263b722e4352f69e9e61c789d09"
+  },
+  "result": {
+    "status": "PASS",
+    "model": "Qwen3.8-27B-UD-Q4_K_XL",
+    "workspace": "/home/shen/AI370-2/output/LOCAL_MODEL_LAB_PRACTICAL/20261013T182657+0800/qwen38/T2/A1/workspace",
+    "xsim_runs": 2,
+    "patches": 1,
+    "metrics": {
+      "model_request_seconds": 582.92,
+      "ross_mcp_seconds": 0.0,
+      "prompt_tokens": 28294,
+      "completion_tokens": 2051
+    },
+    "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+  },
+  "agent_policy": {
+    "request_timeout_seconds": 900,
+    "total_timeout_seconds": 2400,
+    "max_completion_tokens": 2048,
+    "max_tool_calls": 14,
+    "validation_attempt_cap": 3
+  },
+  "trial_wall_timeout_seconds": 2500
+}

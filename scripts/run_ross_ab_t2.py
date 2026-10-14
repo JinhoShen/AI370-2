@@ -28,7 +28,7 @@ def snapshot(root_pid:int):
             ppid=int(tail[1]); ticks=int(tail[11])+int(tail[12]); rss=int(tail[21])*os.sysconf('SC_PAGE_SIZE')//1024
             cmd=(entry/'cmdline').read_bytes().replace(b'\0',b' ').decode(errors='ignore')
             table[pid]=(ppid,ticks,rss)
-            if 'Qwen3.8-27B-UD-Q4_K_XL.gguf' in cmd: table[pid]=(-1,ticks,rss)
+            if pid == int(os.environ.get('AI370_MODEL_LAB_SERVER_PID', '0')) or ('llama-server' in cmd and os.environ.get('AI370_MODEL_LAB_MODEL_PATH', 'Qwen3.8-27B-UD-Q4_K_XL.gguf') in cmd): table[pid]=(-1,ticks,rss)
         except (OSError,ValueError,IndexError): pass
     descendants={root_pid}; changed=True
     while changed:

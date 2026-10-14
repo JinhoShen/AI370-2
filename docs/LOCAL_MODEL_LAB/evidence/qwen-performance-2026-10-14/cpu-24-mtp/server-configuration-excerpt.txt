@@ -1,0 +1,79 @@
+0.00.382.358 I llama_context: n_ctx                 = 8192
+0.00.382.359 I llama_context: n_batch               = 2048
+0.00.382.359 I llama_context: n_ubatch              = 512
+0.00.382.361 I llama_context: flash_attn            = auto
+0.00.382.529 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+0.00.527.175 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free     self   model   context   compute    unaccounted |
+0.00.860.978 I llama_context: n_ctx                 = 8192
+0.00.860.978 I llama_context: n_batch               = 2048
+0.00.860.978 I llama_context: n_ubatch              = 512
+0.00.860.979 I llama_context: flash_attn            = auto
+0.00.861.041 I llama_kv_cache: size =   32.00 MiB (  8192 cells,   1 layers,  1/1 seqs), K (f16):   16.00 MiB, V (f16):   16.00 MiB
+0.00.863.440 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free     self   model   context   compute    unaccounted |
+0.02.529.650 I llama_context: n_ctx                 = 8192
+0.02.529.650 I llama_context: n_batch               = 2048
+0.02.529.651 I llama_context: n_ubatch              = 512
+0.02.529.652 I llama_context: flash_attn            = auto
+0.02.610.602 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+0.03.048.135 I llama_context: n_ctx                 = 8192
+0.03.048.136 I llama_context: n_batch               = 2048
+0.03.048.136 I llama_context: n_ubatch              = 512
+0.03.048.137 I llama_context: flash_attn            = auto
+0.03.053.383 I llama_kv_cache: size =   32.00 MiB (  8192 cells,   1 layers,  1/1 seqs), K (f16):   16.00 MiB, V (f16):   16.00 MiB
+0.03.155.851 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192
+0.03.510.715 D srv        decode: n_batch (effective) = 2048, off = 0
+0.06.840.079 D srv        decode: n_batch (effective) = 2048, off = 0
+0.07.376.872 D srv        decode: n_batch (effective) = 2048, off = 0
+0.07.811.720 D srv        decode: n_batch (effective) = 2048, off = 0
+0.08.135.251 D srv        decode: n_batch (effective) = 2048, off = 0
+0.11.529.007 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.037.097 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.538.353 D srv        decode: n_batch (effective) = 2048, off = 0
+0.13.052.821 D srv        decode: n_batch (effective) = 2048, off = 0
+0.13.623.744 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.146.745 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.680.674 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.212.400 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.742.762 D srv        decode: n_batch (effective) = 2048, off = 0
+0.16.268.889 D srv        decode: n_batch (effective) = 2048, off = 0
+0.16.816.804 D srv        decode: n_batch (effective) = 2048, off = 0
+0.17.347.696 D srv        decode: n_batch (effective) = 2048, off = 0
+0.18.093.506 D srv        decode: n_batch (effective) = 2048, off = 0
+0.18.612.409 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.138.861 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.667.365 D srv        decode: n_batch (effective) = 2048, off = 0
+0.20.083.885 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.479.509 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.957.229 D srv        decode: n_batch (effective) = 2048, off = 0
+0.24.468.877 D srv        decode: n_batch (effective) = 2048, off = 0
+0.24.979.898 D srv        decode: n_batch (effective) = 2048, off = 0
+0.25.504.882 D srv        decode: n_batch (effective) = 2048, off = 0
+0.26.026.043 D srv        decode: n_batch (effective) = 2048, off = 0
+0.26.548.677 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.108.240 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.638.225 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.163.568 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.689.146 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.209.295 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.750.203 D srv        decode: n_batch (effective) = 2048, off = 0
+0.30.283.465 D srv        decode: n_batch (effective) = 2048, off = 0
+0.30.820.858 D srv        decode: n_batch (effective) = 2048, off = 0
+0.31.389.905 D srv        decode: n_batch (effective) = 2048, off = 0
+0.31.803.122 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.185.635 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.891.845 D srv        decode: n_batch (effective) = 2048, off = 0
+0.36.370.869 D srv        decode: n_batch (effective) = 2048, off = 0
+0.36.911.314 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.430.542 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.940.610 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.459.827 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.974.207 D srv        decode: n_batch (effective) = 2048, off = 0
+0.39.521.438 D srv        decode: n_batch (effective) = 2048, off = 0
+0.40.035.571 D srv        decode: n_batch (effective) = 2048, off = 0
+0.40.592.707 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.110.151 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.634.043 D srv        decode: n_batch (effective) = 2048, off = 0
+0.42.188.248 D srv        decode: n_batch (effective) = 2048, off = 0
+0.42.717.476 D srv        decode: n_batch (effective) = 2048, off = 0
+0.43.236.819 D srv        decode: n_batch (effective) = 2048, off = 0
+0.43.648.327 I common_memory_breakdown_print: | memory breakdown [MiB] | total   free     self   model   context   compute    unaccounted |

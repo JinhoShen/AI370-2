@@ -1,0 +1,9 @@
+{
+  "prompt": "Explain the distinction between AXI4-Lite write address and write data handshakes. Describe how a register block should preserve a pending address until data is accepted, how it emits the response, and how a self-checking simulation detects lost transactions. Use concise engineering prose. Do not produce commands.\nAnswer:",
+  "n_predict": 32,
+  "temperature": 0,
+  "seed": 42,
+  "ignore_eos": true,
+  "cache_prompt": false,
+  "stream": true
+}

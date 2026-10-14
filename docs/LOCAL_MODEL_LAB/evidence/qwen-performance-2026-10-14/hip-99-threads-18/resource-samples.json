@@ -1,0 +1,92 @@
+[
+  {
+    "monotonic": 1209419.360969628,
+    "available_kib": 43599712,
+    "swap_kib": 6970048,
+    "rss_bytes": 438272,
+    "cpu_ticks": 0,
+    "gpu_busy_percent": 76,
+    "pswpin": 4276285,
+    "pswpout": 7485196
+  },
+  {
+    "monotonic": 1209419.870542054,
+    "available_kib": 43227772,
+    "swap_kib": 6970048,
+    "rss_bytes": 293191680,
+    "cpu_ticks": 37,
+    "gpu_busy_percent": 47,
+    "pswpin": 4276285,
+    "pswpout": 7485196
+  },
+  {
+    "monotonic": 1209420.371535123,
+    "available_kib": 38301752,
+    "swap_kib": 6970048,
+    "rss_bytes": 301727744,
+    "cpu_ticks": 88,
+    "gpu_busy_percent": 28,
+    "pswpin": 4276285,
+    "pswpout": 7485196
+  },
+  {
+    "monotonic": 1209420.872575631,
+    "available_kib": 27557536,
+    "swap_kib": 6970168,
+    "rss_bytes": 477949952,
+    "cpu_ticks": 138,
+    "gpu_busy_percent": 17,
+    "pswpin": 4276285,
+    "pswpout": 7485226
+  },
+  {
+    "monotonic": 1209421.373375881,
+    "available_kib": 27181160,
+    "swap_kib": 6970168,
+    "rss_bytes": 861728768,
+    "cpu_ticks": 188,
+    "gpu_busy_percent": 11,
+    "pswpin": 4276285,
+    "pswpout": 7485226
+  },
+  {
+    "monotonic": 1209421.874429454,
+    "available_kib": 26994932,
+    "swap_kib": 6970168,
+    "rss_bytes": 1056677888,
+    "cpu_ticks": 238,
+    "gpu_busy_percent": 24,
+    "pswpin": 4276285,
+    "pswpout": 7485226
+  },
+  {
+    "monotonic": 1209422.37544231,
+    "available_kib": 27003316,
+    "swap_kib": 6978080,
+    "rss_bytes": 1069850624,
+    "cpu_ticks": 289,
+    "gpu_busy_percent": 37,
+    "pswpin": 4276287,
+    "pswpout": 7486987
+  },
+  {
+    "monotonic": 1209422.87664523,
+    "available_kib": 26225596,
+    "swap_kib": 7013560,
+    "rss_bytes": 1075904512,
+    "cpu_ticks": 339,
+    "gpu_busy_percent": 33,
+    "pswpin": 4276288,
+    "pswpout": 7495825
+  },
+  {
+    "monotonic": 1209423.378495125,
+    "available_kib": 26184428,
+    "swap_kib": 7042668,
+    "rss_bytes": 1141100544,
+    "cpu_ticks": 412,
+    "gpu_busy_percent": 55,
+    "pswpin": 4276288,
+    "pswpout": 7503074
+  }
+]

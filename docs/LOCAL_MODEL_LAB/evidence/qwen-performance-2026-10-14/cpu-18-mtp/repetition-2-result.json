@@ -1,0 +1,8 @@
+{
+  "ttft_seconds": 3.886164230061695,
+  "elapsed_seconds": 11.946267222054303,
+  "prompt_tokens": 64,
+  "output_tokens": 32,
+  "prompt_tokens_per_second": 16.48026796915718,
+  "generation_tokens_per_second": 3.8463361414895845
+}

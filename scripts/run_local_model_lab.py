@@ -209,8 +209,8 @@ def normalize_run(model_key: str, task: str, ledger: dict[str, Any], trial_root:
             "minimum_memavailable_mib": trial.get("host_min_memavailable_mib"),
             "maximum_swap_mib": trial.get("host_max_swap_used_mib"),
             "cpu_machine_percent": trial.get("process_cpu_machine_percent"),
-            "source_sha256_before": trial.get("seed_source_sha256"),
-            "source_sha256_after": trial.get("final_source_sha256"),
+            "source_sha256_before": trial.get("seed_source_sha256", trial.get("seed_rtl_sha256")),
+            "source_sha256_after": trial.get("final_source_sha256", trial.get("final_rtl_sha256")),
             "resource_guard_stop": trial.get("resource_guard_stop"),
             "raw": trial,
         })

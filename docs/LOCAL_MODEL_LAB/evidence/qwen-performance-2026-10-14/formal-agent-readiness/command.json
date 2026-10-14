@@ -1,0 +1,22 @@
+[
+  "python3",
+  "scripts/local_agent.py",
+  "--workspace",
+  "/home/shen/AI370-2/output/QWEN_PERFORMANCE_OPTIMIZATION/20261014T181144+0800/formal-agent-readiness/workspace",
+  "--task",
+  "Use read_file to read READINESS.md. Return its check identifier exactly. Do not modify files or run validation tools.",
+  "--model",
+  "Qwen3.8-27B-UD-Q4_K_XL",
+  "--base-url",
+  "http://127.0.0.1:13305/api/v1",
+  "--timeout",
+  "180",
+  "--total-timeout",
+  "300",
+  "--max-completion-tokens",
+  "128",
+  "--max-calls",
+  "3",
+  "--trace",
+  "/home/shen/AI370-2/output/QWEN_PERFORMANCE_OPTIMIZATION/20261014T181144+0800/formal-agent-readiness/trace.jsonl"
+]

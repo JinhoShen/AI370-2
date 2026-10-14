@@ -42,7 +42,7 @@ def proc_snapshot(agent_pid: int) -> tuple[int, int, int, int]:
             rss = int(tail[21]) * os.sysconf("SC_PAGE_SIZE") // 1024
             cmd = (entry / "cmdline").read_bytes().replace(b"\0", b" ").decode(errors="ignore")
             table[pid] = (ppid, ticks, rss)
-            if "Qwen3.8-27B-UD-Q4_K_XL.gguf" in cmd:
+            if pid == int(os.environ.get("AI370_MODEL_LAB_SERVER_PID", "0")) or ("llama-server" in cmd and os.environ.get("AI370_MODEL_LAB_MODEL_PATH", "Qwen3.8-27B-UD-Q4_K_XL.gguf") in cmd):
                 table[pid] = (-1, ticks, rss)
         except (OSError, ValueError, IndexError):
             continue
@@ -106,6 +106,8 @@ def run_trial(label: str, rep: int) -> dict:
         if not ROSS_URL:
             raise RuntimeError("AI370_ROSS_DOCSEARCH_URL is required for Ross condition B")
         command += ["--ross-docsearch-url", ROSS_URL]
+        if "AI370_ROSS_CONTEXT_CHARS" in os.environ:
+            command += ["--ross-context-chars", os.environ["AI370_ROSS_CONTEXT_CHARS"], "--ross-mcp-chars", os.environ["AI370_ROSS_MCP_CHARS"]]
     before_hash = hashlib.sha256((work / "rtl/local_model_axi_lite.v").read_bytes()).hexdigest()
     start_local = datetime.now().astimezone().isoformat(timespec="seconds")
     start = time.monotonic()

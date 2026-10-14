@@ -1,5 +1,30 @@
 # Local Model Lab protocol
 
+## Practical comparison requested after the CPU reference cohort
+
+The user's current objective is to select the model that completes FPGA engineering tasks most reliably and quickly on this workstation. CPU-only is no longer a requirement for this new comparison. The historical CPU cohorts below retain their original controls and outcomes.
+
+`scripts/run_local_model_lab_practical.py` reuses the existing M13 Local Agent, Ross tools, task seeds, fixed testbenches and sandbox. It measures CPU, ROCm and Vulkan configurations sequentially, then selects the fastest successfully measured configuration for each available roster model. Each GPU configuration first completes a partial-offload probe before full offload is attempted. Backend choice is based on a declared throughput proxy, `512 / prompt_tokens_per_second + 128 / generation_tokens_per_second`; this is a selection heuristic, not an engineering task result or proof of a globally optimal configuration.
+
+- All OS-available logical CPUs are available to inference; the current machine supplies 24 threads. No four-core affinity or process-memory cap is imposed.
+- Each measured final configuration uses three throughput repetitions. Partial GPU probes are readiness gates and are excluded from performance ranking.
+- Engineering context is 16,384 tokens with a 2,048-token completion budget, the same task timeout/tool-call caps for every model, and the same A1 → B1 → B2 → A2 → A3 → B3 order. This is a new cohort, separate from the earlier 8,192-token CPU reference.
+- T1/T2/T3 specifications, baseline bugs and fixed testbenches are unchanged. T1/T2 successful agent trials additionally undergo independent Vivado synthesis of the model-authored final sources. This post-agent synthesis does not imply the model autonomously diagnosed synthesis errors or achieved implementation/timing closure.
+- Temporary test-model loads are declared. The production Qwen is unloaded before starting test models, one large model runs at a time, and the original Lemonade model/runtime configuration is restored and checked in `finally`. No `--save-options` or formal Agent model-setting change is used.
+- Runtime launch settings, backend calibration JSON, actual offload evidence, model-load time, per-trial ledgers and tool/model/Ross traces are saved. CPU/GPU selection is reported explicitly; no silent fallback is counted as GPU PASS.
+- Host memory, swap growth and targeted kernel fault guards remain active. A serious GPU/kernel fault stops the experiment. Missing models are recorded without downloading replacements.
+- A malformed patch now receives structured correction feedback and enables the existing exact model-authored replacement tool where that task permits it. Failure traces preserve the submitted arguments. These common harness changes apply to every model and do not alter RTL solutions or testbench checks.
+
+Run the practical comparison with existing resources:
+
+```bash
+python3 -u scripts/run_local_model_lab_practical.py
+```
+
+Raw output goes to `output/LOCAL_MODEL_LAB_PRACTICAL/<actual-run-id>/`. Historical Qwen/Gemma CPU results are references only; the new ranking must use the new complete cohorts, include all failures, and keep task-specific timing separate.
+
+## Historical CPU reference protocol
+
 The Lab compares local model artifacts on the M13 engineering tasks without changing the production Agent model. It reuses the fixed T1 Basic RTL Repair, T2 Multi-file RTL Engineering, and T3 Vitis HLS Engineering source, testbench, validator, Ross tools, and isolated-workspace policy.
 
 ## Fixed controls

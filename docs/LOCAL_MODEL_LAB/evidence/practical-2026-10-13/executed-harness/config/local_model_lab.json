@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "purpose": "Cross-model local FPGA engineering benchmark using the existing M13 tasks and bounded runners.",
+  "model_root": "resources/Agent_Tools_Docs/04_Local_AI/GGUF",
+  "provider": {
+    "api_base": "http://127.0.0.1:13305/api/v1",
+    "backend": "Lemonade loopback API backed by llama.cpp CPU server",
+    "context": 8192,
+    "threads": 24,
+    "gpu_layers": 0,
+    "model_switching": "FORBIDDEN; runner only uses a model already reported by the active loopback server"
+  },
+  "fixed_sequence": ["A1", "B1", "B2", "A2", "A3", "B3"],
+  "repetitions_per_arm": 3,
+  "resource_guard": {
+    "minimum_memavailable_bytes": "max(6 GiB, 12.5% of OS-visible RAM)",
+    "maximum_swap_growth_bytes": 2147483648,
+    "concurrent_large_models": 1
+  },
+  "tasks": {
+    "T1": {"runner": "scripts/run_ross_ab_t1.py", "request_timeout_seconds": 600, "total_timeout_seconds": 1800, "max_completion_tokens": 512, "tool_call_cap": 12, "validation_cap": 3},
+    "T2": {"runner": "scripts/run_ross_ab_t2.py", "request_timeout_seconds": 900, "total_timeout_seconds": 2400, "max_completion_tokens": 2048, "tool_call_cap": 14, "validation_cap": 3},
+    "T3": {"runner": "scripts/run_ross_ab_hls.py", "request_timeout_seconds": 600, "total_timeout_seconds": 1800, "max_completion_tokens": 512, "tool_call_cap": 12, "validation_cap": 3}
+  },
+  "models": [
+    {
+      "key": "qwen38",
+      "name": "Qwen3.8-27B",
+      "selected_artifact": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "relative_path": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "bytes": 17559178144,
+      "sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e",
+      "model_id": "Qwen3.8-27B-UD-Q4_K_XL",
+      "runtime_model_path": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "status": "ACTIVE_AND_SMOKE_VERIFIED"
+    },
+    {
+      "key": "gpt_oss_20b",
+      "name": "GPT-OSS 20B",
+      "selected_artifact": null,
+      "relative_path": null,
+      "bytes": null,
+      "sha256": null,
+      "model_id": null,
+      "status": "NOT_INSTALLED"
+    },
+    {
+      "key": "devstral_small_2_24b",
+      "name": "Devstral Small 2 24B",
+      "selected_artifact": null,
+      "relative_path": null,
+      "bytes": null,
+      "sha256": null,
+      "model_id": null,
+      "status": "NOT_INSTALLED"
+    },
+    {
+      "key": "gemma4_31b",
+      "name": "Gemma 4 31B",
+      "selected_artifact": "gemma-4-31b-jang-crack-Q4_K_M.gguf",
+      "relative_path": "gemma-4-31b-jang-crack-Q4_K_M.gguf",
+      "bytes": 18687057344,
+      "sha256": "b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7",
+      "model_id": "gemma-4-31b-jang-crack-Q4_K_M",
+      "runtime_model_path": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/gemma-4-31b-jang-crack-Q4_K_M.gguf",
+      "status": "PRESENT_BUT_NOT_ACTIVE"
+    },
+    {
+      "key": "reserved",
+      "name": "RESERVED — model not specified",
+      "selected_artifact": null,
+      "relative_path": null,
+      "bytes": null,
+      "sha256": null,
+      "model_id": null,
+      "status": "WAITING_FOR_MODEL_SELECTION"
+    }
+  ],
+  "additional_local_variants_not_in_five_model_roster": [
+    {"artifact": "Qwen3.8-27B-UD-Q4_K_M.gguf", "bytes": 16464440224, "sha256": "322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482", "status": "PRESENT_NOT_ACTIVE"},
+    {"artifact": "Qwen3.8-27B-Uncensored-Q4_K_M.gguf", "bytes": 16810714528, "sha256": "4c5e2db039e9325ac7724c8846c71356a24ad1cdfa28002d73ecb6be645f9675", "status": "PRESENT_NOT_ACTIVE"}
+  ],
+  "benchmark_policy": {
+    "ross_and_non_ross_are_separate_conditions": true,
+    "ross_condition_requires_explicit_local_ross_endpoint": true,
+    "source_tasks_and_testbenches_are_immutable": true,
+    "reuse_existing_m13_formal_qwen38_xl_cohorts": true,
+    "never_start_or_stop_model_servers": true,
+    "never_download_or_install_models": true
+  }
+}

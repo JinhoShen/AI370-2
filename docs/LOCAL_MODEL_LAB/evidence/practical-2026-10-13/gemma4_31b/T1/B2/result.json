@@ -1,0 +1,51 @@
+{
+  "trial": "B2",
+  "condition": "ross",
+  "sequence_position": 3,
+  "started_local": "2026-10-13T18:34:44+08:00",
+  "elapsed_seconds": 225.309,
+  "exit_code": 0,
+  "agent_status": "PASS",
+  "resource_guard_stop": null,
+  "resource_guard": {
+    "min_memavailable_mib": 6144,
+    "max_swap_increase_mib": 2048
+  },
+  "xsim_attempts": 2,
+  "xsim_pass_markers": 1,
+  "model_patch_count": 1,
+  "ross_call_count": 2,
+  "observed_prompt_tokens": 39004,
+  "observed_completion_tokens": 321,
+  "ross_call_names": [
+    "ross_skill_read",
+    "ross_doc_search"
+  ],
+  "metrics": {
+    "model_request_seconds": 216.647,
+    "ross_mcp_seconds": 0.081,
+    "prompt_tokens": 39004,
+    "completion_tokens": 321
+  },
+  "process_peak_rss_mib": 16133.9,
+  "host_min_memavailable_mib": 22218.4,
+  "host_max_swap_used_mib": 7609.5,
+  "process_cpu_core_equivalent_percent": 27.6,
+  "process_cpu_machine_percent": 1.2,
+  "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+  "final_rtl_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+  "result": {
+    "status": "PASS",
+    "model": "gemma-4-31b-jang-crack-Q4_K_M",
+    "workspace": "/home/shen/AI370-2/output/LOCAL_MODEL_LAB_PRACTICAL/20261013T182657+0800/gemma4_31b/T1/B2/workspace",
+    "xsim_runs": 2,
+    "patches": 1,
+    "metrics": {
+      "model_request_seconds": 216.647,
+      "ross_mcp_seconds": 0.081,
+      "prompt_tokens": 39004,
+      "completion_tokens": 321
+    },
+    "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+  }
+}

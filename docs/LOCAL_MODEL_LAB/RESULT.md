@@ -1,5 +1,35 @@
 # AI370-2 Local Model Lab — current result
 
+## Completed practical cohort — actual 2026-10-13
+
+Execution completed `2026-10-13T21:48:31+08:00`; formal Qwen service restoration **PASS**. Both available models completed **18/18** task trials. T1/T2 also passed 12 independent syntheses per model; T3 passed real HLS C simulation and synthesis. Missing GPT-OSS/Devstral and the unspecified fifth slot keep the overall five-model inventory **PARTIAL**.
+
+| Model | Task | Non-Ross PASS | Non-Ross mean seconds | Ross PASS | Ross mean seconds | Ross time improvement |
+|---|---|---|---:|---|---:|---:|
+| gemma4_31b | T1 | 3/3 | 159.28 | 3/3 | 230.83 | -44.92% |
+| gemma4_31b | T2 | 3/3 | 503.11 | 3/3 | 706.40 | -40.41% |
+| gemma4_31b | T3 | 3/3 | 144.73 | 3/3 | 183.12 | -26.52% |
+| qwen38 | T1 | 3/3 | 172.70 | 3/3 | 274.66 | -59.04% |
+| qwen38 | T2 | 3/3 | 551.46 | 3/3 | 508.38 | +7.81% |
+| qwen38 | T3 | 3/3 | 169.28 | 3/3 | 217.64 | -28.56% |
+
+Both used measured Vulkan full layer offload, 24 threads, context 16,384, the same frozen harness/task corpus and three repetitions per arm. Gemma was faster on T1/T3; Qwen was faster for Ross-assisted T2. Equal success rates and only three observations per arm do not establish a universal model winner. Ross adds retrieval/prompt work and did not improve every task. Raw/normalized failures and the earlier harness-invalid pilot remain separate historical evidence.
+
+Evidence: [practical cohort](evidence/practical-2026-10-13/result.json). Complete raw workspaces: `output/LOCAL_MODEL_LAB_PRACTICAL/20261013T182657+0800`. Measured GPU allocations/compute counters are in the result. Microbench selection is a short-workload heuristic, not exhaustive tuning.
+
+Qwen performance optimization is a separate follow-up; no formal configuration has been promoted.
+
+
+The preparation pilot `20261013T173115+0800` completed Gemma T1 with six XSim PASS and six independent Vivado synthesis PASS. Its T2 exposed an executor compatibility defect: ordinary unified-diff file labels (`--- rtl/...`, `+++ rtl/...`) were rejected because the parser required Git `a/` and `b/` labels. That pilot was stopped and its formal Qwen model was restored (actual restoration PASS). Its interrupted T2 is **HARNESS_INVALID / NOT A MODEL FAILURE**. Pilot calibration remains valid and is explicitly reused after this harness-only correction; pilot engineering timings are excluded from the new ranking.
+
+The corrected common executor normalizes only path labels and diff context/counts, matches model-authored old-text hunks against unique exact source regions, and applies the model's added/removed source text unchanged. It rejects ambiguous hunks, disallowed paths, new files, deletes and testbench edits. Both raw and applied patches are recorded. Unit tests verify this behavior; the final verdict still requires actual XSim/HLS and, for successful RTL trials, independent synthesis. This corrects a shared tool compatibility problem rather than supplying a model solution.
+
+## Qwen optimization follow-up — actual 2026-10-14
+
+**PARTIAL_SAFE_PROFILES_READY**: 20 configurations completed three short measurements each; one ROCm 18-thread load stopped at the swap guard (no throughput assigned). FAST Vulkan 8K, ENGINEERING Vulkan 16K (reused 18/18 engineering evidence), SAFE original CPU24 MTP are proposed and not applied. Formal argv/API/Local Agent restored and verified; no new kernel fault. [Full optimization report](QWEN_PERFORMANCE_OPTIMIZATION.md).
+
+## Historical CPU reference results
+
 **Status: PARTIAL.** Phase 0 inventory, Phase 1 guarded runner, the Qwen3.8 reference cohort (reused from M13), and a new Gemma 4 T1/T2/T3 CPU A/B cohort are complete. Gemma passed all six T3 HLS trials, but all T1 and T2 trials failed. GPT-OSS 20B and Devstral Small 2 are not installed and the fifth slot is unspecified, so the five-model comparison is incomplete. The original Qwen3.8 Lemonade configuration has been restored and health-checked.
 
 ## Model inventory

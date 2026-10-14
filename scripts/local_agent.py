@@ -106,6 +106,20 @@ def _editable_allowed(relative: str, explicit: set[str]) -> bool:
     return True
 
 
+def _canonical_patch_headers(patch: str) -> str:
+    """Normalize only existing-file path labels, never model-authored source hunks."""
+    lines = patch.splitlines(keepends=True)
+    for index in range(len(lines) - 1):
+        if lines[index].startswith('--- ') and lines[index + 1].startswith('+++ '):
+            old = lines[index][4:].split('\t', 1)[0].strip()
+            new = lines[index + 1][4:].split('\t', 1)[0].strip()
+            old = old[2:] if old.startswith('a/') else old
+            new = new[2:] if new.startswith('b/') else new
+            lines[index] = f'--- a/{old}\n'
+            lines[index + 1] = f'+++ b/{new}\n'
+    return ''.join(lines)
+
+
 def _patch_paths(patch: str, *, max_files: int = 1) -> list[str]:
     lines = patch.splitlines()
     markers: list[tuple[str, str]] = []
@@ -466,6 +480,7 @@ class LocalAgent:
         if not isinstance(data.get("choices"), list) or not data["choices"]:
             raise AgentError("Local Qwen returned no completion choices")
         usage = data.get("usage") or {}
+        data["local_agent_request_seconds"] = round(time.monotonic() - started, 3)
         self.prompt_tokens += int(usage.get("prompt_tokens") or 0)
         self.completion_tokens += int(usage.get("completion_tokens") or 0)
         return data
@@ -549,7 +564,12 @@ class LocalAgent:
             if self.last_failed_patch == patch:
                 self.repeated_failed_patch_count += 1
                 return {"ok": False, "stage": "patch-check", "error": "This exact diff was already rejected. Read the previous patch-check feedback, correct the unified-diff hunk syntax, and submit a different valid patch."}
-            paths = _patch_paths(patch, max_files=2 if self.multi_file_xsim else 1)
+            headers_normalized = _canonical_patch_headers(patch)
+            try:
+                paths = _patch_paths(headers_normalized, max_files=2 if self.multi_file_xsim else 1)
+            except AgentError as exc:
+                self.last_failed_patch = patch
+                return {"ok": False, "stage": "patch-check", "error": str(exc)}
             if self.multi_file_xsim and len(paths) != 2:
                 raise AgentError("The T2 multi-file task requires one patch that modifies both allowlisted RTL files")
             try:
@@ -558,9 +578,10 @@ class LocalAgent:
                     if set(paths) != allowed:
                         raise AgentError("The T2 patch must target exactly the two allowlisted RTL files")
                     source_files = {relative: _relative_path(self.workspace, relative).read_text(encoding="utf-8") for relative in paths}
-                    applied_patch = _normalize_multifile_git_patch(patch, paths, source_files)
+                    applied_patch = _normalize_multifile_git_patch(headers_normalized, paths, source_files)
                 else:
-                    applied_patch = patch
+                    source_files = {relative: _relative_path(self.workspace, relative).read_text(encoding='utf-8') for relative in paths}
+                    applied_patch = _normalize_multifile_git_patch(headers_normalized, paths, source_files)
             except AgentError as exc:
                 self.last_failed_patch = patch
                 return {"ok": False, "stage": "patch-normalization", "error": str(exc)}
@@ -714,14 +735,17 @@ class LocalAgent:
             for tool_call in tool_calls:
                 name = tool_call.get("function", {}).get("name", "")
                 call_id = tool_call.get("id", "")
+                args: dict[str, Any] = {}
                 try:
                     args = json.loads(tool_call.get("function", {}).get("arguments", "{}"))
                     if not isinstance(args, dict):
                         raise AgentError("Tool arguments must be a JSON object")
                     result: dict[str, Any] = self._tool(name, args)
                 except Exception as exc:
-                    args = {}
                     result = {"ok": False, "error": f"{type(exc).__name__}: {exc}"}
+                    if name == "apply_patch":
+                        result["stage"] = "patch-check"
+                        self.last_failed_patch = tool_call.get("function", {}).get("arguments", "")
                 self._trace({"event": "tool_call", "name": name, "arguments": args if "args" in locals() else {}, "result": result})
                 self.messages.append({"role": "tool", "tool_call_id": call_id, "content": json.dumps(result, ensure_ascii=False)[:MAX_TOOL_RESULT_CHARS]})
                 if not result.get("ok"):
@@ -733,7 +757,10 @@ class LocalAgent:
                         else:
                             feedbacks.append(f"The patch tool rejected your diff and did not modify any source: {result.get('error', 'unknown patch error')}. Do not repeat it. Use apply_replacement with your intended exact old_text and new_text in the RTL; the executor only formats those exact model-selected strings into a valid diff.")
                     elif result.get("stage") == "patch-normalization":
-                        feedbacks.append(f"The two-file diff syntax is malformed and no source changed: {result.get('error')}. Re-read the tool feedback, correct the unified-diff hunk line prefixes/counts, and resubmit one complete diff for both files. Do not call a one-file replacement tool.")
+                        if self.multi_file_xsim:
+                            feedbacks.append(f"The two-file diff syntax is malformed and no source changed: {result.get('error')}. Re-read the tool feedback, correct the unified-diff hunk line prefixes/counts, and resubmit one complete diff for both files. Do not call a one-file replacement tool.")
+                        else:
+                            feedbacks.append(f"The source hunk could not be safely matched and no source changed: {result.get('error')}. Read the feedback and use apply_replacement with your own exact old_text and new_text from the allowed source; do not change the testbench.")
                     elif result.get("stage") == "replacement-check":
                         feedbacks.append(f"The exact replacement was rejected and no source changed: {result.get('error', 'replacement did not match uniquely')}. Read the tool result and select an exact source fragment that occurs once.")
                     elif result.get("stage") == "ross-prerequisite":
@@ -789,6 +816,7 @@ def main() -> int:
     parser.add_argument("--ross-context-chars", type=int, default=MAX_ROSS_CONTEXT_CHARS, help="Maximum combined installed Ross Skill/reference excerpt characters returned to the local model")
     parser.add_argument("--ross-mcp-chars", type=int, default=MAX_ROSS_MCP_CHARS, help="Maximum AMD local Knowledge Base response characters returned to the local model")
     args = parser.parse_args()
+    agent = None
     try:
         if args.multi_file_xsim and args.hls:
             raise AgentError("Multi-file XSim and HLS profiles cannot be enabled together")
@@ -804,7 +832,12 @@ def main() -> int:
         print(json.dumps({"status": status, "model": args.model, "workspace": str(args.workspace.resolve()), "xsim_runs": agent.validation_count, "patches": agent.patch_count, "metrics": {"model_request_seconds": round(agent.model_request_s, 3), "ross_mcp_seconds": round(agent.ross_tool_overhead_s, 3), "prompt_tokens": agent.prompt_tokens, "completion_tokens": agent.completion_tokens}, "result": result}, ensure_ascii=False))
         return 0
     except Exception as exc:
-        print(json.dumps({"status": "FAIL", "error": f"{type(exc).__name__}: {exc}"}, ensure_ascii=False), file=sys.stderr)
+        failure = {"status": "FAIL", "error": f"{type(exc).__name__}: {exc}"}
+        if agent is not None:
+            failure.update(model=args.model, patches=agent.patch_count, xsim_runs=agent.validation_count, metrics={"model_request_seconds": round(agent.model_request_s, 3), "ross_mcp_seconds": round(agent.ross_tool_overhead_s, 3), "prompt_tokens": agent.prompt_tokens, "completion_tokens": agent.completion_tokens})
+            agent._trace({"event": "agent_failed", **failure})
+        print(json.dumps(failure, ensure_ascii=False))
+        print(json.dumps(failure, ensure_ascii=False), file=sys.stderr)
         return 1
 
 

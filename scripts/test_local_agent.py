@@ -12,6 +12,42 @@ import local_agent
 
 
 class LocalAgentPolicyTests(unittest.TestCase):
+    def test_plain_unified_diff_headers_are_normalized_without_rewriting_source(self):
+        raw = '--- rtl/a.v\n+++ rtl/a.v\n@@ -90,99 +90,99 @@\n before\n-old\n+MODEL_SELECTED_NEW\n after\n'
+        canonical = local_agent._canonical_patch_headers(raw)
+        self.assertEqual(canonical.splitlines()[2:], raw.splitlines()[2:])
+        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / 'output') as temp:
+            root = Path(temp)
+            target = root / 'rtl/a.v'
+            target.parent.mkdir()
+            target.write_text('before\nold\nafter\n')
+            subprocess.run(['git', 'init', '--quiet'], cwd=root, check=True)
+            agent = local_agent.LocalAgent(root, task='test', editable_paths={'rtl/a.v'})
+            result = agent._tool('apply_patch', {'patch': raw})
+            self.assertTrue(result['ok'], result)
+            self.assertEqual(target.read_text(), 'before\nMODEL_SELECTED_NEW\nafter\n')
+
+    def test_header_normalization_still_rejects_new_files(self):
+        raw = '--- /dev/null\n+++ rtl/new.v\n@@ -0,0 +1 @@\n+module new; endmodule\n'
+        with self.assertRaisesRegex(local_agent.AgentError, 'not allowed'):
+            local_agent._patch_paths(local_agent._canonical_patch_headers(raw))
+
+    def test_invalid_patch_headers_return_feedback_and_enable_exact_replacement(self):
+        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+            root = Path(temp)
+            rtl = root / "rtl/local_model_axi_lite.v"
+            rtl.parent.mkdir()
+            rtl.write_text("module m;\n  assign result = input_reg ^ offset_reg;\nendmodule\n")
+            (root / "run_validation.sh").write_text("#!/bin/sh\nexit 0\n")
+            agent = local_agent.LocalAgent(root, task="test", xsim_enabled=True, editable_paths={"rtl/local_model_axi_lite.v"})
+            agent.validation_count = 1
+            result = agent._tool("apply_patch", {"patch": "@@\n-old\n+new\n"})
+            self.assertFalse(result["ok"])
+            self.assertEqual(result["stage"], "patch-check")
+            self.assertIn("input_reg ^ offset_reg", rtl.read_text())
+            fixed = agent._tool("apply_replacement", {"path": "rtl/local_model_axi_lite.v", "old_text": "input_reg ^ offset_reg", "new_text": "input_reg + offset_reg"})
+            self.assertTrue(fixed["ok"])
+
     def test_multi_file_xsim_requires_final_verification_pass(self):
         self.assertTrue(local_agent._verification_profile_enabled(xsim=False, multi_file_xsim=True, hls=False))
         self.assertTrue(local_agent._verification_profile_enabled(xsim=True, multi_file_xsim=False, hls=False))

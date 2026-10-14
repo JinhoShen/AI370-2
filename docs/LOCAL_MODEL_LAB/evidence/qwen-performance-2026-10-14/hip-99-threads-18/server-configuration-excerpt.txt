@@ -1,0 +1,17 @@
+0.00.155.075 I cmn  common_param:   - ROCm0   : AMD Radeon 890M Graphics (23891 MiB, 23886 MiB free)
+0.00.223.802 I llama_prepare_model_devices: using device ROCm0 (AMD Radeon 890M Graphics) (0000:c5:00.0) - 23886 MiB free
+0.00.425.620 I load_tensors: offloaded 66/66 layers to GPU
+0.00.428.461 I llama_context: n_ctx                 = 8192
+0.00.428.461 I llama_context: n_batch               = 2048
+0.00.428.462 I llama_context: n_ubatch              = 512
+0.00.428.463 I llama_context: flash_attn            = auto
+0.00.428.800 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+0.00.470.889 I common_memory_breakdown_print: | memory breakdown [MiB]    | total    free     self   model   context   compute    unaccounted |
+0.00.470.890 I common_memory_breakdown_print: |   - ROCm0 (890M Graphics) | 23891 = 23594 + (16510 = 15718 +     661 +     130) +      -16214 |
+0.00.586.237 I llama_prepare_model_devices: using device ROCm0 (AMD Radeon 890M Graphics) (0000:c5:00.0) - 23744 MiB free
+0.02.130.338 I load_tensors: offloaded 66/66 layers to GPU
+0.03.272.609 I llama_context: n_ctx                 = 8192
+0.03.272.609 I llama_context: n_batch               = 2048
+0.03.272.609 I llama_context: n_ubatch              = 512
+0.03.272.610 I llama_context: flash_attn            = auto
+0.03.308.322 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB

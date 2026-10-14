@@ -1,0 +1,23 @@
+[
+  "/home/shen/AI370-2/output/M6/build-cpu/bin/llama-server",
+  "-m",
+  "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+  "--ctx-size",
+  "8192",
+  "--port",
+  "8001",
+  "--jinja",
+  "--metrics",
+  "--n-gpu-layers",
+  "0",
+  "--parallel",
+  "1",
+  "--reasoning",
+  "off",
+  "--spec-type",
+  "draft-mtp",
+  "--threads",
+  "24",
+  "--threads-batch",
+  "24"
+]

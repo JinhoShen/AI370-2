@@ -1,0 +1,51 @@
+{
+  "trial": "B3",
+  "condition": "ross",
+  "sequence_position": 6,
+  "started_local": "2026-10-13T20:28:40+08:00",
+  "elapsed_seconds": 260.747,
+  "exit_code": 0,
+  "agent_status": "PASS",
+  "resource_guard_stop": null,
+  "resource_guard": {
+    "min_memavailable_mib": 6144,
+    "max_swap_increase_mib": 2048
+  },
+  "xsim_attempts": 3,
+  "xsim_pass_markers": 1,
+  "model_patch_count": 1,
+  "ross_call_count": 2,
+  "observed_prompt_tokens": 32442,
+  "observed_completion_tokens": 692,
+  "ross_call_names": [
+    "ross_skill_read",
+    "ross_doc_search"
+  ],
+  "metrics": {
+    "model_request_seconds": 252.249,
+    "ross_mcp_seconds": 0.083,
+    "prompt_tokens": 32442,
+    "completion_tokens": 692
+  },
+  "process_peak_rss_mib": 9376.0,
+  "host_min_memavailable_mib": 32072.6,
+  "host_max_swap_used_mib": 7819.3,
+  "process_cpu_core_equivalent_percent": 29.0,
+  "process_cpu_machine_percent": 1.2,
+  "seed_rtl_sha256": "f613e7584165d5e612d2911f0cb8ab64ed2f14df266f9761b49ddc4bf06f9c73",
+  "final_rtl_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+  "result": {
+    "status": "PASS",
+    "model": "Qwen3.8-27B-UD-Q4_K_XL",
+    "workspace": "/home/shen/AI370-2/output/LOCAL_MODEL_LAB_PRACTICAL/20261013T182657+0800/qwen38/T1/B3/workspace",
+    "xsim_runs": 2,
+    "patches": 1,
+    "metrics": {
+      "model_request_seconds": 252.249,
+      "ross_mcp_seconds": 0.083,
+      "prompt_tokens": 32442,
+      "completion_tokens": 692
+    },
+    "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+  }
+}

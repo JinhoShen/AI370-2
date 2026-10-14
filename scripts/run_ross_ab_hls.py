@@ -71,6 +71,8 @@ def run_trial(label: str, rep: int) -> dict:
         if not ROSS_URL:
             raise RuntimeError("AI370_ROSS_DOCSEARCH_URL is required for treatment group B")
         command += ["--ross-docsearch-url", ROSS_URL]
+        if "AI370_ROSS_CONTEXT_CHARS" in os.environ:
+            command += ["--ross-context-chars", os.environ["AI370_ROSS_CONTEXT_CHARS"], "--ross-mcp-chars", os.environ["AI370_ROSS_MCP_CHARS"]]
     before_hash = hashlib.sha256((work / "src/invert32.cpp").read_bytes()).hexdigest()
     start_local = datetime.now().astimezone().isoformat(timespec="seconds")
     started = time.monotonic()

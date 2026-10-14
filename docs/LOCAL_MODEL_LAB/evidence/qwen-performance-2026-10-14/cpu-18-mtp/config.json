@@ -1,0 +1,14 @@
+{
+  "backend": "cpu",
+  "threads": 18,
+  "threads_batch": 24,
+  "layers": 0,
+  "context": 8192,
+  "batch": 2048,
+  "ubatch": 512,
+  "fa": "auto",
+  "cache_k": "f16",
+  "cache_v": "f16",
+  "mtp": true,
+  "name": "cpu-18-mtp"
+}

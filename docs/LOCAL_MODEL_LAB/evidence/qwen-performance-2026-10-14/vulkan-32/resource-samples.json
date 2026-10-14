@@ -1,0 +1,852 @@
+[
+  {
+    "monotonic": 1208855.1159745,
+    "available_kib": 44079896,
+    "swap_kib": 6961068,
+    "rss_bytes": 2879488,
+    "cpu_ticks": 0,
+    "gpu_busy_percent": 84,
+    "pswpin": 4272373,
+    "pswpout": 7479495
+  },
+  {
+    "monotonic": 1208855.624992359,
+    "available_kib": 43887920,
+    "swap_kib": 6961068,
+    "rss_bytes": 173703168,
+    "cpu_ticks": 51,
+    "gpu_busy_percent": 51,
+    "pswpin": 4272373,
+    "pswpout": 7479495
+  },
+  {
+    "monotonic": 1208856.125894216,
+    "available_kib": 38827704,
+    "swap_kib": 6961040,
+    "rss_bytes": 191201280,
+    "cpu_ticks": 101,
+    "gpu_busy_percent": 32,
+    "pswpin": 4272380,
+    "pswpout": 7479496
+  },
+  {
+    "monotonic": 1208856.626826742,
+    "available_kib": 35789760,
+    "swap_kib": 6978540,
+    "rss_bytes": 191201280,
+    "cpu_ticks": 151,
+    "gpu_busy_percent": 21,
+    "pswpin": 4272535,
+    "pswpout": 7484016
+  },
+  {
+    "monotonic": 1208857.127919035,
+    "available_kib": 35573344,
+    "swap_kib": 6982760,
+    "rss_bytes": 193495040,
+    "cpu_ticks": 201,
+    "gpu_busy_percent": 35,
+    "pswpin": 4272535,
+    "pswpout": 7484963
+  },
+  {
+    "monotonic": 1208857.628860397,
+    "available_kib": 35566864,
+    "swap_kib": 6982740,
+    "rss_bytes": 193888256,
+    "cpu_ticks": 251,
+    "gpu_busy_percent": 27,
+    "pswpin": 4272542,
+    "pswpout": 7484963
+  },
+  {
+    "monotonic": 1208858.12987762,
+    "available_kib": 35561076,
+    "swap_kib": 6982740,
+    "rss_bytes": 193888256,
+    "cpu_ticks": 301,
+    "gpu_busy_percent": 16,
+    "pswpin": 4272542,
+    "pswpout": 7484963
+  },
+  {
+    "monotonic": 1208858.631013715,
+    "available_kib": 35481864,
+    "swap_kib": 6983032,
+    "rss_bytes": 571023360,
+    "cpu_ticks": 505,
+    "gpu_busy_percent": 10,
+    "pswpin": 4272542,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208859.134558803,
+    "available_kib": 35477400,
+    "swap_kib": 6983032,
+    "rss_bytes": 571437056,
+    "cpu_ticks": 1331,
+    "gpu_busy_percent": 18,
+    "pswpin": 4272542,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208859.635928593,
+    "available_kib": 35472304,
+    "swap_kib": 6983004,
+    "rss_bytes": 576380928,
+    "cpu_ticks": 1337,
+    "gpu_busy_percent": 18,
+    "pswpin": 4272548,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208860.137281843,
+    "available_kib": 35452168,
+    "swap_kib": 6982992,
+    "rss_bytes": 583262208,
+    "cpu_ticks": 1919,
+    "gpu_busy_percent": 26,
+    "pswpin": 4272551,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208860.638978131,
+    "available_kib": 35452168,
+    "swap_kib": 6982992,
+    "rss_bytes": 583262208,
+    "cpu_ticks": 2511,
+    "gpu_busy_percent": 29,
+    "pswpin": 4272551,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208861.140989515,
+    "available_kib": 35445628,
+    "swap_kib": 6982928,
+    "rss_bytes": 583262208,
+    "cpu_ticks": 3114,
+    "gpu_busy_percent": 32,
+    "pswpin": 4272566,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208861.642124039,
+    "available_kib": 35422776,
+    "swap_kib": 6981844,
+    "rss_bytes": 585424896,
+    "cpu_ticks": 3477,
+    "gpu_busy_percent": 46,
+    "pswpin": 4272862,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208862.151016828,
+    "available_kib": 35245924,
+    "swap_kib": 6981832,
+    "rss_bytes": 745463808,
+    "cpu_ticks": 3527,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272865,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208862.652138839,
+    "available_kib": 35245416,
+    "swap_kib": 6981832,
+    "rss_bytes": 748609536,
+    "cpu_ticks": 4400,
+    "gpu_busy_percent": 36,
+    "pswpin": 4272865,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208863.15635646,
+    "available_kib": 35243784,
+    "swap_kib": 6981832,
+    "rss_bytes": 748806144,
+    "cpu_ticks": 5261,
+    "gpu_busy_percent": 35,
+    "pswpin": 4272865,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208863.658061286,
+    "available_kib": 35396496,
+    "swap_kib": 6981832,
+    "rss_bytes": 592175104,
+    "cpu_ticks": 5912,
+    "gpu_busy_percent": 38,
+    "pswpin": 4272865,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208864.159400662,
+    "available_kib": 35396864,
+    "swap_kib": 6981832,
+    "rss_bytes": 592175104,
+    "cpu_ticks": 6478,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272865,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208864.661305961,
+    "available_kib": 35396056,
+    "swap_kib": 6981800,
+    "rss_bytes": 592175104,
+    "cpu_ticks": 7043,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272874,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208865.162294815,
+    "available_kib": 35391440,
+    "swap_kib": 6981756,
+    "rss_bytes": 592175104,
+    "cpu_ticks": 7607,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272876,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208865.687085867,
+    "available_kib": 35225936,
+    "swap_kib": 6981664,
+    "rss_bytes": 748871680,
+    "cpu_ticks": 7725,
+    "gpu_busy_percent": 54,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208866.1891537,
+    "available_kib": 35225404,
+    "swap_kib": 6981664,
+    "rss_bytes": 748871680,
+    "cpu_ticks": 8369,
+    "gpu_busy_percent": 33,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208866.69020453,
+    "available_kib": 35225180,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 9024,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208867.191355297,
+    "available_kib": 35224172,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 9943,
+    "gpu_busy_percent": 34,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208867.695174889,
+    "available_kib": 35225820,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 10662,
+    "gpu_busy_percent": 36,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208868.196267257,
+    "available_kib": 35226352,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 11366,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208868.697507691,
+    "available_kib": 35226352,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 12071,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208869.201354304,
+    "available_kib": 35226580,
+    "swap_kib": 6981664,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 12784,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208869.702420003,
+    "available_kib": 35226580,
+    "swap_kib": 6981660,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 13491,
+    "gpu_busy_percent": 43,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208870.204511492,
+    "available_kib": 35222976,
+    "swap_kib": 6981660,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 14345,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208870.705563606,
+    "available_kib": 35222976,
+    "swap_kib": 6981660,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 15123,
+    "gpu_busy_percent": 38,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208871.207284746,
+    "available_kib": 35210108,
+    "swap_kib": 6981652,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 15834,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272902,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208871.711567862,
+    "available_kib": 35216932,
+    "swap_kib": 6981584,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 16556,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272919,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208872.21545362,
+    "available_kib": 35216576,
+    "swap_kib": 6981584,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 17322,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272919,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208872.718331513,
+    "available_kib": 35216576,
+    "swap_kib": 6981584,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 18064,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272919,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208873.220444873,
+    "available_kib": 35215668,
+    "swap_kib": 6981584,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 18881,
+    "gpu_busy_percent": 38,
+    "pswpin": 4272919,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208873.722512749,
+    "available_kib": 35215672,
+    "swap_kib": 6981572,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 19585,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272922,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208874.224416961,
+    "available_kib": 35214320,
+    "swap_kib": 6981572,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 20294,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272922,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208874.725548325,
+    "available_kib": 35214724,
+    "swap_kib": 6981572,
+    "rss_bytes": 751820800,
+    "cpu_ticks": 20997,
+    "gpu_busy_percent": 44,
+    "pswpin": 4272922,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208875.226406531,
+    "available_kib": 35367504,
+    "swap_kib": 6981572,
+    "rss_bytes": 595038208,
+    "cpu_ticks": 21647,
+    "gpu_busy_percent": 43,
+    "pswpin": 4272922,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208875.734604734,
+    "available_kib": 35367120,
+    "swap_kib": 6981480,
+    "rss_bytes": 595038208,
+    "cpu_ticks": 22249,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208876.235616827,
+    "available_kib": 35366256,
+    "swap_kib": 6981480,
+    "rss_bytes": 595038208,
+    "cpu_ticks": 22826,
+    "gpu_busy_percent": 43,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208876.740082566,
+    "available_kib": 35366256,
+    "swap_kib": 6981480,
+    "rss_bytes": 595038208,
+    "cpu_ticks": 23356,
+    "gpu_busy_percent": 45,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208877.241836921,
+    "available_kib": 35215016,
+    "swap_kib": 6981480,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 23378,
+    "gpu_busy_percent": 49,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208877.743478375,
+    "available_kib": 35215688,
+    "swap_kib": 6981480,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 24010,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208878.246731559,
+    "available_kib": 35215404,
+    "swap_kib": 6981480,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 24778,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272948,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208878.749626586,
+    "available_kib": 35215404,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 25535,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208879.251611881,
+    "available_kib": 35216376,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 26307,
+    "gpu_busy_percent": 38,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208879.752646467,
+    "available_kib": 35216376,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 27009,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208880.254700561,
+    "available_kib": 35217028,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 27714,
+    "gpu_busy_percent": 43,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208880.755765845,
+    "available_kib": 35217028,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 28418,
+    "gpu_busy_percent": 45,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208881.257714493,
+    "available_kib": 35216832,
+    "swap_kib": 6981444,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 29223,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272961,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208881.758635389,
+    "available_kib": 35216832,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 30054,
+    "gpu_busy_percent": 38,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208882.259648957,
+    "available_kib": 35219812,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 30756,
+    "gpu_busy_percent": 40,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208882.760660742,
+    "available_kib": 35219812,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 31457,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208883.261676535,
+    "available_kib": 35218628,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 32162,
+    "gpu_busy_percent": 43,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208883.762895416,
+    "available_kib": 35218628,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 32869,
+    "gpu_busy_percent": 44,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208884.264883339,
+    "available_kib": 35218376,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 33577,
+    "gpu_busy_percent": 45,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208884.765815988,
+    "available_kib": 35218376,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 34319,
+    "gpu_busy_percent": 45,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208885.267967555,
+    "available_kib": 35219452,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 35212,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208885.777811385,
+    "available_kib": 35217188,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 35940,
+    "gpu_busy_percent": 39,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208886.279804108,
+    "available_kib": 35216216,
+    "swap_kib": 6981364,
+    "rss_bytes": 751931392,
+    "cpu_ticks": 36667,
+    "gpu_busy_percent": 41,
+    "pswpin": 4272981,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208886.780830923,
+    "available_kib": 35368264,
+    "swap_kib": 6981356,
+    "rss_bytes": 595230720,
+    "cpu_ticks": 37117,
+    "gpu_busy_percent": 45,
+    "pswpin": 4272984,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208887.281933419,
+    "available_kib": 35368524,
+    "swap_kib": 6981356,
+    "rss_bytes": 595230720,
+    "cpu_ticks": 37702,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272984,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208887.783864307,
+    "available_kib": 35368524,
+    "swap_kib": 6981356,
+    "rss_bytes": 595230720,
+    "cpu_ticks": 38245,
+    "gpu_busy_percent": 42,
+    "pswpin": 4272984,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208888.284988634,
+    "available_kib": 35215584,
+    "swap_kib": 6981288,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 38312,
+    "gpu_busy_percent": 53,
+    "pswpin": 4273004,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208888.786971048,
+    "available_kib": 35216112,
+    "swap_kib": 6981288,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 38995,
+    "gpu_busy_percent": 34,
+    "pswpin": 4273004,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208889.288955066,
+    "available_kib": 35215928,
+    "swap_kib": 6981288,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 39666,
+    "gpu_busy_percent": 38,
+    "pswpin": 4273004,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208889.790898238,
+    "available_kib": 35216332,
+    "swap_kib": 6980624,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 40366,
+    "gpu_busy_percent": 40,
+    "pswpin": 4273211,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208890.293098679,
+    "available_kib": 35216724,
+    "swap_kib": 6980624,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 41079,
+    "gpu_busy_percent": 42,
+    "pswpin": 4273211,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208890.795409925,
+    "available_kib": 35217128,
+    "swap_kib": 6980576,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 41844,
+    "gpu_busy_percent": 42,
+    "pswpin": 4273222,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208891.298833422,
+    "available_kib": 35216260,
+    "swap_kib": 6980576,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 42633,
+    "gpu_busy_percent": 41,
+    "pswpin": 4273222,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208891.802036569,
+    "available_kib": 35217716,
+    "swap_kib": 6980576,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 43407,
+    "gpu_busy_percent": 40,
+    "pswpin": 4273222,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208892.303932893,
+    "available_kib": 35218292,
+    "swap_kib": 6980576,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 44144,
+    "gpu_busy_percent": 39,
+    "pswpin": 4273222,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208892.805429165,
+    "available_kib": 35218764,
+    "swap_kib": 6980576,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 44851,
+    "gpu_busy_percent": 40,
+    "pswpin": 4273222,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208893.308084914,
+    "available_kib": 35213264,
+    "swap_kib": 6980548,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 45544,
+    "gpu_busy_percent": 42,
+    "pswpin": 4273229,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208893.810128605,
+    "available_kib": 35213184,
+    "swap_kib": 6980240,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 46255,
+    "gpu_busy_percent": 43,
+    "pswpin": 4273306,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208894.312175201,
+    "available_kib": 35213192,
+    "swap_kib": 6979616,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 46962,
+    "gpu_busy_percent": 45,
+    "pswpin": 4273484,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208894.813204264,
+    "available_kib": 35213228,
+    "swap_kib": 6979616,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 47669,
+    "gpu_busy_percent": 46,
+    "pswpin": 4273484,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208895.315064774,
+    "available_kib": 35211388,
+    "swap_kib": 6979616,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 48465,
+    "gpu_busy_percent": 43,
+    "pswpin": 4273484,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208895.825035157,
+    "available_kib": 35204952,
+    "swap_kib": 6979616,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 49323,
+    "gpu_busy_percent": 38,
+    "pswpin": 4273484,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208896.327024658,
+    "available_kib": 35205124,
+    "swap_kib": 6979040,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 50010,
+    "gpu_busy_percent": 41,
+    "pswpin": 4273641,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208896.829179577,
+    "available_kib": 35208444,
+    "swap_kib": 6979040,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 50753,
+    "gpu_busy_percent": 42,
+    "pswpin": 4273641,
+    "pswpout": 7485035
+  },
+  {
+    "monotonic": 1208897.331974166,
+    "available_kib": 35208044,
+    "swap_kib": 6979036,
+    "rss_bytes": 752123904,
+    "cpu_ticks": 51527,
+    "gpu_busy_percent": 41,
+    "pswpin": 4273642,
+    "pswpout": 7485035
+  }
+]

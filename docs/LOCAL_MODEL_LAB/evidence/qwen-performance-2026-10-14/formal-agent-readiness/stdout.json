@@ -1,0 +1,1 @@
+{"status": "COMPLETED", "model": "Qwen3.8-27B-UD-Q4_K_XL", "workspace": "/home/shen/AI370-2/output/QWEN_PERFORMANCE_OPTIMIZATION/20261014T181144+0800/formal-agent-readiness/workspace", "xsim_runs": 0, "patches": 0, "metrics": {"model_request_seconds": 49.938, "ross_mcp_seconds": 0.0, "prompt_tokens": 1506, "completion_tokens": 38}, "result": "AI370_QWEN_RESTORE_OK"}

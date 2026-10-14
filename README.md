@@ -15,7 +15,9 @@ Clean rebuild validation for AMD Ryzen AI 9 HX 370 / Radeon 890M / XDNA2 / FPGA.
 
 **2026-10-13 Ross A/B update：** 本地 Qwen3.8 + Local Agent 已實際呼叫 Ross Skill 與本機 Knowledge Base MCP。T1 A=3/3、B=0/3；修正後 T2 A=3/3、B=1/3（另兩次 B 因 8192-token context overflow 失敗）；T3 兩組 3/3，但 Ross 平均慢 2.69%。正式 T2 3×3 cohort 已完成，先前 v5/v6/v7 為分開保留的診斷歷史。M13 維持 IN PROGRESS/PARTIAL，沒有宣稱 Ross 普遍提升成功率或速度。細節與失敗樣本見 [M13 Ross benchmark report](docs/M13/M13_ROSS_AB_BENCHMARK_REPORT.md)。
 
-**2026-10-13 Local Model Lab update：** Qwen3.8 Q4_K_XL 的 CPU smoke PASS，T1/T2/T3 A/B 參考數據沿用 M13。另有一組 Gemma 4 CPU cohort：T1、T2 皆 0/3 PASS per arm；T3 兩組皆 3/3 PASS，Ross 組平均慢 34.2%。該次執行曾暫時切換 Lemonade 載入模型，違反原先「不自動切換正式模型」控制，因此明確列為 exploratory / protocol-deviation evidence，不當作正式跨模型排名；結束後已還原並檢查 Qwen3.8。GPT-OSS 20B、Devstral Small 2 尚未安裝，第五槽未指定；GPU inference 尚未測試，後續須另立 GPU cohort。Lab 維持 PARTIAL。詳見 [Local Model Lab](docs/LOCAL_MODEL_LAB/RESULT.md) 與 [重跑流程](docs/LOCAL_MODEL_LAB/PROTOCOL.md)。
+**2026-10-13 Local Model Lab completed cohort：** Qwen3.8 Q4_K_XL 與 Gemma 4 31B 各完成 T1/T2/T3 Ross／Non-Ross 共 18/18 PASS；T1/T2 並有獨立 Vivado synthesis，T3 有 HLS C simulation／synthesis。兩者使用已實測的 Vulkan backend，24 threads、16K context，正式 Qwen CPU 服務已還原。Gemma 的 T1/T3 較快；Ross-assisted T2 則 Qwen 較快，不能宣稱單一模型全面勝出。先前 CPU exploratory failures 與 harness-invalid pilot 保留為歷史，不當成本次排名。GPT-OSS／Devstral 未安裝、第五槽未指定，整體 Lab 仍 PARTIAL。詳見 [Local Model Lab](docs/LOCAL_MODEL_LAB/RESULT.md) 與 [流程](docs/LOCAL_MODEL_LAB/PROTOCOL.md)。
+
+**2026-10-14 Qwen optimization：** 已完成安全配置比較，推薦 FAST Vulkan 8K／ENGINEERING Vulkan 16K／SAFE CPU24 MTP。ROCm 較快但後續載入觸發 swap guard，調校保持 PARTIAL；正式模型配置未更動，API／Local Agent 已恢復。詳見 [實測、限制與配置](docs/LOCAL_MODEL_LAB/QWEN_PERFORMANCE_OPTIMIZATION.md)。
 Kernel更換、DKMS/amdxdna替換、XRT版本取捨、graphics regression風險、FPGA unsupported OS、破壞性操作及人工帳號/硬體要求依 Roadmap gate 管理。
 
 GPU、NPU、FPGA使用獨立環境；XRT 2.21/2.25禁止混裝。

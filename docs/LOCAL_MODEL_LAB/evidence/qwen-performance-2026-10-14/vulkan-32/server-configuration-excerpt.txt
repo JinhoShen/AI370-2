@@ -1,0 +1,220 @@
+0.00.031.470 I cmn  common_param:   - Vulkan0 : AMD Radeon 890M Graphics (RADV GFX1150) (40275 MiB, 39284 MiB free)
+0.00.126.604 I llama_prepare_model_devices: using device Vulkan0 (AMD Radeon 890M Graphics (RADV GFX1150)) (0000:c5:00.0) - 39284 MiB free
+0.00.392.100 I load_tensors: offloaded 32/66 layers to GPU
+0.00.395.662 I llama_context: n_ctx                 = 8192
+0.00.395.662 I llama_context: n_batch               = 2048
+0.00.395.662 I llama_context: n_ubatch              = 512
+0.00.395.664 I llama_context: flash_attn            = auto
+0.00.396.027 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+0.00.441.644 I common_memory_breakdown_print: | memory breakdown [MiB]                     | total    free    self   model   context   compute    unaccounted |
+0.00.441.646 I common_memory_breakdown_print: |   - Vulkan0 (890M Graphics (RADV GFX1150)) | 40275 = 39215 + (8831 =  8294 +     324 +     212) +       -7771 |
+0.00.580.970 I llama_prepare_model_devices: using device Vulkan0 (AMD Radeon 890M Graphics (RADV GFX1150)) (0000:c5:00.0) - 39284 MiB free
+0.01.587.827 I load_tensors: offloaded 32/66 layers to GPU
+0.03.311.897 I llama_context: n_ctx                 = 8192
+0.03.311.898 I llama_context: n_batch               = 2048
+0.03.311.898 I llama_context: n_ubatch              = 512
+0.03.311.900 I llama_context: flash_attn            = auto
+0.03.384.761 I llama_kv_cache: size =  512.00 MiB (  8192 cells,  16 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+0.04.122.722 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192
+0.04.512.753 D srv        decode: n_batch (effective) = 2048, off = 0
+0.07.015.999 D srv        decode: n_batch (effective) = 2048, off = 0
+0.07.496.334 D slot handle_last_: id  0 | task 0 | slot decode token, id=271, n_ctx = 8192, n_tokens = 64, truncated = 0
+0.07.496.344 D srv        decode: n_batch (effective) = 2048, off = 0
+0.07.844.822 D slot handle_last_: id  0 | task 0 | slot decode token, id=2860, n_ctx = 8192, n_tokens = 65, truncated = 0
+0.07.844.830 D srv        decode: n_batch (effective) = 2048, off = 0
+0.08.105.887 D slot handle_last_: id  0 | task 0 | slot decode token, id=40, n_ctx = 8192, n_tokens = 66, truncated = 0
+0.08.105.895 D srv        decode: n_batch (effective) = 2048, off = 0
+0.08.453.443 D srv        decode: n_batch (effective) = 2048, off = 0
+0.10.800.030 D srv        decode: n_batch (effective) = 2048, off = 0
+0.11.264.704 D slot handle_last_: id  0 | task 6 | slot decode token, id=271, n_ctx = 8192, n_tokens = 64, truncated = 0
+0.11.264.713 D srv        decode: n_batch (effective) = 2048, off = 0
+0.11.555.753 D slot handle_last_: id  0 | task 6 | slot decode token, id=2860, n_ctx = 8192, n_tokens = 65, truncated = 0
+0.11.555.762 D srv        decode: n_batch (effective) = 2048, off = 0
+0.11.833.791 D slot handle_last_: id  0 | task 6 | slot decode token, id=40, n_ctx = 8192, n_tokens = 66, truncated = 0
+0.11.833.800 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.169.271 D slot handle_last_: id  0 | task 6 | slot decode token, id=19, n_ctx = 8192, n_tokens = 67, truncated = 0
+0.12.169.280 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.432.925 D slot handle_last_: id  0 | task 6 | slot decode token, id=7869, n_ctx = 8192, n_tokens = 68, truncated = 0
+0.12.432.934 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.696.978 D slot handle_last_: id  0 | task 6 | slot decode token, id=614, n_ctx = 8192, n_tokens = 69, truncated = 0
+0.12.696.986 D srv        decode: n_batch (effective) = 2048, off = 0
+0.12.968.677 D slot handle_last_: id  0 | task 6 | slot decode token, id=1566, n_ctx = 8192, n_tokens = 70, truncated = 0
+0.12.968.686 D srv        decode: n_batch (effective) = 2048, off = 0
+0.13.230.081 D slot handle_last_: id  0 | task 6 | slot decode token, id=66111, n_ctx = 8192, n_tokens = 71, truncated = 0
+0.13.230.090 D srv        decode: n_batch (effective) = 2048, off = 0
+0.13.493.023 D slot handle_last_: id  0 | task 6 | slot decode token, id=279, n_ctx = 8192, n_tokens = 72, truncated = 0
+0.13.493.031 D srv        decode: n_batch (effective) = 2048, off = 0
+0.13.752.918 D slot handle_last_: id  0 | task 6 | slot decode token, id=2534, n_ctx = 8192, n_tokens = 73, truncated = 0
+0.13.752.927 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.011.867 D slot handle_last_: id  0 | task 6 | slot decode token, id=321, n_ctx = 8192, n_tokens = 74, truncated = 0
+0.14.011.876 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.272.774 D slot handle_last_: id  0 | task 6 | slot decode token, id=795, n_ctx = 8192, n_tokens = 75, truncated = 0
+0.14.272.783 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.532.754 D slot handle_last_: id  0 | task 6 | slot decode token, id=33286, n_ctx = 8192, n_tokens = 76, truncated = 0
+0.14.532.763 D srv        decode: n_batch (effective) = 2048, off = 0
+0.14.828.930 D slot handle_last_: id  0 | task 6 | slot decode token, id=1083, n_ctx = 8192, n_tokens = 77, truncated = 0
+0.14.828.939 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.149.947 D slot handle_last_: id  0 | task 6 | slot decode token, id=9209, n_ctx = 8192, n_tokens = 78, truncated = 0
+0.15.149.957 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.423.996 D slot handle_last_: id  0 | task 6 | slot decode token, id=1375, n_ctx = 8192, n_tokens = 79, truncated = 0
+0.15.424.005 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.682.335 D slot handle_last_: id  0 | task 6 | slot decode token, id=898, n_ctx = 8192, n_tokens = 80, truncated = 0
+0.15.682.343 D srv        decode: n_batch (effective) = 2048, off = 0
+0.15.956.003 D slot handle_last_: id  0 | task 6 | slot decode token, id=1982, n_ctx = 8192, n_tokens = 81, truncated = 0
+0.15.956.012 D srv        decode: n_batch (effective) = 2048, off = 0
+0.16.330.025 D slot handle_last_: id  0 | task 6 | slot decode token, id=13, n_ctx = 8192, n_tokens = 82, truncated = 0
+0.16.330.034 D srv        decode: n_batch (effective) = 2048, off = 0
+0.16.598.870 D slot handle_last_: id  0 | task 6 | slot decode token, id=561, n_ctx = 8192, n_tokens = 83, truncated = 0
+0.16.598.879 D srv        decode: n_batch (effective) = 2048, off = 0
+0.16.865.946 D slot handle_last_: id  0 | task 6 | slot decode token, id=7110, n_ctx = 8192, n_tokens = 84, truncated = 0
+0.16.865.955 D srv        decode: n_batch (effective) = 2048, off = 0
+0.17.127.850 D slot handle_last_: id  0 | task 6 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 85, truncated = 0
+0.17.127.859 D srv        decode: n_batch (effective) = 2048, off = 0
+0.17.385.833 D slot handle_last_: id  0 | task 6 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 86, truncated = 0
+0.17.385.841 D srv        decode: n_batch (effective) = 2048, off = 0
+0.17.643.011 D slot handle_last_: id  0 | task 6 | slot decode token, id=9747, n_ctx = 8192, n_tokens = 87, truncated = 0
+0.17.643.020 D srv        decode: n_batch (effective) = 2048, off = 0
+0.17.912.876 D slot handle_last_: id  0 | task 6 | slot decode token, id=321, n_ctx = 8192, n_tokens = 88, truncated = 0
+0.17.912.885 D srv        decode: n_batch (effective) = 2048, off = 0
+0.18.263.023 D slot handle_last_: id  0 | task 6 | slot decode token, id=279, n_ctx = 8192, n_tokens = 89, truncated = 0
+0.18.263.032 D srv        decode: n_batch (effective) = 2048, off = 0
+0.18.528.281 D slot handle_last_: id  0 | task 6 | slot decode token, id=19743, n_ctx = 8192, n_tokens = 90, truncated = 0
+0.18.528.290 D srv        decode: n_batch (effective) = 2048, off = 0
+0.18.788.438 D slot handle_last_: id  0 | task 6 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 91, truncated = 0
+0.18.788.447 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.049.963 D slot handle_last_: id  0 | task 6 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 92, truncated = 0
+0.19.049.971 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.309.322 D slot handle_last_: id  0 | task 6 | slot decode token, id=44061, n_ctx = 8192, n_tokens = 93, truncated = 0
+0.19.309.331 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.585.059 D slot handle_last_: id  0 | task 6 | slot decode token, id=310, n_ctx = 8192, n_tokens = 94, truncated = 0
+0.19.585.068 D srv        decode: n_batch (effective) = 2048, off = 0
+0.19.902.989 D srv        decode: n_batch (effective) = 2048, off = 0
+0.22.261.143 D srv        decode: n_batch (effective) = 2048, off = 0
+0.22.640.524 D slot handle_last_: id  0 | task 40 | slot decode token, id=271, n_ctx = 8192, n_tokens = 64, truncated = 0
+0.22.640.533 D srv        decode: n_batch (effective) = 2048, off = 0
+0.22.910.258 D slot handle_last_: id  0 | task 40 | slot decode token, id=2860, n_ctx = 8192, n_tokens = 65, truncated = 0
+0.22.910.268 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.172.093 D slot handle_last_: id  0 | task 40 | slot decode token, id=40, n_ctx = 8192, n_tokens = 66, truncated = 0
+0.23.172.102 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.435.026 D slot handle_last_: id  0 | task 40 | slot decode token, id=19, n_ctx = 8192, n_tokens = 67, truncated = 0
+0.23.435.035 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.696.574 D slot handle_last_: id  0 | task 40 | slot decode token, id=7869, n_ctx = 8192, n_tokens = 68, truncated = 0
+0.23.696.584 D srv        decode: n_batch (effective) = 2048, off = 0
+0.23.968.226 D slot handle_last_: id  0 | task 40 | slot decode token, id=614, n_ctx = 8192, n_tokens = 69, truncated = 0
+0.23.968.234 D srv        decode: n_batch (effective) = 2048, off = 0
+0.24.311.908 D slot handle_last_: id  0 | task 40 | slot decode token, id=1566, n_ctx = 8192, n_tokens = 70, truncated = 0
+0.24.311.918 D srv        decode: n_batch (effective) = 2048, off = 0
+0.24.582.025 D slot handle_last_: id  0 | task 40 | slot decode token, id=66111, n_ctx = 8192, n_tokens = 71, truncated = 0
+0.24.582.034 D srv        decode: n_batch (effective) = 2048, off = 0
+0.24.842.169 D slot handle_last_: id  0 | task 40 | slot decode token, id=279, n_ctx = 8192, n_tokens = 72, truncated = 0
+0.24.842.178 D srv        decode: n_batch (effective) = 2048, off = 0
+0.25.101.388 D slot handle_last_: id  0 | task 40 | slot decode token, id=2534, n_ctx = 8192, n_tokens = 73, truncated = 0
+0.25.101.397 D srv        decode: n_batch (effective) = 2048, off = 0
+0.25.366.228 D slot handle_last_: id  0 | task 40 | slot decode token, id=321, n_ctx = 8192, n_tokens = 74, truncated = 0
+0.25.366.236 D srv        decode: n_batch (effective) = 2048, off = 0
+0.25.627.151 D slot handle_last_: id  0 | task 40 | slot decode token, id=795, n_ctx = 8192, n_tokens = 75, truncated = 0
+0.25.627.160 D srv        decode: n_batch (effective) = 2048, off = 0
+0.25.909.569 D slot handle_last_: id  0 | task 40 | slot decode token, id=33286, n_ctx = 8192, n_tokens = 76, truncated = 0
+0.25.909.582 D srv        decode: n_batch (effective) = 2048, off = 0
+0.26.181.227 D slot handle_last_: id  0 | task 40 | slot decode token, id=1083, n_ctx = 8192, n_tokens = 77, truncated = 0
+0.26.181.236 D srv        decode: n_batch (effective) = 2048, off = 0
+0.26.496.303 D slot handle_last_: id  0 | task 40 | slot decode token, id=9209, n_ctx = 8192, n_tokens = 78, truncated = 0
+0.26.496.312 D srv        decode: n_batch (effective) = 2048, off = 0
+0.26.757.105 D slot handle_last_: id  0 | task 40 | slot decode token, id=1375, n_ctx = 8192, n_tokens = 79, truncated = 0
+0.26.757.114 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.026.133 D slot handle_last_: id  0 | task 40 | slot decode token, id=898, n_ctx = 8192, n_tokens = 80, truncated = 0
+0.27.026.142 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.287.103 D slot handle_last_: id  0 | task 40 | slot decode token, id=1982, n_ctx = 8192, n_tokens = 81, truncated = 0
+0.27.287.112 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.568.406 D slot handle_last_: id  0 | task 40 | slot decode token, id=13, n_ctx = 8192, n_tokens = 82, truncated = 0
+0.27.568.415 D srv        decode: n_batch (effective) = 2048, off = 0
+0.27.830.402 D slot handle_last_: id  0 | task 40 | slot decode token, id=561, n_ctx = 8192, n_tokens = 83, truncated = 0
+0.27.830.411 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.090.743 D slot handle_last_: id  0 | task 40 | slot decode token, id=7110, n_ctx = 8192, n_tokens = 84, truncated = 0
+0.28.090.751 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.350.300 D slot handle_last_: id  0 | task 40 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 85, truncated = 0
+0.28.350.309 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.611.292 D slot handle_last_: id  0 | task 40 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 86, truncated = 0
+0.28.611.300 D srv        decode: n_batch (effective) = 2048, off = 0
+0.28.872.496 D slot handle_last_: id  0 | task 40 | slot decode token, id=9747, n_ctx = 8192, n_tokens = 87, truncated = 0
+0.28.872.504 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.135.167 D slot handle_last_: id  0 | task 40 | slot decode token, id=321, n_ctx = 8192, n_tokens = 88, truncated = 0
+0.29.135.175 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.399.208 D slot handle_last_: id  0 | task 40 | slot decode token, id=279, n_ctx = 8192, n_tokens = 89, truncated = 0
+0.29.399.216 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.659.676 D slot handle_last_: id  0 | task 40 | slot decode token, id=19743, n_ctx = 8192, n_tokens = 90, truncated = 0
+0.29.659.684 D srv        decode: n_batch (effective) = 2048, off = 0
+0.29.986.018 D slot handle_last_: id  0 | task 40 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 91, truncated = 0
+0.29.986.026 D srv        decode: n_batch (effective) = 2048, off = 0
+0.30.247.582 D slot handle_last_: id  0 | task 40 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 92, truncated = 0
+0.30.247.591 D srv        decode: n_batch (effective) = 2048, off = 0
+0.30.508.254 D slot handle_last_: id  0 | task 40 | slot decode token, id=44061, n_ctx = 8192, n_tokens = 93, truncated = 0
+0.30.508.263 D srv        decode: n_batch (effective) = 2048, off = 0
+0.30.819.431 D slot handle_last_: id  0 | task 40 | slot decode token, id=310, n_ctx = 8192, n_tokens = 94, truncated = 0
+0.30.819.440 D srv        decode: n_batch (effective) = 2048, off = 0
+0.31.176.929 D srv        decode: n_batch (effective) = 2048, off = 0
+0.33.376.750 D srv        decode: n_batch (effective) = 2048, off = 0
+0.33.780.461 D slot handle_last_: id  0 | task 74 | slot decode token, id=271, n_ctx = 8192, n_tokens = 64, truncated = 0
+0.33.780.470 D srv        decode: n_batch (effective) = 2048, off = 0
+0.34.052.847 D slot handle_last_: id  0 | task 74 | slot decode token, id=2860, n_ctx = 8192, n_tokens = 65, truncated = 0
+0.34.052.857 D srv        decode: n_batch (effective) = 2048, off = 0
+0.34.313.754 D slot handle_last_: id  0 | task 74 | slot decode token, id=40, n_ctx = 8192, n_tokens = 66, truncated = 0
+0.34.313.766 D srv        decode: n_batch (effective) = 2048, off = 0
+0.34.604.740 D slot handle_last_: id  0 | task 74 | slot decode token, id=19, n_ctx = 8192, n_tokens = 67, truncated = 0
+0.34.604.749 D srv        decode: n_batch (effective) = 2048, off = 0
+0.34.865.705 D slot handle_last_: id  0 | task 74 | slot decode token, id=7869, n_ctx = 8192, n_tokens = 68, truncated = 0
+0.34.865.714 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.176.115 D slot handle_last_: id  0 | task 74 | slot decode token, id=614, n_ctx = 8192, n_tokens = 69, truncated = 0
+0.35.176.123 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.443.399 D slot handle_last_: id  0 | task 74 | slot decode token, id=1566, n_ctx = 8192, n_tokens = 70, truncated = 0
+0.35.443.408 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.703.477 D slot handle_last_: id  0 | task 74 | slot decode token, id=66111, n_ctx = 8192, n_tokens = 71, truncated = 0
+0.35.703.485 D srv        decode: n_batch (effective) = 2048, off = 0
+0.35.980.509 D slot handle_last_: id  0 | task 74 | slot decode token, id=279, n_ctx = 8192, n_tokens = 72, truncated = 0
+0.35.980.517 D srv        decode: n_batch (effective) = 2048, off = 0
+0.36.240.697 D slot handle_last_: id  0 | task 74 | slot decode token, id=2534, n_ctx = 8192, n_tokens = 73, truncated = 0
+0.36.240.706 D srv        decode: n_batch (effective) = 2048, off = 0
+0.36.506.514 D slot handle_last_: id  0 | task 74 | slot decode token, id=321, n_ctx = 8192, n_tokens = 74, truncated = 0
+0.36.506.523 D srv        decode: n_batch (effective) = 2048, off = 0
+0.36.770.649 D slot handle_last_: id  0 | task 74 | slot decode token, id=795, n_ctx = 8192, n_tokens = 75, truncated = 0
+0.36.770.657 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.040.394 D slot handle_last_: id  0 | task 74 | slot decode token, id=33286, n_ctx = 8192, n_tokens = 76, truncated = 0
+0.37.040.403 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.298.773 D slot handle_last_: id  0 | task 74 | slot decode token, id=1083, n_ctx = 8192, n_tokens = 77, truncated = 0
+0.37.298.781 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.561.553 D slot handle_last_: id  0 | task 74 | slot decode token, id=9209, n_ctx = 8192, n_tokens = 78, truncated = 0
+0.37.561.561 D srv        decode: n_batch (effective) = 2048, off = 0
+0.37.820.432 D slot handle_last_: id  0 | task 74 | slot decode token, id=1375, n_ctx = 8192, n_tokens = 79, truncated = 0
+0.37.820.441 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.094.029 D slot handle_last_: id  0 | task 74 | slot decode token, id=898, n_ctx = 8192, n_tokens = 80, truncated = 0
+0.38.094.037 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.385.604 D slot handle_last_: id  0 | task 74 | slot decode token, id=1982, n_ctx = 8192, n_tokens = 81, truncated = 0
+0.38.385.612 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.649.887 D slot handle_last_: id  0 | task 74 | slot decode token, id=13, n_ctx = 8192, n_tokens = 82, truncated = 0
+0.38.649.896 D srv        decode: n_batch (effective) = 2048, off = 0
+0.38.909.455 D slot handle_last_: id  0 | task 74 | slot decode token, id=561, n_ctx = 8192, n_tokens = 83, truncated = 0
+0.38.909.463 D srv        decode: n_batch (effective) = 2048, off = 0
+0.39.167.754 D slot handle_last_: id  0 | task 74 | slot decode token, id=7110, n_ctx = 8192, n_tokens = 84, truncated = 0
+0.39.167.762 D srv        decode: n_batch (effective) = 2048, off = 0
+0.39.429.518 D slot handle_last_: id  0 | task 74 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 85, truncated = 0
+0.39.429.527 D srv        decode: n_batch (effective) = 2048, off = 0
+0.39.688.962 D slot handle_last_: id  0 | task 74 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 86, truncated = 0
+0.39.688.970 D srv        decode: n_batch (effective) = 2048, off = 0
+0.39.948.519 D slot handle_last_: id  0 | task 74 | slot decode token, id=9747, n_ctx = 8192, n_tokens = 87, truncated = 0
+0.39.948.528 D srv        decode: n_batch (effective) = 2048, off = 0
+0.40.233.376 D slot handle_last_: id  0 | task 74 | slot decode token, id=321, n_ctx = 8192, n_tokens = 88, truncated = 0
+0.40.233.385 D srv        decode: n_batch (effective) = 2048, off = 0
+0.40.571.541 D slot handle_last_: id  0 | task 74 | slot decode token, id=279, n_ctx = 8192, n_tokens = 89, truncated = 0
+0.40.571.550 D srv        decode: n_batch (effective) = 2048, off = 0
+0.40.835.506 D slot handle_last_: id  0 | task 74 | slot decode token, id=19743, n_ctx = 8192, n_tokens = 90, truncated = 0
+0.40.835.514 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.176.599 D slot handle_last_: id  0 | task 74 | slot decode token, id=54878, n_ctx = 8192, n_tokens = 91, truncated = 0
+0.41.176.607 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.437.623 D slot handle_last_: id  0 | task 74 | slot decode token, id=32235, n_ctx = 8192, n_tokens = 92, truncated = 0
+0.41.437.631 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.723.564 D slot handle_last_: id  0 | task 74 | slot decode token, id=44061, n_ctx = 8192, n_tokens = 93, truncated = 0
+0.41.723.572 D srv        decode: n_batch (effective) = 2048, off = 0
+0.41.993.067 D slot handle_last_: id  0 | task 74 | slot decode token, id=310, n_ctx = 8192, n_tokens = 94, truncated = 0
+0.41.993.075 D srv        decode: n_batch (effective) = 2048, off = 0
+0.42.270.724 I common_memory_breakdown_print: | memory breakdown [MiB]                     | total    free    self   model   context   compute    unaccounted |
+0.42.270.727 I common_memory_breakdown_print: |   - Vulkan0 (890M Graphics (RADV GFX1150)) | 40275 = 20092 + (8831 =  8294 +     324 +     212) +       11351 |
