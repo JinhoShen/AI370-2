@@ -1,0 +1,316 @@
+{
+  "scope": "read-only saved evidence audit; no model/tool/hardware execution",
+  "checks": [
+    {
+      "name": "practical-cohort",
+      "status": "PASS",
+      "checksum_entries": 293,
+      "detail": {
+        "retained_trials_verified": 36,
+        "trials": [
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T1",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T2",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "qwen38",
+            "task": "T3",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T1",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T2",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "A1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "B1",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "B2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "A2",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "A3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": false
+          },
+          {
+            "model": "gemma4_31b",
+            "task": "T3",
+            "trial": "B3",
+            "validation_runs": 2,
+            "model_authored_accepted_patches": 1,
+            "ross": true
+          }
+        ],
+        "scope": "historical bounded XSim/HLS/model provenance; not a fresh workload"
+      }
+    },
+    {
+      "name": "qwen-optimization",
+      "status": "PASS",
+      "checksum_entries": 371,
+      "detail": {
+        "successful_configurations": 20,
+        "excluded_configurations": 1,
+        "service_restore": "historical PASS",
+        "scope": "historical optimization; ROCm safety-deferred; no current inference assertion"
+      }
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,5 +1,9 @@
 # AI370 2 MASTER PLAN REVIEW
 
+**Latest operational checkpoint — 2026-10-15 18:52:** READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED. Formal Qwen XL now runs saved ENGINEERING Vulkan16K/24-thread settings; actual Local Qwen + Ross + XSim repair and current software regression PASS. Graphics baseline gate resolved. Full M15 remains PRE-FINAL; external/deferred items are listed in the [handoff](LOCAL_ENGINEERING_HANDOFF.md).
+
+**Current resolution — 2026-10-15:** Mesa/libdrm `.2` baseline accepted after bounded HIP/Vulkan/XRT/strict NPU PASS; version guards updated and read-only audit now PASS_WITH_DEFERRED (27 PASS / 0 FAIL). The earlier baseline gate below is resolved. M15 remains PRE-FINAL for independent deployment/offline/rebuild scope. [Decision/evidence](M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md).
+
 **2026-10-15 current-state pointer:** Original planning/history below is retained. Current bounded engineering results and baseline/deployment gates are recorded in [ROADMAP](ROADMAP.md), [BUILD_PROGRESS](BUILD_PROGRESS.md) and [Final Readiness Review](FINAL_READINESS_REVIEW.md). The latest read-only audit has two protected version mismatches; M15 is PRE-FINAL / BLOCKED_BASELINE_REVIEW, not FINAL_GOLDEN_PASS.
 
 原始 review 日期：2026-09-30（Asia/Taipei）。以下 review 內容是當日規劃快照；「implementation not started」只描述該 review 寫成時的狀態，不代表目前狀態。後續實際結果以各 milestone result document 為準，現行 M0–M15 狀態統一見 [`ROADMAP.md`](ROADMAP.md)，詳細時間統一見 [`EXECUTION_TIMELINE.md`](EXECUTION_TIMELINE.md)。

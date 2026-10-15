@@ -1,5 +1,17 @@
 # AI370-2 Final Readiness Review — 2026-10-15
 
+## Current operational checkpoint — 2026-10-15 18:52
+
+**READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED; full M15 remains PRE-FINAL.** The existing Qwen XL formal service now uses saved ENGINEERING Vulkan16K/24-thread options. A fresh actual Local Qwen + Ross + fixed XSim repair passed; current software regression, protected `.2` guard, strict NPU and model API all passed. The single-trial/cohort-wrapper false negative and automatic CPU recovery are preserved separately; actual model/testbench PASS was independently verified before final profile adoption. No model/driver/firmware/toolchain was replaced. [Operational handoff and evidence](LOCAL_ENGINEERING_HANDOFF.md).
+
+Independent remaining conditions: T7 user hold, Telegram token absent/E2E WAITING_USER, clean-host rebuild/full restore and physical host-disconnected workflow NOT_TESTED. Broader IDE/direct Tcl automation remains deferred. No Final Golden, release, tag or push is claimed. Older gates and CPU-profile statements below describe their dated checkpoints; the protected baseline gate is resolved and the formal profile was subsequently promoted.
+
+## Current resolution — 2026-10-15 18:37:35 +08:00
+
+**Baseline gate RESOLVED; current state PRE-FINAL / remaining scope as documented.** The agent accepted existing `.2` revisions after fresh bounded HIP/Vulkan/XRT/strict NPU tests passed. Guards now expect the accepted exact versions; the subsequent evidence audit has zero failures. No system packages were changed. See [baseline acceptance](M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md). Further approval is not requested for this resolved routine decision. The following 18:28 blocker record is retained as history; its request for a baseline decision is superseded. T7 user hold, clean-target rebuild and full host-disconnected proof remain independent incomplete items, not grounds to relabel them PASS.
+
+## Historical 18:28 review
+
 **ACTUAL verdict: BLOCKED_BASELINE_REVIEW; M15 remains PRE-FINAL.** This closeout adds read-only evidence verification and reconciles current documentation. It does not perform accelerator/model/FPGA workloads, install software, change the formal Qwen profile, accept a new Golden baseline or declare FINAL_GOLDEN_PASS.
 
 ## Actual work and evidence

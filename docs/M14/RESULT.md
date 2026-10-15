@@ -1,5 +1,15 @@
 # M14 Automation / Reproducible Rebuild
 
+## Current operational checkpoint — 2026-10-15 18:52
+
+**READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED; full M15 remains PRE-FINAL.** The existing Qwen XL formal service now uses saved ENGINEERING Vulkan16K/24-thread options. A fresh actual Local Qwen + Ross + fixed XSim repair passed; current software regression, protected `.2` guard, strict NPU and model API all passed. The single-trial/cohort-wrapper false negative and automatic CPU recovery are preserved separately; actual model/testbench PASS was independently verified before final profile adoption. No model/driver/firmware/toolchain was replaced. [Operational handoff and evidence](../LOCAL_ENGINEERING_HANDOFF.md).
+
+Independent remaining conditions: T7 user hold, Telegram token absent/E2E WAITING_USER, clean-host rebuild/full restore and physical host-disconnected workflow NOT_TESTED. Broader IDE/direct Tcl automation remains deferred. No Final Golden, release, tag or push is claimed. Older gates and CPU-profile statements below describe their dated checkpoints; the protected baseline gate is resolved and the formal profile was subsequently promoted.
+
+## Current baseline decision — 2026-10-15, after bounded acceptance
+
+**Protected baseline gate RESOLVED.** Existing Mesa/libdrm `.2` revisions passed fresh bounded HIP/Vulkan, XRT and strict VitisAI CNN checks (hardware delta 14,897,582 ns, fallback disabled, max error 0). Exact-version guards were updated only afterward; the 18:37:35 read-only audit returned PASS_WITH_DEFERRED with 27 PASS / 0 FAIL / 5 deferred-not-tested. No package or formal Qwen profile was changed. [Decision and evidence](../M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md). M13/M14 remain PARTIAL/IN PROGRESS and M15 PRE-FINAL for their separate unverified scope; earlier baseline-review failures below are historical and resolved.
+
 ## Current closeout audit — 2026-10-15
 
 **IN PROGRESS / BLOCKED_BASELINE_REVIEW.** Extended the existing read-only auditor with `scripts/audit_local_engineering_evidence.py`; actual semantic audit PASS for 36 retained model-authored FPGA repairs, genuine Ross/non-Ross separation, 664 checksums, 20 measured configurations and the excluded ROCm swap-guard failure. Four negative-policy tests PASS. This verifies repeatable auditing of historical evidence, not fresh hardware/model execution or clean-host rebuild.

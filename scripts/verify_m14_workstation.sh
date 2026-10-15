@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Graphics .2 baseline accepted after bounded HIP/Vulkan/strict NPU tests;
+# see docs/M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md. Old .1 evidence retained.
 # Guarded, read-only workstation verification. Test workloads are bounded and
 # reuse the already validated M3/M4/M5 smoke tests. No installation or config
 # mutation is performed by this script.
@@ -7,7 +9,7 @@ set -uo pipefail
 project="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$project"
 stamp="$(date +%Y%m%dT%H%M%S%z)"
-out="$project/output/M14/runs/$stamp"
+out="${AI370_M14_OUTPUT_ROOT:-$project/output/M14/runs}/$stamp"
 mkdir -p "$out"
 started="$(date --iso-8601=seconds)"
 failures=0
@@ -56,8 +58,8 @@ check_pkg() {
   fi
 }
 check_pkg linux-image-"$(uname -r)" '6.17.0-14.14~24.04.1'
-check_pkg mesa-vulkan-drivers '25.2.8-0ubuntu0.24.04.1'
-check_pkg libdrm-amdgpu1 '2.4.125-1ubuntu0.1~24.04.1'
+check_pkg mesa-vulkan-drivers '25.2.8-0ubuntu0.24.04.2'
+check_pkg libdrm-amdgpu1 '2.4.125-1ubuntu0.1~24.04.2'
 check_pkg rocm-core '7.2.1.70201-81~24.04'
 check_pkg hip-runtime-amd '7.2.53211.70201-81~24.04'
 check_pkg xrt-base '2.21.75'
@@ -69,6 +71,21 @@ module_version="$(cat /sys/module/amdxdna/version 2>/dev/null || true)"
 [[ "$module_version" == 2.21.260102.53.release* ]] || protected_ok=0
 printf 'amdxdna_module_path=%s\namdxdna_module_version=%s\n' "$module_path" "$module_version" >>"$out/protected-stack.txt"
 if [[ "$protected_ok" == 1 ]]; then pass 'protected stack versions' 'all pinned package/module versions match documented Golden State'; else fail_item 'protected stack versions' 'one or more pinned versions/path differ; see protected-stack.txt'; fi
+if [[ "$protected_ok" != 1 ]]; then
+  not_tested 'remaining workload/readiness checks' 'protected version gate failed; refusing accelerator execution'
+  python3 - "$out/summary.json" "$started" "$checks_file" <<'PY'
+import csv,json,sys
+path,started,checks_path=sys.argv[1:]
+with open(checks_path,newline='',encoding='utf-8') as f:
+    checks=[dict(status=r[0],name=r[1],detail=r[2]) for r in csv.reader(f,delimiter='\t')]
+with open(path,'w',encoding='utf-8') as f:
+    json.dump(dict(schema='ai370-m14-verifier/v1',started=started,overall='FAIL',fail_count=1,
+                   deferred_or_not_tested_count=1,stopped_before_workloads=True,checks=checks),f,indent=2)
+    f.write('\n')
+PY
+  printf 'Summary: %s\n' "$out/summary.json"
+  exit 1
+fi
 
 printf '\n[HIP / GPU]\n'
 if [[ -x output/M3/hip-compute ]] && timeout 30s output/M3/hip-compute >"$out/hip.log" 2>&1 && rg -q 'PASS: 1024 HIP GPU results verified' "$out/hip.log"; then

@@ -1,0 +1,21 @@
+{
+    "checkpoints": {
+        "main": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf"
+    },
+    "labels": [
+        "custom",
+        "chat",
+        "tool-calling",
+        "mtp"
+    ],
+    "model_name": "user.Qwen3.8-27B-UD-Q4_K_XL",
+    "recipe": "llamacpp",
+    "recipe_options": {
+        "ctx_size": 16384,
+        "llamacpp_args": "--n-gpu-layers 99 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --batch-size 2048 --ubatch-size 512 --flash-attn auto --cache-type-k f16 --cache-type-v f16 --offline",
+        "llamacpp_backend": "vulkan",
+        "llamacpp_device": "Vulkan0",
+        "merge_args": false
+    },
+    "size": 16.4
+}

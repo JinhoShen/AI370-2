@@ -1,0 +1,47 @@
+{
+  "status": "SOFTWARE_PASS_WITH_DEFERRED",
+  "started": "2026-10-15T18:52:40+08:00",
+  "completed": "2026-10-15T18:52:50.062535+08:00",
+  "scope": "bounded current software regression; reuse resident ENGINEERING model, no FPGA programming",
+  "checks": [
+    [
+      "PASS",
+      "workstation"
+    ],
+    [
+      "PASS",
+      "evidence"
+    ],
+    [
+      "PASS",
+      "local-engineering"
+    ],
+    [
+      "PASS",
+      "formal-local-ai"
+    ],
+    [
+      "PASS",
+      "hls-version"
+    ],
+    [
+      "PASS",
+      "kernel audit"
+    ]
+  ],
+  "m15": "PRE-FINAL",
+  "final_golden": false,
+  "deferred": [
+    "T7 media on user hold",
+    "clean-target rebuild/full boot restore NOT_TESTED",
+    "full physically disconnected workflow NOT_TESTED",
+    "Telegram WAITING_USER credential",
+    "M7.1 retired Qwen3.6 OPEN; not run",
+    "M8 NPU LLM DEFERRED",
+    "broader Vitis IDE/direct Vivado Tcl agent scope NOT_TESTED"
+  ],
+  "not_required": [
+    "350 GB current-state image",
+    "copy of installed Xilinx tree"
+  ]
+}

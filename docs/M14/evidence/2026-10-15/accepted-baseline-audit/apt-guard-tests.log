@@ -1,0 +1,11 @@
+test_graphics_and_drm_changes_blocked (test_apt_change_guard.ProtectedStackSimulationTests.test_graphics_and_drm_changes_blocked) ... ok
+test_kernel_xrt_and_firmware_removals_blocked (test_apt_change_guard.ProtectedStackSimulationTests.test_kernel_xrt_and_firmware_removals_blocked) ... ok
+test_rocm_libraries_and_amdgpu_driver_blocked (test_apt_change_guard.ProtectedStackSimulationTests.test_rocm_libraries_and_amdgpu_driver_blocked) ... ok
+test_safe_new_userspace_package (test_apt_change_guard.ProtectedStackSimulationTests.test_safe_new_userspace_package) ... ok
+test_strict_mode_fails_closed_when_apt_summary_is_missing (test_apt_change_guard.ProtectedStackSimulationTests.test_strict_mode_fails_closed_when_apt_summary_is_missing) ... ok
+test_unrelated_replacement_and_protected_change_blocked (test_apt_change_guard.ProtectedStackSimulationTests.test_unrelated_replacement_and_protected_change_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

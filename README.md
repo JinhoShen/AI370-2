@@ -1,5 +1,9 @@
 # AI370 2 Engineering Workstation
 
+**Latest operational checkpoint — 2026-10-15 18:52:** READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED. Formal Qwen XL now runs saved ENGINEERING Vulkan16K/24-thread settings; actual Local Qwen + Ross + XSim repair and current software regression PASS. Graphics baseline gate resolved. Full M15 remains PRE-FINAL; external/deferred items are listed in the [handoff](docs/LOCAL_ENGINEERING_HANDOFF.md).
+
+**Current resolution — 2026-10-15:** Mesa/libdrm `.2` baseline accepted after bounded HIP/Vulkan/XRT/strict NPU PASS; version guards updated and read-only audit now PASS_WITH_DEFERRED (27 PASS / 0 FAIL). The earlier baseline gate below is resolved. M15 remains PRE-FINAL for independent deployment/offline/rebuild scope. [Decision/evidence](docs/M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md).
+
 **2026-10-15 收尾狀態：PRE-FINAL／BLOCKED_BASELINE_REVIEW。** 本地 Qwen＋Ross 的 Vulkan16K T1/T2/T3 已有 18/18 PASS；最新唯讀 audit 驗證了工程 evidence，但發現 Mesa／libdrm 套件修訂版 `.2` 與原 Golden guard `.1` 不一致。未改套件、未接受新 baseline、未切換正式模型。詳見 [目前驗收與真正剩餘項目](docs/FINAL_READINESS_REVIEW.md)。
 
 Clean rebuild validation for AMD Ryzen AI 9 HX 370 / Radeon 890M / XDNA2 / FPGA.

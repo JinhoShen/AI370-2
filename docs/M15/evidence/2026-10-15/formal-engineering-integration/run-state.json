@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "completed": "2026-10-15T18:48:48.445042+08:00",
+  "formal_profile": "ENGINEERING Vulkan0 16K / threads24 full GPU offload f16 cache",
+  "model_unchanged": true,
+  "trial": "one real Ross T1 model-authored repair plus actual XSim PASS",
+  "persistent_options_saved": true,
+  "controller_initial_false_negative_retained": true,
+  "offline_mode_configured": true,
+  "physical_airgap": "NOT_TESTED"
+}

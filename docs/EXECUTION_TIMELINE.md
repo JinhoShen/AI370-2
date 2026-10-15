@@ -62,3 +62,13 @@ Timestamp sources include Git commit metadata; M0 `docs/M0/*`; CP0 verification 
 | M13/M14/M15 closeout evidence audit | 2026-10-15T18:28:21+08:00 | UNKNOWN exact finish time; command returned exit 1 | 25 PASS, 2 FAIL, 5 deferred/not-tested; 36 historical repairs and 664 checksums independently audited | [M14 audit](M14/evidence/2026-10-15/closeout-evidence-audit/summary.json) | UNKNOWN | Protected baseline review; T7 user hold; offline/rebuild and final scope gates |
 
 These are actual dated evidence events. No new PLAN/ESTIMATE duration or completion date is inferred, and previous milestone histories remain unchanged.
+
+## ACTUAL baseline gate resolution — 2026-10-15
+
+Bounded functional tests ran 18:35:46–18:35:50.638471 +08:00: HIP/Vulkan/XRT/strict NPU PASS, zero new faults, package versions unchanged. Existing `.2` revisions were then accepted under user-delegated engineering judgment; no package installation or replacement. The 18:37:35 +08:00 read-only audit passed 27 checks with zero failures and five deferred/not-tested groups. Earlier 18:28 failures remain historical. This resolves only the baseline gate; M15 remains PRE-FINAL. See [acceptance record](M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md). These are measured test windows, not project labor durations.
+
+## ACTUAL operational handoff — 2026-10-15
+
+- Fresh formal Vulkan16K Qwen/Ross T1 started 18:41:49 +08:00 and completed in 320.158 seconds (trial elapsed clock). The true Local Agent/XSim trial PASS is retained; the six-trial benchmark main returned 1 because only B1 was requested, and its developer controller briefly restored CPU. That packaging false negative is preserved, not pooled as a model failure or silently dropped.
+- Formal ENGINEERING options were saved after independently verifying the existing successful trial; adoption/API confirmation completed `2026-10-15T18:48:48.445042+08:00`. Same model/artifact; no protected package changes.
+- Current bounded software suite ran `2026-10-15T18:52:40+08:00` to `2026-10-15T18:52:50.062535+08:00`: SOFTWARE_PASS_WITH_DEFERRED, full M15 PRE-FINAL. See [handoff](LOCAL_ENGINEERING_HANDOFF.md). These are actual task/test windows, not total labor.

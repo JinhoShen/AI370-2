@@ -1,0 +1,15 @@
+{
+    "checkpoints": {
+        "main": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf"
+    },
+    "labels": [
+        "custom",
+        "chat",
+        "tool-calling",
+        "mtp"
+    ],
+    "model_name": "user.Qwen3.8-27B-UD-Q4_K_XL",
+    "recipe": "llamacpp",
+    "recipe_options": {},
+    "size": 16.4
+}

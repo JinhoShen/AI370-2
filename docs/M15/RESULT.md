@@ -1,5 +1,15 @@
 # M15 Final Golden Workstation — pre-final validation
 
+## Current operational checkpoint — 2026-10-15 18:52
+
+**READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED; full M15 remains PRE-FINAL.** The existing Qwen XL formal service now uses saved ENGINEERING Vulkan16K/24-thread options. A fresh actual Local Qwen + Ross + fixed XSim repair passed; current software regression, protected `.2` guard, strict NPU and model API all passed. The single-trial/cohort-wrapper false negative and automatic CPU recovery are preserved separately; actual model/testbench PASS was independently verified before final profile adoption. No model/driver/firmware/toolchain was replaced. [Operational handoff and evidence](../LOCAL_ENGINEERING_HANDOFF.md).
+
+Independent remaining conditions: T7 user hold, Telegram token absent/E2E WAITING_USER, clean-host rebuild/full restore and physical host-disconnected workflow NOT_TESTED. Broader IDE/direct Tcl automation remains deferred. No Final Golden, release, tag or push is claimed. Older gates and CPU-profile statements below describe their dated checkpoints; the protected baseline gate is resolved and the formal profile was subsequently promoted.
+
+## Current baseline decision — 2026-10-15, after bounded acceptance
+
+**Protected baseline gate RESOLVED.** Existing Mesa/libdrm `.2` revisions passed fresh bounded HIP/Vulkan, XRT and strict VitisAI CNN checks (hardware delta 14,897,582 ns, fallback disabled, max error 0). Exact-version guards were updated only afterward; the 18:37:35 read-only audit returned PASS_WITH_DEFERRED with 27 PASS / 0 FAIL / 5 deferred-not-tested. No package or formal Qwen profile was changed. [Decision and evidence](GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md). M13/M14 remain PARTIAL/IN PROGRESS and M15 PRE-FINAL for their separate unverified scope; earlier baseline-review failures below are historical and resolved.
+
 ## Latest closeout gate — 2026-10-15
 
 **Current M15: PRE-FINAL / BLOCKED_BASELINE_REVIEW; no FINAL_GOLDEN_PASS.** The later Qwen Vulkan16K practical cohort passed 18/18 T1/T2/T3 trials, including genuine Ross Skill/local-KB assistance and XSim/RTL synthesis/HLS validation. The 2026-10-14 Qwen optimization restored the original formal CPU service and passed a real Local Agent read-file check; profile recommendations remain NOT_APPLIED and ROCm tuning remains safety-deferred.

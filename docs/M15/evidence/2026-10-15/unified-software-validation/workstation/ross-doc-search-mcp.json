@@ -1,0 +1,11 @@
+{
+  "server": {
+    "name": "AMD Doc Search",
+    "version": "0.11.0"
+  },
+  "protocolVersion": "2025-03-26",
+  "tools": [
+    "vivado_doc_search"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,101 @@
+{
+  "all_models_loaded": [
+    {
+      "backend_alive": true,
+      "backend_health": "ready",
+      "backend_url": "http://127.0.0.1:8001/v1",
+      "checkpoint": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "device": "gpu",
+      "is_busy": false,
+      "is_streaming": false,
+      "last_use": 1297243601,
+      "launch_command": [
+        "/home/shen/AI370-2/output/M6/build-vulkan/bin/llama-server",
+        "-m",
+        "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "--ctx-size",
+        "16384",
+        "--device",
+        "Vulkan0",
+        "--port",
+        "8001",
+        "--jinja",
+        "--metrics",
+        "--n-gpu-layers",
+        "99",
+        "--parallel",
+        "1",
+        "--reasoning",
+        "off",
+        "--threads",
+        "24",
+        "--threads-batch",
+        "24",
+        "--batch-size",
+        "2048",
+        "--ubatch-size",
+        "512",
+        "--flash-attn",
+        "auto",
+        "--cache-type-k",
+        "f16",
+        "--cache-type-v",
+        "f16",
+        "--offline"
+      ],
+      "loaded": true,
+      "max_context_window": 262144,
+      "model_name": "Qwen3.8-27B-UD-Q4_K_XL",
+      "pid": 2605568,
+      "pinned": false,
+      "recipe": "llamacpp",
+      "recipe_options": {
+        "ctx_size": 16384,
+        "llamacpp_args": "--n-gpu-layers 99 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --batch-size 2048 --ubatch-size 512 --flash-attn auto --cache-type-k f16 --cache-type-v f16 --offline",
+        "llamacpp_backend": "vulkan",
+        "llamacpp_device": "Vulkan0",
+        "merge_args": false
+      },
+      "residency_class": "standard",
+      "slot_pool": "standard/llm",
+      "status": "ready",
+      "type": "llm",
+      "watchdog_reset": false
+    }
+  ],
+  "max_models": {
+    "classification": 1,
+    "embedding": 1,
+    "image": 1,
+    "llm": 1,
+    "reranking": 1,
+    "transcription": 1,
+    "tts": 1
+  },
+  "model_loaded": "Qwen3.8-27B-UD-Q4_K_XL",
+  "pinned_helper_models": {
+    "classification": 0,
+    "embedding": 0,
+    "image": 0,
+    "llm": 0,
+    "reranking": 0,
+    "transcription": 0,
+    "tts": 0
+  },
+  "pinned_models": {
+    "classification": 0,
+    "embedding": 0,
+    "image": 0,
+    "llm": 0,
+    "reranking": 0,
+    "transcription": 0,
+    "tts": 0
+  },
+  "status": "ok",
+  "telemetry": {
+    "enabled": false
+  },
+  "update_check_done": true,
+  "version": "2026.39.1",
+  "websocket_port": 9000
+}

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Graphics .2 baseline accepted after bounded HIP/Vulkan/strict NPU tests;
+# see docs/M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md. Old .1 evidence retained.
 # Read-only evidence and protected-stack audit. Does not run accelerator workloads.
 set -uo pipefail
 project="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -65,8 +67,8 @@ record NOT_TESTED 'M15 unified regression' 'intentionally not run by this read-o
 
 printf '\n[protected stack read-only guard]\n'
 check_pkg "linux-image-$(uname -r)" '6.17.0-14.14~24.04.1'
-check_pkg mesa-vulkan-drivers '25.2.8-0ubuntu0.24.04.1'
-check_pkg libdrm-amdgpu1 '2.4.125-1ubuntu0.1~24.04.1'
+check_pkg mesa-vulkan-drivers '25.2.8-0ubuntu0.24.04.2'
+check_pkg libdrm-amdgpu1 '2.4.125-1ubuntu0.1~24.04.2'
 check_pkg rocm-core '7.2.1.70201-81~24.04'
 check_pkg hip-runtime-amd '7.2.53211.70201-81~24.04'
 check_pkg xrt-base '2.21.75'

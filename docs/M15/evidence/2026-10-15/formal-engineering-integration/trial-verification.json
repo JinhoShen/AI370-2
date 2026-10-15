@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "one formal-profile integration trial, not a six-trial benchmark",
+  "proof": {
+    "validation_runs": 2,
+    "model_authored_accepted_patches": 1,
+    "ross": true
+  },
+  "raw_agent_exit": 0,
+  "legacy_cohort_runner_exit": 1,
+  "controller_classification": "VERIFICATION_FALSE_NEGATIVE: cohort main requires six trials; one trial was deliberately requested; actual trial and self-checking testbench PASS; CPU recovery retained as history"
+}

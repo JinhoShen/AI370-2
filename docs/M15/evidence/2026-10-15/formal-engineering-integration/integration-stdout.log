@@ -1,0 +1,2 @@
+START B1
+{"trial": "B1", "elapsed_seconds": 320.158, "agent_status": "PASS", "xsim_attempts": 3, "ross_call_count": 2, "metrics": {"model_request_seconds": 309.964, "ross_mcp_seconds": 0.737, "prompt_tokens": 37902, "completion_tokens": 689}, "process_peak_rss_mib": 5140.7, "host_min_memavailable_mib": 35993.9, "host_max_swap_used_mib": 6709.3}

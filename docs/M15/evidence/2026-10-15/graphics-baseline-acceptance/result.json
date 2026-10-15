@@ -1,0 +1,105 @@
+{
+  "started": "2026-10-15T18:35:46+08:00",
+  "completed": "2026-10-15T18:35:50.638471+08:00",
+  "input_head": "43aaa14d635a83a593d79a18b8322cb821e7ff1d",
+  "scope": "bounded acceptance of already installed Mesa/libdrm Ubuntu .2 revisions; no installation, model inference, FPGA programming or formal service change",
+  "checks": [
+    {
+      "name": "hip",
+      "command": [
+        "timeout",
+        "30s",
+        "output/M3/hip-compute"
+      ],
+      "start": "2026-10-15T18:35:46.298817+08:00",
+      "end": "2026-10-15T18:35:46.525866+08:00",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "vulkan",
+      "command": [
+        "timeout",
+        "20s",
+        "output/M4/build/vulkan-compute",
+        "output/M4/build/verify.spv"
+      ],
+      "start": "2026-10-15T18:35:46.525898+08:00",
+      "end": "2026-10-15T18:35:46.562804+08:00",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "xrt",
+      "command": [
+        "bash",
+        "scripts/npu21.sh",
+        "/opt/xilinx/xrt/bin/unwrapped/xrt-smi",
+        "examine",
+        "-r",
+        "all"
+      ],
+      "start": "2026-10-15T18:35:46.562831+08:00",
+      "end": "2026-10-15T18:35:46.605193+08:00",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "npu-cnn",
+      "command": [
+        "env",
+        "NPU_OUTPUT_DIR=/home/shen/AI370-2/output/M15/baseline-acceptance/20261015T183546+0800/npu",
+        "NPU_RESULT_FILE=/home/shen/AI370-2/output/M15/baseline-acceptance/20261015T183546+0800/npu-result.json",
+        "bash",
+        "scripts/ryzenai21.sh",
+        "timeout",
+        "180s",
+        ".venvs/npu21/bin/python",
+        "verify/npu_cnn.py",
+        "output/M5/quicktest/quicktest/test_model.onnx"
+      ],
+      "start": "2026-10-15T18:35:46.605226+08:00",
+      "end": "2026-10-15T18:35:50.615940+08:00",
+      "exit_code": 0,
+      "strict_result": {
+        "status": "PASS",
+        "model_sha256": "7a78c7e85bac3a0681e3d2f77e69093a761e1c8f62f7fc65ff5ce3e1b82c5ba3",
+        "onnxruntime": "1.23.3.dev20260320",
+        "providers": [
+          "VitisAIExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "cpu_fallback_disabled": true,
+        "profile_path": "output/M15/baseline-acceptance/20261015T183546+0800/npu/ort-profile_2026-10-15_18-35-46.json",
+        "profile_node_providers": [
+          "VitisAIExecutionProvider"
+        ],
+        "npu_device_fds": {
+          "6": {
+            "device": "/dev/accel/accel0",
+            "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t921\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t494\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t0 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
+          }
+        },
+        "after_npu_device_fds": {
+          "6": {
+            "device": "/dev/accel/accel0",
+            "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t29\nino:\t921\ndrm-driver:\tamdxdna_accel_driver\ndrm-client-id:\t494\ndrm-pdev:\t0000:c6:00.1\ndrm-engine-npu-amdxdna:\t14897582 ns\ndrm-total-memory:\t159468 KiB\ndrm-shared-memory:\t0\n"
+          }
+        },
+        "iterations": 10,
+        "elapsed_seconds": 0.016600925009697676,
+        "npu_hardware_time_delta_ns": 14897582,
+        "max_abs_errors": [
+          0.0
+        ],
+        "rtol": 0.001,
+        "atol": 0.0001
+      },
+      "status": "PASS"
+    }
+  ],
+  "packages_unchanged": true,
+  "kernel_read_exit": 0,
+  "kernel_faults": [],
+  "status": "PASS"
+}
