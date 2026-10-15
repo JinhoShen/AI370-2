@@ -1,5 +1,7 @@
 # M13 AMD Ross / Local Qwen A/B benchmark
 
+**2026-10-15 current-evidence note:** The CPU8K outcomes in this dated report remain historical. The later practical Vulkan16K Qwen cohort completed T1/T2/T3 with 18/18 PASS, including real Ross Skill/local-KB calls; it is a separate configuration/cohort, not pooled A/B data. See [latest M13 result](RESULT.md) and [current readiness gate](../FINAL_READINESS_REVIEW.md). Direct Qwen→Vivado Tcl MCP and full physical air-gap remain NOT_TESTED.
+
 **Overall: PARTIAL — no general Ross advantage proven.** The Local Agent made real Ross Skill and local Knowledge Base MCP calls. Results vary by task: Ross completed 0/3 T1 repairs, 1/3 corrected T2 multi-file repairs, and 3/3 T3 HLS source checks. T2 Non-Ross completed 3/3; the sole successful B trial is too small for a reliable latency comparison. The valid T3 equal-success comparison was 2.69% slower by Ross mean end-to-end time.
 
 ## Common setup and controls

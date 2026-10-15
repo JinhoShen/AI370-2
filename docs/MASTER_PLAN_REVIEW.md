@@ -1,5 +1,7 @@
 # AI370 2 MASTER PLAN REVIEW
 
+**2026-10-15 current-state pointer:** Original planning/history below is retained. Current bounded engineering results and baseline/deployment gates are recorded in [ROADMAP](ROADMAP.md), [BUILD_PROGRESS](BUILD_PROGRESS.md) and [Final Readiness Review](FINAL_READINESS_REVIEW.md). The latest read-only audit has two protected version mismatches; M15 is PRE-FINAL / BLOCKED_BASELINE_REVIEW, not FINAL_GOLDEN_PASS.
+
 原始 review 日期：2026-09-30（Asia/Taipei）。以下 review 內容是當日規劃快照；「implementation not started」只描述該 review 寫成時的狀態，不代表目前狀態。後續實際結果以各 milestone result document 為準，現行 M0–M15 狀態統一見 [`ROADMAP.md`](ROADMAP.md)，詳細時間統一見 [`EXECUTION_TIMELINE.md`](EXECUTION_TIMELINE.md)。
 
 **目前狀態索引（2026-10-01）：** M0–M10 已有部分或全部實際執行紀錄，但 PASS 範圍不擴張；M0.1、M1、M8 為 PARTIAL；M7.1 為 OPEN；M11 DEFERRED 等待 SP701/JTAG target；M12–M15 為 PLAN。AMD Ross 已列入 M13，尚未安裝或驗證。Roadmap 為唯一詳細里程碑狀態來源。

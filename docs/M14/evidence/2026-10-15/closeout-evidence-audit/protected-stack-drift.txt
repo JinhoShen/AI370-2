@@ -1,0 +1,12 @@
+Captured: 2026-10-15T18:29:42.640535+08:00
+Source: /var/log/dpkg.log (timestamps as logged)
+2026-10-13 06:13:44 upgrade mesa-vulkan-drivers:amd64 25.2.8-0ubuntu0.24.04.1 25.2.8-0ubuntu0.24.04.2
+2026-10-13 06:16:25 upgrade libdrm-amdgpu1:amd64 2.4.125-1ubuntu0.1~24.04.1 2.4.125-1ubuntu0.1~24.04.2
+
+Prior Qwen optimization baseline/final:
+baseline-packages.txt: libdrm-amdgpu1	2.4.125-1ubuntu0.1~24.04.2
+baseline-packages.txt: mesa-vulkan-drivers	25.2.8-0ubuntu0.24.04.2
+final-packages.txt: libdrm-amdgpu1	2.4.125-1ubuntu0.1~24.04.2
+final-packages.txt: mesa-vulkan-drivers	25.2.8-0ubuntu0.24.04.2
+
+Change actor/approval: UNKNOWN; no package change or baseline acceptance performed in this audit.

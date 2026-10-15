@@ -1,5 +1,14 @@
 # M15 Final Golden Workstation — pre-final validation
 
+## Latest closeout gate — 2026-10-15
+
+**Current M15: PRE-FINAL / BLOCKED_BASELINE_REVIEW; no FINAL_GOLDEN_PASS.** The later Qwen Vulkan16K practical cohort passed 18/18 T1/T2/T3 trials, including genuine Ross Skill/local-KB assistance and XSim/RTL synthesis/HLS validation. The 2026-10-14 Qwen optimization restored the original formal CPU service and passed a real Local Agent read-file check; profile recommendations remain NOT_APPLIED and ROCm tuning remains safety-deferred.
+
+Today's **read-only** M14 audit checked 36 historical Qwen/Gemma trials plus optimization evidence and 664 SHA256 entries, but the overall guard returned **FAIL** because Mesa and libdrm have `.2` package revisions while the accepted baseline requires `.1`. This drift occurred on 2026-10-13; it was already present in both optimization package snapshots. No automatic baseline acceptance, downgrade or repair was performed. Existing historical tests remain valid for their own versions/scopes, not a new M15 unified PASS. [Current review and blockers](../FINAL_READINESS_REVIEW.md), [audit result](../M14/evidence/2026-10-15/closeout-evidence-audit/summary.json).
+
+T7 work stays BLOCKED by user hold; clean-target rebuild/full boot restore and full host-disconnected agent operation remain NOT_TESTED. Direct Qwen Vivado Tcl MCP, Vitis IDE/Embedded assistant and live Telegram remain separately deferred. No model/accelerator test, FPGA programming or T7 access occurred today. Historical scope decisions and evidence below are preserved.
+
+
 **Status: PRE-FINAL.** The unified software regression passed its tested workloads with explicit OPEN/DEFERRED items. Under the 2026-10-02 architecture decision, a full current-machine image including the installed Xilinx tree is NOT REQUIRED. The refreshed T7 selected-resource set and current-main bundle are checksum/clone verified, and the sudoers syntax/security audit now PASSes. **M15 is still not FINAL GOLDEN:** the offline deployment kit is PARTIAL, clean-media rebuild is NOT TESTED, and some agent/FPGA integration scope remains DEFERRED. CP0 remains historical pre-Vivado/Vitis recovery evidence only.
 
 Run: 2026-10-02 15:47:26–15:49:22 +08:00, followed by metadata-parser correction and removal of the temporary broad sudo rule. Evidence is under [`evidence/2026-10-02/unified-final-validation/`](evidence/2026-10-02/unified-final-validation/). The reproducible entry point is [`scripts/run_m15_final_validation.sh`](../../scripts/run_m15_final_validation.sh). It runs the guarded workstation verifier, records local GGUF integrity/metadata, and performs only bounded inference with the established M7 model. It does not program the FPGA or rerun the known Qwen3.6 Q8 Vulkan failure.

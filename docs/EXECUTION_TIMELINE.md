@@ -1,6 +1,8 @@
 # AI370-2 Execution Timeline
 
-**Latest timed evidence:** 2026-10-06 18:24:40 +08:00 — M14 read-only evidence audit at HEAD `25125e7` returned PASS_WITH_DEFERRED, 0 failures and 5 deferred/not-tested groups, including the newly recorded local-model XSim feedback repair. The bounded XSim repair run completed at 18:19:36 +08:00. T7's last verified snapshot is commit `25125e7`; it was then safely unmounted, and subsequent repository commit `88f2e3c` means it needs refresh after reconnection. Earlier project checkpoint `34892ce8163f37d946d314303d6dcd3d4ad871fd` (2026-10-01 20:41:59 +08:00).
+**Latest timed evidence:** 2026-10-15 18:28:21 +08:00, actual read-only M14 audit at HEAD `47fcd0c`: FAIL, 25 PASS / 2 protected package mismatches / 5 deferred-not-tested. This is evidence auditing, not a workload or final Golden validation.
+
+**Historical latest-evidence note (2026-10-06):** 2026-10-06 18:24:40 +08:00 — M14 read-only evidence audit at HEAD `25125e7` returned PASS_WITH_DEFERRED, 0 failures and 5 deferred/not-tested groups, including the newly recorded local-model XSim feedback repair. The bounded XSim repair run completed at 18:19:36 +08:00. T7's last verified snapshot is commit `25125e7`; it was then safely unmounted, and subsequent repository commit `88f2e3c` means it needs refresh after reconnection. Earlier project checkpoint `34892ce8163f37d946d314303d6dcd3d4ad871fd` (2026-10-01 20:41:59 +08:00).
 **Timezone:** Asia/Taipei (+08:00), unless a source timestamp explicitly says UTC.
 **Time accounting rule:** ACTUAL dates/times below identify timestamped evidence events, not necessarily the start/end of human or agent work. Unless a test log has an explicit start and finish, elapsed working time is UNKNOWN. Git commit-to-commit gaps are not counted as labor.
 
@@ -50,3 +52,13 @@ M0–M10 have no remaining-duration estimates here; their completed and deferred
 ## Evidence references
 
 Timestamp sources include Git commit metadata; M0 `docs/M0/*`; CP0 verification reports; M7.1 per-run metadata under `docs/M7/evidence/qwen36-35b-a3b-q8/`; M9 installer and Hardware Manager logs; M10 `docs/M10/evidence/2026.1/`; and the result documents linked from [ROADMAP.md](ROADMAP.md). Where a result has only a date or commit timestamp, no precise test start or elapsed effort has been invented.
+
+## ACTUAL EXECUTION — later closeout events
+
+| Record | Actual start | Actual completion | Status / scope | Evidence / commit | Elapsed time | Remaining condition |
+|---|---|---|---|---|---|---|
+| Practical model engineering cohort | UNKNOWN for entire preparation; run directory identifies 2026-10-13 18:26:57 +08:00 | 2026-10-13T21:48:31+08:00 | Qwen and Gemma each 18/18 T1/T2/T3 PASS; roster PARTIAL | `47fcd0c`; Local Model Lab result | UNKNOWN total effort; directory time is not labor | Missing roster models; no download performed |
+| Qwen optimization | 2026-10-14T18:11:44.593425+08:00 | 2026-10-14T18:25:08.985892+08:00 | PARTIAL_SAFE_PROFILES_READY; 20 successful configurations and one guarded load failure; formal CPU restored | `47fcd0c`; optimization result | UNKNOWN total effort; multi-stage execution with restoration | ROCm safety-deferred; recommendations not applied |
+| M13/M14/M15 closeout evidence audit | 2026-10-15T18:28:21+08:00 | UNKNOWN exact finish time; command returned exit 1 | 25 PASS, 2 FAIL, 5 deferred/not-tested; 36 historical repairs and 664 checksums independently audited | [M14 audit](M14/evidence/2026-10-15/closeout-evidence-audit/summary.json) | UNKNOWN | Protected baseline review; T7 user hold; offline/rebuild and final scope gates |
+
+These are actual dated evidence events. No new PLAN/ESTIMATE duration or completion date is inferred, and previous milestone histories remain unchanged.

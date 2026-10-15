@@ -1,5 +1,7 @@
 # Ross + Local Qwen Agent validation
 
+**2026-10-15 current-evidence note:** The CPU8K outcomes in this dated report remain historical. The later practical Vulkan16K Qwen cohort completed T1/T2/T3 with 18/18 PASS, including real Ross Skill/local-KB calls; it is a separate configuration/cohort, not pooled A/B data. See [latest M13 result](RESULT.md) and [current readiness gate](../FINAL_READINESS_REVIEW.md). Direct Qwen→Vivado Tcl MCP and full physical air-gap remain NOT_TESTED.
+
 **Overall result: PARTIAL.** This file records only exercised behavior. The existing Non-Ross RTL repair PASS from commit `345a54c` is a prior reference result, not a benchmark sample.
 
 ## Implemented integration

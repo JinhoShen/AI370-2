@@ -1,5 +1,7 @@
 # AMD Ross integration audit
 
+**2026-10-15 current-evidence note:** The CPU8K outcomes in this dated report remain historical. The later practical Vulkan16K Qwen cohort completed T1/T2/T3 with 18/18 PASS, including real Ross Skill/local-KB calls; it is a separate configuration/cohort, not pooled A/B data. See [latest M13 result](RESULT.md) and [current readiness gate](../FINAL_READINESS_REVIEW.md). Direct Qwen→Vivado Tcl MCP and full physical air-gap remain NOT_TESTED.
+
 Audit date: 2026-10-12 (Asia/Taipei). This inventory separates installed components from their use by the standalone Qwen agent. Codex CLI is not part of that runtime. The Local Agent enables Ross tools only when `--ross-docsearch-url` (or `AI370_ROSS_DOCSEARCH_URL`) is explicitly provided.
 
 | Component | Installed version / path | Function | Integration interface | Local Qwen compatibility | Cloud dependency | Verification command / evidence | Status |

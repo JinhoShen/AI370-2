@@ -1,5 +1,16 @@
 # M13 AMD Ross Agentic AI — status and validation
 
+## Latest evidence reconciliation — 2026-10-15
+
+**Current M13: PARTIAL / bounded Local Qwen + Ross FPGA source engineering VERIFIED.** The later practical Vulkan16K cohort supersedes the early CPU8K results **as the latest task sample**, without pooling or deleting them: Qwen T1/T2/T3 each passed all three trials in each arm (18/18 overall); Gemma also passed 18/18. T1/T2 passed independent Vivado synthesis; T3 passed HLS CSim/CSynth. Actual Ross Skill and local KB MCP calls and model-authored patches are retained. [Practical cohort](../LOCAL_MODEL_LAB/RESULT.md), [semantic audit](../M14/evidence/2026-10-15/closeout-evidence-audit/local-engineering-summary.json).
+
+The old T1 Ross 0/3, T2 Ross 1/3 and context-overflow failures below remain **historical CPU8K results**, not the current Vulkan16K score. Ross did not universally improve elapsed time: in the later Qwen sample, Ross was slower on T1/T3 and faster on T2; success rates were equal. No universal Ross speed or quality advantage is claimed.
+
+Remaining M13 boundaries: full physically disconnected operation, direct Qwen-driven Vivado Tcl MCP and Vitis Unified/Embedded IDE agent flows remain NOT_TESTED/DEFERRED; Telegram live delivery historically awaits a token. The 2026-10-14 formal CPU profile was restored; Vulkan recommendations were NOT_APPLIED. The 2026-10-15 read-only M14 audit found two pre-existing protected package revision mismatches, now a separate baseline-review gate; it did not rerun inference or modify any stack. See [final readiness review](../FINAL_READINESS_REVIEW.md).
+
+The dated records below preserve their original execution scope and verdicts.
+
+
 **Current status: IN PROGRESS — the standalone Local Agent calls local Qwen/Lemonade directly and has a bounded RTL → XSim failure → model repair → XSim PASS; Telegram source invokes this Local Agent without Codex. Ross/Vivado MCP/HLS evidence remains separately verified. Live Telegram, full Vitis-agent workflow and full physical air-gap remain NOT TESTED; full M13 is not PASS.**
 
 ## Ross + Local Qwen A/B work (2026-10-12/13)

@@ -58,7 +58,8 @@ PY
 then record PASS 'APT safe transaction simulation evidence' 'cowsay was simulated as userspace-only; no package was installed'; else record FAIL 'APT safe transaction simulation evidence' 'saved simulation did not meet guard assertions'; fi
 record DEFERRED 'APT protected-change live simulation' 'protected transaction classification is covered by negative parser fixtures; no real protected package transaction was requested'
 record DEFERRED 'M12 XRT host application' 'SP701 .xpfm and XRT C++ development headers are absent; system XRT stays protected for NPU'
-record DEFERRED 'M13 full agentic engineering / air-gap' 'one bounded same-model XSim feedback repair now passes; broader autonomous multi-file repair, Vitis IDE/agent flow and end-to-end air-gap remain untested'
+if PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/audit_local_engineering_evidence.py --output "$out/local-engineering-summary.json" > "$out/local-engineering-audit.log" 2>&1; then record PASS 'M13 practical engineering / optimization evidence' '36 historical model-authored repairs, real Ross calls, 664 checksums, 20 measured configurations and one excluded swap-guard load verified; no workload rerun'; else record FAIL 'M13 practical engineering / optimization evidence' 'see local-engineering-summary.json and local-engineering-audit.log'; fi
+record DEFERRED 'M13 full agentic engineering / air-gap' 'bounded T1/T2/T3 source repair is verified in both arms; direct Qwen/Vivado Tcl MCP, Vitis IDE/agent flow and full host-disconnected operation remain untested'
 record DEFERRED 'M0.1 full recovery' 'file-level checkpoint exists; off-device and full restore validation remain outstanding'
 record NOT_TESTED 'M15 unified regression' 'intentionally not run by this read-only evidence audit'
 

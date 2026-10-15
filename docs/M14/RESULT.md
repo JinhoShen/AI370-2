@@ -1,5 +1,14 @@
 # M14 Automation / Reproducible Rebuild
 
+## Current closeout audit — 2026-10-15
+
+**IN PROGRESS / BLOCKED_BASELINE_REVIEW.** Extended the existing read-only auditor with `scripts/audit_local_engineering_evidence.py`; actual semantic audit PASS for 36 retained model-authored FPGA repairs, genuine Ross/non-Ross separation, 664 checksums, 20 measured configurations and the excluded ROCm swap-guard failure. Four negative-policy tests PASS. This verifies repeatable auditing of historical evidence, not fresh hardware/model execution or clean-host rebuild.
+
+The actual full read-only audit at `2026-10-15T18:28:21+08:00` returned **FAIL: 25 PASS, 2 FAIL, 5 DEFERRED/NOT_TESTED**. Mesa/libdrm now have Ubuntu `.2` revisions while the accepted guard still expects `.1`; dpkg records changes on 2026-10-13, before the latest model tests. Expected versions were not changed. [Audit evidence](evidence/2026-10-15/closeout-evidence-audit/summary.json), [drift evidence](evidence/2026-10-15/closeout-evidence-audit/protected-stack-drift.txt), [remaining gates](../FINAL_READINESS_REVIEW.md).
+
+No accelerator workload, inference, FPGA programming, package installation, formal profile switch or broad regression was run. M14 full rebuild/recovery remains NOT_TESTED. Earlier PASS_WITH_DEFERRED audits below remain historical results for their captured versions.
+
+
 **Status: IN PROGRESS.** The guarded workstation verification entry point is exercised on-host; M14 is not a complete unattended rebuild or recovery PASS.
 
 The original 2026-10-01 run and its scope remain historical evidence below. The verifier was extended and rerun on 2026-10-02; detailed retained outputs are in [`evidence/2026-10-02/guarded-run-103455/`](evidence/2026-10-02/guarded-run-103455/).

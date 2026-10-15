@@ -1,5 +1,7 @@
 # AI370 2 Engineering Workstation
 
+**2026-10-15 收尾狀態：PRE-FINAL／BLOCKED_BASELINE_REVIEW。** 本地 Qwen＋Ross 的 Vulkan16K T1/T2/T3 已有 18/18 PASS；最新唯讀 audit 驗證了工程 evidence，但發現 Mesa／libdrm 套件修訂版 `.2` 與原 Golden guard `.1` 不一致。未改套件、未接受新 baseline、未切換正式模型。詳見 [目前驗收與真正剩餘項目](docs/FINAL_READINESS_REVIEW.md)。
+
 Clean rebuild validation for AMD Ryzen AI 9 HX 370 / Radeon 890M / XDNA2 / FPGA.
 
 目前 Roadmap 與狀態：[docs/ROADMAP.md](docs/ROADMAP.md)。
