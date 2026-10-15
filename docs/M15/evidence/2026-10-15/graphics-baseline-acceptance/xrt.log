@@ -34,9 +34,8 @@ AIE Partitions
   No hardware contexts running on device
 
 Platform
-  Name                   : NPU Strix 
-  Power Mode             : Default 
-  Total Columns          : 8 
+  Name                   : NPU Strix
+  Power Mode             : Default
+  Total Columns          : 8
 
 Estimated Power          : N/A
-

@@ -55,3 +55,5 @@ The executed command, exact task/spec/seed, source patch and trace for the new f
 - M7.1 remains OPEN for the retired Qwen3.6 case; do not replay it. M8 NPU LLM and further ROCm tuning remain DEFERRED. These do not prevent using supported local Qwen/Vulkan and verified CNN/FPGA workflows.
 
 No new release/tag or GitHub push was made. A local current-main Git bundle can be prepared and clone-verified without T7, but that alone is not media/deployment readiness.
+
+Evidence formatting note: some Git-view tool logs have line-end spaces/excess final blank lines normalized. Per-directory `curated-log-normalization.json` records original and curated SHA256. Exact raw runtime logs remain in the corresponding ignored `output/M14` or `output/M15` run directories; no functional output or source correction was substituted.
