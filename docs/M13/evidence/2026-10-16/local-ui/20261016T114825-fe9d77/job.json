@@ -1,0 +1,14 @@
+{
+  "id": "20261016T114825-fe9d77",
+  "action": "load",
+  "model": "gemma-4-31b-jang-crack-Q4_K_M",
+  "mode": "read",
+  "task": "",
+  "ross": false,
+  "status": "FAIL",
+  "started": "2026-10-16T11:48:25.030734+08:00",
+  "evidence": "/home/shen/AI370-2/output/local-ui/20261016T114825-fe9d77",
+  "result": "記憶體／Swap guard，工作停止",
+  "elapsed_seconds": 15.605,
+  "completed": "2026-10-16T11:48:40.636174+08:00"
+}

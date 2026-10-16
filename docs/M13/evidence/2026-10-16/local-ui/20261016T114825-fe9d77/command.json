@@ -1,0 +1,14 @@
+[
+  "/usr/bin/lemonade",
+  "load",
+  "gemma-4-31b-jang-crack-Q4_K_M",
+  "--ctx-size",
+  "16384",
+  "--llamacpp",
+  "vulkan",
+  "--llamacpp-device",
+  "Vulkan0",
+  "--no-merge-args",
+  "--llamacpp-args",
+  "--n-gpu-layers 99 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --offline"
+]

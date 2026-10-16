@@ -1,0 +1,145 @@
+{
+  "realm": "0967e987-19ce-4376-8c46-fde70d65e43b",
+  "type": "success",
+  "result": {
+    "type": "object",
+    "value": [
+      [
+        "options",
+        {
+          "type": "array",
+          "value": [
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "Qwen3.6-35B-A3B-Q8_0 · RETIRED"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M · RETIRED"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "Qwen3.8-27B-UD-Q4_K_M"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "Qwen3.8-27B-UD-Q4_K_XL"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "Qwen3.8-27B-Uncensored-Q4_K_M"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "object",
+              "value": [
+                [
+                  "text",
+                  {
+                    "type": "string",
+                    "value": "gemma-4-31b-jang-crack-Q4_K_M"
+                  }
+                ],
+                [
+                  "disabled",
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      [
+        "connection",
+        {
+          "type": "string",
+          "value": "本機介面已連線"
+        }
+      ],
+      [
+        "jobs",
+        {
+          "type": "number",
+          "value": 2
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+[
+  "/usr/bin/lemonade",
+  "load",
+  "Qwen3.8-27B-UD-Q4_K_XL",
+  "--ctx-size",
+  "16384",
+  "--llamacpp",
+  "vulkan",
+  "--llamacpp-device",
+  "Vulkan0",
+  "--no-merge-args",
+  "--llamacpp-args",
+  "--n-gpu-layers 99 --parallel 1 --reasoning off --threads 24 --threads-batch 24 --offline --batch-size 2048 --ubatch-size 512 --flash-attn auto --cache-type-k f16 --cache-type-v f16"
+]

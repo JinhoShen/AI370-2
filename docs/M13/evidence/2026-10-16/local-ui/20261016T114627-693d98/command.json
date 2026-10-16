@@ -1,0 +1,6 @@
+[
+  "/usr/bin/python3",
+  "/home/shen/AI370-2/scripts/local_agent_ui.py",
+  "--worker",
+  "/home/shen/AI370-2/output/local-ui/20261016T114627-693d98/config.json"
+]

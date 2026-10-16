@@ -1,0 +1,18 @@
+[Unit]
+Description=AI370-2 loopback Local Agent UI
+After=lemond.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/AI370-2
+ExecStart=/usr/bin/python3 %h/AI370-2/scripts/local_agent_ui.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+KillMode=control-group
+TimeoutStopSec=45
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

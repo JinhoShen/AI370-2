@@ -1,5 +1,10 @@
 # AI370 2 Engineering Workstation
 
+## 本機操作介面
+
+在這台工作站開啟 **http://127.0.0.1:13306/**：模型選擇、Local Agent 對話／唯讀查詢、Ross 選項、隔離 RTL/XSim 工作、進度／結果與停止操作。[使用方式與驗證邊界](docs/LOCAL_AGENT_UI.md)。不下載模型，不依賴 Codex／雲端；M15 PRE-FINAL 狀態不變。
+
+
 ## Delivery review — 2026-10-16
 
 **SOFTWARE_DELIVERY_COMPLETE_WITH_DEFERRED / READY_FOR_FINAL_REVIEW.** Fresh read-only evidence/protected-stack audit has zero failures; broad temporary sudo is already removed, so no new privilege modification was needed. WAN-offline local Ross/RTL/XSim acceptance passed. All executable closeout actions in this scope are finished. Overall M15 remains PRE-FINAL, not FINAL_GOLDEN_PASS: Telegram token, T7 user hold, clean-host rebuild/full restore and physical air-gap remain explicit external/unverified conditions. [Final scope, evidence and remaining prerequisites](docs/M15/FINAL_COMPLETION_REVIEW.md). No workload regression repeated or system stack changed.

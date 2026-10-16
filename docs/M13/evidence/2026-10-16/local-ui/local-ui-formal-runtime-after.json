@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "error": "Formal argument mismatch: --n-gpu-layers",
+  "profile": "ENGINEERING",
+  "captured_at": "2026-10-16T11:49:52.790047+08:00"
+}

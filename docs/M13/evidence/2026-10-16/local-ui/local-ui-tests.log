@@ -1,0 +1,11 @@
+...............................................RuntimeError: controlled calibration failure
+RESTORING_FORMAL_QWEN
+{"status": "BLOCKED", "evidence": "/tmp/tmph44aj_j1/output/LOCAL_MODEL_LAB_PRACTICAL/20261016T115052+0800", "formal_model_restoration": "PASS"}
+.RuntimeError: controlled calibration failure
+RESTORING_FORMAL_QWEN
+{"status": "BLOCKED", "evidence": "/tmp/tmpbt0ehkkq/output/LOCAL_MODEL_LAB_PRACTICAL/20261016T115052+0800", "formal_model_restoration": "FAIL: restore verification failed"}
+............
+----------------------------------------------------------------------
+Ran 60 tests in 0.645s
+
+OK

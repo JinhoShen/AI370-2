@@ -49,3 +49,7 @@
 - M7.1 保持 OPEN；一般 Vulkan regression PASS 不會關閉 Qwen Q8 的獨立失敗。
 - M0.1 不是完整 recovery PASS；M9 手工安裝成功不是自動化重建能力；M13 Ross 僅有明確記錄的軟體/本機搜尋驗證，尚未整體 PASS。
 - 詳細實際時間與未來 ESTIMATE 集中維護於 [`EXECUTION_TIMELINE.md`](EXECUTION_TIMELINE.md)。ACTUAL project date window 不代表投入工時。
+
+## 2026-10-16 local UI addition
+
+Added loopback-only Local Agent operation UI with actual registered-model selector, explicit serial loading without saving recipes, read-only and isolated fixed RTL/XSim modes, real Ross option, progress/result/evidence and cancellation. No new model/provider is downloaded; GPT-OSS/Devstral remain NOT_INSTALLED. See [UI operation guide](LOCAL_AGENT_UI.md). M15 remains PRE-FINAL; this does not waive outstanding external requirements.

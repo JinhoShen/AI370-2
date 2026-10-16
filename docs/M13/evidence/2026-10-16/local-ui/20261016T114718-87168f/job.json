@@ -1,0 +1,14 @@
+{
+  "id": "20261016T114718-87168f",
+  "action": "load",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "mode": "read",
+  "task": "",
+  "ross": false,
+  "status": "COMPLETED",
+  "started": "2026-10-16T11:47:18.670919+08:00",
+  "evidence": "/home/shen/AI370-2/output/local-ui/20261016T114718-87168f",
+  "result": "模型已就緒；未修改儲存的正式 recipe。",
+  "elapsed_seconds": 0.061,
+  "completed": "2026-10-16T11:47:18.737746+08:00"
+}
