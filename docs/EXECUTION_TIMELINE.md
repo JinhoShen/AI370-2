@@ -80,3 +80,7 @@ Bounded functional tests ran 18:35:46–18:35:50.638471 +08:00: HIP/Vulkan/XRT/s
 ## ACTUAL EXECUTION — 2026-10-16 delivery review
 
 11:36:59 +08:00: read-only M14 evidence/protected-stack audit PASS_WITH_DEFERRED, zero failures. Fresh sudo privilege listing confirmed broad temporary NOPASSWD already absent; no privilege change or workload rerun. Closing review documented all externally blocked/untested scope. [Final review](M15/FINAL_COMPLETION_REVIEW.md). Completion dates for Telegram, T7, clean rebuild and physical air-gap remain UNKNOWN. Local bundle verification is recorded separately in ignored output after the closing commit to avoid a self-referential commit hash.
+
+## ACTUAL EXECUTION — 2026-10-16 UI-driven Vivado acceptance
+
+11:55:26.101593–12:00:13.168597 +08:00, measured elapsed 287.066 seconds: local UI API → local Qwen/Ross → model-authored RTL repair → XSim PASS → real fixed Vivado synthesis PASS. [Evidence](M13/evidence/2026-10-16/local-ui-vivado/README.md). No implementation/programming or timing closure claimed.

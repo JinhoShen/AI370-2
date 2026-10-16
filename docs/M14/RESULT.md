@@ -119,3 +119,7 @@ The fixed corrected M13 T2 multi-file A/B cohort has now completed all six trial
 
 
 The 2026-10-13 M13/Model Lab support verification reran `python3 scripts/test_local_agent.py` (17/17) and `python3 scripts/test_telegram_agent.py` (4/4), Python byte-compilation for the Local Agent and T1/T2/HLS/Model Lab runners, and `bash -n` for the fixed T2/HLS validators. This is a scoped test-suite update; no M14-wide verifier or GPU/NPU/FPGA regression was rerun.
+
+## 2026-10-16 UI-driven Vivado acceptance
+
+The existing Local Agent UI now orchestrates a trusted one-source Vivado synthesis after model/XSim repair. Actual pipeline PASS; 62 unit tests include missing-marker rejection and fixed sandbox command verification. This does not establish arbitrary-project/rebuild automation PASS. [Evidence](../M13/evidence/2026-10-16/local-ui-vivado/README.md).

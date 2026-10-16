@@ -1,0 +1,80 @@
+[
+  {
+    "path": "workspace/vivado-synthesis/vivado.log",
+    "raw_sha256": "b60e8bbc3d654b4388ab5663d192b21d6511dba15e634726acb7de44aae25569",
+    "curated_sha256": "50714ed444b14df19a71dbb5c6e8929a4b71f94ebdc4d9c3673d38a549ff63b4",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/vivado-synthesis/stdout.log",
+    "raw_sha256": "2901383837727bd02af7b92b4cc021ce8794560f24ba2ba09853235a91eb5ad9",
+    "curated_sha256": "bef75e64d000694f6886172dd32cf4136ff0e8b9cf994eaf57b2195d93de842b",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/vivado-synthesis/timing.rpt",
+    "raw_sha256": "8c3521b4fa469d9f47437078da1a1ef7930afa6a845cdfff224e816709b45dc0",
+    "curated_sha256": "0dd15f9a064d1734b63e286c3bc9ef8119afd2efa2f0ffbfad2e012c4b44f4e5",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/vivado-synthesis/utilization.rpt",
+    "raw_sha256": "da884e9d62a76427467d1c43ff834299cd0eac19a8ec98f403855e3fa60d490b",
+    "curated_sha256": "217886a61a38e21019e1667e021cdb6c44640ad0da1884d05328583659c09e04",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/vivado-synthesis/stderr.log",
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "curated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-1/xsim_301.backup.log",
+    "raw_sha256": "d89d9ab61b5f29ddcd36aca81d7cb2ce1d8d832a0bb878873c2c77fc796a1567",
+    "curated_sha256": "d89d9ab61b5f29ddcd36aca81d7cb2ce1d8d832a0bb878873c2c77fc796a1567",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-1/xelab.log",
+    "raw_sha256": "e78b9005dd15a38de1bda80b1a6d5e5cbaadf3cc57cdf014223f3a4b466a234f",
+    "curated_sha256": "9e0a245579a25e6af1a807d743ede8816b9d019be6a00c92d583aa5966f827f8",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-1/xsim.log",
+    "raw_sha256": "f23c451185cd37f8cc72b28856950c36afbae470b7d005da763a9aead2368919",
+    "curated_sha256": "f23c451185cd37f8cc72b28856950c36afbae470b7d005da763a9aead2368919",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-1/xvlog.log",
+    "raw_sha256": "bc02ca1a99f9e53a5d1a3f1c0a14d707441ee48b916624c9ef30977f5f10a30c",
+    "curated_sha256": "bc02ca1a99f9e53a5d1a3f1c0a14d707441ee48b916624c9ef30977f5f10a30c",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-2/xsim_301.backup.log",
+    "raw_sha256": "b01172dc6cbd35656bb67d8a67626bd1a66732c6b67913e35f02958a5340118c",
+    "curated_sha256": "b01172dc6cbd35656bb67d8a67626bd1a66732c6b67913e35f02958a5340118c",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-2/xelab.log",
+    "raw_sha256": "a22e24662c8ae87e99776563e9ca446c2e454e209d44d99dcedc6527e63bc342",
+    "curated_sha256": "bb84c560df71535f19275a6f19589a2d3d5ee1ee15988da57a96286a0bb08733",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-2/xsim.log",
+    "raw_sha256": "f1bf472663980d6cdc317f11fc4e9f6e686cd699f55b8e6ed243effc70df5112",
+    "curated_sha256": "f1bf472663980d6cdc317f11fc4e9f6e686cd699f55b8e6ed243effc70df5112",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  },
+  {
+    "path": "workspace/runs/attempt-2/xvlog.log",
+    "raw_sha256": "bc02ca1a99f9e53a5d1a3f1c0a14d707441ee48b916624c9ef30977f5f10a30c",
+    "curated_sha256": "bc02ca1a99f9e53a5d1a3f1c0a14d707441ee48b916624c9ef30977f5f10a30c",
+    "change": "trailing whitespace and extra EOF blank lines only"
+  }
+]

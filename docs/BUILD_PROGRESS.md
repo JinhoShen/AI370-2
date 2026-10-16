@@ -53,3 +53,7 @@
 ## 2026-10-16 local UI addition
 
 Added loopback-only Local Agent operation UI with actual registered-model selector, explicit serial loading without saving recipes, read-only and isolated fixed RTL/XSim modes, real Ross option, progress/result/evidence and cancellation. No new model/provider is downloaded; GPT-OSS/Devstral remain NOT_INSTALLED. See [UI operation guide](LOCAL_AGENT_UI.md). M15 remains PRE-FINAL; this does not waive outstanding external requirements.
+
+## 2026-10-16 UI-driven Vivado acceptance
+
+Local UI Vivado mode actual acceptance PASS, 11:55:26–12:00:13 +08:00 (287.066 seconds). One Qwen-authored patch, two XSim runs, real sandboxed Vivado synthesis, reports retained. 62 unit tests PASS; no FPGA programming or stack changes. [Evidence](M13/evidence/2026-10-16/local-ui-vivado/README.md).

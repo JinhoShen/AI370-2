@@ -109,3 +109,7 @@ This is a scoped M13/M14 capability result, not a new M15 unified regression. M1
 ## 2026-10-13 M13 Ross comparison update
 
 The bounded M13 Ross/Non-Ross Local Qwen comparison is recorded in [the benchmark report](../M13/M13_ROSS_AB_BENCHMARK_REPORT.md). It verified actual opt-in Ross Skill/local-KB calls and bounded source-validation behavior; results were mixed (T1 Ross 0/3, corrected T2 Ross 1/3 versus Non-Ross 3/3, T3 both arms 3/3 with Ross 2.69% slower by mean). This does not satisfy M15's unified regression, alter any GPU/NPU/FPGA Golden evidence, or change **PRE-FINAL**. No protected stack, physical FPGA state, or broad regression was modified/run.
+
+## 2026-10-16 UI-driven Vivado acceptance
+
+The new loopback UI completed a bounded actual Ross/Qwen RTL repair + XSim + Vivado synthesis. Formal runtime and targeted kernel audit PASS afterward. M15 remains PRE-FINAL; no external prerequisite was waived. [Evidence](../M13/evidence/2026-10-16/local-ui-vivado/README.md).

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "source_sha256": "7629338165a90366a971c032112f9ccda16464d225e32d67fa131d0382cd141b",
+  "source_unchanged_by_controller": true,
+  "timing": "REPORT_ONLY; IO delays unconstrained; not timing closure",
+  "command": [
+    "/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-notrace",
+    "-source",
+    "/home/shen/AI370-2/output/local-ui/20261016T115526-418a2f/workspace/vivado-synthesis/synthesis.tcl",
+    "-log",
+    "/home/shen/AI370-2/output/local-ui/20261016T115526-418a2f/workspace/vivado-synthesis/vivado.log",
+    "-journal",
+    "/home/shen/AI370-2/output/local-ui/20261016T115526-418a2f/workspace/vivado-synthesis/vivado.jou"
+  ]
+}

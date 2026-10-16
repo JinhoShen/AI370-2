@@ -69,6 +69,33 @@ class UiTests(unittest.TestCase):
             c=ui.Controller()
             self.assertIn('chosen',c.blocked_loads)
 
+    def test_synthesis_only_uses_fixed_part_source_and_sandbox(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as temp:
+            work=Path(temp);(work/'rtl').mkdir();(work/'rtl/local_model_axi_lite.v').write_text('module local_model_axi_lite; endmodule')
+            class Agent:
+                def _trace(self,event):pass
+                def _run_bounded(inner,command,**kwargs):
+                    self.assertEqual(command[0],'/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin/vivado')
+                    self.assertEqual(kwargs,dict(share_net=True,timeout=180))
+                    tcl=(work/'vivado-synthesis/synthesis.tcl').read_text()
+                    self.assertIn('synth_design -top local_model_axi_lite -part xc7s100fgga676-2',tcl)
+                    self.assertNotIn('program_hw_devices',tcl)
+                    for name in ['utilization.rpt','timing.rpt']:(work/'vivado-synthesis'/name).write_text('fixture report')
+                    return subprocess.CompletedProcess(command,0,'LOCAL_UI_VIVADO_SYNTHESIS_PASS','')
+            result=ui.fixed_synthesis(Agent(),work)
+            self.assertEqual(result['status'],'PASS')
+            self.assertTrue(result['source_unchanged_by_controller'])
+
+    def test_synthesis_exit_zero_without_marker_is_failure(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as temp:
+            work=Path(temp);(work/'rtl').mkdir();(work/'rtl/local_model_axi_lite.v').write_text('module m; endmodule')
+            class Agent:
+                def _trace(self,event):pass
+                def _run_bounded(self,*args,**kwargs):return subprocess.CompletedProcess([],0,'no success marker','')
+            with self.assertRaisesRegex(ui.AgentError,'未通過'):ui.fixed_synthesis(Agent(),work)
+
     def test_no_parallel_job(self):
         with tempfile.TemporaryDirectory() as temp,patch.object(ui,'DATA',Path(temp)),patch.object(ui,'models',return_value=[dict(id='chosen',available=True)]):
             c=ui.Controller();c.active='existing'

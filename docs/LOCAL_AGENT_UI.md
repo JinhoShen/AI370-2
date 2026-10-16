@@ -7,7 +7,7 @@ Open **http://127.0.0.1:13306/** on this workstation. The user service `ai370-lo
 1. Select an installed model. The selector distinguishes historical engineering verification, present-but-unverified variants and retired entries.
 2. Click **載入選定模型** when changing models. The current model and device are displayed separately from your selection. Wait until loading finishes before sending a task.
 3. Choose **對話／專案唯讀查詢** for questions and safe repository text-file inspection. This mode exposes no patch or command tools.
-4. Choose **隔離 RTL 修復＋XSim** only for the existing fixed T1 task: a fresh sandbox copies the unchanged task, testbench and seeded RTL. Only its one RTL file is editable. This is not arbitrary-project control or FPGA programming.
+4. Choose **隔離 RTL 修復＋XSim** or **隔離 RTL 修復＋XSim＋Vivado 綜合** only for the existing fixed T1 task: a fresh sandbox copies the unchanged task, testbench and seeded RTL. Only its one RTL file is editable. The Vivado option additionally runs a trusted fixed batch synthesis after the model completes XSim repair, targeting xc7s100fgga676-2. It records utilization and timing reports; missing I/O delays mean no timing-closure claim. The controller does not author or change model RTL. This is not arbitrary Tcl, arbitrary-project control, implementation, bitstream generation or FPGA programming.
 5. Optionally enable real Ross Skills/local Knowledge Base. Progress lists actual tool events. **停止目前工作** requests cancellation and terminates the owned tool process tree; it does not restart the model service.
 
 Each task is independent, with its request, result, trace and logs under `output/local-ui/<job-id>/`. Conversation completion is `COMPLETED`, not engineering PASS. An RTL task gets PASS only if the existing validator confirms a model-authored patch, baseline failure and post-patch XSim success. Golden projects are not editable through this UI.
@@ -48,6 +48,10 @@ journalctl --user -u ai370-local-ui.service --no-pager -n 30
 
 Source: `scripts/local_agent_ui.py`, `scripts/local_ui/`, `scripts/ai370-local-ui.service`. Runs on Python standard library; browser assets are local. This UI addition does not change M15's PRE-FINAL verdict or complete Telegram/T7/new-machine rebuild/physical-air-gap acceptance.
 
-## Actual acceptance — 2026-10-16
+## Initial UI acceptance — 2026-10-16, before Vivado follow-up
 
 Readonly/chat E2E and browser-rendered selector PASS; 60 unit tests PASS. Formal Qwen exact ENGINEERING runtime and short API smoke PASS after fixing CLI reload argument restoration. Gemma selection hit the resource guard and was safely unloaded; this UI load configuration remains BLOCKED pending diagnosis. Other current Qwen variants are listed but not newly inferred. UI-specific XSim and real long-job cancellation remain NOT_TESTED. [All success/failure evidence](M13/evidence/2026-10-16/local-ui/README.md).
+
+## Vivado follow-up — actual 2026-10-16 11:55–12:00
+
+**PASS:** submit the `隔離 RTL 修復＋XSim＋Vivado 綜合` mode to run local Qwen/Ross repair, baseline XSim FAIL → model patch → XSim PASS → trusted Vivado batch synthesis. One patch, two XSim runs, 287.066 seconds. Real synthesis exit 0; utilization 123 LUTs / 178 registers / 0 BRAM / 0 DSP. Timing report only; no timing closure, implementation, bitstream or programming. 62 unit tests PASS, current formal runtime PASS. The earlier NOT_TESTED statement applies to the initial UI checkpoint and is superseded for this bounded mode only. [Full actual evidence](M13/evidence/2026-10-16/local-ui-vivado/README.md).

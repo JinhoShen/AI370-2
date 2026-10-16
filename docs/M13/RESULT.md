@@ -112,3 +112,7 @@ Local Agent policy tests passed 4/4 and existing Telegram policy tests passed 4/
 ## 2026-10-16 local operation UI
 
 Added loopback-only UI reusing the standalone Local Agent. Browser selector/status rendering and actual local Qwen short dialogue passed. Four current registered artifacts are listed; retired Qwen3.6 entries disabled; missing GPT-OSS/Devstral are not presented as installed. Gemma load hit a resource guard (FAIL / no inference); retries for that load configuration are blocked. A discovered CLI restore-options defect was fixed; final formal ENGINEERING verifier and bounded API smoke PASS. No UI-triggered engineering rerun was claimed. [Evidence and exact boundaries](evidence/2026-10-16/local-ui/README.md), [operation guide](../LOCAL_AGENT_UI.md). M13 broader scope remains PARTIAL.
+
+## 2026-10-16 UI-driven Vivado acceptance
+
+Local UI engineering mode actually passed: local Qwen + genuine Ross → baseline XSim failure → one model-authored patch → XSim PASS → trusted sandboxed Vivado 2026.1 synthesis PASS. Two XSim runs, 287.066 seconds. Synthesis is fixed controller orchestration, not direct Qwen Tcl MCP or synthesis-error repair. No FPGA programming; full M13 scope remains PARTIAL. [Evidence](evidence/2026-10-16/local-ui-vivado/README.md).

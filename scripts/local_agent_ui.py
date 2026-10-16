@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Loopback-only UI for the existing Local Agent; no cloud, shell or downloads."""
 import argparse
+import hashlib
 import hmac
 import json
 import os
@@ -88,22 +89,61 @@ class ReadOnlyAgent(LocalAgent):
             raise AgentError('UI 唯讀模式禁止修改與執行命令')
         return super()._tool(name, arguments)
 
+def fixed_synthesis(agent, workspace):
+    """Trusted one-source batch flow; no model-supplied Tcl or shell accepted."""
+    directory = workspace / 'vivado-synthesis'
+    directory.mkdir()
+    source = workspace / 'rtl/local_model_axi_lite.v'
+    before = hashlib.sha256(source.read_bytes()).hexdigest()
+    script = directory / 'synthesis.tcl'
+    script.write_text(
+        'set_param general.maxThreads '+str(min(32,len(os.sched_getaffinity(0))))+'\n'
+        'read_verilog -sv {'+str(source)+'}\n'
+        'synth_design -top local_model_axi_lite -part xc7s100fgga676-2\n'
+        'create_clock -name aclk -period 10.000 [get_ports aclk]\n'
+        'report_utilization -file {'+str(directory/'utilization.rpt')+'}\n'
+        'report_timing_summary -file {'+str(directory/'timing.rpt')+'}\n'
+        'puts LOCAL_UI_VIVADO_SYNTHESIS_PASS\nexit\n')
+    command = ['/home/shen/tools/Xilinx/2026.1/2026.1/Vivado/bin/vivado',
+               '-mode','batch','-notrace','-source',str(script),
+               '-log',str(directory/'vivado.log'),'-journal',str(directory/'vivado.jou')]
+    agent._trace({'event':'tool_call','name':'fixed_vivado_synthesis','arguments':{'part':'xc7s100fgga676-2'}})
+    result = agent._run_bounded(command,share_net=True,timeout=180)
+    (directory/'stdout.log').write_text(result.stdout)
+    (directory/'stderr.log').write_text(result.stderr)
+    same = hashlib.sha256(source.read_bytes()).hexdigest() == before
+    passed = (result.returncode == 0 and 'LOCAL_UI_VIVADO_SYNTHESIS_PASS' in result.stdout
+              and all((directory/name).is_file() for name in ['utilization.rpt','timing.rpt']) and same)
+    value = dict(status='PASS' if passed else 'FAIL',exit_code=result.returncode,
+                 source_sha256=before,source_unchanged_by_controller=same,
+                 timing='REPORT_ONLY; IO delays unconstrained; not timing closure',command=command)
+    save(directory/'result.json',value)
+    agent._trace({'event':'tool_result','name':'fixed_vivado_synthesis','result':value})
+    if not passed:
+        raise AgentError('Vivado synthesis 未通過；保留完整 log，不宣稱工程 PASS')
+    return value
+
+
 def worker(config_path):
     from local_agent import LocalAgent, AgentError
     cfg = json.loads(config_path.read_text())
     mode = cfg['mode']
-    cls = LocalAgent if mode == 'xsim' else ReadOnlyAgent
+    engineering = mode in {'xsim','vivado'}
+    cls = LocalAgent if engineering else ReadOnlyAgent
     agent = cls(Path(cfg['workspace']), task=cfg['task'], model=cfg['model'],
                 timeout=180, total_timeout=600, max_completion_tokens=2048, max_calls=12,
                 trace=config_path.parent / 'trace.jsonl',
-                editable_paths={'rtl/local_model_axi_lite.v'} if mode == 'xsim' else set(),
-                xsim_enabled=mode == 'xsim', ross_docsearch_url=ROSS if cfg['ross'] else None,
+                editable_paths={'rtl/local_model_axi_lite.v'} if engineering else set(),
+                xsim_enabled=engineering, ross_docsearch_url=ROSS if cfg['ross'] else None,
                 ross_context_chars=1800, ross_mcp_chars=1200)
     try:
         text = agent.run()
-        if mode == 'xsim' and not (agent.xsim_passed and agent.patch_count >= 1 and agent.validation_count >= 2):
+        if engineering and not (agent.xsim_passed and agent.patch_count >= 1 and agent.validation_count >= 2):
             raise AgentError('沒有完整 model patch 與 XSim 驗證證據')
-        print(json.dumps(dict(status='PASS' if mode == 'xsim' else 'COMPLETED', result=text,
+        synthesis = fixed_synthesis(agent,Path(cfg['workspace'])) if mode == 'vivado' else None
+        if synthesis:
+            text += ' Fixed Vivado synthesis PASS; utilization/timing reports retained (not timing closure).'
+        print(json.dumps(dict(status='PASS' if engineering else 'COMPLETED', result=text, synthesis=synthesis,
                              patches=agent.patch_count, validations=agent.validation_count), ensure_ascii=False))
     finally:
         agent.close()
@@ -166,7 +206,7 @@ class Controller:
             raise ValueError('不可選用此模型')
         mode = data.get('mode', 'read')
         task = data.get('task', '').strip()
-        if action == 'task' and (mode not in {'read', 'xsim'} or not 1 <= len(task) <= 12000):
+        if action == 'task' and (mode not in {'read', 'xsim', 'vivado'} or not 1 <= len(task) <= 12000):
             raise ValueError('請輸入工作要求（1–12000 字元）')
         with self.lock:
             if action == 'load' and selected in self.blocked_loads:
@@ -224,7 +264,7 @@ class Controller:
             else:
                 workspace = ROOT
                 task = job['task']
-                if job['mode'] == 'xsim':
+                if job['mode'] in {'xsim','vivado'}:
                     source = ROOT/'docs/M13/evidence/2026-10-12/local-qwen-standalone-agent-rtl/source'
                     workspace = directory/'workspace'
                     for relative, original in [('rtl/local_model_axi_lite.v','seeded_rtl.v'),('sim/tb_local_model_axi_lite.sv','testbench.sv'),('run_validation.sh','run_validation.sh'),('TASK_SPEC.md','task_spec.md')]:

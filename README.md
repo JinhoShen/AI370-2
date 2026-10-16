@@ -2,7 +2,7 @@
 
 ## 本機操作介面
 
-在這台工作站開啟 **http://127.0.0.1:13306/**：模型選擇、Local Agent 對話／唯讀查詢、Ross 選項、隔離 RTL/XSim 工作、進度／結果與停止操作。[使用方式與驗證邊界](docs/LOCAL_AGENT_UI.md)。不下載模型，不依賴 Codex／雲端；M15 PRE-FINAL 狀態不變。
+在這台工作站開啟 **http://127.0.0.1:13306/**：模型選擇、Local Agent 對話／唯讀查詢、Ross 選項、隔離 RTL/XSim／Vivado 綜合工作、進度／結果與停止操作。[使用方式與驗證邊界](docs/LOCAL_AGENT_UI.md)。不下載模型，不依賴 Codex／雲端；M15 PRE-FINAL 狀態不變。
 
 
 ## Delivery review — 2026-10-16
