@@ -1,0 +1,6 @@
+Matching Defaults entries for shen on shen-AI-Series:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User shen may run the following commands on shen-AI-Series:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/local/sbin/ai370-checkpoint-verify

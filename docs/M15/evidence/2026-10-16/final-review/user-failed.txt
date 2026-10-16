@@ -1,0 +1,10 @@
+  UNIT                                                            LOAD   ACTIVE SUB    DESCRIPTION
+● run-r59bbddc210be4a7a99fe130bb2c53264.scope                     loaded failed failed /home/shen/AI370-2/output/M6/build-cpu/bin/llama-gguf /home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf r n
+● snap.firefox.firefox-8bdbfe77-b51c-43ed-94e5-73eb67370853.scope loaded failed failed snap.firefox.firefox-8bdbfe77-b51c-43ed-94e5-73eb67370853.scope
+● snap.firefox.firefox-cfb44f89-a0d3-4d21-881a-d92059cb8cbc.scope loaded failed failed snap.firefox.firefox-cfb44f89-a0d3-4d21-881a-d92059cb8cbc.scope
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+3 loaded units listed.

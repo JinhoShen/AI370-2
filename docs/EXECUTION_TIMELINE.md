@@ -76,3 +76,7 @@ Bounded functional tests ran 18:35:46–18:35:50.638471 +08:00: HIP/Vulkan/XRT/s
 ## ACTUAL EXECUTION — 2026-10-16 WAN-offline acceptance
 
 09:12:34–09:12:39 +08:00: initial route-isolation gate FAIL before model workload; network restore PASS. 09:14:38–09:19:38.328169 +08:00: independent guarded worker completed local Qwen/Ross/XSim RTL repair while WAN default routes were absent; WAN_OFFLINE_ENGINEERING_PASS, restore PASS. Agent elapsed 295.053 seconds is measured workload duration, not project labor. Physical air-gap remains NOT_TESTED. [Evidence](M15/evidence/2026-10-16/wan-offline-engineering/). Future deployment/rebuild dates UNKNOWN; no estimated dates promoted to ACTUAL.
+
+## ACTUAL EXECUTION — 2026-10-16 delivery review
+
+11:36:59 +08:00: read-only M14 evidence/protected-stack audit PASS_WITH_DEFERRED, zero failures. Fresh sudo privilege listing confirmed broad temporary NOPASSWD already absent; no privilege change or workload rerun. Closing review documented all externally blocked/untested scope. [Final review](M15/FINAL_COMPLETION_REVIEW.md). Completion dates for Telegram, T7, clean rebuild and physical air-gap remain UNKNOWN. Local bundle verification is recorded separately in ignored output after the closing commit to avoid a self-referential commit hash.
