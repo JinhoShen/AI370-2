@@ -1,5 +1,10 @@
 # M15 Final Golden Workstation — pre-final validation
 
+## Latest acceptance — 2026-10-16
+
+**WAN_OFFLINE_ENGINEERING_PASS**: existing local Qwen + Ross + model-authored RTL repair + fixed XSim PASS while host IPv4/IPv6 default routes were absent and external TCP failed with ENETUNREACH. 295.053 seconds, one accepted patch, two XSim runs. Network restored and formal ENGINEERING profile rechecked PASS. [Actual evidence](evidence/2026-10-16/wan-offline-engineering/). This resolves bounded WAN-offline engineering verification, not physical air-gap or clean-host rebuild. M13/M14 broader scope remains PARTIAL; M15 remains PRE-FINAL / SOFTWARE_PASS_WITH_DEFERRED, not FINAL_GOLDEN_PASS. T7 remains BLOCKED on user hold; Telegram E2E WAITING_USER for token. No protected stack change, FPGA programming, push or new workload. Earlier dated limitations remain history.
+
+
 ## Current operational checkpoint — 2026-10-15 18:52
 
 **READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED; full M15 remains PRE-FINAL.** The existing Qwen XL formal service now uses saved ENGINEERING Vulkan16K/24-thread options. A fresh actual Local Qwen + Ross + fixed XSim repair passed; current software regression, protected `.2` guard, strict NPU and model API all passed. The single-trial/cohort-wrapper false negative and automatic CPU recovery are preserved separately; actual model/testbench PASS was independently verified before final profile adoption. No model/driver/firmware/toolchain was replaced. [Operational handoff and evidence](../LOCAL_ENGINEERING_HANDOFF.md).

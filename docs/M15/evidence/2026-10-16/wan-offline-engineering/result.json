@@ -1,0 +1,31 @@
+{
+  "status": "WAN_OFFLINE_ENGINEERING_PASS",
+  "started": "2026-10-16T09:14:38+08:00",
+  "scope": "WAN route isolation; NOT physical air gap",
+  "engineering_proof": {
+    "validation_runs": 2,
+    "model_authored_accepted_patches": 1,
+    "ross": true
+  },
+  "agent_result": {
+    "status": "PASS",
+    "model": "Qwen3.8-27B-UD-Q4_K_XL",
+    "workspace": "/home/shen/AI370-2/output/M15/wan-offline/20261016T091438+0800/T1/B1/workspace",
+    "xsim_runs": 2,
+    "patches": 1,
+    "metrics": {
+      "model_request_seconds": 286.508,
+      "ross_mcp_seconds": 0.144,
+      "prompt_tokens": 37750,
+      "completion_tokens": 599
+    },
+    "result": "XSim PASS verified by the fixed runner; the model-authored patch and full tool trace are retained."
+  },
+  "elapsed_seconds": 295.053,
+  "final_offline_routes": {
+    "-4": [],
+    "-6": []
+  },
+  "network_restoration": "PASS",
+  "completed": "2026-10-16T09:19:38.328169+08:00"
+}

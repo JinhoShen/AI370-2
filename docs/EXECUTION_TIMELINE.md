@@ -72,3 +72,7 @@ Bounded functional tests ran 18:35:46–18:35:50.638471 +08:00: HIP/Vulkan/XRT/s
 - Fresh formal Vulkan16K Qwen/Ross T1 started 18:41:49 +08:00 and completed in 320.158 seconds (trial elapsed clock). The true Local Agent/XSim trial PASS is retained; the six-trial benchmark main returned 1 because only B1 was requested, and its developer controller briefly restored CPU. That packaging false negative is preserved, not pooled as a model failure or silently dropped.
 - Formal ENGINEERING options were saved after independently verifying the existing successful trial; adoption/API confirmation completed `2026-10-15T18:48:48.445042+08:00`. Same model/artifact; no protected package changes.
 - Current bounded software suite ran `2026-10-15T18:52:40+08:00` to `2026-10-15T18:52:50.062535+08:00`: SOFTWARE_PASS_WITH_DEFERRED, full M15 PRE-FINAL. See [handoff](LOCAL_ENGINEERING_HANDOFF.md). These are actual task/test windows, not total labor.
+
+## ACTUAL EXECUTION — 2026-10-16 WAN-offline acceptance
+
+09:12:34–09:12:39 +08:00: initial route-isolation gate FAIL before model workload; network restore PASS. 09:14:38–09:19:38.328169 +08:00: independent guarded worker completed local Qwen/Ross/XSim RTL repair while WAN default routes were absent; WAN_OFFLINE_ENGINEERING_PASS, restore PASS. Agent elapsed 295.053 seconds is measured workload duration, not project labor. Physical air-gap remains NOT_TESTED. [Evidence](M15/evidence/2026-10-16/wan-offline-engineering/). Future deployment/rebuild dates UNKNOWN; no estimated dates promoted to ACTUAL.

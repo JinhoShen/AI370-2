@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-16T09:19:38.325161+08:00",
+  "exit_code": 0,
+  "stdout": "Connection successfully reapplied to device 'wlp194s0'.\n",
+  "stderr": "",
+  "default_routes": {
+    "-4": [
+      {
+        "dst": "default",
+        "gateway": "192.168.8.1",
+        "dev": "wlp194s0",
+        "protocol": "dhcp",
+        "prefsrc": "192.168.8.189",
+        "metric": 20600,
+        "flags": []
+      }
+    ],
+    "-6": []
+  },
+  "persistent_never_default": [
+    "no",
+    "no"
+  ],
+  "persistent_profile_unchanged": true
+}

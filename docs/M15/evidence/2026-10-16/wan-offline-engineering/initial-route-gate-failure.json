@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "started": "2026-10-16T09:12:34+08:00",
+  "scope": "WAN route isolation; NOT physical air gap",
+  "error": "RuntimeError: Public default route remains; no offline claim",
+  "network_restoration": "PASS",
+  "completed": "2026-10-16T09:12:39.505481+08:00"
+}

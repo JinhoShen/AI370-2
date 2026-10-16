@@ -1,5 +1,10 @@
 # AI370 2 Engineering Workstation
 
+## Latest acceptance — 2026-10-16
+
+**WAN_OFFLINE_ENGINEERING_PASS**: existing local Qwen + Ross + model-authored RTL repair + fixed XSim PASS while host IPv4/IPv6 default routes were absent and external TCP failed with ENETUNREACH. 295.053 seconds, one accepted patch, two XSim runs. Network restored and formal ENGINEERING profile rechecked PASS. [Actual evidence](docs/M15/evidence/2026-10-16/wan-offline-engineering/). This resolves bounded WAN-offline engineering verification, not physical air-gap or clean-host rebuild. M13/M14 broader scope remains PARTIAL; M15 remains PRE-FINAL / SOFTWARE_PASS_WITH_DEFERRED, not FINAL_GOLDEN_PASS. T7 remains BLOCKED on user hold; Telegram E2E WAITING_USER for token. No protected stack change, FPGA programming, push or new workload. Earlier dated limitations remain history.
+
+
 **Latest operational checkpoint — 2026-10-15 18:52:** READY_FOR_FINAL_REVIEW / SOFTWARE_PASS_WITH_DEFERRED. Formal Qwen XL now runs saved ENGINEERING Vulkan16K/24-thread settings; actual Local Qwen + Ross + XSim repair and current software regression PASS. Graphics baseline gate resolved. Full M15 remains PRE-FINAL; external/deferred items are listed in the [handoff](docs/LOCAL_ENGINEERING_HANDOFF.md).
 
 **Current resolution — 2026-10-15:** Mesa/libdrm `.2` baseline accepted after bounded HIP/Vulkan/XRT/strict NPU PASS; version guards updated and read-only audit now PASS_WITH_DEFERRED (27 PASS / 0 FAIL). The earlier baseline gate below is resolved. M15 remains PRE-FINAL for independent deployment/offline/rebuild scope. [Decision/evidence](docs/M15/GRAPHICS_BASELINE_ACCEPTANCE_2026-10-15.md).

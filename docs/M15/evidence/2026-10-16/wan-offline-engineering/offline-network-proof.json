@@ -1,0 +1,20 @@
+{
+  "default_routes": {
+    "-4": [],
+    "-6": []
+  },
+  "nic_hash_unchanged": true,
+  "link_state": "up",
+  "public_tcp_probes": [
+    {
+      "family": 2,
+      "destination": "1.1.1.1",
+      "errno": 101
+    },
+    {
+      "family": 10,
+      "destination": "2606:4700:4700::1111",
+      "errno": 101
+    }
+  ]
+}
