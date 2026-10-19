@@ -1,5 +1,10 @@
 # AI370-2 Local Model Lab — current result
 
+## Current 2026-10-19 run — workstation performance
+
+**RUNNING / incomplete.** The user reprioritized throughput/capacity, replacing the pure repeated-engineering execution order. See [performance protocol, actual state and evidence](WORKSTATION_PERFORMANCE.md). Older complete Qwen/Gemma cohorts and the later partial four-variant engineering loop remain distinct historical records; no completed four-model performance ranking is claimed yet.
+
+
 ## 2026-10-19 continuous evaluation — RUNNING
 
 User-authorized repeating four-model T1/T2/T3 Ross/Non-Ross cohorts until stopped. Evidence/progress is under `output/model-endurance/`; the UI shows the active model and supports stop. Current initial case: Qwen3.8 UD Q4_K_M, Vulkan 66/66 offload, T1 Non-Ross A1. Full integrity/readiness passed; no completed engineering result is claimed by this startup record. The previous Gemma UI Vulkan gate remains; this run tests a separately declared CPU profile. [Protocol, evidence format and stop/recovery policy](CONTINUOUS_EVALUATION.md). Older completed benchmark results below remain historical and unchanged.

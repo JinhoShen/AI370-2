@@ -145,10 +145,21 @@ def trial(cfgpath):
     print(json.dumps(dict(status=status,trial=row['trial']),ensure_ascii=False))
 
 
+def gpu_sample():
+    sample={}
+    for name in ['gpu_busy_percent','mem_info_vram_used','mem_info_gtt_used']:
+        values=[]
+        for path in Path('/sys/class/drm').glob('card*/device/'+name):
+            try:values.append(int(path.read_text()))
+            except (OSError,ValueError):pass
+        sample[name]=max(values) if values else None
+    return sample
+
+
 def guarded_process(command,directory,timeout,env=None):
     global CHILD
     from run_local_model_lab_practical import stop,fault_audit
-    baseline=resources();start=time.monotonic();started=stamp();last=0;peak_swap=baseline['swap'];min_avail=baseline['available'];reason=None
+    baseline=resources();start=time.monotonic();started=stamp();last=0;peak_swap=baseline['swap'];min_avail=baseline['available'];reason=None;gpu_peak={}
     with (directory/'stdout.log').open('w') as out,(directory/'stderr.log').open('w') as err:
         CHILD=subprocess.Popen(command,cwd=ROOT,env=env,stdout=out,stderr=err,start_new_session=True)
         try:
@@ -156,6 +167,9 @@ def guarded_process(command,directory,timeout,env=None):
                 if STOP.is_set() or (HOME/'STOP').exists():raise InterruptedError('USER_STOP')
                 if shutil.disk_usage(ROOT).free<20*1024**3:raise RuntimeError('DISK_GUARD')
                 m=resources();peak_swap=max(peak_swap,m['swap']);min_avail=min(min_avail,m['available'])
+                gpu=gpu_sample()
+                for name,value in gpu.items():
+                    if value is not None:gpu_peak[name]=max(gpu_peak.get(name,0),value)
                 if m['available']<m['floor'] or m['swap']-baseline['swap']>64*1024:
                     save(directory/'resource-guard.json',dict(baseline=baseline,current=m,elapsed_seconds=time.monotonic()-start))
                     raise RuntimeError('RESOURCE_GUARD')
@@ -163,11 +177,12 @@ def guarded_process(command,directory,timeout,env=None):
                 if time.monotonic()-last>10:
                     a=fault_audit(started)
                     if a['read_exit'] or a['faults']:raise SafetyFault('KERNEL_FAULT_OR_UNREADABLE: '+str(a))
+                    with (directory/'resource-samples.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=stamp(),memory=m,gpu_whole_device=gpu))+'\n')
                     last=time.monotonic()
                 time.sleep(.5)
             if reason:stop(CHILD)
             code=CHILD.wait()
-            return dict(exit_code=code,reason=reason,elapsed_seconds=round(time.monotonic()-start,3),peak_swap_kib=peak_swap,swap_growth_kib=peak_swap-baseline['swap'],min_available_kib=min_avail)
+            return dict(exit_code=code,reason=reason,elapsed_seconds=round(time.monotonic()-start,3),peak_swap_kib=peak_swap,swap_growth_kib=peak_swap-baseline['swap'],min_available_kib=min_avail,gpu_whole_device_peak=gpu_peak)
         finally:
             stop(CHILD);CHILD=None
 
@@ -233,14 +248,41 @@ def summarize(rows):
         groups.setdefault(key,[]).append(row)
     result=[]
     for key,items in groups.items():
-        times=[r['elapsed_seconds'] for r in items if 'elapsed_seconds' in r]
-        result.append(dict(model=key[0],task=key[1],arm=key[2],attempts=len(items),passes=sum(r['status']=='PASS' for r in items),success_rate=sum(r['status']=='PASS' for r in items)/len(items),mean_all_attempt_seconds=statistics.mean(times) if times else None,median_all_attempt_seconds=statistics.median(times) if times else None,statuses=[r['status'] for r in items]))
+        times=[r['elapsed_seconds'] for r in items if isinstance(r.get('elapsed_seconds'),(int,float))]
+        result.append(dict(model=key[0],task=key[1],arm=key[2],attempts=len(items),passes=sum(r['status']=='PASS' for r in items),success_rate=sum(r['status']=='PASS' for r in items)/len(items),timing_observations=len(times),mean_all_attempt_seconds=statistics.mean(times) if times else None,median_all_attempt_seconds=statistics.median(times) if times else None,statuses=[r['status'] for r in items]))
     return result
+
+
+def verified_resume(source):
+    import audit_local_engineering_evidence as audit
+    source=source.resolve()
+    if HOME.resolve() not in source.parents:raise ValueError('Resume must be an existing local evaluation session')
+    audit.manifest(source)
+    rows=[]
+    for path in source.glob('cycle-*/rep-*/*/T*/*-controller/trial-result.json'):
+        detail=json.loads(path.read_text())
+        if detail.get('status')!='PASS':continue
+        cfg=json.loads((path.parent/'config.json').read_text())
+        model=detail.get('result',{}).get('model')
+        known=next((m for m in roster() if m['id']==model),None)
+        if not known:continue
+        case=path.parent.parent/(cfg['arm']+str(cfg['rep']))
+        events=[json.loads(s) for s in (case/'local-agent-trace.jsonl').read_text().splitlines()]
+        audit.trace_checks(events,cfg['task'],cfg['arm']=='B')
+        if cfg['task']!='T3':
+            proof=json.loads((case/'workspace/post-agent-synthesis/result.json').read_text())
+            if proof['status']!='PASS' or proof['source_before']!=proof['source_after']:continue
+            for name,digest in proof['source_after'].items():
+                if hashlib.sha256((case/'workspace'/name).read_bytes()).hexdigest()!=digest:raise ValueError('Resumed source hash mismatch')
+        cycle=int(path.relative_to(source).parts[0].split('-')[1])
+        rows.append(dict(cycle=cycle,model=model,backend=known['backend'],task=cfg['task'],arm=cfg['arm'],rep=cfg['rep'],status='PASS',detail=detail,
+                         imported_evidence=str(path),elapsed_seconds=None,timing_scope='Outer end-to-end duration UNKNOWN after controller crash; model/XSim time retained in detail, excluded from end-to-end timing averages'))
+    return rows
 
 
 def main():
     global RUN,SERVER
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--continuous',action='store_true');parser.add_argument('--trial',type=Path);args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--continuous',action='store_true');parser.add_argument('--trial',type=Path);parser.add_argument('--resume',type=Path);args=parser.parse_args()
     if args.trial:return trial(args.trial)
     if not args.continuous:parser.error('Explicit --continuous required')
     os.umask(0o077);HOME.mkdir(parents=True,exist_ok=True);LOCK.parent.mkdir(exist_ok=True)
@@ -261,7 +303,9 @@ def main():
     for name in snapshots:
         p=ROOT/name;target=RUN/'harness'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)
     save(RUN/'protocol.json',dict(models=roster(),context=16384,threads=len(os.sched_getaffinity(0)),request_timeout=600,max_tokens=2048,max_calls=14,cycles='until user stop or safety gate',limits=dict(min_memavailable='max(6 GiB, 12.5% OS RAM)',max_swap_growth_mib=64),actual_user_project='NOT_TESTED: no project supplied',physical_airgap='NOT_TESTED: no host network changes',long_job_cancel='validated only when actually requested and observed',gemma_cpu='explicit distinct profile; previous Vulkan guard remains blocked',comparison='practical configured system, not pure backend-controlled model ranking'))
-    rows=[];verified={};current=None;cycle=1;reason='USER_STOP';unloaded=False;pending=None
+    rows=verified_resume(args.resume) if args.resume else [];save(RUN/'imported-verified-trials.json',rows)
+    resumed={(r['cycle'],r['rep'],r['model'],r['task'],r['arm']) for r in rows}
+    verified={};current=None;cycle=1;reason='USER_STOP';unloaded=False;pending=None
     try:
         unloaded=True
         subprocess.run(['/usr/bin/lemonade','unload',FORMAL],check=True,capture_output=True,timeout=45)
@@ -270,6 +314,7 @@ def main():
             eligible=False
             for rep,model,task,arm in schedule():
                 if STOP.is_set() or (HOME/'STOP').exists():raise InterruptedError('USER_STOP')
+                if (cycle,rep,model['id'],task,arm) in resumed:continue
                 if model['id'] in BLOCKED:continue
                 eligible=True
                 base=RUN/f'cycle-{cycle:03d}'/f'rep-{rep}'/model['id'];base.mkdir(parents=True,exist_ok=True)
@@ -333,10 +378,10 @@ def main():
         save(RUN/'scoreboard.json',summarize(rows))
         save(RUN/'final-packages.json',package_state())
         # Hash source/config/text evidence; leave large generated caches untracked.
-        with (RUN/'SHA256SUMS').open('w') as manifest:
+        with (RUN/'SHA256SUMS').open('w') as checksum_stream:
             for p in sorted(RUN.rglob('*')):
                 if p.is_file() and p.suffix in {'.json','.jsonl','.log','.rpt','.md','.v','.sv','.cpp','.cfg','.tcl','.py','.sh'} and 'xsim.dir' not in p.parts:
-                    manifest.write(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(RUN))+'\n')
+                    checksum_stream.write(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(RUN))+'\n')
         fcntl.flock(lock,fcntl.LOCK_UN);lock.close()
 
 

@@ -62,3 +62,11 @@ Added loopback-only Local Agent operation UI with actual registered-model select
 ## 2026-10-16 UI-driven Vivado acceptance
 
 Local UI Vivado mode actual acceptance PASS, 11:55:26–12:00:13 +08:00 (287.066 seconds). One Qwen-authored patch, two XSim runs, real sandboxed Vivado synthesis, reports retained. 62 unit tests PASS; no FPGA programming or stack changes. [Evidence](M13/evidence/2026-10-16/local-ui-vivado/README.md).
+
+## 2026-10-19 continuous-controller correction
+
+UD Q4_K_M T1 Non-Ross A1 actual model/XSim/synthesis PASS independently audited; controller checksum-name-shadowing error stopped bookkeeping afterward and restored formal Qwen. Raw failure retained, model PASS reconciled separately, total wall duration UNKNOWN. Corrected runner resumes from Ross B1 without redoing completed A1; 68 unit tests PASS. Continuous evaluation remains RUNNING, not cohort PASS. [Details](LOCAL_MODEL_LAB/CONTINUOUS_EVALUATION.md).
+
+## 2026-10-19 performance-direction change — RUNNING
+
+User requested practical machine performance with fewer artificial resource limits. Current controlled performance suite uses all available threads, CPU/Vulkan/HIP speed comparison across all four current artifacts first, then gradual context and best-profile Ross engineering validation. The 64 MiB absolute swap-growth limit is replaced for performance measurements with sustained-pressure/critical-memory/kernel-fault guards. No stack/recipe changes. Old T1 passes and controller failures remain retained; transition T2 cancellation is not a model failure. [Actual protocol and evidence paths](LOCAL_MODEL_LAB/WORKSTATION_PERFORMANCE.md).

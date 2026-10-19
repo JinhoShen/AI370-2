@@ -1,5 +1,10 @@
 # Continuous local model engineering evaluation — started 2026-10-19
 
+## Current direction — 2026-10-19
+
+The user reprioritized actual workstation throughput/capacity over repeated small engineering tasks. The earlier pure engineering loop is paused after retaining T1 A1/B1 PASS and a transition-cancelled T2; it is not a completed 72-trial cohort. Active execution is now [hardware-aware model performance](WORKSTATION_PERFORMANCE.md), using the same local UI progress/stop controls. The historical protocol below is preserved.
+
+
 **RUNNING; not a completed benchmark or milestone PASS.** The user requested repeating the recommended model tests until they explicitly stop, with model-by-model progress and retained evidence for later evaluation.
 
 ## Fixed scope and order
@@ -49,3 +54,11 @@ Initial session `20261019T161443+0800` produced zero engineering trials. Default
 Current session `20261019T161655+0800` uses documented log verbosity 5. The first Qwen UD Q4_K_M log proves Vulkan0/Radeon 890M and 66/66 layers offload; integrity and a bounded API smoke passed, and T1 Non-Ross A1 started at 16:17:25 +08:00. This is startup/readiness evidence, not a completed engineering PASS.
 
 Framework checks: 66 unit tests passed before this session, including cohort counts, explicit CPU profile, retaining failed/timeouts in statistics and suppressing GPU reinitialization after kernel/stack gates. No real GPU fault was injected. Exact live harness copies are under the session output directory.
+
+## Controller correction — 2026-10-19
+
+The first UD Q4_K_M T1 Non-Ross A1 model trial actually passed: one model-authored patch, two XSim runs, fixed Vivado synthesis PASS. The model/XSim duration is 183.05 seconds. A subsequent controller checksum-stream variable shadowed the global `manifest` function, raising UnboundLocalError and stopping the controller; formal restoration PASS. The raw CONTROLLER_STOP event is retained. Independent trace/source/synthesis audit confirms actual task PASS; this is a controller bookkeeping failure, not a model failure. The outer end-to-end duration was lost and stays UNKNOWN; it is excluded from end-to-end timing averages rather than replaced by model-only time.
+
+The corrected runner renames the checksum stream, adds a symbol-scope regression test and executes a real fixture checksum test (68 total unit tests PASS). `--resume` validates original session SHA256, model-response patch provenance, fixed validator PASS and final source/synthesis hashes before importing a completed case, preserving its original evidence path and missing timing. It then continues at B1 without repeating A1. Other failures remain unchanged. Reconciliation is saved in `output/model-endurance/reconciled-first-trial.json`.
+
+New trials additionally sample whole-device GPU busy percentage and VRAM/GTT byte counters alongside host memory. These GPU samples include desktop/other clients and are explicitly not exclusive per-model memory attribution. Low CPU use during Vulkan inference does not imply lack of GPU execution or a failed engineering test. This repeated engineering evaluation is not a CPU/RAM saturation stress certification.

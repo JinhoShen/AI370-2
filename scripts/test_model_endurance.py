@@ -25,6 +25,21 @@ class EnduranceTests(unittest.TestCase):
         self.assertFalse(e.restoration_allowed('PROTECTED_STACK_CHANGED'))
         self.assertTrue(e.restoration_allowed('USER_STOP'))
 
+    def test_manifest_function_is_not_shadowed_in_controller_scope(self):
+        import symtable
+        from pathlib import Path
+        table=symtable.symtable(Path(e.__file__).read_text(),e.__file__,'exec')
+        main=next(t for t in table.get_children() if t.get_name()=='main')
+        self.assertTrue(main.lookup('manifest').is_global())
+
+    def test_real_manifest_generation_and_verification(self):
+        import tempfile,hashlib
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp);(path/'source.v').write_text('module sample; endmodule\n')
+            e.manifest(path)
+            self.assertEqual((path/'SHA256SUMS').read_text(),hashlib.sha256((path/'source.v').read_bytes()).hexdigest()+'  source.v\n')
+
     def test_summary_keeps_failed_and_timeout_trials(self):
         rows=[dict(model='m',task='T1',arm='B',status=s,elapsed_seconds=t) for s,t in [('PASS',10),('FAIL',20),('TIMEOUT',30)]]
         row=e.summarize(rows)[0]

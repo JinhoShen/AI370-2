@@ -1,0 +1,16 @@
+{
+  "name": "vulkan-ctx4096-pp512-tg128",
+  "backend": "vulkan",
+  "context": 4096,
+  "prompt_tokens": 512,
+  "output_tokens": 128,
+  "threads": 24,
+  "threads_batch": 24,
+  "layers": 99,
+  "batch": 2048,
+  "ubatch": 512,
+  "fa": "auto",
+  "cache_k": "f16",
+  "cache_v": "f16",
+  "mtp": false
+}

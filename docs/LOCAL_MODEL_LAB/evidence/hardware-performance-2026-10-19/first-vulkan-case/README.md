@@ -1,0 +1,5 @@
+# First completed hardware-aware performance case — 2026-10-19
+
+Qwen3.8-27B-UD-Q4_K_M / Vulkan / context4096 / 24 threads / 512 input tokens / 128 output, three complete repetitions PASS. Median prompt throughput 105.9145 tokens/s, generation 4.9833 tokens/s, request latency 30.3197 seconds. These are one model/profile/workload's results, not a whole-machine or four-model ranking. Raw SSE and full offload/server logs remain in the referenced local output directory. controller-result.json retains actual offload lines, DRM allocations/counters, resources and readable clean kernel audit. Resource samples are whole-device/host measurements, not exclusive per-model attribution. No formal settings or protected stack changed.
+
+The corrected sustained-pressure guard is recorded in the actual resource policy. CPU/RAM headroom during this GPU workload is not a failed test. Model quality/Ross engineering success is assessed separately. The surrounding performance suite remains RUNNING/incomplete; no claim of a saturation/stability certification or final best profile.
