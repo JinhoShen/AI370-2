@@ -55,3 +55,7 @@ Readonly/chat E2E and browser-rendered selector PASS; 60 unit tests PASS. Formal
 ## Vivado follow-up — actual 2026-10-16 11:55–12:00
 
 **PASS:** submit the `隔離 RTL 修復＋XSim＋Vivado 綜合` mode to run local Qwen/Ross repair, baseline XSim FAIL → model patch → XSim PASS → trusted Vivado batch synthesis. One patch, two XSim runs, 287.066 seconds. Real synthesis exit 0; utilization 123 LUTs / 178 registers / 0 BRAM / 0 DSP. Timing report only; no timing closure, implementation, bitstream or programming. 62 unit tests PASS, current formal runtime PASS. The earlier NOT_TESTED statement applies to the initial UI checkpoint and is superseded for this bounded mode only. [Full actual evidence](M13/evidence/2026-10-16/local-ui-vivado/README.md).
+
+## Continuous evaluation, 2026-10-19
+
+During the user-requested continuous cohort, the UI displays the current testing model/stage/task/arm and locks out competing jobs/model loads. The ordinary Lemonade resident slot can be empty because evaluation uses one separately owned loopback model server. **停止目前工作** requests stopping the evaluation and restoring the formal model; wait for restoration PASS. [Protocol and retained evidence](LOCAL_MODEL_LAB/CONTINUOUS_EVALUATION.md). A completed chat/UI acceptance is not a completed multi-model cohort.

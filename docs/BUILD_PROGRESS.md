@@ -1,5 +1,10 @@
 # Build progress
 
+## 2026-10-19 continuous evaluation — RUNNING
+
+User-authorized repeating four-model T1/T2/T3 Ross/Non-Ross cohorts until stopped. Evidence/progress is under `output/model-endurance/`; the UI shows the active model and supports stop. Current initial case: Qwen3.8 UD Q4_K_M, Vulkan 66/66 offload, T1 Non-Ross A1. Full integrity/readiness passed; no completed engineering result is claimed by this startup record. The previous Gemma UI Vulkan gate remains; this run tests a separately declared CPU profile. [Protocol, evidence format and stop/recovery policy](LOCAL_MODEL_LAB/CONTINUOUS_EVALUATION.md). Older completed benchmark results below remain historical and unchanged.
+
+
 ## Delivery review — 2026-10-16
 
 **SOFTWARE_DELIVERY_COMPLETE_WITH_DEFERRED / READY_FOR_FINAL_REVIEW.** Fresh read-only evidence/protected-stack audit has zero failures; broad temporary sudo is already removed, so no new privilege modification was needed. WAN-offline local Ross/RTL/XSim acceptance passed. All executable closeout actions in this scope are finished. Overall M15 remains PRE-FINAL, not FINAL_GOLDEN_PASS: Telegram token, T7 user hold, clean-host rebuild/full restore and physical air-gap remain explicit external/unverified conditions. [Final scope, evidence and remaining prerequisites](M15/FINAL_COMPLETION_REVIEW.md). No workload regression repeated or system stack changed.

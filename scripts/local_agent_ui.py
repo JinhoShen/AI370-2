@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Loopback-only UI for the existing Local Agent; no cloud, shell or downloads."""
 import argparse
+import fcntl
 import hashlib
 import hmac
 import json
@@ -154,6 +155,7 @@ class Controller:
         DATA.mkdir(parents=True, exist_ok=True, mode=0o700)
         self.lock = threading.Lock()
         self.active = None
+        self.operation_lock = None
         self.blocked_loads = {}
         self.cancel = threading.Event()
         self.process = None
@@ -193,7 +195,12 @@ class Controller:
             error = None
         except Exception as exc:
             runtime, catalog, error = {}, [], str(exc)
-        return dict(active=self.active, jobs=jobs, runtime=runtime, models=catalog, error=error,
+        endurance = None
+        try:
+            endurance = json.loads((ROOT/'output/model-endurance/status.json').read_text())
+        except (OSError,ValueError):
+            pass
+        return dict(active=self.active, endurance=endurance, jobs=jobs, runtime=runtime, models=catalog, error=error,
                     ram_available_gib=round(memory()['MemAvailable']/1024**2, 1))
 
     def submit(self, data):
@@ -221,6 +228,13 @@ class Controller:
             m = memory()
             if m['MemAvailable'] < max(6*1024**2, m['MemTotal']//8):
                 raise ValueError('可用記憶體不足，未啟動工作')
+            operation = (ROOT/'output/local-agent-operation.lock').open('a+')
+            try:
+                fcntl.flock(operation,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            except BlockingIOError:
+                operation.close()
+                raise ValueError('持續模型測試中，請先停止測試並等待正式模型恢復')
+            self.operation_lock = operation
             key = datetime.now().astimezone().strftime('%Y%m%dT%H%M%S') + '-' + secrets.token_hex(3)
             directory = DATA / key
             directory.mkdir(mode=0o700)
@@ -323,8 +337,19 @@ class Controller:
             save(directory/'job.json',job)
             with self.lock:
                 self.active = None
+                if self.operation_lock:
+                    fcntl.flock(self.operation_lock,fcntl.LOCK_UN)
+                    self.operation_lock.close()
+                    self.operation_lock = None
 
     def stop(self):
+        try:
+            status = json.loads((ROOT/'output/model-endurance/status.json').read_text())
+            if status.get('status') in {'RUNNING','RESTORING'}:
+                (ROOT/'output/model-endurance/STOP').touch()
+                return {'status':'ENDURANCE_STOP_REQUESTED'}
+        except (OSError,ValueError):
+            pass
         self.cancel.set()
         return {'status': 'STOP_REQUESTED'}
 
