@@ -147,3 +147,35 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
 - 2026-10-27 的三次五分鐘唯讀 preflight 均以 `SWAPIN_DURING_PREFLIGHT` 阻擋，沒有開始新的模型樣本。最新狀態為 `output/QUALITY_MODEL_VALIDATION/status.json`，三份紀錄分別位於 `output/QUALITY_MODEL_VALIDATION/20261027T162155/preflight.json`、`20261027T162747/preflight.json`、`20261027T163315/preflight.json`。
 - 正式 T7 需要本機 AMD Ross Doc Search MCP。`AI370_ROSS_DOCSEARCH_URL` 未設定，且 `http://127.0.0.1:8080/mcp/doc-search` 連線遭拒；Pilot 將把九款模型的 T7 樣本一致標記 BLOCKED，不使用替代文件來源。
 - 使用者指示先完成測試框架程式；本輪僅修改品質 runner、隔離測試與規格文件，未重跑 preflight 或模型品質樣本，未更動安全門檻、正式模型設定或服務。
+
+## 13. Harness 變更與可比性限制（2026-11-09）
+
+本節記錄 `scripts/local_agent.py` 的 harness 行為變更。**未執行 freeze**：`output/LOCAL_MODEL_CONTROLLER/plans/20261103T065105Z/v2-v3-plan.json` 仍是最新凍結計畫，未建立新計畫，也未啟動 runner 或模型。
+
+### 變更內容
+
+- **Correction feedback 只保留最新一則**：第一次 correction 的 system prompt 與舊版逐字相同；自第二次起，新 correction 取代上一則而非累加，單則上限 4,000 字元。舊版每次 correction 都附加到 system prompt（實測 5 次 correction 由 846 增至 1,706 字元）。
+- **Trace 預設不保存 prompt 原文**：`model_request` 只記錄 request 參數（model、temperature、max_tokens、seed、tool_choice）、完整 request body 的 SHA-256 與 bytes、每則 message 的角色／bytes／SHA-256，以及工具名稱。不保存任何 prompt 文字或摘錄。
+- **單筆 trace 事件上限 64 KiB**：超過時改寫為摘要，只保留 `event`／`name`／`call`、原始 bytes 與 SHA-256。實測既有 trace 中 `tool_call` 與 `model_response` 單行最大約 5–6 KB，正常樣本不會觸發；舊版 `model_request` 單行最大約 52 KB，且佔 trace 總量約 81%。
+- `max_completion_tokens` 可接受上限為 8,192（CLI 預設仍為 512）。
+
+### 可比性限制
+
+- `local_agent.py` 的 SHA-256 自 commit `b0638ca` 起已和 2026-11-03 凍結計畫記錄的值（`d96c6e87063f…`）不同，本次再度變更。凍結計畫中的 `harness_sha256` 只是記錄，不被任何程式強制比對；每個樣本實際使用的 harness 以該樣本 `protocol.json` 的 `runner_sha256` 為準。
+- **新 harness 產生的樣本不得與既有 V1／V2（及先前 V3、T7 補充）樣本直接混合比較或合併計分。** 舊樣本在其記錄的 `runner_sha256` 下仍有效。要比較，必須依第 3 節原則，以同一 harness 讓九款模型重跑整個共同變體。
+- 第 5 節「prompt…trace 保存」與第 8 節「prompt hash／完整 prompt」中的**完整 prompt 保存要求由本節取代**：prompt 一致性改以 `request_sha256` 與各 message SHA-256 證明；要重現 prompt 原文，需以相同 harness 與輸入重新產生。工具輸入／輸出與模型回覆仍保存於 trace，受 64 KiB 單筆上限約束。
+
+### Controller 可靠性變更（不影響模型樣本內容）
+
+- 健康資料無法讀取（`/proc` 讀取失敗或欄位缺漏／型別不符）時，若有 runner 執行中即 fail-closed：記錄 `HEALTH_UNREADABLE_GUARD`，以既有 `CHILD_SAFETY_STOP` 流程停止 runner；controller 持續輪詢，不自動重跑。
+- 同一份無效 command 在單一 controller process 內只記錄一次 `COMMAND_REJECTED`；讀到有效 command 後重置，controller 重啟後也會重新記錄。
+
+### 執行下一批樣本前
+
+1. 確認接受上述可比性限制。
+2. 重新啟動 controller／UI，讓服務載入新程式（本次未重啟）。
+3. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
+
+### 離線測試
+
+`scripts/test_local_agent.py`、`test_local_agent_ui.py`、`test_quality_local_agent.py`、`test_local_model_controller.py` 涵蓋上述行為，不啟動模型、runner、systemd 或網路。`test_quality_local_agent.py` 改由版本控制中的 corpus 在系統 temp dir 建立 workspace，fresh clone 不再依賴被忽略的 `output/`。缺少模型權重時，`test_local_model_lab.py` 的權重存在性檢查預設 skip；設 `AI370_REQUIRE_MODEL_WEIGHTS=1` 可強制驗證。
