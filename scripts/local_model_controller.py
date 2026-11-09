@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import fcntl
+import hashlib
 import json
 import os
 import signal
@@ -121,6 +122,31 @@ def health_snapshot() -> dict[str, Any]:
         "memory_psi": memory_psi(),
         "top_vmswap_processes": swapped_processes(),
     }
+
+
+def read_health() -> dict[str, Any]:
+    """Return a health snapshot, or an error record when /proc cannot be read."""
+    try:
+        return health_snapshot()
+    except (OSError, ValueError, KeyError, IndexError) as exc:
+        return {"timestamp_utc": now(), "health_error": f"{type(exc).__name__}: {exc}"}
+
+
+def unreadable_health_fields(health: dict[str, Any], baseline: dict[str, Any]) -> list[str]:
+    """List the guard inputs that are missing or malformed; empty means usable."""
+    missing = [f"current.{key}" for key in ("memavailable_kib", "memtotal_kib", "swapused_kib")
+               if not isinstance(health.get(key), int)]
+    if not isinstance(baseline.get("swapused_kib"), int):
+        missing.append("baseline.swapused_kib")
+    psi = ((health.get("memory_psi") or {}).get("full") or {}).get("avg10")
+    if not isinstance(psi, (int, float)):
+        missing.append("current.memory_psi.full.avg10")
+    for label, row in (("current", health), ("baseline", baseline)):
+        if not isinstance((row.get("vmstat_pages") or {}).get("pswpin"), int):
+            missing.append(f"{label}.vmstat_pages.pswpin")
+    if "health_error" in health:
+        missing.append("current.health_error")
+    return missing
 
 
 def runner_status() -> dict[str, Any] | None:
@@ -354,6 +380,8 @@ def serve() -> int:
             state["status"] = "MONITORING"
         active: subprocess.Popen[str] | None = None
         active_baseline: dict[str, Any] | None = None
+        # Process-local: a repeated invalid command is logged once until a valid command arrives.
+        rejected_command_sha256: str | None = None
         terminate = False
 
         def handle_signal(_signum: int, _frame: Any) -> None:
@@ -364,7 +392,7 @@ def serve() -> int:
         signal.signal(signal.SIGTERM, handle_signal)
         emit(state, "CONTROLLER_STARTED", pid=os.getpid())
         while not terminate:
-            health = health_snapshot()
+            health = read_health()
             append_jsonl(TELEMETRY_PATH, health)
             state["last_health"] = health
             quality = runner_status()
@@ -398,20 +426,25 @@ def serve() -> int:
                     state["status"] = "WAITING_FOR_REVIEW"
 
             if active is not None and active.poll() is None and active_baseline is not None:
-                mem_guard = max(6 * 1024 * 1024, int(health["memtotal_kib"] or 0) // 8)
-                psi = (health.get("memory_psi", {}).get("full", {}) or {}).get("avg10", 0.0)
-                base_vm = active_baseline.get("vmstat_pages", {})
-                current_vm = health.get("vmstat_pages", {})
-                swapin_bytes = (int(current_vm.get("pswpin", 0)) - int(base_vm.get("pswpin", 0))) * os.sysconf("SC_PAGE_SIZE")
-                if health["memavailable_kib"] < mem_guard:
-                    guard_reason = "MEMAVAILABLE_GUARD"
-                elif (health["swapused_kib"] - active_baseline["swapused_kib"] > 64 * 1024
-                      and (swapin_bytes >= 1024**2 or psi >= 20.0)):
-                    guard_reason = "CORROBORATED_SWAP_PRESSURE_GUARD"
-                elif psi >= 20.0:
-                    guard_reason = "MEMORY_PSI_GUARD"
+                unreadable = unreadable_health_fields(health, active_baseline)
+                if unreadable:
+                    # Fail closed: without trustworthy memory evidence the child must stop.
+                    guard_reason = "HEALTH_UNREADABLE_GUARD"
+                    emit(state, "HEALTH_UNREADABLE_GUARD", pid=active.pid, fields=unreadable,
+                         health_error=health.get("health_error"))
                 else:
-                    guard_reason = None
+                    mem_guard = max(6 * 1024 * 1024, health["memtotal_kib"] // 8)
+                    psi = health["memory_psi"]["full"]["avg10"]
+                    swapin_bytes = (health["vmstat_pages"]["pswpin"] - active_baseline["vmstat_pages"]["pswpin"]) * os.sysconf("SC_PAGE_SIZE")
+                    if health["memavailable_kib"] < mem_guard:
+                        guard_reason = "MEMAVAILABLE_GUARD"
+                    elif (health["swapused_kib"] - active_baseline["swapused_kib"] > 64 * 1024
+                          and (swapin_bytes >= 1024**2 or psi >= 20.0)):
+                        guard_reason = "CORROBORATED_SWAP_PRESSURE_GUARD"
+                    elif psi >= 20.0:
+                        guard_reason = "MEMORY_PSI_GUARD"
+                    else:
+                        guard_reason = None
                 if guard_reason:
                     stop_path = ROOT / state["runner"].get("controller_stop_path", "")
                     if str(stop_path) != str(ROOT):
@@ -433,8 +466,13 @@ def serve() -> int:
                 error = command_error(command)
                 request_id = command.get("request_id") if isinstance(command, dict) else None
                 if error:
-                    emit(state, "COMMAND_REJECTED", reason=error)
-                elif request_id != state.get("last_command_id"):
+                    fingerprint = hashlib.sha256(json.dumps(command, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+                    if fingerprint != rejected_command_sha256:
+                        rejected_command_sha256 = fingerprint
+                        emit(state, "COMMAND_REJECTED", reason=error, command_sha256=fingerprint)
+                else:
+                    rejected_command_sha256 = None
+                if not error and request_id != state.get("last_command_id"):
                     state["last_command_id"] = request_id
                     if command["action"] == "ARM_PILOT":
                         if active is None or active.poll() is not None:
