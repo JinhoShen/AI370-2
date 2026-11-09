@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Local Agent policy tests; no model request or system modification."""
 
+import hashlib
+import json
 import sys
 import subprocess
 import tempfile
 import unittest
+import urllib.error
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import local_agent
@@ -16,7 +20,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
         raw = '--- rtl/a.v\n+++ rtl/a.v\n@@ -90,99 +90,99 @@\n before\n-old\n+MODEL_SELECTED_NEW\n after\n'
         canonical = local_agent._canonical_patch_headers(raw)
         self.assertEqual(canonical.splitlines()[2:], raw.splitlines()[2:])
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / 'output') as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             target = root / 'rtl/a.v'
             target.parent.mkdir()
@@ -33,7 +37,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
             local_agent._patch_paths(local_agent._canonical_patch_headers(raw))
 
     def test_invalid_patch_headers_return_feedback_and_enable_exact_replacement(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             rtl = root / "rtl/local_model_axi_lite.v"
             rtl.parent.mkdir()
@@ -66,7 +70,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
             local_agent._loopback_endpoint("https://api.openai.com/v1")
 
     def test_path_policy_blocks_traversal_and_resource_roots(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "safe.txt").write_text("safe\n")
             self.assertEqual(local_agent._relative_path(root, "safe.txt"), root / "safe.txt")
@@ -117,7 +121,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
             "diff --git a/rtl/b.v b/rtl/b.v\n--- a/rtl/b.v\n+++ b/rtl/b.v\n"
             "@@\n begin\n-left\n+LEFT\n@@\n center\n-right\n+RIGHT\n end\n"
         )
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             for relative, text in sources.items():
                 path = root / relative
@@ -132,7 +136,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
             self.assertEqual(checked.returncode, 0, checked.stderr)
 
     def test_model_authored_exact_replacement_is_applied_without_logic_rewrite(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             rtl = root / "rtl/local_model_axi_lite.v"
             rtl.parent.mkdir()
@@ -172,7 +176,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
                 agent._tool("ross_skill_read", {"skill": "unknown-skill"})
 
     def test_ross_mode_gates_simulation_until_both_real_ross_tools_succeed(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             agent = local_agent.LocalAgent(Path(temp), task="test", ross_docsearch_url="http://127.0.0.1:8080/mcp/doc-search", xsim_enabled=True)
             offered = {tool["function"]["name"] for tool in agent.tool_calls}
             self.assertTrue({"ross_skill_read", "ross_doc_search", "run_xsim"}.issubset(offered))
@@ -217,7 +221,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
                 local_agent.LocalAgent(local_agent.ROOT, task="test", ross_context_chars=500)
 
     def test_multifile_repair_compaction_keeps_sources_tool_failure_and_ross_evidence(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "rtl").mkdir()
             (root / "sim").mkdir()
@@ -236,7 +240,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
             self.assertNotIn("large transcript", context)
 
     def test_hls_mode_exposes_only_fixed_hls_validation_and_gates_source_edits(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "src").mkdir()
             (root / "sim").mkdir()
@@ -254,7 +258,7 @@ class LocalAgentPolicyTests(unittest.TestCase):
                 no_ross._tool("apply_patch", {"patch": "--- a/src/invert32.cpp\n+++ b/src/invert32.cpp\n@@ -1 +1 @@\n-int invert32(int x) { return x; }\n+int invert32(int x) { return ~x; }\n"})
 
     def test_multifile_xsim_policy_requires_baseline_and_allows_only_two_named_rtl_files(self):
-        with tempfile.TemporaryDirectory(dir=local_agent.ROOT / "output") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "rtl").mkdir()
             (root / "sim").mkdir()
@@ -292,6 +296,99 @@ class LocalAgentPolicyTests(unittest.TestCase):
             self.assertEqual((root / "rtl/local_model_axi_lite.v").read_text(), "new\nkeep1\nkeep2\nfinish\n")
             self.assertEqual((root / "rtl/axi_result_datapath.v").read_text(), "new\nkeep1\nkeep2\nfinish\n")
 
+
+class LocalAgentBoundedStateTests(unittest.TestCase):
+    """Regression guards for prompt and trace growth; the provider is mocked."""
+
+    @staticmethod
+    def tool_turn(call: int) -> dict:
+        arguments = json.dumps({"path": "rtl/top.v", "old_text": "a", "new_text": "b"})
+        return {"choices": [{"message": {"role": "assistant", "content": None, "tool_calls": [
+            {"id": f"call-{call}", "type": "function", "function": {"name": "apply_replacement", "arguments": arguments}}]}}]}
+
+    def run_corrections(self, count: int, error: str) -> tuple[local_agent.LocalAgent, list[str]]:
+        prompts: list[str] = []
+        with tempfile.TemporaryDirectory() as temp:
+            agent = local_agent.LocalAgent(Path(temp), task="test", max_calls=count + 1)
+            responses = [self.tool_turn(i) for i in range(count)]
+            responses.append({"choices": [{"message": {"role": "assistant", "content": "done"}}]})
+            def completion():
+                prompts.append(agent.messages[0]["content"])
+                return responses.pop(0)
+            failure = {"ok": False, "stage": "replacement-check", "error": error}
+            with patch.object(agent, "_completion", side_effect=completion), \
+                 patch.object(agent, "_tool", return_value=failure), \
+                 patch.object(agent, "_compact_multifile_context"):
+                self.assertEqual(agent.run(), "done")
+        return agent, prompts
+
+    def test_repeated_corrections_keep_only_latest_bounded_feedback(self):
+        agent, prompts = self.run_corrections(5, "replacement did not match uniquely")
+        base = prompts[0]
+        self.assertEqual(agent.correction_feedback_count, 5)
+        for prompt in prompts[1:]:
+            self.assertTrue(prompt.startswith(base + " Tool feedback requiring correction: "))
+            self.assertEqual(prompt.count("Tool feedback requiring correction:"), 1)
+        self.assertEqual(len(set(prompts[1:])), 1)
+        self.assertEqual(agent.system_prompt_base, base)
+
+    def test_oversized_correction_is_truncated(self):
+        agent, prompts = self.run_corrections(3, "E" * 50000)
+        base = prompts[0]
+        self.assertLessEqual(len(prompts[-1]), len(base) + 1 + local_agent.MAX_CORRECTION_CHARS)
+        self.assertLessEqual(len(agent.messages[0]["content"]), len(base) + 1 + local_agent.MAX_CORRECTION_CHARS)
+
+    def test_model_request_trace_records_only_hashes_sizes_roles_and_tool_names(self):
+        sent: list[bytes] = []
+        class Opener:
+            def open(self, request, timeout):
+                sent.append(request.data)
+                raise urllib.error.URLError("offline test provider")
+        secret = "SECRET-PROMPT-TEXT-7f3a"
+        with tempfile.TemporaryDirectory() as temp:
+            trace = Path(temp) / "trace.jsonl"
+            agent = local_agent.LocalAgent(Path(temp), task="test " + secret, trace=trace)
+            agent.messages[0]["content"] += " " + secret
+            agent.messages.append({"role": "user", "content": secret * 20000})
+            with patch.object(local_agent.urllib.request, "build_opener", return_value=Opener()):
+                with self.assertRaisesRegex(local_agent.AgentError, "request failed"):
+                    agent._completion()
+            lines = [line for line in trace.read_text().splitlines() if json.loads(line)["event"] == "model_request"]
+        self.assertEqual(len(lines), 1)
+        self.assertNotIn(secret, lines[0])
+        self.assertLessEqual(len(lines[0].encode()), local_agent.MAX_TRACE_EVENT_BYTES)
+        event = json.loads(lines[0])
+        request = event["request"]
+        self.assertEqual(event["request_sha256"], hashlib.sha256(sent[0]).hexdigest())
+        self.assertEqual(request["request_bytes"], len(sent[0]))
+        self.assertEqual(request["message_count"], len(agent.messages))
+        self.assertNotIn("tools", request)
+        self.assertIn("read_file", request["tool_names"])
+        self.assertEqual(set(request) - {"messages", "tool_names", "message_count", "request_bytes"},
+                         {"model", "tool_choice", "temperature", "max_tokens"})
+        for row, message in zip(request["messages"], agent.messages, strict=True):
+            encoded = json.dumps(message, ensure_ascii=False, sort_keys=True).encode()
+            self.assertEqual(row, {"role": message["role"], "bytes": len(encoded),
+                                   "sha256": hashlib.sha256(encoded).hexdigest()})
+
+    def test_any_oversized_trace_event_is_replaced_by_bounded_digest_without_content(self):
+        with tempfile.TemporaryDirectory() as temp:
+            trace = Path(temp) / "trace.jsonl"
+            agent = local_agent.LocalAgent(Path(temp), task="test", trace=trace)
+            agent._trace({"event": "tool_call", "name": "read_file", "call": 3, "result": "SECRET-RESULT " * 30000})
+            agent._trace({"event": "small", "value": 1})
+            lines = trace.read_text().splitlines()[-2:]
+        big, small = (json.loads(line) for line in lines)
+        self.assertLessEqual(len(lines[0].encode()), local_agent.MAX_TRACE_EVENT_BYTES)
+        self.assertNotIn("SECRET-RESULT", lines[0])
+        self.assertEqual(set(big), {"event", "name", "call", "timestamp_utc", "monotonic_seconds",
+                                    "trace_truncated", "original_bytes", "original_sha256"})
+        self.assertEqual((big["event"], big["name"], big["call"]), ("tool_call", "read_file", 3))
+        self.assertTrue(big["trace_truncated"])
+        self.assertGreater(big["original_bytes"], local_agent.MAX_TRACE_EVENT_BYTES)
+        self.assertEqual(len(big["original_sha256"]), 64)
+        self.assertEqual(small["value"], 1)
+        self.assertNotIn("trace_truncated", small)
 
 if __name__ == "__main__":
     unittest.main()

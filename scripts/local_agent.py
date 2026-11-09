@@ -39,6 +39,8 @@ MAX_HLS_RUNS = 3
 MAX_PATCHES = 2
 MAX_ROSS_CONTEXT_CHARS = 3200
 MAX_ROSS_MCP_CHARS = 3000
+MAX_CORRECTION_CHARS = 4000
+MAX_TRACE_EVENT_BYTES = 64 * 1024
 ROSS_SKILLS_ROOT = Path(os.environ.get("AI370_ROSS_SKILLS_ROOT", str(ROOT / "docs/M13/ross-runtime-skills")))
 ROSS_SKILLS = {"vivado-simulate-rtl", "vivado-rtl-elaboration-analysis", "hls-run-flow", "hls-synthesizable", "hls-synth-report"}
 BLOCKED_ROOT_PARTS = {".git", "resources", "output", ".venv", "venv", "node_modules"}
@@ -221,6 +223,19 @@ def _normalize_multifile_git_patch(patch: str, paths: list[str], source_files: d
     return "".join(output)
 
 
+def _request_trace_summary(request_body: dict[str, Any], request_bytes: int) -> dict[str, Any]:
+    """Describe a model request by hashes, sizes, roles and tool names; no prompt text."""
+    messages = request_body.get("messages", [])
+    rows = []
+    for message in messages:
+        encoded = json.dumps(message, ensure_ascii=False, sort_keys=True).encode()
+        rows.append({"role": message.get("role"), "bytes": len(encoded), "sha256": hashlib.sha256(encoded).hexdigest()})
+    summary = {key: value for key, value in request_body.items() if key not in {"messages", "tools"}}
+    summary.update(request_bytes=request_bytes, message_count=len(messages), messages=rows,
+                   tool_names=[tool["function"]["name"] for tool in request_body.get("tools", [])])
+    return summary
+
+
 class LocalAgent:
     def __init__(
         self,
@@ -290,6 +305,7 @@ class LocalAgent:
         self.last_failed_patch: str | None = None
         self.repeated_failed_patch_count = 0
         self.correction_feedback_count = 0
+        self.system_prompt_base: str | None = None
         self.xsim_passed = False
         self.messages: list[dict[str, Any]] = [
             {
@@ -428,7 +444,16 @@ class LocalAgent:
                 event = dict(obj)
                 event.setdefault("timestamp_utc", datetime.now(timezone.utc).isoformat(timespec="milliseconds"))
                 event.setdefault("monotonic_seconds", round(time.monotonic(), 6))
-                stream.write(json.dumps(event, ensure_ascii=False) + "\n")
+                line = json.dumps(event, ensure_ascii=False)
+                encoded = line.encode()
+                if len(encoded) > MAX_TRACE_EVENT_BYTES:
+                    # Keep only identity fields the UI reads plus a digest of the dropped event.
+                    digest = {key: event[key] for key in ("event", "name", "call") if key in event}
+                    digest.update(timestamp_utc=event["timestamp_utc"], monotonic_seconds=event["monotonic_seconds"],
+                                  trace_truncated=True, original_bytes=len(encoded),
+                                  original_sha256=hashlib.sha256(encoded).hexdigest())
+                    line = json.dumps(digest, ensure_ascii=False)
+                stream.write(line + "\n")
 
     def _compact_multifile_context(self, latest_failure: dict[str, Any]) -> None:
         """Retain repair evidence while dropping duplicated model/tool history."""
@@ -473,7 +498,7 @@ class LocalAgent:
         if self.fixed_seed is not None: request_body["seed"] = self.fixed_seed
         body = json.dumps(request_body, ensure_ascii=False).encode()
         self._trace({"event":"model_request","request_sha256":hashlib.sha256(body).hexdigest(),
-                     "request":request_body})
+                     "request":_request_trace_summary(request_body, len(body))})
         request = urllib.request.Request(self.base_url + "/chat/completions", data=body, headers={"Content-Type": "application/json"})
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), _NoRedirect())
         started = time.monotonic()
@@ -795,7 +820,11 @@ class LocalAgent:
                 # tool result already carries the detailed evidence, so retain
                 # the correction as system guidance and continue directly with
                 # the next assistant turn.
-                self.messages[0]["content"] += " " + correction
+                # Keep only the latest correction so repeated feedback cannot
+                # grow the system prompt on every turn.
+                if self.system_prompt_base is None:
+                    self.system_prompt_base = self.messages[0]["content"]
+                self.messages[0]["content"] = self.system_prompt_base + " " + correction[:MAX_CORRECTION_CHARS]
                 if compact_failure is not None:
                     self._compact_multifile_context(compact_failure)
         raise AgentError(f"Local Agent reached its bounded limit ({self.max_calls} model/tool turns)")
