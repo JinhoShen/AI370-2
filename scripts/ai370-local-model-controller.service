@@ -1,0 +1,14 @@
+[Unit]
+Description=AI370 local-model evaluation controller
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/shen/AI370-2
+Environment=AI370_ROSS_DOCSEARCH_URL=http://172.18.0.4:8080/mcp/doc-search
+ExecStart=/usr/bin/python3 /home/shen/AI370-2/scripts/local_model_controller.py serve
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target
