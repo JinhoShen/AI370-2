@@ -31,6 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MODEL = "Qwen3.8-27B-UD-Q4_K_XL"
 DEFAULT_BASE_URL = "http://127.0.0.1:13305/api/v1"
 MAX_FILE_BYTES = 256 * 1024
+MAX_REPLACEMENT_BYTES = 24 * 1024
 MAX_TOOL_RESULT_CHARS = 12000
 MAX_TOOL_CALLS = 24
 MAX_XSIM_RUNS = 3
@@ -242,6 +243,8 @@ class LocalAgent:
         ross_skills_root: Path = ROSS_SKILLS_ROOT,
         ross_context_chars: int = MAX_ROSS_CONTEXT_CHARS,
         ross_mcp_chars: int = MAX_ROSS_MCP_CHARS,
+        fixed_temperature: float | None = None,
+        fixed_seed: int | None = None,
     ):
         self.workspace = workspace.resolve(strict=True)
         if not self.workspace.is_dir():
@@ -250,8 +253,8 @@ class LocalAgent:
         self.model = model
         self.base_url = _loopback_endpoint(base_url)
         self.timeout = timeout
-        if not 1 <= max_completion_tokens <= 2048:
-            raise AgentError("max_completion_tokens must be between 1 and 2048")
+        if not 1 <= max_completion_tokens <= 8192:
+            raise AgentError("max_completion_tokens must be between 1 and 8192")
         self.max_completion_tokens = max_completion_tokens
         self.deadline = time.monotonic() + total_timeout
         self.max_calls = min(max_calls, MAX_TOOL_CALLS)
@@ -261,6 +264,10 @@ class LocalAgent:
         self.xsim_enabled = xsim_enabled
         self.multi_file_xsim = multi_file_xsim
         self.hls_enabled = hls_enabled
+        if fixed_temperature is not None and not 0.0 <= fixed_temperature <= 2.0:
+            raise AgentError("fixed_temperature must be between 0 and 2")
+        self.fixed_temperature = fixed_temperature
+        self.fixed_seed = fixed_seed
         self.ross_docsearch_url = self._validate_ross_endpoint(ross_docsearch_url) if ross_docsearch_url else None
         self.ross_skills_root = ross_skills_root.resolve(strict=False)
         if not 1200 <= ross_context_chars <= MAX_ROSS_CONTEXT_CHARS:
@@ -459,8 +466,14 @@ class LocalAgent:
         remaining = self.deadline - time.monotonic()
         if remaining <= 0:
             raise AgentError("Local Agent reached its total wall-clock limit")
-        temperature = 0.25 if self.correction_feedback_count else 0
-        body = json.dumps({"model": self.model, "messages": self.messages, "tools": self.tool_calls, "tool_choice": "auto", "temperature": temperature, "max_tokens": self.max_completion_tokens}, ensure_ascii=False).encode()
+        temperature = self.fixed_temperature if self.fixed_temperature is not None else (0.25 if self.correction_feedback_count else 0)
+        request_body = {"model": self.model, "messages": self.messages, "tools": self.tool_calls,
+                        "tool_choice": "auto", "temperature": temperature,
+                        "max_tokens": self.max_completion_tokens}
+        if self.fixed_seed is not None: request_body["seed"] = self.fixed_seed
+        body = json.dumps(request_body, ensure_ascii=False).encode()
+        self._trace({"event":"model_request","request_sha256":hashlib.sha256(body).hexdigest(),
+                     "request":request_body})
         request = urllib.request.Request(self.base_url + "/chat/completions", data=body, headers={"Content-Type": "application/json"})
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), _NoRedirect())
         started = time.monotonic()
@@ -619,8 +632,8 @@ class LocalAgent:
                 raise AgentError("path, old_text and new_text must be strings")
             if self.ross_docsearch_url and not (self.ross_skill_used and self.ross_doc_search_used):
                 return {"ok": False, "stage": "ross-prerequisite", "error": "Ross mode requires successful ross_skill_read and ross_doc_search calls before any source modification."}
-            if len(old_text) > 4096 or len(new_text) > 4096 or not old_text or old_text == new_text:
-                raise AgentError("Replacement text must be nonempty, different and at most 4096 bytes")
+            if len(old_text) > MAX_REPLACEMENT_BYTES or len(new_text) > MAX_REPLACEMENT_BYTES or not old_text or old_text == new_text:
+                raise AgentError(f"Replacement text must be nonempty, different and at most {MAX_REPLACEMENT_BYTES} bytes")
             if self.last_failed_patch is None:
                 raise AgentError("Exact replacement is available only after a model-authored unified diff was rejected by patch validation")
             target = _relative_path(self.workspace, relative)
@@ -777,8 +790,12 @@ class LocalAgent:
             if feedbacks:
                 self.correction_feedback_count += 1
                 correction = "Tool feedback requiring correction: " + " ".join(feedbacks)
-                self.messages[0]["content"] += " A previous tool operation was rejected; never repeat that failed action unchanged. Read tool feedback and produce a corrected action."
-                self.messages.append({"role": "user", "content": correction})
+                # Some GGUF chat templates accept an assistant/tool continuation
+                # but reject a new user turn after tool results. The structured
+                # tool result already carries the detailed evidence, so retain
+                # the correction as system guidance and continue directly with
+                # the next assistant turn.
+                self.messages[0]["content"] += " " + correction
                 if compact_failure is not None:
                     self._compact_multifile_context(compact_failure)
         raise AgentError(f"Local Agent reached its bounded limit ({self.max_calls} model/tool turns)")
@@ -804,7 +821,7 @@ def main() -> int:
     parser.add_argument("--base-url", default=os.environ.get("AI370_LOCAL_BASE_URL", DEFAULT_BASE_URL))
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--total-timeout", type=int, default=1800)
-    parser.add_argument("--max-completion-tokens", type=int, default=512, help="Bounded local model response budget (maximum 2048)")
+    parser.add_argument("--max-completion-tokens", type=int, default=512, help="Bounded local model response budget (maximum 8192)")
     parser.add_argument("--max-calls", type=int, default=MAX_TOOL_CALLS)
     parser.add_argument("--trace", type=Path)
     parser.add_argument("--editable-path", action="append", default=[])

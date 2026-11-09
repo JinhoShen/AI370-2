@@ -55,10 +55,10 @@ class LocalAgentPolicyTests(unittest.TestCase):
         self.assertFalse(local_agent._verification_profile_enabled(xsim=False, multi_file_xsim=False, hls=False))
 
     def test_completion_token_budget_is_bounded(self):
-        agent = local_agent.LocalAgent(local_agent.ROOT, task="test", max_completion_tokens=2048)
-        self.assertEqual(agent.max_completion_tokens, 2048)
-        with self.assertRaisesRegex(local_agent.AgentError, "between 1 and 2048"):
-            local_agent.LocalAgent(local_agent.ROOT, task="test", max_completion_tokens=2049)
+        agent = local_agent.LocalAgent(local_agent.ROOT, task="test", max_completion_tokens=8192)
+        self.assertEqual(agent.max_completion_tokens, 8192)
+        with self.assertRaisesRegex(local_agent.AgentError, "between 1 and 8192"):
+            local_agent.LocalAgent(local_agent.ROOT, task="test", max_completion_tokens=8193)
 
     def test_only_loopback_provider_is_accepted(self):
         self.assertTrue(local_agent._loopback_endpoint("http://127.0.0.1:13305/api/v1").startswith("http://127.0.0.1"))
