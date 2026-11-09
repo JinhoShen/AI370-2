@@ -6,16 +6,24 @@ import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+import prepare_quality_workspace as workspace_builder
 from quality_local_agent import QualityAgent, validate_t8_delivery_summary
 from local_agent import AgentError
 
 
 class QualityAgentPolicyTests(unittest.TestCase):
     def setUp(self):
-        self.workspace = ROOT / "output/QUALITY_MODEL_VALIDATION/harness-smoke/samples/fixture-only/T1/V1/workspace"
+        # Materialize the frozen, version-controlled T1/V1 public corpus in the
+        # system temp dir so a fresh clone does not depend on ignored output/.
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        with patch.object(workspace_builder, "OUTPUT", Path(temp.name) / "quality"):
+            record = workspace_builder.prepare("T1", "V1", "fixture-smoke", "fixture-only")
+        self.workspace = Path(record["workspace"])
         self.agent = QualityAgent(
             task="T1", task_id="T1", variant="V1", workspace=self.workspace,
             model="fixture-only", base_url="http://127.0.0.1:18082/v1",
@@ -25,6 +33,13 @@ class QualityAgentPolicyTests(unittest.TestCase):
 
     def tearDown(self):
         self.agent.close()
+
+    def test_fixture_workspace_comes_from_versioned_corpus_in_system_temp(self):
+        self.assertTrue(self.workspace.resolve().is_relative_to(Path(tempfile.gettempdir()).resolve()))
+        self.assertFalse(self.workspace.is_relative_to(ROOT))
+        corpus = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1/T1/V1/public"
+        for relative in ("TASK_SPEC.md", "rtl/axi_regs.sv"):
+            self.assertEqual((self.workspace / relative).read_bytes(), (corpus / relative).read_bytes())
 
     def test_tool_surface_is_fixed_and_has_no_shell_or_legacy_runner(self):
         offered = {tool["function"]["name"] for tool in self.agent.tool_calls}

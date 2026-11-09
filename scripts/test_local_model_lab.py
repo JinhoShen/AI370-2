@@ -1,4 +1,5 @@
 import importlib.util
+import os
 import unittest
 from pathlib import Path
 
@@ -34,8 +35,12 @@ class LocalModelLabTests(unittest.TestCase):
 
     def test_qwen_configuration_uses_only_existing_model_path(self):
         model = lab.model_for(lab.load_config(), "qwen38")
-        self.assertTrue((Path("models/GGUF") / model["relative_path"]).is_file())
         self.assertEqual(model["bytes"], 17559178144)
+        path = SCRIPT.parents[1] / "models/GGUF" / model["relative_path"]
+        # Weights are not Git artifacts, so a fresh clone skips unless asked to verify them.
+        if not path.is_file() and os.environ.get("AI370_REQUIRE_MODEL_WEIGHTS") != "1":
+            self.skipTest(f"model weights not present: {path}; set AI370_REQUIRE_MODEL_WEIGHTS=1 to require them")
+        self.assertTrue(path.is_file(), f"required model weights missing: {path}")
 
     def test_normalization_preserves_failed_trials(self):
         rows = lab.normalize_run("qwen38", "T2", {"trials": [
