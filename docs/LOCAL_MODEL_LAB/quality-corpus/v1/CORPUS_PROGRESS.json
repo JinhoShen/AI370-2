@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "corpus_version": "v1",
+  "overall_status": "FIXTURES_PASS_AWAITING_LIVE_PREFLIGHT",
+  "completed_tasks": {
+    "T1": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "reference_synthesis_passes": 3,
+      "mutations_detected": 12,
+      "mutation_trials": 12,
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/T1/fixture-results.json",
+      "variant_manifests": {
+        "V1": {
+          "private/reference_axi_regs.sv": "afdd5846ed5043db384065edb4269e0510153c5fb19607aebaa82b0bead380e8",
+          "private/tb_axi_regs.sv": "98ceff136fee1a9a3eb6b868e60b76a27d702ba3499add7125cad7d85b748c28",
+          "public/TASK_SPEC.md": "9f8cb98689d4a2d30a937e0e94a3561f347d7168788718758dc46832f3b2a286",
+          "public/rtl/axi_regs.sv": "00c8334a5f9b905d59b12e2852ba126eb230c8701ae70703dee7eebf14c22c19"
+        },
+        "V2": {
+          "private/reference_axi_regs.sv": "6b2db8f592adebc1748cbc5f58694542ff3040b18b65f0cdaa5e6a39de50ee8d",
+          "private/tb_axi_regs.sv": "a6210fceef3de500adadcb813635c48bd495cb372d2b8d407938179a97819e10",
+          "public/TASK_SPEC.md": "6ed694c461beb23835477113a4c144cf9e1fd0179db90587dcd4e7cdc81bcb4f",
+          "public/rtl/axi_regs.sv": "00c8334a5f9b905d59b12e2852ba126eb230c8701ae70703dee7eebf14c22c19"
+        },
+        "V3": {
+          "private/reference_axi_regs.sv": "80ef7f3d15d29a5205eb1fc17beb90a8a8ba5401e373969d4446c0ce3aae3b23",
+          "private/tb_axi_regs.sv": "82bf178ffd1b95f7785c1d26cca9bdf6e0cb845eb4a3cd904e2e7c168fba30e4",
+          "public/TASK_SPEC.md": "055057fe5a394608ed0c4a894e412bdf122d2e9122727300c8e998c1947f1bb8",
+          "public/rtl/axi_regs.sv": "00c8334a5f9b905d59b12e2852ba126eb230c8701ae70703dee7eebf14c22c19"
+        }
+      }
+    },
+    "T2": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "reference_synthesis_passes": 3,
+      "mutations_detected": 0,
+      "mutation_trials": 0,
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T185530/fixture-results.json",
+      "variant_manifests": {
+        "V1": {
+          "private/reference_axi_regs.sv": "afdd5846ed5043db384065edb4269e0510153c5fb19607aebaa82b0bead380e8",
+          "private/tb_axi_regs.sv": "3d57c3b7a143bd775342bc4f67a7a081519b981a8982aa5cf83ba8ede22c6c42",
+          "public/TASK_SPEC.md": "0f2a0519c66634d7f046bdca92cec5975dc4916f927fb57ee8a36e1c202677e6",
+          "public/rtl/axi_regs.sv": "2af5a928e6be8bbbea118d95292e9fb0cebc07e97dfd9cd4b5eac61139ff5220"
+        },
+        "V2": {
+          "private/reference_axi_regs.sv": "6b2db8f592adebc1748cbc5f58694542ff3040b18b65f0cdaa5e6a39de50ee8d",
+          "private/tb_axi_regs.sv": "ed174acc94081c3db0d8c129f71ae3ffb345b375110c4c039d8587a5ac572853",
+          "public/TASK_SPEC.md": "14e5d67e05715935421c6fd64fbc502e59f2d04a15e7c8ea778c55d43f1a3d6e",
+          "public/rtl/axi_regs.sv": "a839908f29abe1241b9d7201eb10dd03b4c2f85baa677830be35f3480c4c28b9"
+        },
+        "V3": {
+          "private/reference_axi_regs.sv": "80ef7f3d15d29a5205eb1fc17beb90a8a8ba5401e373969d4446c0ce3aae3b23",
+          "private/tb_axi_regs.sv": "d40382be35d71501aa3823da04fe18b4ac16af54bc4e9f01080b2d27e2f92276",
+          "public/TASK_SPEC.md": "a0addcd321e358606093c8dda165ce079cf8c60c5c9b6b9c61e98bf78beaf490",
+          "public/rtl/axi_regs.sv": "fe3a14be197a10f90326fa887ee98b37c86f577eb3606dff5409666f0bab714a"
+        }
+      }
+    },
+    "T3": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "scenario_markers_verified": 27,
+      "mutations_detected": 15,
+      "mutation_trials": 15,
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T185908/fixture-results.json",
+      "note": "All mutant xvlog/xelab exit codes were 0; each correct-DUT run emitted all nine scenario markers."
+    },
+    "T4": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "reference_synthesis": "NOT_REQUIRED",
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T190231/fixture-results.json",
+      "note": "Each seeded multi-file XSim design fails; corresponding single-file top repair passes fixed five-vector simulation."
+    },
+    "T5": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_functional_failures": 3,
+      "baseline_latch_diagnostics": 3,
+      "reference_xsim_passes": 3,
+      "reference_synthesis_passes": 3,
+      "reference_latch_diagnostics": 0,
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T190700/fixture-results.json"
+    },
+    "T6": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_csim_failures": 3,
+      "reference_csim_passes": 3,
+      "reference_csynth_passes": 3,
+      "reference_reports": 6,
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T190952/fixture-results.json",
+      "private_testbench_and_build_logs": "kept_under_workspace_dot_quality_hidden"
+    },
+    "T7": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "synthesis": "NOT_REQUIRED",
+      "ross_endpoint_formal_availability": "BLOCKED_UNAVAILABLE",
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T191534/fixture-results.json"
+    },
+    "T8": {
+      "variants": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "fixture_status": "PASS",
+      "baseline_expected_failures": 3,
+      "reference_xsim_passes": 3,
+      "reference_synthesis_passes": 3,
+      "delivery_summary_audit_unit_test": "PASS",
+      "evidence": "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261022T191550/fixture-results.json"
+    }
+  },
+  "not_built": [],
+  "tool_versions": {
+    "vivado": "2026.1",
+    "part": "xc7s100fgga676-2",
+    "vitis_hls": "2026.1"
+  },
+  "harness_source_sha256": {
+    "scripts/build_quality_corpus.py": "b884a83550b59e82f4658892d43eddcfe0e8c0b2517616da2530e1a38c6720c3",
+    "scripts/validate_quality_corpus.py": "c496746d1185c7f8306000800ffb67f0566663bc41d6f3aeafec20ae6f0dda39",
+    "scripts/quality_task_executor.py": "69cbb88571a29e37f1efb3c23d01b3fde8ac15e4dd7475606f642eb33e3b6812",
+    "scripts/prepare_quality_workspace.py": "52eda55a54819d18ef45b196c29f8dcd1186f9062691f99c384ee1ff075643ac",
+    "scripts/quality_local_agent.py": "853a7a88184d9390141be48f748a16ca490237b5b49311eb00a47a1fe7f4e8b8",
+    "scripts/run_quality_guarded_trial.py": "012c9e5c6a5f4abfe763a5ce49e606105b3753208de3074b246470abf2400fca",
+    "scripts/run_quality_pilot.py": "97587394059fc784248c3f6ec18ae59cd3c9e5d9f81aae59fd9c780956e1d18d",
+    "scripts/local_agent.py": "0851e859f93054e39440c9a04e2a8d270ee21f1ba45e3deeabae72b0ce2263bf",
+    "scripts/test_quality_local_agent.py": "076fc22b51f23523e6d0612099f13cb5cdebdcac9803fa1a1c21870f3d4c7947"
+  },
+  "notes": [
+    "No candidate-model quality sample has been scored; formal_sample_count remains 0.",
+    "M13 and Mellum calibration output is excluded from the comparison.",
+    "All T1-T8 V1-V3 non-model fixtures pass. T7 hardware/tool fixture passes, but the local AMD Doc Search HTTP endpoint is not reachable/configured; formal T7 is uniformly BLOCKED until available.",
+    "Every variant manifest excludes itself; each workspace preparation, validation call, and live monitor verifies the manifest and harness hashes.",
+    "No model deletion, formal Agent model configuration change, or cleanup of pre-existing Git changes was performed."
+  ]
+}

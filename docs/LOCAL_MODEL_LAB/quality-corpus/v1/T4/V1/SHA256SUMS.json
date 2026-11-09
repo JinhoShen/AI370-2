@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task": "T4",
+  "variant": "V1",
+  "files": {
+    "private/tb_calc_top.sv": "d1195db4190765c96cec03be56acdffe8648eae0b8433ebe6dd98d471c6f9f58",
+    "public/TASK_SPEC.md": "b5dafdd8ac71952d8c857249e271618bc9ad36b4f93295607d86eefacacd1773",
+    "public/rtl/alu.sv": "4cbfc7093d9d9bc9030a6a2509ee7a1abcea23196a219991d2a28738c09abcf4",
+    "public/rtl/alu_pkg.sv": "d6d475ccf23b2aeeab54ebc25166dda112c35368061ecaf755546893ae5b4c9a",
+    "public/rtl/calc_top.sv": "8f682b609ea5df18cf74c35d206be95df4863a8ef3dbe933a2b7b5a9f2ca0c78"
+  }
+}

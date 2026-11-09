@@ -1,0 +1,5 @@
+# T8 Autonomous Agent: complete RTL delivery cycle
+
+Implement the four-register AXI4-Lite slave in `rtl/axi_regs.sv` from the interface and behavioral requirements in this file. The register reset values in order are 0xC001D00D, 0x5A5AA5A5, 0x13579BDF, 0x2468ACE0. Support independent AW/W handshakes, one pending write, WSTRB byte updates, aligned addresses 0x00–0x0c, SLVERR for unsupported addresses, read response stability under backpressure, and reset. Only the DUT file is editable.
+
+Work autonomously: inspect the starter RTL, run the unchanged baseline once, diagnose the fixed tool output, patch the design, rerun the fixed validator, and then give a concise delivery summary. The summary must contain separate lines in this exact form: `STATUS=PASS`, `XSim=PASS marker=<exact marker>`, `SYNTHESIS=PASS report=<exact utilization report path>`, and `RTL_SHA256=<final source SHA-256>`. Report only facts shown by the fixed validator output. The evaluator verifies all four statements against its actual trace, hashes, simulation log, and synthesis report.

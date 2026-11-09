@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task": "T5",
+  "variant": "V2",
+  "files": {
+    "private/reference_mux_math.sv": "792124e304c431e48581a7f0dd8a52f9943df29eb2fe3e6cb14a72eeea599bdb",
+    "private/tb_mux_math.sv": "53f56a5804331a1359a3e58ada94745e077e4e8205c331bfdb607c8a9fdd06e4",
+    "public/TASK_SPEC.md": "233652037e016dc8cee3fbf0993f9d6d9ead4e27120f774bd74aa79eb109a435",
+    "public/rtl/mux_math.sv": "480cf0d5b6157545f11b00e7f1eaa2fb53450f43e797452d15691ba5b1e822ed"
+  }
+}

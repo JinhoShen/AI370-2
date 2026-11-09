@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task": "T3",
+  "variant": "V2",
+  "files": {
+    "private/mutants/ignore-wstrb.sv": "166ed97f2fbba9bb826db89ecbeb065bca0d559c35641e4171fee914e3f6b43c",
+    "private/mutants/same-cycle-aw-w.sv": "332aacf4fb717fc31e43b5c3c10381ce861571a2bdc072a93127f865e2e7da46",
+    "private/mutants/unstable-read-response.sv": "ef4fddc42368200892db5d7ac85b7e411b859b44636233f0e8ad41dd33c27923",
+    "private/mutants/unstable-write-response.sv": "65d9f2288d4fca5b3c48db8ca83907a887b1d8f2522917a1753982d6896f6690",
+    "private/mutants/wrong-reset-value.sv": "2a3213c9bfd41a0592c23848d750d147ba1ce2bb6ace12435f06676773e820c1",
+    "private/reference_tb_axi_regs.sv": "f609c725ebe984547139f1cda39912c4ff9614e169560ab727831d5e3966f76e",
+    "public/TASK_SPEC.md": "2b5fc4ff15d8d6712cc5de61aee61a0e585f40a46d6df38be7497d131263d383",
+    "public/rtl/axi_regs.sv": "6b2db8f592adebc1748cbc5f58694542ff3040b18b65f0cdaa5e6a39de50ee8d",
+    "public/sim/tb_axi_regs.sv": "01c2be12359d4ca9226ce4d1386a4d4aba92b10577b23a599229c0028fd337f1"
+  }
+}

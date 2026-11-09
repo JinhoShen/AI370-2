@@ -1,0 +1,5 @@
+# T2 RTL Debug: independent AXI4-Lite write channels
+
+The supplied four-register AXI4-Lite slave compiles but loses writes when AW and W do not arrive in the same cycle. Diagnose the fixed baseline XSim failure and repair only `rtl/axi_regs.sv`. The required register map, reset values, WSTRB behavior, response codes, and backpressure behavior are specified below. Keep the existing module interface.
+
+Registers at 0x00, 0x04, 0x08 and 0x0c reset respectively to `0x10203040, 0xA5A55A5A, 0x0BADF00D, 0x55AA33CC`. Reset is synchronous active-low. AW and W are independent; accept them in either order and retain at most one pending channel beat until the other arrives. Store at the captured AW address, apply WSTRB byte lanes independently, and return OKAY. Unaligned/unmapped transactions return SLVERR (read data zero). Hold B and R response payloads stable until handshake. Do not change the testbench, task specification or runner. Run the unchanged baseline first; then diagnose and repair the source. The fixed XSim and synthesis checks are authoritative.
