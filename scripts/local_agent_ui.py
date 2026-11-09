@@ -38,8 +38,10 @@ def models():
     for row in api('models').get('data', []):
         path = Path(row.get('checkpoint', ''))
         try:
+            # Only flat payloads in the canonical model root are selectable;
+            # Legacy_Cache and other nested archives are never offered.
             resolved = path.resolve(strict=True)
-            present = path.is_file() and resolved.is_relative_to(MODEL_ROOT.resolve())
+            present = resolved.is_file() and resolved.parent == MODEL_ROOT.resolve()
         except (OSError, RuntimeError):
             present = False
         retired = 'qwen3.6' in row['id'].lower()

@@ -102,4 +102,26 @@ class UiTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'仍在執行'):c.submit(dict(action='load',model='chosen'))
 
 
+    def test_only_flat_model_root_payloads_are_available(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)/'models';(root/'Legacy_Cache/hf/snapshots/x').mkdir(parents=True);(root/'Ross_Offline_Resources').mkdir()
+            (root/'GGUF').symlink_to('.')
+            (root/'flat.gguf').write_bytes(b'flat')
+            (root/'Legacy_Cache/hf/snapshots/x/legacy.gguf').write_bytes(b'legacy')
+            (root/'Ross_Offline_Resources/embed.gguf').write_bytes(b'embed')
+            (root/'linked.gguf').symlink_to(root/'Legacy_Cache/hf/snapshots/x/legacy.gguf')
+            rows={'data':[dict(id='flat',checkpoint=str(root/'GGUF/flat.gguf')),
+                          dict(id='legacy',checkpoint=str(root/'Legacy_Cache/hf/snapshots/x/legacy.gguf')),
+                          dict(id='legacy-via-gguf-link',checkpoint=str(root/'GGUF/Legacy_Cache/hf/snapshots/x/legacy.gguf')),
+                          dict(id='flat-link-into-legacy',checkpoint=str(root/'linked.gguf')),
+                          dict(id='nested-resource',checkpoint=str(root/'Ross_Offline_Resources/embed.gguf')),
+                          dict(id='missing',checkpoint=str(root/'missing.gguf'))]}
+            with patch.object(ui,'MODEL_ROOT',root/'GGUF'),patch.object(ui,'api',return_value=rows):
+                result={row['id']:row for row in ui.models()}
+        self.assertTrue(result['flat']['available'])
+        self.assertEqual(result['flat']['bytes'],4)
+        for name in ['legacy','legacy-via-gguf-link','flat-link-into-legacy','nested-resource','missing']:
+            self.assertFalse(result[name]['available'],name)
+            self.assertIsNone(result[name]['bytes'],name)
+
 if __name__=='__main__':unittest.main()
