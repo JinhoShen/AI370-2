@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Cross-model local FPGA engineering benchmark using the existing M13 tasks and bounded runners.",
-  "model_root": "resources/Agent_Tools_Docs/04_Local_AI/GGUF",
+  "model_root": "models/GGUF",
   "provider": {
     "api_base": "http://127.0.0.1:13305/api/v1",
     "backend": "Lemonade loopback API backed by llama.cpp CPU server",
@@ -31,7 +31,7 @@
       "bytes": 17559178144,
       "sha256": "3f227079003add2511437e5b1e94812e363385225bf6a9b47b0054a72bc8b01e",
       "model_id": "Qwen3.8-27B-UD-Q4_K_XL",
-      "runtime_model_path": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "runtime_model_path": "/home/shen/AI370-2/models/GGUF/Qwen3.8-27B-UD-Q4_K_XL.gguf",
       "status": "ACTIVE_AND_SMOKE_VERIFIED"
     },
     {
@@ -62,7 +62,7 @@
       "bytes": 18687057344,
       "sha256": "b1fc8ee10f916da019dbb1d177854fa3b6421fbea1e93839a2061861308e1de7",
       "model_id": "gemma-4-31b-jang-crack-Q4_K_M",
-      "runtime_model_path": "/home/shen/AI370-2/resources/Agent_Tools_Docs/04_Local_AI/GGUF/gemma-4-31b-jang-crack-Q4_K_M.gguf",
+      "runtime_model_path": "/home/shen/AI370-2/models/GGUF/gemma-4-31b-jang-crack-Q4_K_M.gguf",
       "status": "PRESENT_BUT_NOT_ACTIVE"
     },
     {

@@ -18,3 +18,17 @@ telegram-token.txt
 /vivado*.log
 docs/M9/native-toolchain-smoke/vivado-smoke*.jou
 docs/M9/native-toolchain-smoke/vivado-smoke*.log
+
+# Local model weights and offline model archives are not Git artifacts.
+/models/GGUF/
+/models/Legacy_Cache/
+/models/Ross_Offline_Resources/
+# Flat local model payloads are not Git artifacts.
+/models/*.gguf
+/models/*.onnx
+/models/*.bin
+/models/*.tflite
+/models/*.ckpt
+/models/*.safetensors
+/models/*.pt
+/models/*.pth

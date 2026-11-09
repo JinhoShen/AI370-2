@@ -103,7 +103,7 @@ def base_config(backend,context=4096,prompt_tokens=512,output_tokens=128,layers=
 def worker(config_file):
     global PROFILE
     cfg=json.loads(config_file.read_text());PROFILE=cfg['profile'];model=cfg['model']
-    perf.MODEL=dict(model_id=model['id']);perf.PATH=ROOT/'resources/Agent_Tools_Docs/04_Local_AI/GGUF'/model['file']
+    perf.MODEL=dict(model_id=model['id']);perf.PATH=ROOT/'models/GGUF'/model['file']
     perf.Guard=HardwareGuard;perf.request=measured_request
     if cfg.get('task'):
         directory=config_file.parent/'engineering';directory.mkdir()

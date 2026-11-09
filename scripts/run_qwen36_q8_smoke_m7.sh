@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo=/home/shen/AI370-2
-model=$repo/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
+model=$repo/models/GGUF/Qwen3.6-35B-A3B-Q8_0.gguf
 backend=${1:?usage: run_qwen36_q8_smoke_m7.sh cpu|vulkan|rocm}
 evidence=$repo/docs/M7/evidence/qwen36-35b-a3b-q8
 mkdir -p "$evidence"

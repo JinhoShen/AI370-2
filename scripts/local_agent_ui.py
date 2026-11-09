@@ -23,7 +23,7 @@ DATA = ROOT / 'output/local-ui'
 API = 'http://127.0.0.1:13305/api/v1/'
 FORMAL = 'Qwen3.8-27B-UD-Q4_K_XL'
 ROSS = 'http://172.18.0.4:8080/mcp/doc-search'
-MODEL_ROOT = ROOT / 'resources/Agent_Tools_Docs/04_Local_AI/GGUF'
+MODEL_ROOT = ROOT / 'models/GGUF'
 ASSETS = Path(__file__).parent / 'local_ui'
 
 
@@ -37,7 +37,11 @@ def models():
     result = []
     for row in api('models').get('data', []):
         path = Path(row.get('checkpoint', ''))
-        present = path.is_file() and path.resolve().parent == MODEL_ROOT.resolve()
+        try:
+            resolved = path.resolve(strict=True)
+            present = path.is_file() and resolved.is_relative_to(MODEL_ROOT.resolve())
+        except (OSError, RuntimeError):
+            present = False
         retired = 'qwen3.6' in row['id'].lower()
         result.append(dict(id=row['id'], bytes=path.stat().st_size if present else None,
                            available=present and not retired, retired=retired,

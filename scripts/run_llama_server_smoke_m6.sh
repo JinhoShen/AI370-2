@@ -3,7 +3,7 @@ set -euo pipefail
 
 repo=/home/shen/AI370-2
 backend=${1:?usage: run_llama_server_smoke_m6.sh cpu|vulkan|hip}
-model=$repo/resources/Agent_Tools_Docs/04_Local_AI/GGUF/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf
+model=$repo/models/GGUF/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf
 root=$repo/output/M6
 case "$backend" in
   cpu) bin=$root/build-cpu/bin/llama-server; device=none; layers=0; port=18980 ;;

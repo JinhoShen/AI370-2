@@ -188,7 +188,7 @@ def guarded_process(command,directory,timeout,env=None):
 
 
 def hash_model(model):
-    path=ROOT/'resources/Agent_Tools_Docs/04_Local_AI/GGUF'/model['file']
+    path=ROOT/'models/GGUF'/model['file']
     if not path.is_file() or path.stat().st_size!=model['bytes']:raise ValueError('MODEL_MISSING_OR_SIZE_MISMATCH')
     h=hashlib.sha256()
     with path.open('rb') as f:
@@ -202,7 +202,7 @@ def hash_model(model):
 
 def server_command(model):
     backend=model['backend'];threads=len(os.sched_getaffinity(0))
-    path=ROOT/'resources/Agent_Tools_Docs/04_Local_AI/GGUF'/model['file']
+    path=ROOT/'models/GGUF'/model['file']
     return [str(ROOT/f'output/M6/build-{backend}/bin/llama-server'),'-m',str(path),'--alias',model['id'],'--host','127.0.0.1','--port',str(PORT),'--offline','--log-verbosity','5','--ctx-size','16384','--threads',str(threads),'--threads-batch',str(threads),'--n-gpu-layers','99' if backend=='vulkan' else '0','--device','Vulkan0' if backend=='vulkan' else 'none','--parallel','1','--reasoning','off','--jinja','--metrics','--batch-size','2048','--ubatch-size','512']
 
 
@@ -334,7 +334,7 @@ def main():
                 if any(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=value for p,value in snapshots.items()):raise SafetyFault('HARNESS_CHANGED')
                 directory=base/task/(arm+str(rep)+'-controller');directory.mkdir(parents=True)
                 cfg=dict(task=task,arm=arm,rep=rep);save(directory/'config.json',cfg)
-                env=os.environ.copy();env.update(AI370_LOCAL_MODEL=model['id'],AI370_LOCAL_BASE_URL=f'http://127.0.0.1:{PORT}/v1',AI370_ROSS_DOCSEARCH_URL='http://172.18.0.4:8080/mcp/doc-search',AI370_ROSS_AB_OUT=str(base/task),AI370_MODEL_LAB_SERVER_PID=str(SERVER.pid),AI370_MODEL_LAB_MODEL_PATH=str(ROOT/'resources/Agent_Tools_Docs/04_Local_AI/GGUF'/model['file']),AI370_MODEL_LAB_REQUEST_TIMEOUT='600',AI370_MODEL_LAB_TOTAL_TIMEOUT='2400',AI370_MODEL_LAB_COMPLETION_CAP='2048',AI370_MODEL_LAB_TOOL_CALL_CAP='14',AI370_ROSS_CONTEXT_CHARS='1800',AI370_ROSS_MCP_CHARS='1200')
+                env=os.environ.copy();env.update(AI370_LOCAL_MODEL=model['id'],AI370_LOCAL_BASE_URL=f'http://127.0.0.1:{PORT}/v1',AI370_ROSS_DOCSEARCH_URL='http://172.18.0.4:8080/mcp/doc-search',AI370_ROSS_AB_OUT=str(base/task),AI370_MODEL_LAB_SERVER_PID=str(SERVER.pid),AI370_MODEL_LAB_MODEL_PATH=str(ROOT/'models/GGUF'/model['file']),AI370_MODEL_LAB_REQUEST_TIMEOUT='600',AI370_MODEL_LAB_TOTAL_TIMEOUT='2400',AI370_MODEL_LAB_COMPLETION_CAP='2048',AI370_MODEL_LAB_TOOL_CALL_CAP='14',AI370_ROSS_CONTEXT_CHARS='1800',AI370_ROSS_MCP_CHARS='1200')
                 pending=dict(cycle=cycle,model=model['id'],backend=model['backend'],task=task,arm=arm,rep=rep,started=stamp())
                 try:
                     stats=guarded_process([sys.executable,str(Path(__file__).resolve()),'--trial',str(directory/'config.json')],directory,timeout=2700,env=env)

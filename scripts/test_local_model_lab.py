@@ -34,7 +34,7 @@ class LocalModelLabTests(unittest.TestCase):
 
     def test_qwen_configuration_uses_only_existing_model_path(self):
         model = lab.model_for(lab.load_config(), "qwen38")
-        self.assertTrue((Path("resources/Agent_Tools_Docs/04_Local_AI/GGUF") / model["relative_path"]).is_file())
+        self.assertTrue((Path("models/GGUF") / model["relative_path"]).is_file())
         self.assertEqual(model["bytes"], 17559178144)
 
     def test_normalization_preserves_failed_trials(self):

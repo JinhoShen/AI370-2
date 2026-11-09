@@ -1,0 +1,128 @@
+category	relative_path	size_bytes
+RETIRED_QWEN36	Qwen3.6-35B-A3B-Q8_0.gguf	36903139328
+RETIRED_QWEN36	Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-IQ2_M.gguf	11659235456
+CURRENT_REFERENCE_QWEN38	Qwen3.8-27B-UD-Q4_K_M.gguf	16464440224
+CURRENT_REFERENCE_QWEN38	Qwen3.8-27B-UD-Q4_K_XL.gguf	17559178144
+CURRENT_REFERENCE_QWEN38	Qwen3.8-27B-Uncensored-Q4_K_M.gguf	16810714528
+OTHER_MODEL_CANDIDATE	gemma-4-31b-jang-crack-Q4_K_M.gguf	18687057344
+RETIRED_QWEN36	mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf	899283072
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (2)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (3)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (4)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (5)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-0.6B-GGUF/.lemonade_registry.json	378
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-0.6B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-0.6B-GGUF/snapshots/50968a4468ef4233ed78cd7c3de230dd1d61a56b/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-14B-GGUF/.lemonade_registry.json	375
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-14B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-14B-GGUF/snapshots/a04a82c4739b3ef5fa6da7d10261db2c67dd1985/config.json	754
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-4B-GGUF/.lemonade_registry.json	372
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-4B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3-4B-GGUF/snapshots/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/config.json	752
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3.5-9B-GGUF/.lemonade_registry.json	448
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3.5-9B-GGUF/refs/main	40
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models (6)/models--unsloth--Qwen3.5-9B-GGUF/snapshots/3885219b6810b007914f3a7950a8d1b469d598a5/mmproj-F16.gguf	918166080
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models.tar	18185226240
+LEGACY_CACHE	Legacy_Cache/Qwen_Cache/SER9-Qwen-Models.tar.sha256	87
+ROSS_OFFLINE_RESOURCES	Ross_Offline_Resources/20260918.embeddinggemma-300m.tar.gz	3161656726
+ROSS_OFFLINE_RESOURCES	Ross_Offline_Resources/20260918.qwen3-embedding-0.6b.tar.gz	4440996408
+EMBEDDING_MODEL	Qwen3-Embedding-0.6B-f16.gguf	1197629632
+OTHER_MODEL_CANDIDATE	Devstral-Small-2-24B-Instruct-2512-Q3_K_M.gguf	11474619552
+OTHER_MODEL_CANDIDATE	Mellum2.1-12B-A2.5B-Thinking-Q4_K_M.gguf	8071295264
+OTHER_MODEL_CANDIDATE	Qwen3-14B-Q4_K_M.gguf	9001752960
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-Fable-5-Coding-Distilled.i1-IQ3_M.gguf	12768333632
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-UD-IQ2_S.gguf	8371970048
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-UD-IQ2_XXS.gguf	7266070528
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-UD-IQ3_XXS.gguf	10934860704
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-UD-Q2_K_XL.gguf	9828981664
+QWEN38_VARIANT_CANDIDATE	Qwen3.8-27B-UD-Q3_K_XL.gguf	13146393504
+OTHER_MODEL_CANDIDATE	Underdog-Saluki-27B-1.0-IQ2-mix.gguf	7898369152
+OTHER_MODEL_CANDIDATE	gemma-4-26B_q4_0-it.gguf	14439363584
+OTHER_MODEL_CANDIDATE	gpt-oss-20b-UD-Q4_K_XL.gguf	11872347328
+INFERENCE_MODEL_CANDIDATE	Qwen3-14B-Q4_0.gguf	8543001984
+INFERENCE_MODEL_CANDIDATE	sd_turbo-f16-q8_0.gguf	2023745376
+INFERENCE_MODEL_CANDIDATE	Qwen3-Embedding-0.6B-Q8_0.gguf	639150592
+AUDIO_MODEL	ggml-base.bin	147951465
+AUDIO_MODEL	kokoro-v1.0.onnx	325532387
+AUDIO_MODEL	voices-v1.0.bin	28214398
+WAKEWORD_MODEL	hey_hermes.tflite	206764
+IMAGE_MODEL	mm_sd_v15_v2.ckpt	1817888431
+INFERENCE_MODEL_CANDIDATE	sd15-v1-5-pruned-Q4_0.gguf	3051366272
+LEGACY_MODEL_CANONICAL	Qwen3-0.6B-Q4_0.gguf	382156480
+LEGACY_MODEL_CANONICAL	Qwen3-4B-Q4_0.gguf	2375773472
+LEGACY_MODEL_CANONICAL	Qwen3.5-9B-UD-Q4_K_XL.gguf	5966095584
+LEGACY_MODEL_CANONICAL	mmproj-F16.gguf	918166080
