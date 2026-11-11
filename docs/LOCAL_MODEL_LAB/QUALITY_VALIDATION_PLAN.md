@@ -194,17 +194,37 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
   - 結束 agent 時精確比對 `--workspace` 參數；舊版以子字串比對，會連帶中斷 `…/workspace2` 或只是在其他參數提到該路徑的 agent。
 - `quality_task_executor.py`（2026-11-11 下午）：Vivado／Vitis 工具逾時改記為該步驟失敗（`exit_code: null`、`timed_out: true`，記錄附 `QUALITY_TOOL_TIMEOUT`），任務判 FAIL 並照常寫出 `result.json`；舊版拋出例外，`main()` 回報 `HARNESS_INVALID`，pilot 因而停止整個 cycle。T3 中 mutant 模擬逾時代表 testbench 沒有規格要求的有限 watchdog，記為 `TOOL_TIMEOUT` 且**不算**抓到 mutant。T6 C simulation 逾時改提供「超過時間限制」診斷，不再誤稱 vector mismatch。Vivado／Vitis 環境設定載入失敗仍為 `HARNESS_INVALID`。
 
+### T8 題目修正與 corpus v2（2026-11-11）
+
+- corpus v1 的 T8 規格要求「依本檔案的介面需求」實作，卻沒有列出任何介面；hidden testbench 以名稱連接 `aclk`、`aresetn` 與 17 個 `s_axi_*` port。既有 37 個有 validator 記錄的 T8 workspace，最後一次嘗試**全部**卡在 port 錯誤，T8 從未出現 PASS。
+- 新增 `docs/LOCAL_MODEL_LAB/quality-corpus/v2`：T1–T7 與 v1 逐 byte 相同；T8 三個變體的 `TASK_SPEC.md` 新增「Interface」小節（完整 port 清單，`aresetn` 為同步低態有效 reset），starter、hidden testbench 與 reference 不變。v1 原封保留。所有 harness 與測試改用 v2。
+- corpus v1 的所有 T8 樣本在分析與報告中一律視為 `HARNESS_INVALID`；`output/` 原始證據不修改。統計、受影響 session 與重新分類規則見 `docs/LOCAL_MODEL_LAB/T8_SPEC_DEFECT.md`。
+
+### 實際工具驗證（2026-11-11）
+
+以實際 Vivado 2026.1／Vitis HLS 2026.1 執行 `scripts/validate_quality_corpus.py --task all`：
+
+| Commit | Corpus | 結果 | 耗時 | 報告 |
+|---|---|---|---:|---|
+| `5e3fe5c` | v1 | 24／24 變體 PASS | 586 s | `output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261111T134826/fixture-results.json` |
+| `7aa8057` | v2 | 24／24 變體 PASS | 583 s | `output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures/runs/20261111T140640/fixture-results.json` |
+
+每個變體的 baseline 均如預期失敗、reference 均通過；T1 四個 mutation 與 T3 五個 mutant 全部被偵測。新 harness（工具逾時判 FAIL、來源改動判 FAIL 等）在實際工具輸出上沒有誤判。
+
 ### 已知但未修正的 harness 問題
 
-- **T8 題目缺陷**：`TASK_SPEC.md` 要求「依本檔案的介面與行為需求」實作，但未列出任何介面（port 名稱、位寬、reset 同步／非同步與極性），public stub 也只有 `module axi_regs;`；hidden testbench 依賴 `aclk`、`aresetn` 與 17 個 `s_axi_*` port。模型只能從 baseline elaboration 錯誤推測名稱，位寬沒有線索。依第 3 節規則，修正需建立新版題庫並讓九款模型共同重跑 T8；既有 T8 樣本是否改標 `HARNESS_INVALID` 需另行決定。
 - `quality_task_executor.py`：T6 C simulation 非逾時的失敗（編譯錯誤或 vector mismatch）仍使用同一句 vector mismatch 診斷。
 
 ### 執行下一批樣本前
 
-1. 確認接受上述可比性限制，並決定剩餘 harness 問題是否在下一批之前修正。
-2. controller 已於 2026-11-11 13:39 重啟並載入 SIGTERM 修正。harness 檔案（executor、guarded trial、agent）由每個樣本的新程序載入，修改後不需重啟 controller。
-3. 以實際 Vivado／Vitis 執行 `scripts/validate_quality_corpus.py --task all`，確認題庫在新 harness 下仍全部通過。
-4. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
+1. controller 已於 2026-11-11 13:39 重啟並載入 SIGTERM 修正。harness 檔案（executor、guarded trial、agent）由每個樣本的新程序載入，修改後不需重啟 controller。
+2. 題庫驗證已完成（上表）。
+3. **需要決定下一批的形式**。新 harness 與 corpus v2 的樣本不得與既有樣本混比，因此下一批應是新的完整共同矩陣（由 V1 pilot 開始），而不是接續 V2／V3。現有工具在目前狀態下無法直接啟動：
+   - `freeze_quality_v2_v3_plan.py` 只接受 quality 狀態為 `PILOT_COMPLETE`；
+   - controller 的 `ARM_PILOT` 在 quality 狀態為 `SAFETY_STOP` 時拒絕啟動；
+   - 目前 `output/QUALITY_MODEL_VALIDATION/status.json` 為 `SAFETY_STOP`。
+   開始新矩陣前，需決定如何封存目前的 quality 狀態（不得覆寫既有證據），再以 controller `arm-pilot` 啟動；或修改流程以支援新 harness 版本的新 study。
+4. controller 的 `AUTO_CONTINUE_V2_V3 = True`：任何新的凍結計畫在狀態符合時都可能自動開始模型執行。
 
 ### 離線測試
 
