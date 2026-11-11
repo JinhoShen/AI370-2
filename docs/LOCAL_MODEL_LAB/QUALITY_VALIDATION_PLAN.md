@@ -158,6 +158,7 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
 - **Trace 預設不保存 prompt 原文**：`model_request` 只記錄 request 參數（model、temperature、max_tokens、seed、tool_choice）、完整 request body 的 SHA-256 與 bytes、每則 message 的角色／bytes／SHA-256，以及工具名稱。不保存任何 prompt 文字或摘錄。
 - **單筆 trace 事件上限 64 KiB**：超過時改寫為摘要，只保留 `event`／`name`／`call`、原始 bytes 與 SHA-256。實測既有 trace 中 `tool_call` 與 `model_response` 單行最大約 5–6 KB，正常樣本不會觸發；舊版 `model_request` 單行最大約 52 KB，且佔 trace 總量約 81%。
 - `max_completion_tokens` 可接受上限為 8,192（CLI 預設仍為 512）。
+- **可選的嚴格 trace 模式**：設 `AI370_TRACE_MODE=hash-only` 時，除 `event`、`name`、`call`、`model`、`path(s)`、`request_sha256`、`request` 等 metadata 外，模型回覆、工具參數／結果、patch 與錯誤訊息一律只記 bytes 與 SHA-256；工具結果另保留 `ok`／`stage`／`status`。預設為 `full`，維持第 4 節 T7 對 Ross 查詢／回覆的 trace 要求與失敗診斷；其他值會使 agent 拒絕啟動。品質 runner 以 `os.environ.copy()` 啟動子程序，環境變數會傳到 agent。使用嚴格模式的樣本無法從 trace 回看 T7 證據，必須在該批次 protocol 中註明。
 
 ### 可比性限制
 
@@ -169,13 +170,28 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
 
 - 健康資料無法讀取（`/proc` 讀取失敗或欄位缺漏／型別不符）時，若有 runner 執行中即 fail-closed：記錄 `HEALTH_UNREADABLE_GUARD`，以既有 `CHILD_SAFETY_STOP` 流程停止 runner；controller 持續輪詢，不自動重跑。
 - 同一份無效 command 在單一 controller process 內只記錄一次 `COMMAND_REJECTED`；讀到有效 command 後重置，controller 重啟後也會重新記錄。
+- 每次 runner 執行只送一次 guard SIGINT：舊版在 runner 結束前每 30 秒重送 SIGINT 並重複記錄 `CHILD_SAFETY_STOP`，可能打斷 runner 記錄未完成樣本的收尾流程。controller 關閉時的 `CONTROLLER_SHUTDOWN` 停止流程不變。
+- 收到 SIGTERM 後 1 秒內開始關閉：舊版主迴圈一次 `sleep` 30 秒，SIGTERM 要等睡完才生效（實測 27.1 秒）；2026-11-09 19:33 與 11-11 09:02 兩次登出時 session 先被拆除，controller 未能寫入 `CONTROLLER_STOPPED`。若當時有 runner 執行，`CONTROLLER_SHUTDOWN` 停止流程也會被略過。新版每秒檢查停止旗標，實測 0.1 秒正常結束。11-09 23:42 的 GNOME Shell 當機（KVM 切走後螢幕不存在，又以 AnyDesk 遠端操作，觸發 mutter `logical_monitor` assertion）期間 controller 持續運作，telemetry 沒有中斷。
+
+### 輔助工具修正（非 harness 身分檔案，不影響既有樣本可比性）
+
+- `validate_quality_corpus.py`：latch 判定改與 executor 相同，可辨識 Vivado `Synth 8-327` 的 `inferring latch`；T3 reference 記錄改以 repo 根目錄解析，不依賴 cwd；T3 reference 編譯失敗改記為 fixture FAIL，不再中止整個 run；executor 最後一行若為合法 JSON 但非 object，記為 `HARNESS_INVALID`。已唯讀檢查既有 fixture 記錄：30 個含 latch 警告的檔案全是 T5 baseline（預期內），T1/T2 reference 沒有 latch 警告，因此 2026-10-22／11-03 的 fixture 結論不受舊 regex 影響。
+- `run_quality_remediation_fixtures.py`：fixture 逾時時 Python 回傳 bytes 輸出，舊版會在寫 JSON 時崩潰而沒有 `report.json`；現已解碼後照常寫入。
+- `freeze_quality_v2_v3_plan.py`：所有雜湊輸入讀取成功後才建立計畫目錄，輸入缺漏時不再在 plans 目錄留下空的時間戳目錄。
+- `run_all_model_speed.py`：沒有可用模型時不再空轉，直接以 `NO_ELIGIBLE_MODELS` 結束。
+
+### 已知但未修正的 harness 問題（需決策；修正會改變評分或安全分類）
+
+- `quality_task_executor.py`：T1／T2／T8 的 PASS 不檢查驗證期間來源是否被改動（T3–T6 有檢查）；工具逾時會變成 `HARNESS_INVALID`（T3 若模型寫的 testbench 卡住，應為 FAIL 而非 harness 錯誤）。
+- `run_quality_guarded_trial.py`：同一時間點同時發生 sample 逾時與資源 guard 時，記為 `SAMPLE_TIMEOUT`／`PARTIAL` 而非 `BLOCKED`，pilot 因此不會進入 SAFETY_STOP；執行中重新讀取 `protocol.json` 而非使用啟動時驗證過的副本；allowlist 檢查不重驗 git HEAD；journalctl 或 PSI 讀取失敗時未寫 `guarded-result.json`。
+- T8 public stub（`module axi_regs;`）沒有 port，規格也未列出 port 名稱，但 hidden testbench 依賴特定名稱。
 
 ### 執行下一批樣本前
 
-1. 確認接受上述可比性限制。
-2. 重新啟動 controller／UI，讓服務載入新程式（本次未重啟）。
+1. 確認接受上述可比性限制，並決定上述 harness 問題是否在下一批之前修正。
+2. 重新啟動 controller／UI，讓服務載入最新程式（2026-11-09 19:33 的重啟之後，controller 又有「guard 只送一次 SIGINT」的修改）。
 3. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
 
 ### 離線測試
 
-`scripts/test_local_agent.py`、`test_local_agent_ui.py`、`test_quality_local_agent.py`、`test_local_model_controller.py` 涵蓋上述行為，不啟動模型、runner、systemd 或網路。`test_quality_local_agent.py` 改由版本控制中的 corpus 在系統 temp dir 建立 workspace，fresh clone 不再依賴被忽略的 `output/`。缺少模型權重時，`test_local_model_lab.py` 的權重存在性檢查預設 skip；設 `AI370_REQUIRE_MODEL_WEIGHTS=1` 可強制驗證。
+`scripts/test_local_agent.py`、`test_local_agent_ui.py`、`test_quality_local_agent.py`、`test_local_model_controller.py` 涵蓋上述行為，不啟動模型、runner、systemd 或網路。`test_quality_local_agent.py` 改由版本控制中的 corpus 在系統 temp dir 建立 workspace，fresh clone 不再依賴被忽略的 `output/`。缺少模型權重時，`test_local_model_lab.py` 的權重存在性檢查預設 skip；設 `AI370_REQUIRE_MODEL_WEIGHTS=1` 可強制驗證。另有 `test_quality_task_executor.py`、`test_run_quality_guarded_trial.py`、`test_build_quality_corpus.py`、`test_validate_quality_corpus.py`、`test_freeze_quality_v2_v3_plan.py`、`test_run_quality_remediation_fixtures.py`、`test_run_all_model_speed.py` 以 mock 取代 Vivado／XSim／Vitis／模型／`/proc`，驗證各工具的決策邏輯；它們不能證明真實工具輸出的格式。

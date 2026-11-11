@@ -20,6 +20,8 @@ docs/M9/native-toolchain-smoke/vivado-smoke*.jou
 docs/M9/native-toolchain-smoke/vivado-smoke*.log
 
 # Local model weights and offline model archives are not Git artifacts.
+# models/GGUF is a committed 'GGUF -> .' symlink, which this rule does not match;
+# it guards weights if GGUF is ever replaced by a real directory.
 /models/GGUF/
 /models/Legacy_Cache/
 /models/Ross_Offline_Resources/
