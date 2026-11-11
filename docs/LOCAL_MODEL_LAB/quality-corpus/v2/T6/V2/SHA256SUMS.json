@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task": "T6",
+  "variant": "V2",
+  "files": {
+    "private/reference_invert32.cpp": "5b0dcee45892938283178285b24e72d61fdeaa2d9c284bf864e05fd888299c5e",
+    "private/testbench.cpp": "2d272ea7417fbec8943463accb6502375f5cd46087a481b821300093d0b99c1e",
+    "public/TASK_SPEC.md": "f55636d7651cfb3309b5b4ebb279dd031916c6ef2e057c5e9838d60f22f0d3e3",
+    "public/hls_config.cfg": "c201050c2b06a9312c546193593995109b88ef2034cf6b670e11dcbe06175d5a",
+    "public/src/invert32.cpp": "47af487444b53bb7c83fa19bbfe833a4c166a73bec27a679ae215b7d4874a23b"
+  }
+}

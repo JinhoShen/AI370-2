@@ -8,7 +8,10 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+# v2 differs from v1 only in the T8 public specification, which now states the
+# interface the hidden testbench connects to (v1 referenced but never gave it).
+# v1 stays committed unchanged as the record for samples that used it.
+CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 
 PORTS = """module axi_regs (
   input  logic        aclk,
@@ -599,6 +602,13 @@ def build_t8() -> list[dict]:
         spec=f"""# T8 Autonomous Agent: complete RTL delivery cycle
 
 Implement the four-register AXI4-Lite slave in `rtl/axi_regs.sv` from the interface and behavioral requirements in this file. The register reset values in order are {resets_text}. Support independent AW/W handshakes, one pending write, WSTRB byte updates, aligned addresses 0x00–0x0c, SLVERR for unsupported addresses, read response stability under backpressure, and reset. Only the DUT file is editable.
+
+## Interface
+
+Use exactly this module name and port list, including directions and widths; the fixed validator connects to the ports by name. `aclk` is the clock. `aresetn` is a synchronous, active-low reset.
+
+```systemverilog
+{PORTS}```
 
 Work autonomously: inspect the starter RTL, run the unchanged baseline once, diagnose the fixed tool output, patch the design, rerun the fixed validator, and then give a concise delivery summary. The summary must contain separate lines in this exact form: `STATUS=PASS`, `XSim=PASS marker=<exact marker>`, `SYNTHESIS=PASS report=<exact utilization report path>`, and `RTL_SHA256=<final source SHA-256>`. Report only facts shown by the fixed validator output. The evaluator verifies all four statements against its actual trace, hashes, simulation log, and synthesis report.
 """

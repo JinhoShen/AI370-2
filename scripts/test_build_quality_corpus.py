@@ -2,7 +2,7 @@
 """Offline tests for the frozen quality-corpus builder.
 
 Every build is redirected into a system temp dir by patching ``CORPUS`` (and
-``ROOT``).  The committed corpus under docs/LOCAL_MODEL_LAB/quality-corpus/v1
+``ROOT``).  The committed corpus under docs/LOCAL_MODEL_LAB/quality-corpus/v2
 is only read for comparison.  No Vivado, Vitis, model or network is touched.
 """
 from __future__ import annotations
@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -22,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_quality_corpus as builder
 
 ROOT = Path(__file__).resolve().parents[1]
-COMMITTED = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+COMMITTED = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 TASKS = [f"T{i}" for i in range(1, 9)]
 VARIANTS = ["V1", "V2", "V3"]
 BUILDERS = [("T1", builder.build_t1), ("T2", builder.build_t2), ("T3", builder.build_t3),
@@ -41,7 +42,7 @@ def sha(data: bytes) -> str:
 def temp_corpus(case: unittest.TestCase) -> Path:
     temp = tempfile.TemporaryDirectory(prefix="quality-corpus-test-")
     case.addCleanup(temp.cleanup)
-    corpus = Path(temp.name).resolve() / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+    corpus = Path(temp.name).resolve() / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
     case.assertFalse(str(corpus).startswith(str(ROOT)), "temp corpus must be outside the repo")
     return corpus
 
@@ -104,7 +105,7 @@ class BuildQualityCorpusReproducibilityTests(unittest.TestCase):
         for task in TASKS:
             self.assertEqual([row["variant"] for row in payload[task.lower()]], VARIANTS)
             self.assertEqual({row["task"] for row in payload[task.lower()]}, {task})
-        corpus = root / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+        corpus = root / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
         before = tree(corpus)
         second = subprocess.run(command, cwd=root, env=env, capture_output=True, text=True, timeout=120)
         self.assertEqual(second.returncode, 0, second.stderr)
@@ -119,7 +120,7 @@ class BuildQualityCorpusContentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls._temp = tempfile.TemporaryDirectory(prefix="quality-corpus-content-")
-        cls.corpus = Path(cls._temp.name).resolve() / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+        cls.corpus = Path(cls._temp.name).resolve() / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
         cls.records = build_all(cls.corpus)
 
     @classmethod
@@ -384,6 +385,38 @@ class CommittedCorpusReadOnlyTests(unittest.TestCase):
                 actual = {p.relative_to(folder).as_posix(): sha(p.read_bytes())
                           for p in folder.rglob("*") if p.is_file() and p.name != "SHA256SUMS.json"}
                 self.assertEqual(manifest["files"], actual, f"{task}/{variant}")
+
+
+class CorpusV2RevisionTests(unittest.TestCase):
+    """v2 fixes the T8 specification only; v1 stays the record for earlier samples."""
+
+    V1 = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+
+    @staticmethod
+    def files(root: Path) -> dict[str, bytes]:
+        return {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+
+    def test_only_the_t8_specifications_and_their_manifests_differ_from_v1(self) -> None:
+        v1, v2 = self.files(self.V1), self.files(COMMITTED)
+        v1.pop("CORPUS_PROGRESS.json")
+        self.assertEqual(set(v1), set(v2))
+        changed = sorted(name for name in v1 if v1[name] != v2[name])
+        self.assertEqual(changed, sorted(f"T8/{v}/{name}" for v in VARIANTS
+                                         for name in ("SHA256SUMS.json", "public/TASK_SPEC.md")))
+
+    def test_t8_specification_states_every_port_the_hidden_testbench_connects(self) -> None:
+        for variant in VARIANTS:
+            with self.subTest(variant=variant):
+                tb = (COMMITTED / "T8" / variant / "private/tb_axi_regs.sv").read_text()
+                ports = set(re.findall(r"\.(aclk|aresetn|s_axi_\w+)\b", tb))
+                spec = (COMMITTED / "T8" / variant / "public/TASK_SPEC.md").read_text()
+                self.assertEqual(len(ports), 19)
+                self.assertIn(builder.PORTS, spec)
+                self.assertEqual({p for p in ports if not re.search(rf"\b{p}\b", spec)}, set())
+                self.assertIn("synchronous, active-low reset", spec)
+                # The starter stays a bare module: the task is to implement from the spec.
+                self.assertEqual((COMMITTED / "T8" / variant / "public/rtl/axi_regs.sv").read_text().splitlines()[0],
+                                 "module axi_regs;")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task": "T8",
+  "variant": "V3",
+  "files": {
+    "private/reference_axi_regs.sv": "80ef7f3d15d29a5205eb1fc17beb90a8a8ba5401e373969d4446c0ce3aae3b23",
+    "private/tb_axi_regs.sv": "442dc640d1625151705085fb72c1252884e5208202e4b65912bd0254a4141c42",
+    "public/TASK_SPEC.md": "2c3b332c1d26e8d64d15663f39e5d19968e7d1c1e62b0760f974581d2a71bfe0",
+    "public/rtl/axi_regs.sv": "c6eef1aae86aff90e7832f3ac80b52e7f62714d8d62d60fc78b051e1427d68d6"
+  }
+}
