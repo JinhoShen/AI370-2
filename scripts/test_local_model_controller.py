@@ -29,6 +29,7 @@ PLAN_ID = "20261103T065105Z"
 READ_ONLY_PATHS = {"RUNNER", "FIXTURE_RUNNER", "PLAN_RUNNER"}
 # Captured before any Sandbox patches them, so nested sandboxes wrap the real writers.
 REAL_ATOMIC_JSON, REAL_APPEND_JSONL = controller.atomic_json, controller.append_jsonl
+REAL_WAIT_FOR_NEXT_POLL = controller.wait_for_next_poll
 
 
 def healthy() -> dict:
@@ -78,7 +79,8 @@ class Sandbox:
         self._start(patch.object(controller.subprocess, "run", side_effect=self._run))
         self._start(patch.object(controller.os, "killpg", side_effect=lambda pid, sig: self.kills.append((pid, sig))))
         self._start(patch.object(controller.signal, "signal", side_effect=lambda sig, handler: self.handlers.__setitem__(sig, handler)))
-        self._start(patch.object(controller.time, "sleep", side_effect=self._sleep))
+        self._start(patch.object(controller, "wait_for_next_poll", side_effect=self._poll))
+        self._start(patch.object(controller.time, "sleep", side_effect=AssertionError("real sleep in a controller test")))
 
     def _start(self, patcher) -> None:
         patcher.start()
@@ -105,8 +107,9 @@ class Sandbox:
         self.run_calls.append(command)
         return self.run_result
 
-    def _sleep(self, seconds):
-        self.case.assertEqual(seconds, controller.POLL_SECONDS)
+    def _poll(self, stopped):
+        """One controller poll: snapshot state, run this tick's hook, stop after the last tick."""
+        self.case.assertFalse(stopped())
         self.states.append(controller.read_json(controller.STATE_PATH))
         hook = self.hooks.get(self.tick)
         if hook:
@@ -114,6 +117,8 @@ class Sandbox:
         self.tick += 1
         if self.tick >= self.ticks:
             self.handlers[signal.SIGTERM](signal.SIGTERM, None)
+            # The serve loop must observe the handler through the wait predicate.
+            self.case.assertTrue(stopped())
 
     # Fixture helpers -----------------------------------------------------
     def command(self, action: str, request_id: str = "req-1", **fields) -> None:
@@ -370,6 +375,21 @@ class SafetyStopTests(unittest.TestCase):
                 events = [e for e in box.events() if e["event"] == "CHILD_SAFETY_STOP"]
                 self.assertEqual((events[0]["reason"], events[0]["pid"]), (reason, pid))
 
+    def test_guard_signals_a_slow_runner_only_once(self):
+        box = Sandbox(self, ticks=4)
+        box.quality("PILOT_COMPLETE")
+        box.plan()
+        box.hooks[0] = lambda: box.health.update(memavailable_kib=GIB_KIB)
+        box.hooks[2] = lambda: box.health.update(memory_psi={"full": {"avg10": 50.0}})
+        box.serve()
+        pid = box.processes[0].pid
+        stops = [e for e in box.events() if e["event"] == "CHILD_SAFETY_STOP"]
+        self.assertEqual([e["reason"] for e in stops], ["MEMAVAILABLE_GUARD"])
+        # One guard SIGINT while the runner shuts down, then the controller's own exit stop.
+        self.assertEqual(box.kills, [(pid, signal.SIGINT), (pid, signal.SIGINT)])
+        self.assertEqual(box.states[3]["runner"]["controller_guard_reason"], "MEMAVAILABLE_GUARD")
+        self.assertIn("CONTROLLER_SHUTDOWN", (controller.QUALITY_BASE / "STOP").read_text())
+
     def test_guarded_runner_exit_requires_safety_review(self):
         box = Sandbox(self, ticks=3)
         box.quality("PILOT_COMPLETE")
@@ -593,6 +613,36 @@ class InvalidInputTests(unittest.TestCase):
                 self.assertEqual(box.processes, [])
                 rejected = [e for e in box.events() if e["event"] == "COMMAND_REJECTED"]
                 self.assertEqual(rejected[0]["reason"], reason)
+
+
+class WaitForNextPollTests(unittest.TestCase):
+    """The poll wait must end within a second of a stop request (e.g. SIGTERM at logout)."""
+
+    def wait(self, stop_after_sleeps: int | None, seconds: float = controller.POLL_SECONDS) -> list[float]:
+        clock = [1000.0]
+        sleeps: list[float] = []
+        def fake_sleep(duration: float) -> None:
+            sleeps.append(duration)
+            clock[0] += duration
+        stopped = lambda: stop_after_sleeps is not None and len(sleeps) >= stop_after_sleeps
+        with patch.object(controller.time, "monotonic", side_effect=lambda: clock[0]), \
+             patch.object(controller.time, "sleep", side_effect=fake_sleep):
+            REAL_WAIT_FOR_NEXT_POLL(stopped, seconds)
+        return sleeps
+
+    def test_full_poll_interval_is_slept_in_steps_of_at_most_one_second(self):
+        sleeps = self.wait(None)
+        self.assertEqual(sum(sleeps), controller.POLL_SECONDS)
+        self.assertTrue(all(step <= 1.0 for step in sleeps))
+
+    def test_stop_request_ends_the_wait_within_one_second(self):
+        self.assertEqual(self.wait(3), [1.0, 1.0, 1.0])
+
+    def test_already_stopped_does_not_sleep(self):
+        self.assertEqual(self.wait(0), [])
+
+    def test_fractional_interval_ends_exactly_at_the_deadline(self):
+        self.assertEqual(self.wait(None, seconds=2.5), [1.0, 1.0, 0.5])
 
 
 class CliTests(unittest.TestCase):

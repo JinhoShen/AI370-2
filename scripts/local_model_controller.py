@@ -19,7 +19,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,6 +41,20 @@ CONTROLLER_DIAGNOSTICS = BASE / "diagnostics"
 
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def wait_for_next_poll(stopped: Callable[[], bool], seconds: float = POLL_SECONDS) -> None:
+    """Sleep until the next poll, waking within a second of a stop request.
+
+    A single 30 s sleep is resumed after the SIGTERM handler runs, so a logout or
+    service stop could kill the controller before its shutdown stop was recorded.
+    """
+    deadline = time.monotonic() + seconds
+    while not stopped():
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return
+        time.sleep(min(1.0, remaining))
 
 
 def atomic_json(path: Path, value: dict[str, Any]) -> None:
@@ -425,7 +439,10 @@ def serve() -> int:
                 else:
                     state["status"] = "WAITING_FOR_REVIEW"
 
-            if active is not None and active.poll() is None and active_baseline is not None:
+            # One guard stop per run: repeating SIGINT every poll could interrupt the
+            # runner's own graceful shutdown while it records unfinished samples.
+            if (active is not None and active.poll() is None and active_baseline is not None
+                    and not state["runner"].get("controller_guard_reason")):
                 unreadable = unreadable_health_fields(health, active_baseline)
                 if unreadable:
                     # Fail closed: without trustworthy memory evidence the child must stop.
@@ -562,7 +579,7 @@ def serve() -> int:
                     state["status"] = "WAITING_FOR_REVIEW" if quality and quality.get("status") == "PILOT_COMPLETE" else "MONITORING"
                 emit(state, "RUNNER_EXITED", kind=runner_kind, exit_code=exit_code, quality_status=state["quality_runner_status"])
             atomic_json(STATE_PATH, state)
-            time.sleep(POLL_SECONDS)
+            wait_for_next_poll(lambda: terminate)
 
         if active is not None and active.poll() is None:
             request_stop(state, active, "CONTROLLER_SHUTDOWN")
