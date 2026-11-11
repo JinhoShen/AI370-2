@@ -372,18 +372,26 @@ class AxiRegsValidatorTests(ExecutorCase):
         self.assertEqual(rc, 2)
         self.assertIn("CalledProcessError", payload["error"])
 
-    def test_source_change_during_validation_is_recorded(self) -> None:
-        ws = self.workspace("T1")
-        source = ws / "rtl/axi_regs.sv"
+    def test_source_change_during_validation_is_recorded_and_fails(self) -> None:
+        # Regression: T1/T2/T8 used to PASS a source edited while validators ran.
+        default_xelab = self.fake.handlers["xelab"]
+        for task in ("T1", "T2", "T8"):
+            with self.subTest(task=task):
+                self.fake.handlers["xelab"] = default_xelab
+                self.fake.xsim_stdout = ("QUALITY_T8_PASS" if task == "T8" else "QUALITY_T1_PASS") + "\n"
+                ws = self.workspace(task)
+                self.assertEqual(executor.validate(task, "V1", ws, 1)["status"], "PASS")
+                source = ws / "rtl/axi_regs.sv"
 
-        def edit_source(cmd, cwd):
-            source.write_text(source.read_text() + "// concurrent edit\n")
-            return 0, "", ""
-        self.fake.handlers["xelab"] = edit_source
-        result = executor.validate("T1", "V1", ws, 1)
-        self.assertFalse(result["source_unchanged_during_validation"])
-        self.assertNotEqual(result["source_sha256_before"], result["source_sha256_after"])
-        # NOTE: status is still "PASS" here, unlike T3-T6 (see report).
+                def edit_source(cmd, cwd):
+                    source.write_text(source.read_text() + "// concurrent edit\n")
+                    return 0, "", ""
+                self.fake.handlers["xelab"] = edit_source
+                result = executor.validate(task, "V1", ws, 2)
+                self.assertFalse(result["source_unchanged_during_validation"])
+                self.assertNotEqual(result["source_sha256_before"], result["source_sha256_after"])
+                self.assertTrue(result["xsim"]["pass"])
+                self.assertEqual(result["status"], "FAIL")
 
 
 class T3MutationTests(ExecutorCase):

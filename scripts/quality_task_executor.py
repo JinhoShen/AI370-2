@@ -353,8 +353,9 @@ def validate(task: str, variant: str, workspace_arg: Path, attempt: int) -> dict
     xsim_result["pass"] = all(xsim_result.get(name, {}).get("exit_code") == 0 for name in ("xvlog", "xelab", "xsim")) and terminal is not None
     synth_result = _synthesize_t1(source, run / "synthesis", env) if xsim_result["pass"] else {"pass": False, "status": "SKIPPED_UNTIL_XSIM_PASS"}
     after = _sha(source)
+    # As for T3-T6, a source edited while the fixed validators ran cannot PASS.
     result = {"task": task, "variant": variant, "attempt": attempt,
-              "status": "PASS" if xsim_result["pass"] and synth_result.get("pass") else "FAIL",
+              "status": "PASS" if xsim_result["pass"] and synth_result.get("pass") and before == after else "FAIL",
               "xsim": xsim_result, "synthesis": synth_result,
               "source_sha256_before": before, "source_sha256_after": after,
               "source_unchanged_during_validation": before == after,
