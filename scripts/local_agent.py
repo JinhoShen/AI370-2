@@ -41,6 +41,11 @@ MAX_ROSS_CONTEXT_CHARS = 3200
 MAX_ROSS_MCP_CHARS = 3000
 MAX_CORRECTION_CHARS = 4000
 MAX_TRACE_EVENT_BYTES = 64 * 1024
+# AI370_TRACE_MODE=hash-only keeps only these fields verbatim; every other field
+# (model output, tool arguments/results, patches, errors) becomes bytes + SHA-256.
+TRACE_MODES = {"full", "hash-only"}
+TRACE_METADATA_KEYS = {"event", "name", "call", "tool_calls", "validation_pass", "model", "provider",
+                       "workspace", "offline_tools", "path", "paths", "request_sha256", "request"}
 ROSS_SKILLS_ROOT = Path(os.environ.get("AI370_ROSS_SKILLS_ROOT", str(ROOT / "docs/M13/ross-runtime-skills")))
 ROSS_SKILLS = {"vivado-simulate-rtl", "vivado-rtl-elaboration-analysis", "hls-run-flow", "hls-synthesizable", "hls-synth-report"}
 BLOCKED_ROOT_PARTS = {".git", "resources", "output", ".venv", "venv", "node_modules"}
@@ -223,6 +228,15 @@ def _normalize_multifile_git_patch(patch: str, paths: list[str], source_files: d
     return "".join(output)
 
 
+def _trace_digest(value: Any) -> dict[str, Any]:
+    encoded = json.dumps(value, ensure_ascii=False, sort_keys=True, default=str).encode()
+    digest: dict[str, Any] = {"bytes": len(encoded), "sha256": hashlib.sha256(encoded).hexdigest()}
+    if isinstance(value, dict):
+        digest.update({key: value[key] for key in ("ok", "stage", "status")
+                       if isinstance(value.get(key), (str, bool, int))})
+    return digest
+
+
 def _request_trace_summary(request_body: dict[str, Any], request_bytes: int) -> dict[str, Any]:
     """Describe a model request by hashes, sizes, roles and tool names; no prompt text."""
     messages = request_body.get("messages", [])
@@ -274,6 +288,9 @@ class LocalAgent:
         self.deadline = time.monotonic() + total_timeout
         self.max_calls = min(max_calls, MAX_TOOL_CALLS)
         self.trace = trace
+        self.trace_mode = os.environ.get("AI370_TRACE_MODE", "full")
+        if self.trace_mode not in TRACE_MODES:
+            raise AgentError(f"AI370_TRACE_MODE must be one of {sorted(TRACE_MODES)}")
         self.editable_paths = editable_paths or set()
         self.offline_tools = offline_tools
         self.xsim_enabled = xsim_enabled
@@ -442,6 +459,9 @@ class LocalAgent:
             self.trace.parent.mkdir(parents=True, exist_ok=True)
             with self.trace.open("a", encoding="utf-8") as stream:
                 event = dict(obj)
+                if self.trace_mode == "hash-only":
+                    event = {key: value if key in TRACE_METADATA_KEYS else _trace_digest(value)
+                             for key, value in event.items()}
                 event.setdefault("timestamp_utc", datetime.now(timezone.utc).isoformat(timespec="milliseconds"))
                 event.setdefault("monotonic_seconds", round(time.monotonic(), 6))
                 line = json.dumps(event, ensure_ascii=False)

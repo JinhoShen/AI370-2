@@ -390,5 +390,60 @@ class LocalAgentBoundedStateTests(unittest.TestCase):
         self.assertEqual(small["value"], 1)
         self.assertNotIn("trace_truncated", small)
 
+class LocalAgentTraceModeTests(unittest.TestCase):
+    """AI370_TRACE_MODE controls whether model output and tool data are kept verbatim."""
+
+    SECRET = "SECRET-CONTENT-91c2"
+
+    def run_traced(self, mode: str | None) -> list[dict]:
+        env = {} if mode is None else {"AI370_TRACE_MODE": mode}
+        arguments = {"path": "rtl/top.v", "old_text": self.SECRET, "new_text": "b"}
+        responses = [
+            {"choices": [{"message": {"role": "assistant", "content": self.SECRET, "tool_calls": [
+                {"id": "c1", "type": "function", "function": {"name": "apply_replacement", "arguments": json.dumps(arguments)}}]}}]},
+            {"choices": [{"message": {"role": "assistant", "content": "done " + self.SECRET}}]},
+        ]
+        failure = {"ok": False, "stage": "replacement-check", "error": "no match for " + self.SECRET}
+        with tempfile.TemporaryDirectory() as temp, patch.dict("os.environ", env):
+            trace = Path(temp) / "trace.jsonl"
+            agent = local_agent.LocalAgent(Path(temp), task="test", trace=trace, max_calls=3)
+            with patch.object(agent, "_completion", side_effect=responses), \
+                 patch.object(agent, "_tool", return_value=failure), \
+                 patch.object(agent, "_compact_multifile_context"):
+                agent.run()
+            self.raw = trace.read_text()
+        return [json.loads(line) for line in self.raw.splitlines()]
+
+    def test_default_full_mode_keeps_model_output_and_tool_evidence(self):
+        events = self.run_traced(None)
+        self.assertIn(self.SECRET, self.raw)
+        call = next(e for e in events if e["event"] == "tool_call")
+        self.assertEqual(call["arguments"]["old_text"], self.SECRET)
+        self.assertEqual(call["result"]["error"], "no match for " + self.SECRET)
+
+    def test_hash_only_mode_keeps_metadata_and_replaces_content_with_digests(self):
+        events = self.run_traced("hash-only")
+        self.assertNotIn(self.SECRET, self.raw)
+        self.assertEqual([e["event"] for e in events],
+                         ["agent_start", "model_response", "tool_call", "model_response", "agent_complete"])
+        start = events[0]
+        self.assertEqual(start["model"], local_agent.DEFAULT_MODEL)
+        response = events[1]
+        self.assertEqual(response["call"], 1)
+        self.assertEqual(set(response["response"]), {"bytes", "sha256"})
+        call = events[2]
+        self.assertEqual(call["name"], "apply_replacement")
+        arguments = {"path": "rtl/top.v", "old_text": self.SECRET, "new_text": "b"}
+        encoded = json.dumps(arguments, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(call["arguments"], {"bytes": len(encoded), "sha256": hashlib.sha256(encoded).hexdigest()})
+        self.assertEqual({k: call["result"][k] for k in ("ok", "stage")}, {"ok": False, "stage": "replacement-check"})
+        self.assertNotIn("error", call["result"])
+        self.assertEqual(events[4]["tool_calls"], 1)
+
+    def test_unknown_trace_mode_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temp, patch.dict("os.environ", {"AI370_TRACE_MODE": "verbose"}):
+            with self.assertRaisesRegex(local_agent.AgentError, "AI370_TRACE_MODE"):
+                local_agent.LocalAgent(Path(temp), task="test")
+
 if __name__ == "__main__":
     unittest.main()
