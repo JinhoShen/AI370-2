@@ -37,7 +37,7 @@ class QualityAgentPolicyTests(unittest.TestCase):
     def test_fixture_workspace_comes_from_versioned_corpus_in_system_temp(self):
         self.assertTrue(self.workspace.resolve().is_relative_to(Path(tempfile.gettempdir()).resolve()))
         self.assertFalse(self.workspace.is_relative_to(ROOT))
-        corpus = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1/T1/V1/public"
+        corpus = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2/T1/V1/public"
         for relative in ("TASK_SPEC.md", "rtl/axi_regs.sv"):
             self.assertEqual((self.workspace / relative).read_bytes(), (corpus / relative).read_bytes())
 

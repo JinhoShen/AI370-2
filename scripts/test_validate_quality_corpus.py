@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import validate_quality_corpus as validate
 
 REPO = Path(__file__).resolve().parents[1]
-COMMITTED = REPO / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+COMMITTED = REPO / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 VARIANTS = ["V1", "V2", "V3"]
 FAKE_VIVADO = Path("/nonexistent/fixture/Vivado")
 MARKER_RE = re.compile(r'\$display\("(QUALITY_[A-Za-z0-9_]+_PASS)')
@@ -152,7 +152,7 @@ class Sandbox:
         case.addCleanup(temp.cleanup)
         self.root = Path(temp.name).resolve()
         case.assertFalse(str(self.root).startswith(str(REPO)))
-        self.corpus = self.root / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+        self.corpus = self.root / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
         shutil.copytree(COMMITTED, self.corpus, ignore=shutil.ignore_patterns("CORPUS_PROGRESS.json"))
         self.fixture_root = self.root / "output/QUALITY_MODEL_VALIDATION/fixture-test/fixtures"
         self.result_root = self.fixture_root / "runs" / "fixture-run"

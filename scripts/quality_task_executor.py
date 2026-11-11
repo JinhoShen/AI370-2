@@ -17,7 +17,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 OUTPUT = ROOT / "output/QUALITY_MODEL_VALIDATION"
 VIVADO = Path("/home/shen/tools/Xilinx/2026.1/2026.1/Vivado")
 VALID_TASKS = {f"T{i}": {"V1", "V2", "V3"} for i in range(1, 9)}

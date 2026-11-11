@@ -32,7 +32,7 @@ def main() -> int:
         raise SystemExit("V2/V3 plan requires retained V1 PILOT_COMPLETE evidence")
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     folder = OUT / run_id
-    corpus = ROOT / "docs" / "LOCAL_MODEL_LAB" / "quality-corpus" / "v1"
+    corpus = ROOT / "docs" / "LOCAL_MODEL_LAB" / "quality-corpus" / "v2"
     manifests = {f"{task}/{variant}": sha(corpus / task / variant / "SHA256SUMS.json")
                  for task in (f"T{i}" for i in range(1, 9)) for variant in ("V2", "V3")}
     model_integrity = QUALITY / "20261022T182952+0800" / "model-integrity.json"

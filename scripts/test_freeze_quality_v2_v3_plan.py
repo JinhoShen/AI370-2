@@ -27,7 +27,7 @@ import freeze_quality_v2_v3_plan as freeze
 
 REPO = Path(__file__).resolve().parents[1]
 REAL_PLANS = REPO / "output" / "LOCAL_MODEL_CONTROLLER" / "plans"
-CORPUS = Path("docs") / "LOCAL_MODEL_LAB" / "quality-corpus" / "v1"
+CORPUS = Path("docs") / "LOCAL_MODEL_LAB" / "quality-corpus" / "v2"
 INTEGRITY = Path("20261022T182952+0800") / "model-integrity.json"
 FIXED = datetime(2026, 11, 9, 1, 2, 3, tzinfo=timezone.utc)
 RUN_ID = "20261109T010203Z"

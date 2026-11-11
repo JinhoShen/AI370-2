@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 VIVADO = Path("/home/shen/tools/Xilinx/2026.1/2026.1/Vivado")
 FIXTURE_ROOT = ROOT / "output/QUALITY_MODEL_VALIDATION/20261022T182952+0800/fixtures"
 

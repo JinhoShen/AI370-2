@@ -11,7 +11,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+CORPUS = ROOT / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 OUTPUT = ROOT / "output/QUALITY_MODEL_VALIDATION"
 
 

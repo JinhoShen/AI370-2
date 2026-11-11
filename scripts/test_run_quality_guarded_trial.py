@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import prepare_quality_workspace as builder
 import run_quality_guarded_trial as trial
 
-REPO_CORPUS = Path(__file__).resolve().parents[1] / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+REPO_CORPUS = Path(__file__).resolve().parents[1] / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
 RUNNERS = ("scripts/quality_task_executor.py", "scripts/quality_local_agent.py", "scripts/local_agent.py",
            "scripts/run_quality_guarded_trial.py", "scripts/run_quality_pilot.py")
 GIB_KIB = 1024 * 1024
@@ -76,7 +76,7 @@ class PreparedWorkspace:
             path = self.root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(f"# fake runner fixture: {relative}\n")
-        corpus = self.root / "docs/LOCAL_MODEL_LAB/quality-corpus/v1"
+        corpus = self.root / "docs/LOCAL_MODEL_LAB/quality-corpus/v2"
         shutil.copytree(REPO_CORPUS / task / variant, corpus / task / variant)
         start(case, patch.dict(os.environ, GIT_ENV))
         with patch.object(builder, "ROOT", self.root), patch.object(builder, "CORPUS", corpus), \
