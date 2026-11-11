@@ -352,24 +352,14 @@ class AxiRegsValidatorTests(ExecutorCase):
         self.assertEqual(self.fake.calls, [])
         self.assertEqual(self.fake.env_sources, [])
 
-    def test_tool_timeout_and_env_failure_surface_as_harness_invalid(self) -> None:
+    def test_environment_failure_is_harness_invalid(self) -> None:
         ws = self.workspace("T1")
-
-        def hang(cmd, cwd):
-            raise subprocess.TimeoutExpired(cmd, 180)
-        self.fake.handlers["xsim"] = hang
-        with self.assertRaises(subprocess.TimeoutExpired):
-            executor.validate("T1", "V1", ws, 1)
-        rc, payload = self.run_main("--task", "T1", "--variant", "V1", "--workspace", str(ws), "--attempt", "2")
-        self.assertEqual((rc, payload["status"]), (2, "HARNESS_INVALID"))
-        self.assertIn("TimeoutExpired", payload["error"])
-        self.assertFalse((ws / "runs/attempt-2/result.json").exists())
 
         def broken_settings(command, **kwargs):
             raise subprocess.CalledProcessError(1, command)
         with patch.object(executor.subprocess, "run", broken_settings):
             rc, payload = self.run_main("--task", "T1", "--variant", "V1", "--workspace", str(ws), "--attempt", "3")
-        self.assertEqual(rc, 2)
+        self.assertEqual((rc, payload["status"]), (2, "HARNESS_INVALID"))
         self.assertIn("CalledProcessError", payload["error"])
 
     def test_source_change_during_validation_is_recorded_and_fails(self) -> None:
@@ -394,6 +384,38 @@ class AxiRegsValidatorTests(ExecutorCase):
                 self.assertEqual(result["status"], "FAIL")
 
 
+class ToolTimeoutTests(ExecutorCase):
+    """Regression: a tool timeout used to raise and become HARNESS_INVALID, stopping the pilot."""
+
+    @staticmethod
+    def hang(cmd, cwd):
+        raise subprocess.TimeoutExpired(cmd, 180)
+
+    def test_simulation_timeout_is_a_failed_step_with_a_written_result(self) -> None:
+        self.fake.handlers["xsim"] = self.hang
+        ws = self.workspace("T1")
+        rc, payload = self.run_main("--task", "T1", "--variant", "V1", "--workspace", str(ws), "--attempt", "1")
+        self.assertEqual((rc, payload["status"]), (1, "FAIL"))
+        self.assertEqual((payload["xsim"]["xsim"]["exit_code"], payload["xsim"]["xsim"]["timed_out"]), (None, True))
+        self.assertEqual(payload["synthesis"]["status"], "SKIPPED_UNTIL_XSIM_PASS")
+        self.assertIn("QUALITY_TOOL_TIMEOUT: xsim exceeded 180s", (ws / "runs/attempt-1/xsim.log").read_text())
+        self.assertTrue((ws / "runs/attempt-1/result.json").is_file())
+
+    def test_compile_timeout_stops_later_tools(self) -> None:
+        # returncode None must not be mistaken for success by the step loop.
+        self.fake.handlers["xvlog"] = self.hang
+        result = executor.validate("T1", "V1", self.workspace("T1"), 1)
+        self.assertEqual(result["status"], "FAIL")
+        self.assertEqual(self.fake.tools(), ["xvlog"])
+
+    def test_hls_csim_timeout_fails_with_a_timeout_diagnostic(self) -> None:
+        self.fake.handlers["vitis-run"] = self.hang
+        result = executor.validate("T6", "V1", self.workspace("T6"), 1)
+        self.assertEqual(result["status"], "FAIL")
+        self.assertIsNone(result["csim"]["exit_code"])
+        self.assertEqual(result["csim_diagnostic"], "Fixed C simulation exceeded its time limit.")
+
+
 class T3MutationTests(ExecutorCase):
     def setUp(self) -> None:
         super().setUp()
@@ -408,9 +430,30 @@ class T3MutationTests(ExecutorCase):
 
     def xsim(self, cmd, cwd):
         if cwd.name == "correct":
+            if self.correct_stdout == "HANG":
+                raise subprocess.TimeoutExpired(cmd, 180)
             return 0, self.correct_stdout, ""
         dut = Path(next(c for c in self.fake.calls if c["tool"] == "xvlog" and c["cwd"] == cwd)["command"][4])
+        if self.mutant_outcome[dut.name] == "HANG":
+            raise subprocess.TimeoutExpired(cmd, 180)
         return self.mutant_outcome[dut.name][0], self.mutant_outcome[dut.name][1], ""
+
+    def test_mutant_that_hangs_is_not_a_catch(self) -> None:
+        # The spec requires a finite watchdog; a testbench that hangs on a mutant has not caught it.
+        self.mutant_outcome[T3_MUTANTS[0]] = "HANG"
+        result = executor.validate("T3", "V1", self.workspace("T3"), 1)
+        self.assertEqual(result["status"], "FAIL")
+        first = result["mutation_detection"]["mutants"][0]
+        self.assertEqual((first["detected"], first["failure_kind"]), (False, "TOOL_TIMEOUT"))
+        self.assertEqual(result["mutation_detection"]["detected"], 4)
+
+    def test_correct_run_that_hangs_fails_instead_of_aborting(self) -> None:
+        self.correct_stdout = "HANG"
+        ws = self.workspace("T3")
+        rc, payload = self.run_main("--task", "T3", "--variant", "V1", "--workspace", str(ws), "--attempt", "1")
+        self.assertEqual((rc, payload["status"]), (1, "FAIL"))
+        self.assertFalse(payload["xsim"]["pass"])
+        self.assertIn("QUALITY_TOOL_TIMEOUT", (ws / "runs/attempt-1/correct/xsim.log").read_text())
 
     def test_pass_requires_scenarios_and_catches_every_mutant(self) -> None:
         ws = self.workspace("T3")

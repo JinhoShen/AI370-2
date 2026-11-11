@@ -70,11 +70,28 @@ def _safe_workspace(path: Path) -> Path:
     return workspace
 
 
+def _execute(command: list[str], **kwargs) -> subprocess.CompletedProcess:
+    """Run a fixed validator tool; a timeout is a failed step, not a harness fault.
+
+    A model-authored design or testbench that hangs must score FAIL instead of
+    raising, which main() would report as HARNESS_INVALID and stop the pilot.
+    The returned process has returncode None and a QUALITY_TOOL_TIMEOUT note.
+    """
+    try:
+        return subprocess.run(command, **kwargs)
+    except subprocess.TimeoutExpired as exc:
+        def text(value: str | bytes | None) -> str:
+            return value.decode(errors="replace") if isinstance(value, bytes) else (value or "")
+        note = f"\nQUALITY_TOOL_TIMEOUT: {Path(command[0]).name} exceeded {exc.timeout}s\n"
+        return subprocess.CompletedProcess(command, None, text(exc.stdout), text(exc.stderr) + note)
+
+
 def _run(command: list[str], cwd: Path, env: dict[str, str], timeout: int, log: Path) -> dict:
-    proc = subprocess.run(command, cwd=cwd, env=env, capture_output=True, text=True, timeout=timeout)
+    proc = _execute(command, cwd=cwd, env=env, capture_output=True, text=True, timeout=timeout)
     output = proc.stdout + "\n" + proc.stderr
     log.write_text(output)
-    return {"exit_code": proc.returncode, "log": str(log), "log_sha256": hashlib.sha256(output.encode()).hexdigest(), "tail": output[-6000:]}
+    return {"exit_code": proc.returncode, "timed_out": proc.returncode is None, "log": str(log),
+            "log_sha256": hashlib.sha256(output.encode()).hexdigest(), "tail": output[-6000:]}
 
 
 def _synthesize_t1(source: Path, work: Path, env: dict[str, str]) -> dict:
@@ -87,7 +104,7 @@ def _synthesize_t1(source: Path, work: Path, env: dict[str, str]) -> dict:
         f"report_utilization -file {{{report}}}\n"
         "puts QUALITY_T1_SYNTH_PASS\nexit\n"
     )
-    proc = subprocess.run(
+    proc = _execute(
         [str(VIVADO / "bin/vivado"), "-mode", "batch", "-notrace", "-source", str(tcl), "-log", str(work / "vivado.log"), "-journal", str(work / "vivado.jou")],
         cwd=work, env=env, capture_output=True, text=True, timeout=600,
     )
@@ -97,7 +114,8 @@ def _synthesize_t1(source: Path, work: Path, env: dict[str, str]) -> dict:
     log = (work / "vivado.log").read_text(errors="replace") if (work / "vivado.log").is_file() else output
     latch_lines = [line for line in log.splitlines() if re.search(r"infer(?:ring|red)? latch|latch inferred", line, re.I)]
     passed = proc.returncode == 0 and "QUALITY_T1_SYNTH_PASS" in output and report.is_file() and not latch_lines
-    return {"pass": passed, "exit_code": proc.returncode, "pass_marker": "QUALITY_T1_SYNTH_PASS" in output,
+    return {"pass": passed, "exit_code": proc.returncode, "timed_out": proc.returncode is None,
+            "pass_marker": "QUALITY_T1_SYNTH_PASS" in output,
             "utilization_report": str(report), "latch_diagnostics": latch_lines,
             "log_sha256": hashlib.sha256(log.encode()).hexdigest(), "tail": output[-4000:]}
 
@@ -112,18 +130,23 @@ def _simulate_t3(dut: Path, testbench: Path, run: Path, marker: str) -> dict:
         ("xsim", [str(VIVADO / "bin/xsim"), "quality_t3_mutation", "-runall"], 180),
     ]
     for name, command, timeout in commands:
-        proc = subprocess.run(command, cwd=run, env=env, capture_output=True, text=True, timeout=timeout)
+        proc = _execute(command, cwd=run, env=env, capture_output=True, text=True, timeout=timeout)
         output = proc.stdout + "\n" + proc.stderr
         log = run / f"{name}.log"
         log.write_text(output)
-        rows[name] = {"exit_code": proc.returncode, "log_sha256": hashlib.sha256(output.encode()).hexdigest()}
-        if proc.returncode:
+        rows[name] = {"exit_code": proc.returncode, "timed_out": proc.returncode is None,
+                      "log_sha256": hashlib.sha256(output.encode()).hexdigest()}
+        if proc.returncode != 0:
             break
     sim = run / "xsim.log"
     text = sim.read_text(errors="replace") if sim.is_file() else ""
     rows["terminal_marker"] = next((line for line in text.splitlines() if line.startswith(marker)), None)
     rows["pass"] = all(rows.get(k, {}).get("exit_code") == 0 for k in ("xvlog", "xelab", "xsim")) and rows["terminal_marker"] is not None
-    rows["failure_kind"] = "NONE" if rows["pass"] else ("WATCHDOG" if "watchdog" in text.lower() else "SIMULATION_OR_ASSERTION")
+    # A tool timeout means the testbench lacked the finite watchdog the spec requires,
+    # so it is never counted as a mutation catch.
+    timed_out = any(rows.get(k, {}).get("timed_out") for k in ("xvlog", "xelab", "xsim"))
+    rows["failure_kind"] = ("NONE" if rows["pass"] else "TOOL_TIMEOUT" if timed_out else
+                            "WATCHDOG" if "watchdog" in text.lower() else "SIMULATION_OR_ASSERTION")
     rows["log_tail"] = text[-4000:]
     return rows
 
@@ -213,7 +236,7 @@ def _validate_t4(task: str, variant: str, workspace: Path, attempt: int, corpus_
     ]
     for name, command, timeout in commands:
         rows[name] = _run(command, run, env, timeout, run / f"{name}.log")
-        if rows[name]["exit_code"]:
+        if rows[name]["exit_code"] != 0:
             break
     sim_log = (run / "xsim.log").read_text(errors="replace") if (run / "xsim.log").is_file() else ""
     marker = "QUALITY_T7_PASS" if task == "T7" else "QUALITY_T4_PASS"
@@ -243,14 +266,14 @@ def _validate_t5(variant: str, workspace: Path, attempt: int, corpus_files: dict
         ("xsim", [str(VIVADO / "bin/xsim"), f"quality_t5_{attempt}", "-runall"]),
     ]:
         xsim[name] = _run(command, run, env, 180, run / f"{name}.log")
-        if xsim[name]["exit_code"]: break
+        if xsim[name]["exit_code"] != 0: break
     sim_log=(run / "xsim.log").read_text(errors="replace") if (run / "xsim.log").is_file() else ""
     xsim["terminal_marker"]=next((line for line in sim_log.splitlines() if line.startswith("QUALITY_T5_PASS")),None)
     xsim["pass"]=all(xsim.get(n,{}).get("exit_code")==0 for n in ("xvlog","xelab","xsim")) and bool(xsim["terminal_marker"])
     work=run/"synthesis"; work.mkdir(); report=work/"utilization.rpt"
     tcl=work/"fixed_synth.tcl"
     tcl.write_text(f"read_verilog -sv {{{source}}}\nsynth_design -top mux_math -part xc7s100fgga676-2\nreport_utilization -file {{{report}}}\nputs QUALITY_T5_SYNTH_PASS\nexit\n")
-    proc=subprocess.run([str(VIVADO/"bin/vivado"),"-mode","batch","-notrace","-source",str(tcl),"-log",str(work/"vivado.log"),"-journal",str(work/"vivado.jou")],cwd=work,env=env,capture_output=True,text=True,timeout=600)
+    proc=_execute([str(VIVADO/"bin/vivado"),"-mode","batch","-notrace","-source",str(tcl),"-log",str(work/"vivado.log"),"-journal",str(work/"vivado.jou")],cwd=work,env=env,capture_output=True,text=True,timeout=600)
     output=proc.stdout+"\n"+proc.stderr; (work/"stdout.log").write_text(proc.stdout); (work/"stderr.log").write_text(proc.stderr)
     log=(work/"vivado.log").read_text(errors="replace") if (work/"vivado.log").is_file() else output
     latches=[line for line in log.splitlines() if re.search(r"infer(?:ring|red)? latch|latch inferred",line,re.I)]
@@ -286,12 +309,12 @@ def _validate_t6(variant: str, workspace: Path, attempt: int, corpus_files: dict
     (project/"hls_config.cfg").write_text(config.read_text()+"tb.file=src/testbench.cpp\n")
     public_before={"source":_sha(source),"config":_sha(config)}
     env=_vitis_env(); csim_dir=hidden/"csim"; synth_dir=hidden/"csynth"
-    csim=subprocess.run(["vitis-run","--mode","hls","--csim","--config",str(project/"hls_config.cfg"),"--work_dir",str(csim_dir)],cwd=project,env=env,capture_output=True,text=True,timeout=900)
+    csim=_execute(["vitis-run","--mode","hls","--csim","--config",str(project/"hls_config.cfg"),"--work_dir",str(csim_dir)],cwd=project,env=env,capture_output=True,text=True,timeout=900)
     csim_text=csim.stdout+"\n"+csim.stderr
     (hidden/"csim.log").write_text(csim_text)
     marker=next((line for line in csim_text.splitlines() if line.startswith("QUALITY_T6_CSIM_PASS")),None)
     csim_pass=csim.returncode==0 and marker is not None
-    synth=subprocess.run(["v++","-c","--mode","hls","--part","xc7s100fgga676-2","--config",str(project/"hls_config.cfg"),"--work_dir",str(synth_dir)],cwd=project,env=env,capture_output=True,text=True,timeout=1200)
+    synth=_execute(["v++","-c","--mode","hls","--part","xc7s100fgga676-2","--config",str(project/"hls_config.cfg"),"--work_dir",str(synth_dir)],cwd=project,env=env,capture_output=True,text=True,timeout=1200)
     synth_text=synth.stdout+"\n"+synth.stderr; (hidden/"csynth.log").write_text(synth_text)
     reports=list(synth_dir.rglob("invert32_csynth.rpt"))+list(synth_dir.rglob("csynth.rpt"))
     synth_pass=synth.returncode==0 and bool(reports)
@@ -299,7 +322,7 @@ def _validate_t6(variant: str, workspace: Path, attempt: int, corpus_files: dict
     passed=csim_pass and synth_pass and public_before==public_after
     result={"task":"T6","variant":variant,"attempt":attempt,"status":"PASS" if passed else "FAIL",
             "csim":{"pass":csim_pass,"exit_code":csim.returncode,"terminal_marker":marker,"log_sha256":hashlib.sha256(csim_text.encode()).hexdigest()},
-            "csim_diagnostic":None if csim_pass else "Fixed C simulation completed with a vector mismatch against the frozen bitwise-complement specification.",
+            "csim_diagnostic":None if csim_pass else ("Fixed C simulation exceeded its time limit." if csim.returncode is None else "Fixed C simulation completed with a vector mismatch against the frozen bitwise-complement specification."),
             "csynth":{"pass":synth_pass,"exit_code":synth.returncode,"reports":[str(p.relative_to(hidden)) for p in reports],"log_sha256":hashlib.sha256(synth_text.encode()).hexdigest()},
             "public_source_sha256_before":public_before,"public_source_sha256_after":public_after,"source_unchanged_during_validation":public_before==public_after,
             "corpus_files_sha256":base}
@@ -344,7 +367,7 @@ def validate(task: str, variant: str, workspace_arg: Path, attempt: int) -> dict
     ]
     for name, command, timeout in commands:
         xsim_result[name] = _run(command, run, env, timeout, run / f"{name}.log")
-        if xsim_result[name]["exit_code"]:
+        if xsim_result[name]["exit_code"] != 0:
             break
     sim_log = (run / "xsim.log").read_text(errors="replace") if (run / "xsim.log").is_file() else ""
     expected_marker = "QUALITY_T8_PASS" if task == "T8" else "QUALITY_T1_PASS"
