@@ -502,6 +502,16 @@ class TerminateTrialTests(unittest.TestCase):
         self.assertEqual(self.kills, [])
         self.assertEqual(controller.waits, [])
 
+    def test_sibling_workspace_and_incidental_path_mentions_are_not_signalled(self) -> None:
+        # Regression: substring matching also signalled .../workspace2 and agents that merely mentioned the path.
+        self.table.update({
+            "300": b"python3\0quality_local_agent.py\0--workspace\0" + self.WS.encode() + b"2",
+            "301": b"python3\0quality_local_agent.py\0--workspace\0/tmp/other\0--trace\0" + self.WS.encode() + b"/trace.jsonl",
+            "302": b"python3\0quality_local_agent.py\0--workspace",
+        })
+        trial.terminate_trial(FakeController(running=False), self.WS)
+        self.assertEqual([pid for pid, _ in self.kills], [200, 203, 205])
+
 
 # ---------------------------------------------------------------------------
 # main(): child command, classification, and guard decisions
@@ -541,6 +551,24 @@ class ChildLaunchTests(unittest.TestCase):
         editable = [command[i + 1] for i, part in enumerate(command) if part == "--editable-path"]
         self.assertEqual(editable, ["rtl/alu_pkg.sv", "rtl/alu.sv", "rtl/calc_top.sv"])
         self.assertEqual(command[-2:], ["--ross-docsearch-url", "http://127.0.0.1:9/mcp; rm -rf /"])
+
+    def test_missing_editable_paths_fall_back_to_the_frozen_protocol(self) -> None:
+        # Regression: the old fallback gave every non-T3 task rtl/axi_regs.sv (wrong for T4-T7).
+        for task, expected in (("T4", ["rtl/alu_pkg.sv", "rtl/alu.sv", "rtl/calc_top.sv"]), ("T6", ["src/invert32.cpp"])):
+            with self.subTest(task=task):
+                ws = PreparedWorkspace(self, task=task)
+                h = MainHarness(self, ws)
+                h.config.pop("editable_paths")
+                self.assertEqual(h.run(), 0)
+                command = h.children[0].command
+                self.assertEqual([command[i + 1] for i, part in enumerate(command) if part == "--editable-path"], expected)
+
+    def test_editable_paths_that_differ_from_the_protocol_are_refused(self) -> None:
+        h = MainHarness(self, PreparedWorkspace(self, task="T1"))
+        h.config["editable_paths"] = ["rtl/axi_regs.sv", "sim/tb_axi_regs.sv"]
+        with self.assertRaisesRegex(SystemExit, "editable paths do not match"):
+            h.run()
+        self.assertEqual(h.children, [])
 
     def test_legacy_mode_runs_endurance_wrapper_and_is_not_formal(self) -> None:
         h = MainHarness(self, legacy=True)

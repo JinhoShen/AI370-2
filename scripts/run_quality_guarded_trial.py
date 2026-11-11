@@ -138,8 +138,11 @@ def terminate_trial(controller: subprocess.Popen, workspace: str) -> None:
         if not entry.name.isdigit():
             continue
         try:
-            cmd = (entry / "cmdline").read_bytes().replace(b"\0", b" ").decode(errors="ignore")
-            if ("local_agent.py --workspace" in cmd or "quality_local_agent.py --workspace" in cmd) and workspace in cmd:
+            argv = [part.decode(errors="ignore") for part in (entry / "cmdline").read_bytes().split(b"\0") if part]
+            # Match by argv element, not substring, so a sibling such as workspace2 is untouched.
+            is_agent = any(Path(part).name in {"local_agent.py", "quality_local_agent.py"} for part in argv)
+            target = argv[argv.index("--workspace") + 1] if "--workspace" in argv[:-1] else None
+            if is_agent and target == workspace:
                 pid = int(entry.name)
                 try:
                     os.killpg(pid, signal.SIGINT)
@@ -224,9 +227,11 @@ def main() -> int:
         if run_config.get("task") not in {f"T{i}" for i in range(1,9)} or run_config.get("variant") not in {"V1", "V2", "V3"}:
             raise SystemExit("controller config is not a supported frozen quality task")
         protocol, protocol_sha256 = verify_quality_protocol(Path(workspace), run_config, args.model)
-        editable = run_config.get("editable_paths") or []
-        if not editable:
-            editable = ["sim/tb_axi_regs.sv"] if run_config["task"] == "T3" else ["rtl/axi_regs.sv"]
+        # The live integrity check enforces the protocol's allowlist, so the agent must get exactly it.
+        frozen_editable = list(protocol.get("editable_paths") or [])
+        editable = run_config.get("editable_paths") or frozen_editable
+        if not editable or sorted(editable) != sorted(frozen_editable):
+            raise SystemExit("controller editable paths do not match the frozen workspace protocol")
         command = [
             sys.executable, str(ROOT / "scripts/quality_local_agent.py"),
             "--workspace", workspace, "--task", run_config["task"], "--variant", run_config["variant"],
