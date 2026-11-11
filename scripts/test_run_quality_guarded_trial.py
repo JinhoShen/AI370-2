@@ -9,9 +9,11 @@ server, LocalAgent child, EDA tool, systemd unit or network endpoint is used.
 """
 from __future__ import annotations
 
+import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import signal
 import subprocess
@@ -661,12 +663,15 @@ class ResultClassificationTests(unittest.TestCase):
         self.assertEqual(h.terminated, [(h.children[0], h.workspace)])
         self.assertFalse((h.output / "guarded-result.json").exists())
 
-    def test_journal_timeout_terminates_child_and_propagates(self) -> None:
+    def test_journal_timeout_fails_closed_with_a_written_result(self) -> None:
+        # Regression: a journalctl timeout used to propagate without guarded-result.json.
         h = self.h
         h.child_exit_tick = None
         h.journal = lambda t: subprocess.TimeoutExpired("journalctl", 12)
-        with self.assertRaises(subprocess.TimeoutExpired):
-            h.run()
+        self.assertEqual(h.run(), 1)
+        result = h.result()
+        self.assertEqual((result["guard_reason"], result["sample_status"]), ("KERNEL_AUDIT_UNREADABLE", "BLOCKED"))
+        self.assertIn("TimeoutExpired", result["guard_detail"])
         self.assertEqual(len(h.terminated), 1)
 
 
@@ -697,8 +702,39 @@ class LiveIntegrityInMainTests(unittest.TestCase):
         self.assert_blocked_at(10, "workspace write outside allowlist: rtl/extra.sv")
 
     def test_unreadable_protocol_mid_sample_fails_closed(self) -> None:
+        # The verified in-memory protocol is kept; any change to the record on disk blocks.
         self.h.hooks[1] = lambda: self.ws.protocol_path.write_text("{corrupt")
-        self.assert_blocked_at(5, "JSONDecodeError")
+        self.assert_blocked_at(5, "protocol record changed during the sample")
+
+    def test_rebaselined_protocol_cannot_hide_a_runner_change(self) -> None:
+        # Regression: swapping a runner and rewriting its hash in protocol.json used to PASS.
+        def swap_runner_and_rebaseline() -> None:
+            runner = self.ws.root / "scripts/quality_task_executor.py"
+            runner.write_text("# swapped\n")
+            protocol = json.loads(self.ws.protocol_path.read_text())
+            protocol["runner_sha256"]["scripts/quality_task_executor.py"] = hashlib.sha256(runner.read_bytes()).hexdigest()
+            self.ws.protocol_path.write_text(json.dumps(protocol, indent=2) + "\n")
+        self.h.hooks[2] = swap_runner_and_rebaseline
+        self.assert_blocked_at(5, "protocol record changed during the sample")
+
+    def test_committed_file_outside_allowlist_moves_head_and_is_blocked(self) -> None:
+        # Regression: committing an extra file hid it from `git status`.
+        def commit_extra_file() -> None:
+            (self.ws.workspace / "rtl/extra.sv").write_text("// x\n")
+            git = ["git", "-c", "user.name=t", "-c", "user.email=t@invalid"]
+            subprocess.run([*git, "add", "rtl/extra.sv"], cwd=self.ws.workspace, check=True, capture_output=True)
+            subprocess.run([*git, "commit", "-qm", "hide"], cwd=self.ws.workspace, check=True, capture_output=True)
+        self.h.hooks[6] = commit_extra_file
+        self.assert_blocked_at(10, "workspace Git HEAD moved")
+
+    def test_file_hidden_by_git_exclude_is_blocked(self) -> None:
+        # Regression: a pattern in .git/info/exclude hid a new file from `git status`.
+        def hide_extra_file() -> None:
+            exclude = self.ws.workspace / ".git/info/exclude"
+            exclude.write_text(exclude.read_text() + "rtl/extra.sv\n")
+            (self.ws.workspace / "rtl/extra.sv").write_text("// x\n")
+        self.h.hooks[6] = hide_extra_file
+        self.assert_blocked_at(10, "workspace write outside allowlist: rtl/extra.sv")
 
     def test_editable_write_mid_sample_is_not_a_guard(self) -> None:
         h = self.h
@@ -878,6 +914,88 @@ class ServerAndKernelGuardTests(unittest.TestCase):
         self.assertEqual(command[4:], ["--no-pager", "-o", "short-iso"])
         self.assertEqual(kwargs["timeout"], 12)
         self.assertFalse(kwargs.get("shell", False))
+
+
+class GuardPrecedenceTests(unittest.TestCase):
+    """Regression: a timeout or user stop on the same poll used to mask a safety guard."""
+
+    def setUp(self) -> None:
+        self.h = MainHarness(self, PreparedWorkspace(self))
+        self.h.child_exit_tick = None
+
+    def test_safety_and_integrity_reasons_outrank_user_stop_and_timeout(self) -> None:
+        order = trial.GUARD_PRECEDENCE
+        self.assertEqual(order[-2:], ("USER_STOP", "SAMPLE_TIMEOUT"))
+        for reason in order[:-2]:
+            with self.subTest(reason=reason):
+                self.assertEqual(trial.stronger_reason("SAMPLE_TIMEOUT", reason), reason)
+                self.assertEqual(trial.stronger_reason(reason, "SAMPLE_TIMEOUT"), reason)
+                self.assertEqual(trial.stronger_reason(reason, "USER_STOP"), reason)
+        self.assertEqual(trial.stronger_reason(None, "SAMPLE_TIMEOUT"), "SAMPLE_TIMEOUT")
+        self.assertEqual(trial.stronger_reason("SAMPLE_TIMEOUT", "USER_STOP"), "USER_STOP")
+        with self.assertRaises(ValueError):
+            trial.stronger_reason(None, "UNREGISTERED_GUARD")
+
+    def test_main_never_assigns_a_guard_reason_directly(self) -> None:
+        source = Path(trial.__file__).read_text()
+        self.assertEqual(re.findall(r'\breason\s*=\s*["\']', source), [])
+
+    def test_disk_guard_on_the_timeout_poll_blocks_instead_of_partial(self) -> None:
+        h = self.h
+        h.extra_args = ["--timeout", "3"]
+        h.hooks[4] = lambda: setattr(h, "disk_free", 1024**3)
+        self.assertEqual(h.run(), 1)
+        result = h.result()
+        self.assertEqual((result["guard_reason"], result["sample_status"]), ("DISK_GUARD", "BLOCKED"))
+
+    def test_safety_guard_on_the_user_stop_poll_keeps_the_safety_reason(self) -> None:
+        h = self.h
+        stop = h.root / "STOP"
+        h.extra_args = ["--stop-file", str(stop)]
+        def stop_with_low_disk() -> None:
+            stop.write_text("stop\n")
+            h.disk_free = 1024**3
+        h.hooks[3] = stop_with_low_disk
+        self.assertEqual(h.run(), 1)
+        self.assertEqual(h.result()["guard_reason"], "DISK_GUARD")
+
+
+class TelemetryFailureTests(unittest.TestCase):
+    """Regression: /proc read failures used to propagate without guarded-result.json."""
+
+    def setUp(self) -> None:
+        self.h = MainHarness(self, PreparedWorkspace(self))
+        self.h.child_exit_tick = None
+
+    def assert_unreadable(self, detail: str) -> None:
+        h = self.h
+        self.assertEqual(h.run(), 1)
+        result = h.result()
+        self.assertEqual((result["guard_reason"], result["sample_status"]), ("RESOURCE_TELEMETRY_UNREADABLE", "BLOCKED"))
+        self.assertIn(detail, result["guard_detail"])
+        self.assertEqual(h.terminated, [(h.children[0], h.workspace)])
+        self.assertEqual(len(result["resource_samples"]), 2)
+
+    def test_psi_read_failure_fails_closed(self) -> None:
+        def psi(tick: int) -> float:
+            if tick >= 2:
+                raise RuntimeError("memory PSI full line unavailable")
+            return 0.0
+        self.h.psi = psi
+        self.assert_unreadable("memory PSI full line unavailable")
+
+    def test_missing_meminfo_field_fails_closed(self) -> None:
+        healthy = self.h.mem
+        self.h.mem = lambda t: healthy(t) if t < 2 else {"MemTotal": 48 * GIB_KIB, "SwapTotal": 0, "SwapFree": 0}
+        self.assert_unreadable("required /proc/meminfo or /proc/vmstat field missing")
+
+    def test_unreadable_proc_file_fails_closed(self) -> None:
+        def vm(tick: int) -> dict:
+            if tick >= 2:
+                raise PermissionError("/proc/vmstat")
+            return {"pswpin": 0, "pswpout": 0}
+        self.h.vm = vm
+        self.assert_unreadable("PermissionError")
 
 
 if __name__ == "__main__":

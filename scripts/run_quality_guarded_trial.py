@@ -34,10 +34,29 @@ SWAP_GROWTH_WARNING_KIB = 64 * 1024
 SWAPOUT_CORROBORATION_BYTES = 16 * 1024**2
 SWAPIN_CORROBORATION_BYTES = 1 * 1024**2
 
+# When several gates trip in the same poll, the earliest entry wins. Safety and
+# integrity evidence must never be masked by a timeout or a user stop: the
+# pilot safety-stops on every guard reason except SAMPLE_TIMEOUT.
+GUARD_PRECEDENCE = (
+    "HARNESS_INTEGRITY_GUARD", "GPU_KERNEL_OOM_FAULT", "KERNEL_AUDIT_UNREADABLE",
+    "RESOURCE_TELEMETRY_UNREADABLE", "MODEL_SERVER_CRASH", "MODEL_SERVER_HEALTH_LOST",
+    "SUSTAINED_MEMAVAILABLE_GUARD", "CORROBORATED_SWAP_PRESSURE_GUARD", "MEMORY_PSI_GUARD",
+    "DISK_GUARD", "USER_STOP", "SAMPLE_TIMEOUT",
+)
 
-def verify_quality_protocol(workspace: Path, config: dict, model: str) -> None:
+
+def stronger_reason(current: str | None, new: str) -> str:
+    rank = GUARD_PRECEDENCE.index(new)  # an unregistered reason fails loudly
+    if current is None or rank < GUARD_PRECEDENCE.index(current):
+        return new
+    return current
+
+
+def verify_quality_protocol(workspace: Path, config: dict, model: str) -> tuple[dict, str]:
+    """Verify the frozen workspace before start; return the protocol and its file hash."""
     protocol_path = workspace.parent / "protocol.json"
-    protocol = json.loads(protocol_path.read_text())
+    raw = protocol_path.read_bytes()
+    protocol = json.loads(raw)
     if (protocol.get("task"), protocol.get("variant"), protocol.get("model")) != (config.get("task"), config.get("variant"), model):
         raise SystemExit("controller config/model does not match the frozen workspace protocol")
     for relative, expected in protocol.get("public_inputs_sha256", {}).items():
@@ -57,10 +76,15 @@ def verify_quality_protocol(workspace: Path, config: dict, model: str) -> None:
         if hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() != expected:
             raise SystemExit(f"frozen harness changed after workspace preparation: {relative}")
     verify_live_quality_protocol(workspace, protocol)
+    return protocol, hashlib.sha256(raw).hexdigest()
 
 
 def verify_live_quality_protocol(workspace: Path, protocol: dict) -> None:
-    """Detect immutable input/harness drift while a model owns the sample."""
+    """Detect immutable input/harness drift while a model owns the sample.
+
+    `protocol` must be the copy verified before the sample started, so a mid-run
+    edit of protocol.json cannot re-baseline the runner hashes.
+    """
     for relative, expected in protocol.get("runner_sha256", {}).items():
         if hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() != expected:
             raise RuntimeError(f"HARNESS_INTEGRITY_GUARD: runner changed: {relative}")
@@ -79,7 +103,11 @@ def verify_live_quality_protocol(workspace: Path, protocol: dict) -> None:
         path=workspace/relative
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=expected:
             raise RuntimeError(f"HARNESS_INTEGRITY_GUARD: protected workspace input changed: {relative}")
-    status=subprocess.run(["git","status","--porcelain","--untracked-files=all"],cwd=workspace,capture_output=True,text=True,check=True).stdout
+    head=subprocess.run(["git","rev-parse","HEAD"],cwd=workspace,capture_output=True,text=True,check=True).stdout.strip()
+    if head!=protocol.get("workspace_git_head"):
+        raise RuntimeError("HARNESS_INTEGRITY_GUARD: workspace Git HEAD moved")
+    # --ignored also reports files hidden through .git/info/exclude.
+    status=subprocess.run(["git","status","--porcelain","--untracked-files=all","--ignored"],cwd=workspace,capture_output=True,text=True,check=True).stdout
     for line in status.splitlines():
         relative=line[3:].strip()
         if relative.startswith(("runs/",".quality-hidden/")): continue
@@ -176,6 +204,9 @@ def main() -> int:
     last_server_audit=0.0
     server_health_failures=0
     integrity_detail: str | None = None
+    telemetry_detail: str | None = None
+    protocol: dict | None = None
+    protocol_sha256: str | None = None
     reason: str | None = None
     env = os.environ.copy()
     env.update({
@@ -192,7 +223,7 @@ def main() -> int:
     if args.quality_agent:
         if run_config.get("task") not in {f"T{i}" for i in range(1,9)} or run_config.get("variant") not in {"V1", "V2", "V3"}:
             raise SystemExit("controller config is not a supported frozen quality task")
-        verify_quality_protocol(Path(workspace), run_config, args.model)
+        protocol, protocol_sha256 = verify_quality_protocol(Path(workspace), run_config, args.model)
         editable = run_config.get("editable_paths") or []
         if not editable:
             editable = ["sim/tb_axi_regs.sv"] if run_config["task"] == "T3" else ["rtl/axi_regs.sv"]
@@ -214,10 +245,21 @@ def main() -> int:
         try:
             while child.poll() is None:
                 now = time.monotonic()
-                current = meminfo()
-                vm = vmstat()
-                swap_used = current["SwapTotal"] - current["SwapFree"]
-                psi = psi_full_avg10()
+                try:
+                    current = meminfo()
+                    vm = vmstat()
+                    psi = psi_full_avg10()
+                    disk_free = shutil.disk_usage(ROOT).free
+                    swap_used = current["SwapTotal"] - current["SwapFree"]
+                    if not {"MemAvailable", "MemTotal"} <= current.keys() or not {"pswpin", "pswpout"} <= vm.keys():
+                        raise KeyError("required /proc/meminfo or /proc/vmstat field missing")
+                except (OSError, ValueError, KeyError, IndexError, RuntimeError, StopIteration) as exc:
+                    # Fail closed: without trustworthy telemetry the sample cannot continue,
+                    # and the guarded result must still be written for the pilot.
+                    telemetry_detail = f"{type(exc).__name__}: {exc}"
+                    reason = stronger_reason(reason, "RESOURCE_TELEMETRY_UNREADABLE")
+                    terminate_trial(child, workspace)
+                    break
                 samples.append({
                     "elapsed_seconds": round(now - started, 2),
                     "memavailable_kib": current["MemAvailable"],
@@ -232,7 +274,7 @@ def main() -> int:
                 if current["MemAvailable"] < mem_guard:
                     low_memory_since = low_memory_since or now
                     if now - low_memory_since >= LOW_MEMORY_GRACE_SECONDS:
-                        reason = "SUSTAINED_MEMAVAILABLE_GUARD"
+                        reason = stronger_reason(reason, "SUSTAINED_MEMAVAILABLE_GUARD")
                 else:
                     low_memory_since = None
                 out_window.append((now, vm["pswpout"]))
@@ -264,53 +306,60 @@ def main() -> int:
                 if (window_swapout_bytes >= SWAPOUT_CORROBORATION_BYTES and
                         (swapin_bytes >= SWAPIN_CORROBORATION_BYTES or psi >= PSI_HARD_LIMIT or
                          current["MemAvailable"] < mem_guard)):
-                    reason = "CORROBORATED_SWAP_PRESSURE_GUARD"
+                    reason = stronger_reason(reason, "CORROBORATED_SWAP_PRESSURE_GUARD")
                 if psi >= PSI_HARD_LIMIT:
                     psi_high_since = psi_high_since or now
                     if now - psi_high_since >= PSI_GRACE_SECONDS:
-                        reason = "MEMORY_PSI_GUARD"
+                        reason = stronger_reason(reason, "MEMORY_PSI_GUARD")
                 else:
                     psi_high_since = None
-                if shutil.disk_usage(ROOT).free < 20 * 1024**3:
-                    reason = "DISK_GUARD"
+                if disk_free < 20 * 1024**3:
+                    reason = stronger_reason(reason, "DISK_GUARD")
                 if now - started > args.timeout:
-                    reason = "SAMPLE_TIMEOUT"
+                    reason = stronger_reason(reason, "SAMPLE_TIMEOUT")
                 if args.stop_file and args.stop_file.exists():
-                    reason = "USER_STOP"
+                    reason = stronger_reason(reason, "USER_STOP")
                 if now-last_server_audit>=5:
                     last_server_audit=now
                     try:
                         live_cmd=Path(f"/proc/{args.server_pid}/cmdline").read_bytes().replace(b"\0",b" ").decode(errors="ignore")
                         if model_path.name not in live_cmd:
-                            reason="MODEL_SERVER_CRASH"
+                            reason=stronger_reason(reason,"MODEL_SERVER_CRASH")
                         else:
                             with urllib.request.urlopen(args.base_url.rsplit("/v1",1)[0]+"/health",timeout=3) as response:
                                 if response.status!=200: server_health_failures+=1
                                 else: server_health_failures=0
-                            if server_health_failures>=2: reason="MODEL_SERVER_HEALTH_LOST"
+                            if server_health_failures>=2: reason=stronger_reason(reason,"MODEL_SERVER_HEALTH_LOST")
                     except (OSError,urllib.error.URLError,TimeoutError):
                         server_health_failures+=1
-                        if server_health_failures>=2: reason="MODEL_SERVER_HEALTH_LOST"
+                        if server_health_failures>=2: reason=stronger_reason(reason,"MODEL_SERVER_HEALTH_LOST")
                 if args.quality_agent and now - getattr(main,"last_integrity_check",0) >= 5:
                     try:
-                        protocol=json.loads((Path(workspace).parent/"protocol.json").read_text())
+                        live_record=hashlib.sha256((Path(workspace).parent/"protocol.json").read_bytes()).hexdigest()
+                        if live_record!=protocol_sha256:
+                            raise RuntimeError("HARNESS_INTEGRITY_GUARD: protocol record changed during the sample")
                         verify_live_quality_protocol(Path(workspace),protocol)
                     except Exception as exc:
                         integrity_detail=f"{type(exc).__name__}: {exc}"
-                        reason="HARNESS_INTEGRITY_GUARD"
+                        reason=stronger_reason(reason,"HARNESS_INTEGRITY_GUARD")
                     main.last_integrity_check=now
                 if len(samples) == 1 or now - getattr(main, "last_audit", 0) >= 15:
-                    audit = subprocess.run(
-                        ["journalctl", "-k", "--since", start_wall, "--no-pager", "-o", "short-iso"],
-                        capture_output=True, text=True, timeout=12,
-                    )
                     main.last_audit = now
-                    if audit.returncode != 0:
-                        reason = "KERNEL_AUDIT_UNREADABLE"
-                    elif any(token in audit.stdout.lower() for token in (
-                        "gpu reset", "amdgpu: page fault", "device lost", "out of memory: killed process", "oom-kill", "ring timeout",
-                    )):
-                        reason = "GPU_KERNEL_OOM_FAULT"
+                    try:
+                        audit = subprocess.run(
+                            ["journalctl", "-k", "--since", start_wall, "--no-pager", "-o", "short-iso"],
+                            capture_output=True, text=True, timeout=12,
+                        )
+                    except (OSError, subprocess.TimeoutExpired) as exc:
+                        telemetry_detail = f"journalctl {type(exc).__name__}: {exc}"
+                        reason = stronger_reason(reason, "KERNEL_AUDIT_UNREADABLE")
+                    else:
+                        if audit.returncode != 0:
+                            reason = stronger_reason(reason, "KERNEL_AUDIT_UNREADABLE")
+                        elif any(token in audit.stdout.lower() for token in (
+                            "gpu reset", "amdgpu: page fault", "device lost", "out of memory: killed process", "oom-kill", "ring timeout",
+                        )):
+                            reason = stronger_reason(reason, "GPU_KERNEL_OOM_FAULT")
                 if reason:
                     terminate_trial(child, workspace)
                     break
@@ -324,7 +373,7 @@ def main() -> int:
         "config": str(config),
         "returncode": returncode,
         "guard_reason": reason,
-        "guard_detail": integrity_detail,
+        "guard_detail": integrity_detail or telemetry_detail,
         "baseline": {"memavailable_kib": baseline["MemAvailable"], "swap_used_kib": base_swap},
         "resource_samples": samples,
         "resource_warnings": resource_warnings,
