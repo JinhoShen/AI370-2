@@ -14,6 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "output" / "LOCAL_MODEL_CONTROLLER" / "remediation-fixtures"
 
 
+def as_text(value: str | bytes | None) -> str:
+    """TimeoutExpired carries bytes on POSIX even when text=True was requested."""
+    return value.decode(errors="replace") if isinstance(value, bytes) else (value or "")
+
+
 def main() -> int:
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     folder = OUT / run_id
@@ -31,7 +36,7 @@ def main() -> int:
                       "stdout": proc.stdout[-8000:], "stderr": proc.stderr[-8000:]}
         except subprocess.TimeoutExpired as exc:
             result = {"name": name, "command": command, "exit_code": None, "error": f"TimeoutExpired after {timeout}s",
-                      "stdout": (exc.stdout or "")[-8000:], "stderr": (exc.stderr or "")[-8000:]}
+                      "stdout": as_text(exc.stdout)[-8000:], "stderr": as_text(exc.stderr)[-8000:]}
         results.append(result)
         (folder / f"{name}.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
         if result.get("exit_code") != 0:

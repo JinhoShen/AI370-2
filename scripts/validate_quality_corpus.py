@@ -72,7 +72,7 @@ def run_synthesis(rtl: Path, work: Path) -> dict:
     (work / "stderr.log").write_text(proc.stderr)
     log_path = work / "vivado.log"
     log = log_path.read_text(errors="replace") if log_path.exists() else output
-    latch_lines = [line for line in log.splitlines() if re.search(r"inferred latch|latch inferred", line, re.I)]
+    latch_lines = [line for line in log.splitlines() if re.search(r"infer(?:ring|red)? latch|latch inferred", line, re.I)]
     result = {
         "exit_code": proc.returncode,
         "pass_marker": "QUALITY_T1_SYNTH_PASS" in output,
@@ -223,8 +223,9 @@ def validate_t3(variants: list[str], result_root: Path) -> list[dict]:
         ref_tb_copy = reference_dir / "tb_axi_regs.sv"
         shutil.copy2(reference_tb, ref_tb_copy)
         reference_xsim = run_xsim(dut, ref_tb_copy, reference_dir / "runs", "QUALITY_T3_PASS")
-        ref_log_path = Path(reference_xsim["xsim"]["log"])
-        ref_text = ref_log_path.read_text(errors="replace")
+        # A reference that fails xvlog/xelab has no xsim log; its missing markers then fail the fixture.
+        ref_log = reference_xsim.get("xsim", {}).get("log")
+        ref_text = (ROOT / ref_log).read_text(errors="replace") if ref_log else ""
         observed = {line for line in ref_text.splitlines() if line in required}
         mutants = []
         for mutation_path in sorted((private / "mutants").glob("*.sv")):
@@ -248,6 +249,17 @@ def validate_t3(variants: list[str], result_root: Path) -> list[dict]:
     return outcomes
 
 
+def executor_payload(proc: subprocess.CompletedProcess) -> dict:
+    """Parse the executor's final JSON line; anything but an object is a harness fault."""
+    try:
+        payload = json.loads(proc.stdout.splitlines()[-1])
+    except (IndexError, json.JSONDecodeError):
+        payload = None
+    if not isinstance(payload, dict):
+        payload = {"status": "HARNESS_INVALID", "stdout": proc.stdout[-2000:], "stderr": proc.stderr[-2000:]}
+    return payload
+
+
 def validate_t4(variants: list[str], result_root: Path, task: str = "T4") -> list[dict]:
     outcomes = []
     for variant in variants:
@@ -269,10 +281,7 @@ def validate_t4(variants: list[str], result_root: Path, task: str = "T4") -> lis
             proc = subprocess.run([sys.executable, str(ROOT / "scripts/quality_task_executor.py"),
                                    "--task", task, "--variant", variant, "--workspace", str(workspace),
                                    "--attempt", str(attempt)], cwd=ROOT, capture_output=True, text=True, timeout=900)
-            try:
-                payload = json.loads(proc.stdout.splitlines()[-1])
-            except (IndexError, json.JSONDecodeError):
-                payload = {"status": "HARNESS_INVALID", "stdout": proc.stdout[-2000:], "stderr": proc.stderr[-2000:]}
+            payload = executor_payload(proc)
             pair[label] = {"exit_code": proc.returncode, "result": payload, "stderr": proc.stderr[-2000:]}
         baseline = pair["baseline"]["result"]
         reference = pair["reference"]["result"]
@@ -295,8 +304,7 @@ def validate_t5(variants: list[str], result_root: Path) -> list[dict]:
             workspace=result_dir/label; shutil.copytree(source/"public",workspace)
             if label=="reference": shutil.copy2(source/"private/reference_mux_math.sv",workspace/"rtl/mux_math.sv")
             proc=subprocess.run([sys.executable,str(ROOT/"scripts/quality_task_executor.py"),"--task","T5","--variant",variant,"--workspace",str(workspace),"--attempt",str(attempt)],cwd=ROOT,capture_output=True,text=True,timeout=900)
-            try: payload=json.loads(proc.stdout.splitlines()[-1])
-            except (IndexError,json.JSONDecodeError): payload={"status":"HARNESS_INVALID","stdout":proc.stdout[-2000:],"stderr":proc.stderr[-2000:]}
+            payload=executor_payload(proc)
             pair[label]={"exit_code":proc.returncode,"result":payload,"stderr":proc.stderr[-2000:]}
         baseline=pair["baseline"]["result"]; reference=pair["reference"]["result"]
         expected_fail=baseline.get("status")=="FAIL" and not baseline.get("xsim",{}).get("terminal_marker") and baseline.get("synthesis",{}).get("pass") is False and bool(baseline.get("synthesis",{}).get("latch_diagnostics"))
@@ -315,8 +323,7 @@ def validate_t6(variants: list[str], result_root: Path) -> list[dict]:
             workspace=result_dir/label; shutil.copytree(source/"public",workspace)
             if label=="reference": shutil.copy2(source/"private/reference_invert32.cpp",workspace/"src/invert32.cpp")
             proc=subprocess.run([sys.executable,str(ROOT/"scripts/quality_task_executor.py"),"--task","T6","--variant",variant,"--workspace",str(workspace),"--attempt",str(attempt)],cwd=ROOT,capture_output=True,text=True,timeout=2400)
-            try: payload=json.loads(proc.stdout.splitlines()[-1])
-            except (IndexError,json.JSONDecodeError): payload={"status":"HARNESS_INVALID","stdout":proc.stdout[-2000:],"stderr":proc.stderr[-2000:]}
+            payload=executor_payload(proc)
             pair[label]={"exit_code":proc.returncode,"result":payload,"stderr":proc.stderr[-2000:]}
         baseline=pair["baseline"]["result"]; reference=pair["reference"]["result"]
         expected_fail=baseline.get("status")=="FAIL" and baseline.get("csim",{}).get("pass") is False
@@ -335,8 +342,7 @@ def validate_t8(variants: list[str], result_root: Path) -> list[dict]:
             workspace=result_dir/label; shutil.copytree(source/"public",workspace)
             if label=="reference": shutil.copy2(source/"private/reference_axi_regs.sv",workspace/"rtl/axi_regs.sv")
             proc=subprocess.run([sys.executable,str(ROOT/"scripts/quality_task_executor.py"),"--task","T8","--variant",variant,"--workspace",str(workspace),"--attempt",str(attempt)],cwd=ROOT,capture_output=True,text=True,timeout=1200)
-            try: payload=json.loads(proc.stdout.splitlines()[-1])
-            except (IndexError,json.JSONDecodeError): payload={"status":"HARNESS_INVALID","stdout":proc.stdout[-2000:],"stderr":proc.stderr[-2000:]}
+            payload=executor_payload(proc)
             pair[label]={"exit_code":proc.returncode,"result":payload,"stderr":proc.stderr[-2000:]}
         baseline=pair["baseline"]["result"]; reference=pair["reference"]["result"]
         expected_fail=baseline.get("status")=="FAIL" and baseline.get("xsim",{}).get("pass") is False

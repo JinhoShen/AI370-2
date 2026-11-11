@@ -32,7 +32,6 @@ def main() -> int:
         raise SystemExit("V2/V3 plan requires retained V1 PILOT_COMPLETE evidence")
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     folder = OUT / run_id
-    folder.mkdir(parents=True, exist_ok=False)
     corpus = ROOT / "docs" / "LOCAL_MODEL_LAB" / "quality-corpus" / "v1"
     manifests = {f"{task}/{variant}": sha(corpus / task / variant / "SHA256SUMS.json")
                  for task in (f"T{i}" for i in range(1, 9)) for variant in ("V2", "V3")}
@@ -50,6 +49,9 @@ def main() -> int:
         "t7_policy": "BLOCKED for every model unless the configured local Ross MCP endpoint is available; no substitute source is permitted.",
         "approval": "PLAN_FROZEN_NOT_STARTED",
     }
+    # Hash every input before creating the folder so a missing input leaves no
+    # empty plan directory behind in the live plans tree.
+    folder.mkdir(parents=True, exist_ok=False)
     path = folder / "v2-v3-plan.json"
     path.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps({"status": "PLAN_FROZEN_NOT_STARTED", "plan": str(path.relative_to(ROOT))}, ensure_ascii=False))

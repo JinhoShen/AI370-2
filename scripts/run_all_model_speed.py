@@ -54,9 +54,10 @@ def main():
                  original_service='unloaded', deletion_policy='No deletion before quality and retention review'))
     rows = []
     cycle = 0
-    reason = 'USER_STOP'
+    # Without eligible models the loop would spin without work or sleep until STOP.
+    reason = 'USER_STOP' if models else 'NO_ELIGIBLE_MODELS'
     try:
-        while not evidence.STOP.is_set() and not (evidence.HOME/'STOP').exists():
+        while models and not evidence.STOP.is_set() and not (evidence.HOME/'STOP').exists():
             cycle += 1
             for model in models:
                 for backend in ['vulkan', 'cpu']:
