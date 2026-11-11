@@ -190,17 +190,19 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
   - 執行中使用啟動時驗證過的 protocol 副本，並比對 `protocol.json` 雜湊；舊版每次重新讀取，可同時替換 runner 與其雜湊而通過。
   - 執行中重驗 workspace Git HEAD，並以 `--ignored` 檢查，涵蓋 commit 或 `.git/info/exclude` 隱藏的 allowlist 外檔案。
   - `/proc` 讀取失敗記為 `RESOURCE_TELEMETRY_UNREADABLE`，journalctl 逾時或無法執行記為 `KERNEL_AUDIT_UNREADABLE`，兩者都 fail-closed 並照常寫出 `guarded-result.json`；舊版直接拋出例外，pilot 只能記為 `HARNESS_INVALID` 而無 guard 細節。
+  - 可編輯檔以啟動時驗證過的 protocol 為準；controller 提供的清單與 protocol 不一致時拒絕啟動。舊版未提供清單時，T4–T7 會得到錯誤的預設檔 `rtl/axi_regs.sv`。
+  - 結束 agent 時精確比對 `--workspace` 參數；舊版以子字串比對，會連帶中斷 `…/workspace2` 或只是在其他參數提到該路徑的 agent。
+- `quality_task_executor.py`（2026-11-11 下午）：Vivado／Vitis 工具逾時改記為該步驟失敗（`exit_code: null`、`timed_out: true`，記錄附 `QUALITY_TOOL_TIMEOUT`），任務判 FAIL 並照常寫出 `result.json`；舊版拋出例外，`main()` 回報 `HARNESS_INVALID`，pilot 因而停止整個 cycle。T3 中 mutant 模擬逾時代表 testbench 沒有規格要求的有限 watchdog，記為 `TOOL_TIMEOUT` 且**不算**抓到 mutant。T6 C simulation 逾時改提供「超過時間限制」診斷，不再誤稱 vector mismatch。Vivado／Vitis 環境設定載入失敗仍為 `HARNESS_INVALID`。
 
 ### 已知但未修正的 harness 問題
 
-- `quality_task_executor.py`：工具逾時會變成 `HARNESS_INVALID`（T3 若模型寫的 testbench 卡住，應為 FAIL 而非 harness 錯誤）。
-- `run_quality_guarded_trial.py`：未提供 `editable_paths` 時，T4–T7 的預設可編輯檔錯誤（pilot 目前一律傳入，為潛在問題）；結束 agent 時以子字串比對 workspace 路徑。
-- T8 public stub（`module axi_regs;`）沒有 port，規格也未列出 port 名稱，但 hidden testbench 依賴特定名稱；修正需要新版題庫。
+- **T8 題目缺陷**：`TASK_SPEC.md` 要求「依本檔案的介面與行為需求」實作，但未列出任何介面（port 名稱、位寬、reset 同步／非同步與極性），public stub 也只有 `module axi_regs;`；hidden testbench 依賴 `aclk`、`aresetn` 與 17 個 `s_axi_*` port。模型只能從 baseline elaboration 錯誤推測名稱，位寬沒有線索。依第 3 節規則，修正需建立新版題庫並讓九款模型共同重跑 T8；既有 T8 樣本是否改標 `HARNESS_INVALID` 需另行決定。
+- `quality_task_executor.py`：T6 C simulation 非逾時的失敗（編譯錯誤或 vector mismatch）仍使用同一句 vector mismatch 診斷。
 
 ### 執行下一批樣本前
 
 1. 確認接受上述可比性限制，並決定剩餘 harness 問題是否在下一批之前修正。
-2. 重新啟動 controller／UI，讓服務載入最新程式（2026-11-11 09:04 的重啟早於 SIGTERM 修正）。
+2. controller 已於 2026-11-11 13:39 重啟並載入 SIGTERM 修正。harness 檔案（executor、guarded trial、agent）由每個樣本的新程序載入，修改後不需重啟 controller。
 3. 以實際 Vivado／Vitis 執行 `scripts/validate_quality_corpus.py --task all`，確認題庫在新 harness 下仍全部通過。
 4. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
 
