@@ -180,17 +180,29 @@ Pilot 各模型/題目結果都保留。不得因 pilot 成績而重寫題目、
 - `freeze_quality_v2_v3_plan.py`：所有雜湊輸入讀取成功後才建立計畫目錄，輸入缺漏時不再在 plans 目錄留下空的時間戳目錄。
 - `run_all_model_speed.py`：沒有可用模型時不再空轉，直接以 `NO_ELIGIBLE_MODELS` 結束。
 
-### 已知但未修正的 harness 問題（需決策；修正會改變評分或安全分類）
+### Harness 評分與安全修正（2026-11-11；改變評分或安全分類）
 
-- `quality_task_executor.py`：T1／T2／T8 的 PASS 不檢查驗證期間來源是否被改動（T3–T6 有檢查）；工具逾時會變成 `HARNESS_INVALID`（T3 若模型寫的 testbench 卡住，應為 FAIL 而非 harness 錯誤）。
-- `run_quality_guarded_trial.py`：同一時間點同時發生 sample 逾時與資源 guard 時，記為 `SAMPLE_TIMEOUT`／`PARTIAL` 而非 `BLOCKED`，pilot 因此不會進入 SAFETY_STOP；執行中重新讀取 `protocol.json` 而非使用啟動時驗證過的副本；allowlist 檢查不重驗 git HEAD；journalctl 或 PSI 讀取失敗時未寫 `guarded-result.json`。
-- T8 public stub（`module axi_regs;`）沒有 port，規格也未列出 port 名稱，但 hidden testbench 依賴特定名稱。
+以下修改 harness 身分檔案，與上述 correction／trace 變更同屬新 harness，不得與 V1／V2 混比。
+
+- `quality_task_executor.py`：T1／T2／T8 與 T3–T6 一致，驗證期間來源被改動即不得 PASS（舊版會判 PASS 並僅記錄 `source_unchanged_during_validation: false`）。
+- `run_quality_guarded_trial.py`：
+  - 同一輪輪詢觸發多個 guard 時依固定優先序取最強原因：完整性與安全 guard 優先於 `USER_STOP`，`SAMPLE_TIMEOUT` 最低。舊版後執行的逾時或使用者停止會覆蓋資源 guard，使樣本記為 `PARTIAL` 而 pilot 不進入 SAFETY_STOP。未登記的原因名稱會直接報錯。
+  - 執行中使用啟動時驗證過的 protocol 副本，並比對 `protocol.json` 雜湊；舊版每次重新讀取，可同時替換 runner 與其雜湊而通過。
+  - 執行中重驗 workspace Git HEAD，並以 `--ignored` 檢查，涵蓋 commit 或 `.git/info/exclude` 隱藏的 allowlist 外檔案。
+  - `/proc` 讀取失敗記為 `RESOURCE_TELEMETRY_UNREADABLE`，journalctl 逾時或無法執行記為 `KERNEL_AUDIT_UNREADABLE`，兩者都 fail-closed 並照常寫出 `guarded-result.json`；舊版直接拋出例外，pilot 只能記為 `HARNESS_INVALID` 而無 guard 細節。
+
+### 已知但未修正的 harness 問題
+
+- `quality_task_executor.py`：工具逾時會變成 `HARNESS_INVALID`（T3 若模型寫的 testbench 卡住，應為 FAIL 而非 harness 錯誤）。
+- `run_quality_guarded_trial.py`：未提供 `editable_paths` 時，T4–T7 的預設可編輯檔錯誤（pilot 目前一律傳入，為潛在問題）；結束 agent 時以子字串比對 workspace 路徑。
+- T8 public stub（`module axi_regs;`）沒有 port，規格也未列出 port 名稱，但 hidden testbench 依賴特定名稱；修正需要新版題庫。
 
 ### 執行下一批樣本前
 
-1. 確認接受上述可比性限制，並決定上述 harness 問題是否在下一批之前修正。
-2. 重新啟動 controller／UI，讓服務載入最新程式（2026-11-09 19:33 的重啟之後，controller 又有「guard 只送一次 SIGINT」的修改）。
-3. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
+1. 確認接受上述可比性限制，並決定剩餘 harness 問題是否在下一批之前修正。
+2. 重新啟動 controller／UI，讓服務載入最新程式（2026-11-11 09:04 的重啟早於 SIGTERM 修正）。
+3. 以實際 Vivado／Vitis 執行 `scripts/validate_quality_corpus.py --task all`，確認題庫在新 harness 下仍全部通過。
+4. 刻意執行 `scripts/freeze_quality_v2_v3_plan.py` 建立新凍結計畫。注意 controller 的 `AUTO_CONTINUE_V2_V3 = True`：狀態符合時，凍結後可能自動開始模型執行。
 
 ### 離線測試
 
